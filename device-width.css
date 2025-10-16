@@ -1,0 +1,81 @@
+/*==================================
+  استعلامات الوسائط (Media Queries)
+  لتحقيق التوافقية الكاملة
+====================================*/
+
+/* --- 1. الشاشات المتوسطة (الأجهزة اللوحية - 1024px فما دون) --- */
+@media (max-width: 1024px) {
+    /* تضييق الحشو (Padding) بشكل عام */
+    .navbar {
+        padding: 20px 25px;
+    }
+    
+    /* جعل العنوان الرئيسي أصغر قليلاً */
+    h1 {
+        font-size: 38px;
+    }
+    
+    /* جعل قسم الخدمات أفقيًا (عمودين) */
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    /* تعديل حاوية المحتوى الرئيسي (Hero Section) لجعلها عمودية */
+    .content-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+    .text-and-buttons, .abstract-image {
+        width: 100%;
+        max-width: 600px; /* لتقييد العرض قليلاً في الوضع العمودي */
+    }
+    .cta-buttons {
+        justify-content: center;
+    }
+}
+
+
+/* --- 2. الشاشات الصغيرة (الهواتف - 768px فما دون) --- */
+@media (max-width: 768px) {
+    /* جعل الـ Padding أقل لزيادة المساحة */
+    body, .clients-section, .faq-section, .vision-section, .why-anar-section {
+        padding: 40px 15px;
+    }
+
+    /* إخفاء روابط التنقل وتحويلها لقائمة همبرغر (يتطلب JavaScript) */
+    .nav-links {
+        display: none;
+        /* إذا كنت لا تريد إخفاءها، يمكنك ترتيبها عمودياً */
+    }
+    
+    .section-title, .clients-title, .why-anar-title, .faq-title {
+        font-size: 32px;
+        margin-bottom: 30px;
+    }
+
+    /* تكسير تخطيط الـ Grid إلى عمود واحد (ينطبق على كل الشبكات) */
+    .clients-grid, 
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    /* جعل أزرار الـ CTA عمودية */
+    .cta-buttons {
+        flex-direction: column;
+    }
+    .btn {
+        width: 100%;
+    }
+    
+    /* ضبط تنسيق حقول النموذج في الهواتف (لنموذج الاستفسار) */
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+    .split-row {
+        grid-template-columns: 1fr;
+    }
+}

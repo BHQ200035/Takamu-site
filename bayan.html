@@ -1,0 +1,117 @@
+html
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="page-title">التكامل | شركة المقاولات</title>
+
+  <!-- روابط خارجية -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      background-color: #f9f9f9;
+      color: #333;
+}
+
+    header, footer {
+      background-color: #1e3a5f;
+      color: white;
+      padding: 20px;
+      text-align: center;
+}
+
+    nav a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+}
+
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+}
+
+    h1, h2 {
+      color: #1e3a5f;
+}
+
+.lang-switch {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: #f9b234;
+      color: #1e3a5f;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+}
+  </style>
+</head>
+<body>
+
+  <select class="lang-switch" onchange="switchLanguage(this.value)">
+    <option value="ar">العربية</option>
+    <option value="en">English</option>
+  </select>
+
+  <header>
+    <h1 id="header-title"></h1>
+    <nav>
+      <a href="#" id="nav-home"></a>
+      <a href="#" id="nav-integration"></a>
+    </nav>
+  </header>
+
+  <section data-aos="fade-up">
+    <h2 id="about-title"></h2>
+    <p id="about-text"></p>
+  </section>
+
+  <footer>
+    <p id="footer-text"></p>
+  </footer>
+
+  <!-- مكتبات JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true});
+  </script>
+
+  <!-- سكربت اللغة -->
+  <script>
+    let currentLang = "ar";
+
+    async function loadLanguage(lang) {
+      const res = await fetch(`${lang}.json`);
+      const data = await res.json();
+
+      for (const key in data) {
+        const el = document.getElementById(key);
+        if (el) el.textContent = data[key];
+}
+
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === "ar"? "rtl": "ltr";
+}
+
+    function switchLanguage(lang) {
+      currentLang = lang;
+      loadLanguage(currentLang);
+}
+
+    window.onload = () => loadLanguage(currentLang);
+  </script>
+
+</body>
+</html>

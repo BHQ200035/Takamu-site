@@ -1,0 +1,1893 @@
+/* 1. إعدادات عامة */
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;400;700;900&display=swap'); /* استخدام خط عربي مثل تاجول */
+html {
+    scroll-behavior: smooth;
+}
+:root {
+    --dark-blue: #ffffff;
+    --green-color: #008e36; /* لون الأزرار والنقاط النشطة (بينك/وردي) */
+    --light-color: #ffffff;
+    --main-font: 'Tajawal', sans-serif;
+    --text-color: #333333; /* افتراض للون النص */
+    --green-shadow: #006226; /* تعريف الظل الزهري */
+    --form-bg-dark: var(--dark-blue); /* #121826 */
+    --form-bg-light: var(--light-color); /* #ffffff */
+    --form-primary-blue: #007bff; /* لون زر الإرسال وتركيز الحقول (يمكنك تغييره ليتناسب مع تصميمك) */
+    --form-text-dark: #333333; /* لون نص الحقول */
+    --form-text-label: #000000; /* لون التسميات */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--dark-blue);
+    color: var(--light-color);
+    font-family: var(--main-font);
+    direction: rtl; /* اتجاه النص من اليمين لليسار */
+}
+
+
+
+
+/* 0. إعادة تعيين تنسيقات المتصفح */
+body, html {
+    margin: 0; /* 🚀 إزالة الهامش الافتراضي 🚀 */
+    padding: 0; /* إزالة الحشوة الافتراضية */
+    overflow-x: hidden; /* 💡 يمنع ظهور شريط التمرير الأفقي بسبب المحتوى الزائد 💡 */
+    width: 100%;
+}
+
+/* 2. شريط التنقل (Navbar) */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2px 5px;
+    background-color: transparent; /* خلفية شفافة أو بلون الخلفية */
+    height: 100px;
+        /* ... (التنسيقات السابقة تبقى كما هي) ... */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    /* إضافة خاصية الانتقال (Transition) لحركة سلسة */
+    transition: top 0.3s ease-in-out, background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+
+
+
+/* الفئة الجديدة لإخفاء شريط التنقل: دفعه لأعلى خارج الشاشة */
+.navbar.hidden {
+    top: -100px; /* القيمة يجب أن تكون أكبر من ارتفاع شريط التنقل (100px) */
+}
+
+/* الفئة .scrolled يجب أن تبقى لتغيير الخلفية عند وجودها */
+.navbar.scrolled {
+    background-color: #005a22;
+    box-shadow: 0 2px 10px rgb(0, 47, 18);
+
+}
+
+
+/*==================================
+  تغيير لون الروابط عندما يكون شريط التنقل في وضع التمرير (.scrolled)
+====================================*/
+
+/* 1. جعل الروابط بيضاء عندما يكون شريط التنقل ملونًا (في وضع التمرير) */
+.navbar.scrolled .nav-links a {
+    /* تغيير لون الروابط إلى الأبيض (أو لون فاتح) */
+    color: var(--light-color, #ffffff) !important; 
+    /* ملاحظة: استخدمت !important لضمان تجاوز اللون الرمادي #333333 */
+}
+
+/* 2. التأكد من أن الخط تحت الروابط (::after) يبقى زهريًا */
+.navbar.scrolled .nav-links a::after {
+    /* هذه القاعدة ليست ضرورية طالما أن لون الخلفية يعتمد على var(--green-color) */
+}
+
+/* 3. التأكد من أن حالة التحويم (hover/active) لا تزال تعمل */
+.navbar.scrolled .nav-links a:hover,
+.navbar.scrolled .nav-links a.active {
+    /* عند التحويم/التفعيل، يبقى اللون الزهري هو السائد */
+    color: var(--green-color) !important;
+}
+
+
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--light-color);
+}
+
+.logo-text {
+    margin-left: 5px;
+}
+
+.logo-shape {
+    font-size: 30px;
+    line-height: 0.8;
+    color: var(--light-color);
+    margin-right: 5px;
+}
+
+.nav-links ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links li {
+    margin: 0 15px;
+    padding: 5px 0;
+}
+/*==================================
+  تعديل تنسيق روابط شريط التنقل (الـ Navbar Links)
+====================================*/
+
+.nav-links a {
+    text-decoration: none;
+    color:#333333 ; /* اللون الافتراضي (قد يكون داكناً) */
+    font-size: 16px;
+    font-weight: 400;
+    transition: color 0.3s;
+    
+    /* 🚀 أساسيات التأثير 🚀 */
+    position: relative; /* ضروري لتموضع الخط الـ ::after */
+    padding-bottom: 8px; /* زيادة المسافة السفلية لإظهار الخط أسفل النص */
+}
+
+/* 🚀 تنسيق حالة التحويم والنشاط (اللون والخط) 🚀 */
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--green-color); /* 💡 اجعل اللون زهرياً عند التحويم 💡 */
+}
+
+/* ---------------------------------------------------- */
+/* 2. الخط المتحرك (يبدأ من المنتصف) */
+/* ---------------------------------------------------- */
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    
+    /* 💡 لبدء الخط من المنتصف 💡 */
+    left: 50%; 
+    transform: translateX(-50%); /* إزاحة لليسار بنصف عرض العنصر لضمان التوسيط */
+    
+    width: 0; /* 🚀 العرض الابتدائي صفر (مخفي) 🚀 */
+    height: 3px; /* سمك الخط */
+    background-color: var(--green-color); /* اللون الزهري */
+    
+    /* حركة ناعمة لتغيير العرض */
+    transition: width 0.3s ease-out; 
+}
+
+/* 3. تمديد الخط عند التحويم أو عند التفعيل */
+.nav-links a:hover::after,
+.nav-links a.active::after {
+
+    width: 100%; /* 🚀 التمدد ليغطي عرض الرابط بالكامل من المنتصف 🚀 */
+}
+
+
+/* ---------------------------------------------------- */
+/* باقي تنسيقات النافبار تبقى كما هي */
+/* ---------------------------------------------------- */
+
+.nav-links .separator {
+    width: 1px;
+    height: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 0 20px;
+}
+
+.english-link {
+    display: flex;
+    align-items: center;
+    font-weight: 700 !important;
+}
+
+.english-link i {
+    margin-left: 5px;
+}
+
+/* أينما تجد تنسيق .social-icons في ملف styles.css */
+
+.social-icons a {
+    /* الخصائص المطلوبة لإزالة الخط الأزرق */
+    text-decoration: none; 
+    /* باقي التنسيقات التي جعلت الزر مربعًا وزهريًا تبقى كما هي */
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 4px; /* الشكل المربع بزوايا منحنية */
+    background-color: var(--green-color); 
+    box-shadow: 0 2px 8px #006226;
+    margin-right: 5px; 
+    transition: background-color 0.3s;
+}
+
+/* تنسيق الأيقونة (الحرف) داخل الزر */
+.social-icons a i {
+    font-size: 16px; 
+    color: var(--light-color); /* لون الأيقونة الأبيض */
+
+}
+
+/* تأثير عند التحويم */
+.social-icons a:hover {
+    background-color: #006226; 
+    transform: translateY(-2px); 
+}
+
+
+
+
+
+/*==================================
+  1. تنسيق زر القائمة (Toggler)
+====================================*/
+.menu-toggler {
+    display: none; /* مخفي افتراضياً */
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: var(--green-color); 
+    cursor: pointer;
+    order: -1; /* يضمن وضعه في أقصى اليسار في شريط التنقل */
+    z-index: 1001; /* فوق كل شيء */
+    padding: 5px;
+}
+
+.menu-toggler:hover {
+    opacity: 0.8;
+}
+
+/*==================================
+  تنسيق القائمة الجانبية (Mobile Menu Overlay)
+  التأكد من أن الخلفية زرقاء داكنة وغير شفافة.
+====================================*/
+.mobile-menu-overlay {
+    height: 100%;
+    width: 0; 
+    position: fixed;
+    z-index: 1050; 
+    top: 0;
+    right: 0; 
+    
+    /* 🚀 التعديل 1: إضافة لون خلفية داكن وموحد (استخدم أي لون داكن تفضله) 🚀 */
+    /* استخدم var(--dark-blue) إذا كان معرَّفاً لديك، أو قيمة HEX مباشرة */
+    background-color: #121826; /* لون أزرق داكن (لتجنب الشفافية) */
+    
+    overflow-x: hidden;
+    transition: 0.5s; 
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5); 
+}
+
+
+.mobile-menu-overlay.active {
+    /* 💡 التعديل 2: زيادة العرض قليلاً (لجعلها تغطي جزءاً أكبر من الشاشة) */
+    width: 320px; 
+}
+
+.mobile-menu-content {
+    padding: 60px 20px 20px;
+}
+
+/* زر الإغلاق داخل القائمة الجانبية */
+/* زر الإغلاق داخل القائمة الجانبية */
+.mobile-menu-overlay .close-btn {
+    /* 💡 التعديل 3: تأكيد اللون والحجم المناسبين 💡 */
+    color: #ffffff; /* يجب أن يكون فاتحاً على الخلفية الداكنة */
+    position: absolute;
+    top: 20px;
+    left: 20px; 
+    font-size: 35px; /* تكبير الحجم قليلاً */
+    opacity: 0.8;
+    cursor: pointer;
+    border: none;
+    background: none;
+    transition: opacity 0.3s;
+}
+.mobile-menu-overlay .close-btn:hover {
+    opacity: 1;
+}
+
+/* تنسيق الروابط داخل القائمة الجانبية */
+.mobile-nav-links {
+    list-style: none;
+    padding: 0;
+    margin-top: 30px;
+    border-top: 1px solid #eee;
+}
+
+.mobile-nav-links li a {
+    padding: 15px 0;
+    text-decoration: none;
+    /* تغيير لون الروابط إلى الأبيض أو الفاتح */
+    color: var(--light-color); 
+    font-size: 1.1rem;
+    display: block;
+    /* جعل خط الفصل فاتحاً */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+    transition: background-color 0.3s;
+}
+
+.mobile-nav-links li a:hover {
+        /* لون فاتح عند التحويم */
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--green-color); /* استخدام اللون الزهري عند التحويم */
+}
+
+.mobile-social-icons {
+    margin-top: 20%;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    color: var(--light-color); /* ضمان أن الأيقونات نفسها بيضاء */
+}
+
+/* استخدام نفس تنسيق أيقونات السوشيال ميديا الملونة للموبايل */
+.mobile-social-icons a {
+    /* يُفضل استخدام تنسيقات .social-icons a السابقة */
+    width: 35px;
+    height: 35px;
+    background-color: var(--green-color); 
+    color: var(--light-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+}
+
+/*==================================
+  3. تنسيق الاستجابة (Responsive)
+====================================*/
+@media (max-width: 1024px) {
+    
+    /* إخفاء الروابط وشريط الأيقونات في العرض الكامل */
+    .nav-links, .social-icons {
+        display: none;
+    }
+    
+    /* إظهار زر القائمة في الجوال */
+    .menu-toggler {
+        display: block;
+    }
+    
+    /* ترتيب العناصر في شريط التنقل للجوال */
+    .navbar {
+        justify-content: space-between; 
+        /* 🚀 التعديل هنا: استخدام 0px في اليمين واليسار (أو قيمة صغيرة) 🚀 */
+        padding: 15px 0; 
+        
+        /* 💡 ملاحظة: إذا كنت تريد حشوة داخلية للعناصر 
+           (مثل الشعار والزر)، أضفها للعناصر الفرعية بدلاً من الـ navbar نفسه.
+           إذا أردت حشوة على حواف الـ navbar، استخدم هذه: */
+        /* padding: 15px 20px; */ 
+    }
+    
+    /* 💡 التعديل المقترح إذا كنت تستخدم padding: 15px 20px; 💡 */
+    /* قم بتطبيق هذا التنسيق في ملف CSS العام لديك إذا لم يعمل التعديل السابق */
+    .navbar {
+        left: 0; /* تأكيد أن شريط التنقل يبدأ من حافة اليسار */
+        right: 0; /* تأكيد أن شريط التنقل يبدأ من حافة اليمين */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =======================================
+   تنسيق السلايدر (Slider CSS)
+   ======================================= */
+
+.slider-container {
+    max-width: 100%;
+    position: relative;
+    margin: auto;
+}
+
+/* لتأكد من أن الصور تغطي كامل ارتفاع وعرض السلايدر */
+.mySlides img {
+    width: 100%;
+    height: 70vh; /* تحديد ارتفاع مناسب، يمكنك تغييره حسب الحاجة */
+    object-fit: cover; /* لضمان ملء الصورة دون تشويه */
+}
+
+/* النص الموضوع على الصورة */
+.slide-text {
+    position: absolute;
+    bottom: 50%; /* أو 20% حسب رغبتك */
+    right: 10%; /* لتظهر النصوص في اليمين (RTL) */
+    transform: translateY(50%);
+    color: white;
+    width: 50%;
+    padding: 10px;
+    text-align: right;
+    z-index: 5; /* لضمان ظهور النص فوق الصورة */
+}
+
+.slide-text h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.slide-text p {
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+/* تخصيص الأزرار (prev و next) */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 10;
+}
+
+/* وضع زر Next في اليسار وزر Prev في اليمين في نمط RTL */
+.next {
+    left: 0;
+    border-radius: 3px 0 0 3px;
+}
+.prev {
+    right: 0;
+    border-radius: 0 3px 3px 0;
+}
+
+/* عند مرور الماوس على الأزرار */
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+/* إخفاء الصور التي لا يتم عرضها حالياً */
+.mySlides {
+    display: none;
+}
+
+/* الحركة (Fade Animation) */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+
+/* تنسيق النقاط (Dots) أسفل السلايدر */
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.btn {
+    text-decoration: none;
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.3s;
+
+}
+.btn-consult {
+    background-color: rgb(255, 255, 255);
+    color: #e04a65;
+}
+
+.btn-consult:hover {
+    background-color: #e04a65;
+    color: rgb(255, 255, 255);
+    transform: translateY(-2px);
+}
+
+
+
+.active-dot, .dot:hover {
+    background-color: #f75d79; /* لونك المميز */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =======================================
+   تنسيق قسم النص التعريفي أسفل السلايدر
+   ======================================= */
+
+.intro-text-section {
+    padding: 40px 20px; /* تباعد داخلي */
+    text-align: right; /* محاذاة النص للوسط */
+}
+
+.intro-text-section .container {
+    max-width: 80%; /* تحديد أقصى عرض للنص لجعله مقروءاً */
+    margin-right: 10%;
+    margin-top: 5%;
+    font-size: 24px;
+
+}
+
+
+.intro-text-section h2 {
+text-align: center;
+color: var(--green-color); /* استخدام اللون الزهري عند التحويم */
+
+}
+.intro-text-section p {
+text-align: center;
+color: #000;
+}
+
+
+
+/* تعديل لتنسيق الجوال (اختياري) */
+@media (max-width: 768px) {
+    .intro-text-section {
+        padding: 30px 15px;
+    }
+    .intro-text-section p {
+        font-size: 1.2rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 8. قسم ننير لك الطريق (Vision Section) */
+.vision-section {
+    background-color: var(--dark-blue); 
+    padding: 80px 0; /* إضافة حشوة علوية وسفلية للقسم */
+}
+
+.vision-container {
+    display: flex;
+    /* 💡 التعديل هنا: عكس الترتيب لوضع الصورة على اليسار والنص على اليمين 💡 */
+    flex-direction: row-reverse; 
+    
+    gap: 10%; /* مسافة بين الصورة والمحتوى */
+    align-items: center; 
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* ------------------------------------------------ */
+/* تنسيق المحتوى النصي (Vision Content) */
+/* ------------------------------------------------ */
+.vision-content {
+    /* 💡 التعديل هنا: السماح له بأخذ نسبة أكبر ليناسب الصورة الأصغر */
+    flex: 1; /* يأخذ جزء من المساحة */
+    max-width: 45%; /* تحديد أقصى عرض */
+    text-align: right; 
+    padding: 20px; /* حشوة داخلية للحواف */
+}
+
+.vision-content .section-title-right {
+    /* العنوان الرئيسي "نسهل لك الطلبات" */
+    color: var(--green-color); 
+    font-size: 50px;
+    margin-bottom: 40px; /* زيادة المسافة */
+    text-align: right;
+    font-weight: bold;
+}
+
+.vision-item {
+    margin-bottom: 30px;
+    color: white; /* لون النص في هذا القسم */
+}
+
+/* 💡 تنسيق الأيقونات (بدون دائرة كما طلبت سابقاً) 💡 */
+.vision-title i {
+    display: inline-flex; 
+    font-size: 26px; /* حجم الأيقونة */
+    color: #01AE44; /* لون الأيقونة خضراء */
+    margin-left: 15px; 
+    flex-shrink: 0; 
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.vision-item h3 {
+    font-size: 28px; /* حجم العنوان */
+    display: flex;
+    align-items: center; 
+    color: rgb(34, 34, 34); /* لون العنوان أبيض ليناسب الخلفية الداكنة */
+}
+
+.vision-item p {
+    padding-right: 40px; /* زيادة حشوة لليمين لتبدأ بعد العنوان */
+    font-size: 1.15rem; /* حجم النص */
+    line-height: 1.6;
+    color: #484848; /* لون رمادي فاتح للنص */
+    margin-top: 10px;
+}
+
+/* ------------------------------------------------ */
+/* تنسيق الصورة (Vision Image) */
+/* ------------------------------------------------ */
+.vision-image-wrapper {
+    /* 💡 التعديل هنا: السماح للصورة بأخذ نسبة من المساحة */
+    flex: 1; 
+    max-width: 50%; /* تحديد أقصى عرض للصورة */
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+
+.vision-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain; 
+    max-height: 500px; /* تحديد أقصى ارتفاع للصورة للحفاظ على تناسبها */
+}
+
+/* ------------------------------------------------ */
+/* الاستجابة للهواتف المحمولة (Media Queries) */
+/* ------------------------------------------------ */
+@media (max-width: 992px) {
+    .vision-container {
+        flex-direction: column; /* جعل الصورة والمحتوى يتراصان عموديًا */
+        gap: 40px;
+        padding: 0 20px; /* حشوة جانبية للكونتينر */
+    }
+    .vision-content, .vision-image-wrapper {
+        max-width: 100%; /* تأخذ العرض الكامل */
+        text-align: center; /* توسيط النصوص في الجوال */
+    }
+    .vision-content .section-title-right {
+        font-size: 40px;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .vision-item h3 {
+        justify-content: center; /* توسيط الأيقونات والنصوص في الجوال */
+    }
+    .vision-item p {
+        padding-right: 0; /* إزالة البادينج في الجوال */
+        text-align: center; /* توسيط الفقرات */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+.why-takamul-title{
+    color: var(--green-color); 
+    margin-bottom: 3%;
+    margin-top: 5%;
+
+    text-align: center;
+    font-size: 42px;
+    font-weight: bold;
+
+}
+
+
+/* ------------------ تنسيق الحاوية والبطاقة الأساسي (2x2 Layout) ------------------ */
+
+.features-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+    gap: 30px; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+
+.feature-card {
+    /* 💡 التعديل هنا: تحديد حجم الحشوة الأساسي لجميع البطاقات (سيكون هو حجم البطاقات البيضاء) */
+    width: calc(50% - 15px); 
+    padding: 25px; /* قيمة أقل لجعلها أصغر من القيمة الأصلية (30px) */
+    border-radius: 15px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    text-align: right;
+    transition: all 0.3s ease; /* إضافة حركة انتقالية للحركة السلسة */
+}
+
+/* ------------------ تنسيق الألوان والخلفيات (المطلوب) ------------------ */
+
+/* 🟢 تنسيق البطاقات ذات الخلفية الخضراء (الأولى والرابعة) 🟢 */
+.card-1, .card-4 {
+    background-color: #4CAF50; 
+    border: none;
+
+    width: calc(50% - 15px); 
+    padding: 25px; /* قيمة أقل لجعلها أصغر من القيمة الأصلية (30px) */
+
+}
+/* ⚪ تنسيق البطاقات البيضاء بإطار أخضر (الثانية والثالثة) ⚪ */
+.card-2, .card-3 {
+    background-color: white; 
+    border: 1px solid #4CAF50; 
+    /* ملاحظة: لا حاجة لتغيير الـ padding أو الـ transform هنا، ستحصل على القيم الأساسية (25px) */
+}
+
+/* ------------------ تنسيق المحتوى الداخلي (الأيقونة والعناوين) ------------------ */
+
+.title-group {
+    /* يجعل الأيقونة والعنوان الرئيسي على نفس السطر */
+    display: flex;
+    /* هذا هو المفتاح: يضمن المحاذاة الرأسية في المنتصف */
+    align-items: center; 
+    margin-bottom: 10px;
+}
+
+.feature-icon {
+    /* تحديد حجم الأيقونة وضمان مساحة بينها وبين العنوان */
+    width: 40px; 
+    height: 40px; 
+    margin-left: 15px; 
+    flex-shrink: 0; 
+    /* تأكد أن الأيقونة لا تحتوي على هوامش عمودية عليا أو سفلى غير مرغوب فيها */
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* تنسيق العنوان الرئيسي (لكل البطاقات) */
+.green-main-title {
+    font-size: 1.5em; 
+    /* إزالة الهوامش العمودية الافتراضية للـ h3 لتحقيق توسيط أدق */
+    margin-top: 0;
+    margin-bottom: 0;
+    font-weight: bold;
+}
+
+/* تنسيق العنوان الثانوي (الوصف) */
+.gray-sub-text {
+    font-size: 1em;
+    line-height: 1.6;
+    margin-top: 5px;
+    padding-right: 55px; 
+}
+
+/* 🖍️ التحكم بألوان النص حسب الخلفية 🖍️ */
+
+/* داخل البطاقات الخضراء (1 و 4): العنوان الرئيسي أبيض والوصف رمادي فاتح */
+.card-1 .green-main-title, .card-4 .green-main-title {
+        color: white !important; 
+}
+.card-1 .gray-sub-text, .card-4 .gray-sub-text {
+        color: white !important; 
+}
+
+/* داخل البطاقات البيضاء (2 و 3): العنوان الرئيسي أخضر داكن والوصف رمادي داكن */
+.card-2 .green-main-title, .card-3 .green-main-title {
+   
+    color: #388e3c !important; /* أخضر داكن */
+}
+.card-2 .gray-sub-text, .card-3 .gray-sub-text {
+    color: #6c757d !important; /* رمادي داكن */
+}
+
+
+
+/* ------------------ توافق الشاشات (MEDIA QUERIES) ------------------ */
+/* تطبق هذه التنسيقات عندما يكون عرض الشاشة 768 بكسل أو أقل (الهواتف والأجهزة اللوحية الصغيرة) */
+
+@media (max-width: 768px) {
+    .features-grid {
+        /* إزالة المسافة الأفقية لتوفير مساحة أكبر */
+        gap: 20px 0; 
+    }
+    
+    .feature-card {
+        /* تصبح كل بطاقة تأخذ العرض الكامل للحاوية (100% - الهوامش) */
+        width: 90%; 
+        /* توسيط البطاقة لضمان الترتيب الجيد */
+        margin: 0 auto; 
+    }
+
+    /* يمكنك هنا تقليل حجم النص إذا لزم الأمر */
+    .green-main-title {
+        font-size: 1.3em;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*==================================
+  11. تذييل الصفحة (Footer)
+====================================*/
+
+.main-footer {
+    background-color:  #01AE44; /* لون خلفية داكن */
+    color: var(--light-color, #ffffff);
+    padding: 60px 50px 20px; /* حشو علوي وسفلي جيد */
+    direction: rtl; /* ضمان الاتجاه من اليمين لليسار */
+    margin-bottom: 1%;
+}
+
+/*==================================
+  تعديل توزيع المساحة داخل حاوية الفوتر
+====================================*/
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1300px;
+    margin: 0 auto;
+    gap: 60px;
+    margin-right: 15%;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-heading {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    position: relative;
+    display: inline-block;
+}
+
+/* الخط تحت العناوين (لتتناسب مع الصورة) */
+.footer-heading::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -8px;
+    width: 60%; 
+    height: 3px;
+    background-color: var(--green-color, #f75d79); /* اللون الزهري */
+}
+
+/* --- القسم الأيمن: الشعار والمعلومات (.footer-info) --- */
+.footer-info {
+    /* التعديل: تقليل الوزن لجعله أصغر (كان 2) */
+    flex: 1; 
+    /* يمكن تقليل الحد الأدنى للوصول إلى الحجم الأصغر المطلوب */
+    min-width: 200px; /* تم تقليله */
+    max-width: 300px; /* تم تقليله */
+    text-align: right;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 900;
+    color: white;
+    margin-bottom: 15px;
+}
+/* استخدام تنسيقات الشعار التي لديك بالفعل (.logo-shape, .logo-text) */
+
+.company-desc {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: white;
+        margin-top: 10%;
+
+}
+
+
+
+/* --- القسم الأوسط: الروابط (.footer-links-group) --- */
+.footer-links-group {
+    /* الاحتفاظ به كعمود متوسط الحجم (كان 1) */
+    flex: 1; 
+    min-width: 150px;
+    text-align: right;
+}
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: rgb(0, 78, 4);
+
+}
+
+/* --- القسم الأيسر: التواصل (.footer-contact) --- */
+.footer-contact {
+    /* التعديل: زيادة الوزن لجعله أكبر (كان 1) */
+    /* زيادة وزنه إلى 2 يجعله يأخذ ضعف مساحة الروابط وقسم المعلومات (الجديد) */
+    flex: 2; 
+    min-width: 250px; /* زيادة الحد الأدنى لدعم المحتوى الجديد */
+    text-align: right;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.contact-item i {
+    color: var(--green-color, #f75d79);
+    font-size: 1.1rem;
+    margin-left: 10px; /* مسافة بين الأيقونة والنص */
+    width: 20px; /* لتنسيق الأيقونات */
+    text-align: center;
+}
+
+/*==================================
+  الاستجابة للشاشات الصغيرة (Responsive Design)
+====================================*/
+@media (max-width: 900px) {
+    .footer-container {
+        /* تحويل التذييل إلى تخطيط عمودي */
+        flex-direction: column;
+        gap: 50px;
+        align-items: flex-start; /* محاذاة كل الأقسام إلى اليمين */
+    }
+
+    .footer-info, .footer-links-group, .footer-contact {
+        flex: none; /* إزالة Flexbox Weights */
+        width: 100%;
+        max-width: none;
+        text-align: right;
+    }
+    
+    .footer-info {
+        order: 3; /* وضع قسم المعلومات في الأسفل (قبل حقوق النشر) */
+        padding-top: 20px;
+    }
+    
+    .footer-links-group {
+        order: 1; /* وضع الروابط في الأعلى */
+    }
+    
+    .footer-contact {
+        order: 2; /* وضع التواصل في المنتصف */
+    }
+
+    .company-desc {
+        max-width: 100%;
+    }
+}
+@media (max-width: 600px) {
+    .main-footer {
+        padding: 40px 15px 15px;
+    }
+    .copyright {
+        text-align: right;
+        font-size: 0.75rem;
+    }
+}
+
+
+
+
+
+
+
+/*==================================
+ 1. التنسيقات العامة لقسم التواصل (Footer Contact)
+====================================*/
+
+.footer-contact {
+    /* لجعل المحتوى داخل هذا القسم يميل إلى اليمين (لغة عربية) */
+    direction: rtl; 
+    /* لمحاذاة العناصر إلى اليمين */
+    text-align: right;
+    /* لإضافة مسافة تحت العنوان */
+    margin-top: 20px;
+}
+
+/*==================================
+ 2. تنسيق رابط عنصر التواصل (الموقع، الهاتف، البريد)
+====================================*/
+
+.contact-item-link {
+    display: flex;       /* لترتيب الأيقونة والنص في صف واحد */
+    align-items: center; /* توسيط عموديًا */
+    text-decoration: none;
+    color: var(--text-color-light, #fefefe); /* لون النص فاتح ليظهر في الفوتر الداكن */
+    
+    /* 🌟 ضبط الاتجاه ليتناسب مع RTL: الأيقونة على اليمين 🌟 */
+    flex-direction: row-reverse; 
+    /* محاذاة كل العناصر إلى يمين الحاوية */
+    justify-content: flex-end; 
+    
+    /* المسافات */
+    margin-bottom: 15px;
+    gap: 15px; /* مسافة بين الأيقونة والنص */
+    
+    transition: color 0.3s;
+}
+
+/*==================================
+ 3. تنسيق الأيقونة الدائرية (Icon Circle)
+====================================*/
+
+.social-icon-link-details {
+    /* أساسيات الدائرة والتوسيط */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* الحجم الأساسي لشاشات سطح المكتب */
+    width: 40px; 
+    height: 40px;
+    border-radius: 50%;
+    
+    /* الألوان الافتراضية: الخلفية بيضاء والرمز زهري */
+    background-color: var(--light-color, #ffffff); 
+    color: var(--green-color); 
+    
+    transition: all 0.3s ease;
+}
+
+.social-icon-link-details i {
+    font-size: 1rem;
+    /* التأكد من عدم وجود هوامش مسببة لعدم التمركز */
+    margin: 0; 
+}
+
+/*==================================
+ 4. تأثير التحويم (Hover Effects)
+====================================*/
+
+.contact-item-link:hover .social-icon-link-details {
+    /* انعكاس الألوان على الدائرة */
+    background-color: var(--green-color);
+    color: var(--light-color, #ffffff); 
+    box-shadow: 0 0 10px #006226;
+}
+
+.contact-item-link:hover {
+    /* لجعل النص زهرياً عند التحويم */
+    color: var(--light-color, #ffffff); 
+}
+
+
+/*==================================
+ 5. الاستجابة للهواتف المحمولة (Media Query)
+====================================*/
+
+@media (max-width: 600px) {
+    
+    /* تصغير حجم الدائرة لملائمة الشاشات الصغيرة */
+    .social-icon-link-details {
+        width: 30px; 
+        height: 30px;
+    }
+
+    /* تصغير حجم الأيقونة داخل الدائرة */
+    .social-icon-link-details i {
+        font-size: 0.8rem; /* حجم أصغر ليتمركز بشكل أفضل */
+    }
+
+    /* تقليل المسافات لملائمة الشاشة الصغيرة */
+    .contact-item-link {
+        margin-bottom: 8px; /* تقليل المسافة العمودية بين عناصر التواصل */
+        gap: 8px;           /* تقليل المسافة بين الأيقونة والنص */
+    }
+    
+    /* تصغير حجم خط النص ليكون أكثر قراءة */
+    .contact-item-link span {
+        font-size: 14px; 
+    }
+}
+
+
+
+
+
+
+
+
+
+
+/*==================================
+  زر الواتساب العائم (Floating WhatsApp)
+====================================*/
+
+.whatsapp-float {
+    /* الوضعية: جعله عائمًا دائمًا */
+    position: fixed; 
+    /* الموقع: الزاوية اليمنى السفلية (مناسب للمواقع العربية RTL) */
+    bottom: 25px;
+    right: 25px; 
+    
+    /* الشكل والحجم */
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    
+    /* الألوان */
+    background-color: #25d366; /* اللون الأخضر لواتساب */
+    color: white;
+    
+    /* التوسيط */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    
+    /* الأيقونة */
+    font-size: 30px; 
+    
+    /* الظل والانتقال */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 1000; /* لضمان ظهوره فوق باقي العناصر */
+    transition: transform 0.3s ease-in-out;
+}
+
+/* تأثير عند التحويم */
+.whatsapp-float:hover {
+    background-color: #128c7e; /* لون أغمق عند التحويم */
+    transform: scale(1.1); /* تكبير خفيف لجذب الانتباه */
+}
+
+/* الاستجابة للهواتف المحمولة */
+@media (max-width: 600px) {
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        font-size: 25px;
+        bottom: 15px;
+        right: 15px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ---------------------------------------------------- */
+/* ------------------- الأنماط العامة وإعادة تعيين التنسيقات ------------------- */
+/* ---------------------------------------------------- */
+body {
+    font-family: 'Arial', sans-serif;
+}
+.purchase-order-container {
+    width: 95%;
+    max-width: 950px; 
+    margin: 30px auto;
+    direction: rtl; 
+    color: #000; 
+    font-size: 13px;
+}
+.main-form-table-unified {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; 
+    border: 3px solid #000; 
+}
+.main-form-table-unified td {
+    border: 1px solid #000;
+    padding: 3px; 
+    vertical-align: middle;
+    text-align: center; 
+    height: 25px; 
+    box-sizing: border-box; 
+    color: #000; 
+    font-size: 13px;
+}
+
+/* ------------------- أنماط عناوين الأقسام الرئيسية (الخلايا الداخلية) ------------------- */
+.section-title-cell {
+    background-color: #f0f0f0; /* خلفية العنوان داخل القسم */
+    font-weight: bold;
+    font-size: 15px;
+    height: 30px;
+    text-align: center !important; 
+    padding-right: 0;
+    border-left: 3px solid #000 !important; 
+    border-right: 1px solid #000 !important; /* يتصل بالعمود المدمج */
+    border-bottom: 1px solid #000 !important; 
+    border-top: 3px solid #000 !important;
+    vertical-align: middle !important;
+}
+
+/* عنوان معلومات الطلب (Header) لا يحتاج لحد علوي سميك لأنه يبدأ الجدول */
+.info-title-cell {
+    border-top: none !important; 
+}
+/* عناوين التسعير والتعميد غامقة وخلفيتها أغمق قليلاً (كما طلبت سابقاً) */
+.pricing-title-cell,
+.ordering-title-cell,
+.approval-title-cell {
+    font-weight: bold !important; 
+    background-color: #e6e6e6 !important; 
+}
+
+
+/* فواصل سميكة بين الأقسام */
+.section-bottom-border td { 
+    border-bottom: 3px solid #000 !important;
+}
+.section-top-border td {
+    border-top: 3px solid #000 !important;
+}
+/* إزالة الحدود المكررة بعد تطبيق الحدود السميكة في HTML */
+.items-end-row td, 
+.payment-end-row td, 
+.approval-end-row td { 
+    border-bottom: 3px solid #000 !important;
+}
+
+
+/* ------------------- النمط العام للخلايا الرأسية المدمجة ------------------- */
+.merged-vertical-cell {
+    writing-mode: vertical-rl; 
+    text-orientation: mixed;
+    transform: rotate(0deg); 
+    font-weight: bold;
+    background-color: #f0f0f0; 
+    width: 3%; 
+    min-width: 25px;
+    border-right: 3px solid #000 !important; /* الحد الأيمن للجدول */
+    border-left: 1px solid #000 !important;
+    vertical-align: middle !important; 
+    text-align: center !important; 
+    padding: 0;
+}
+/* التأكد من أن العمود المدمج على أقصى اليسار له حد يسار سميك */
+.merged-vertical-cell.merged-left-side {
+    border-left: 3px solid #000 !important;
+}
+
+
+/* ------------------- قسم معلومات الطلب ------------------- */
+.logo-cell-large { 
+    width: 19%; 
+    min-width: 100px;
+    border-left: 3px solid #000 !important; 
+    border-right: 1px solid #000 !important;
+    display: table-cell !important; 
+    text-align: center; 
+    vertical-align: middle;
+}
+.logo-cell-large img {
+    max-width: 160px; 
+    max-height: 150px; 
+    height: auto;
+    display: block; 
+    margin: 0 auto; 
+}
+
+.main-title-section-complex { 
+    text-align: center; 
+}
+.main-title-text {margin-left: 50%; font-size: 16px;     color: var(--green-color);
+}
+.company-sub-text {margin-left:50%; font-size: 11px; }
+
+.code-label-cell, 
+.order-details-complex-key-top, 
+.order-details-complex-key-middle, 
+.order-details-complex-key-bottom { 
+    font-weight: bold; 
+    background-color: #f0f0f0; 
+    width: 9%;
+    min-width: 45px;
+}
+
+/* أنماط خانات الكود */
+.code-digit {
+    width: 3.1%; 
+    padding: 0; 
+    position: relative;
+}
+.code-digit-input {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    border: none;
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+    box-sizing: border-box;
+    background-color: transparent; 
+    -moz-appearance: textfield; 
+}
+.code-digit-input::-webkit-outer-spin-button,
+.code-digit-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.code-digit-input:focus {
+    outline: 2px solid #007bff; 
+    box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
+    background-color: #f9f9f9;
+}
+
+
+/* ------------------- قسم البنود المطلوبة ------------------- */
+.items-headers-row td { background-color: #e6e6e6; font-weight: bold; height: 30px; } 
+.item-row td {
+    height: 20px; 
+    padding: 1px 3px; 
+}
+/* أوزان الأعمدة القياسية (لشاشات الكمبيوتر) - التوزيع الأصلي */
+.item-id-header, .item-id-cell { width: 4.7%; min-width: 40px; text-align: center; }
+.item-unit-header, .item-unit-cell { width: 7%; min-width: 50px; text-align: center; }
+.item-quantity-header, .item-quantity-cell { width: 9%; min-width: 60px; text-align: center; }
+.item-price-header, .item-price-cell { width: 11%; min-width: 75px; text-align: center; }
+.item-total-header, .item-total-cell, .total-value-final { width: 13%; min-width: 85px; text-align: center; }
+.item-desc-header-merged-new { 
+    width: 43%; 
+    text-align: right;
+    padding-right: 5px;
+    border-left: 1px solid #000 !important; 
+}
+.item-desc-cell { 
+    text-align: right;
+    padding-right: 5px;
+    border-left: 1px solid #000 !important; 
+}
+
+/* عمود الصورة وتعديل حجم الأيقونة (صغيرة جداً) */
+.item-image-header { 
+    width: 12.3%; 
+    font-weight: bold;
+    border-left: 3px solid #000 !important; 
+    display: table-cell; 
+    vertical-align: middle;
+}
+.item-image-cell {
+    width: 12.3%;
+    border-left: 3px solid #000 !important; 
+    padding: 0; 
+    height: 30px; 
+    display: table-cell; 
+    vertical-align: middle;
+    text-align: center;
+}
+
+/* صف الإجمالي */
+.total-row td { background-color: #e6e6e6; font-weight: bold; height: 30px; }
+.total-label-merged-new { text-align: center; padding-right: 5px; }
+.total-empty-cell-desc { 
+    width: 55.3%; 
+    text-align: right;
+    padding-right: 5px;
+    border-left: 3px solid #000 !important; 
+}
+
+
+/* ------------------- قسم التسعير والتعميد (مُعدَّل) ------------------- */
+/* 2. العناوين الفرعية ("الاسم", "التوقيع", "التاريخ") - الآن مُتَمركزة */
+.pricing-key-cell,
+.ordering-key-cell {
+    font-weight: bold;
+    background-color: #f9f9f9;
+    text-align: center !important; 
+    padding: 0 !important; 
+}
+
+/* 3. مدخلات حقول النص (الاسم والتوقيع) - محاذاة لليمين كما طلبت */
+.pricing-value-cell,
+.ordering-value-cell {
+    text-align: right !important;
+    padding-right: 5px;
+}
+.pricing-value-cell input,
+.ordering-value-cell input {
+    width: 100%;
+    box-sizing: border-box;
+    text-align: right; 
+    padding: 0 5px;
+    border: 1px solid #bbb;
+    margin: 2px 0;
+}
+
+
+/* ------------------- قسم المالية (مُعدَّل) ------------------- */
+.payment-key { 
+    font-weight: bold; 
+    background-color: #e6e6e6; 
+    text-align: right; 
+    padding-right: 5px; 
+    border-right: 1px solid #000 !important; /* ضمان اتصالها بالعمود المدمج */
+    border-left: 1px solid #000 !important; 
+}
+.payment-value { 
+    text-align: right; 
+    padding-right: 5px; 
+    border-left: 3px solid #000 !important; /* الحد الأيسر للجدول */
+}
+.payment-value-text, .payment-value-digit {
+    border-left: 1px solid #000 !important; 
+}
+.payment-value-text {
+    border-left: 3px solid #000 !important; /* الحد الأيسر للجدول */
+}
+
+
+/* ------------------- قسم الاعتمادات (لا يتغير كثيراً) ------------------- */
+.approval-signatures-container-v4 {
+    height: 150px; 
+    padding: 10px 0; 
+    vertical-align: top; 
+    text-align: right;
+    /* تم تقليل عرض الحد لتناسب الدمج العمودي */
+    border-left: 3px solid #000 !important; 
+    border-right: 1px solid #000 !important;
+}
+.sig-column-v4 {
+    display: inline-block; 
+    width: 32%; 
+    padding: 0 0.5%; 
+    vertical-align: top; 
+    text-align: center; 
+    direction: rtl;
+    border-left: 1px solid #ccc; 
+    box-sizing: border-box;
+    color: #000; 
+}
+.sig-column-v4.last-sig-v4 { border-left: none; }
+.sig-title-key-inline-v4 { font-weight: bold; font-size: 14px; display: block; margin-bottom: 5px; text-align: center; }
+.sig-detail-group-inline-v4 { text-align: right; font-size: 13px; width: 100%; margin: 0 auto; display: block; }
+.name-line-v4, .date-line-v4 { display: block; margin-bottom: 10px; text-align: right; padding: 0 5px; }
+.sig-name-input-v4 { 
+    width: 70%; 
+    border: none; 
+    border-bottom: 1px solid #000; 
+    text-align: center; 
+    padding: 0; 
+    background-color: transparent; 
+    font-size: 12px; 
+}
+
+
+/* ------------------- أنماط المدخلات (Inputs) ------------------- */
+.input-field {
+    width: 95%; 
+    padding: 2px; 
+    border: 1px solid #ccc; 
+    box-sizing: border-box; 
+    font-size: 12px; 
+    direction: rtl;
+    background-color: transparent; 
+    text-align: center;
+}
+.item-readonly-id { background-color: transparent; }
+.item-row .input-field { padding: 1px 2px; }
+.item-desc-cell textarea {
+    min-height: 18px; 
+    height: 18px; 
+    max-height: 18px;
+    line-height: 1.2;
+    text-align: right; 
+}
+.total-input, .final-total-input { background-color: transparent; }
+
+/* ------------------- أنماط الأيقونات والملفات ------------------- */
+.file-input-hidden {
+    display: none; 
+}
+.file-upload-label {
+    display: inline-block;
+    padding: 5px 8px; 
+    border: none; 
+    background-color: transparent; 
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.file-icon {
+    font-size: 18px; 
+    line-height: 1;
+    display: inline-block;
+    color: #007bff; 
+}
+.file-upload-label.file-attached .file-icon {
+    color: #28a745; 
+}
+
+
+/* ------------------- استجابة الجوال (Mobile Responsiveness) ------------------- */
+@media (max-width: 768px) {
+    .table-wrapper {
+        overflow-x: auto; 
+        -webkit-overflow-scrolling: touch; 
+    }
+
+    .main-form-table-unified {
+        width: 150%; 
+        min-width: 750px; 
+        table-layout: auto; 
+    }
+    
+    .section-title-cell {
+        font-size: 14px;
+    }
+    .items-headers-row td {
+        font-size: 12px;
+    }
+    
+    /* الأعمدة المدمجة الرأسية يمكن أن تسبب مشاكل، نقوم بإلغاء دورانها */
+    .merged-vertical-cell {
+        writing-mode: horizontal-tb;
+        text-orientation: mixed;
+        width: 100%;
+        display: block;
+        border-right: 3px solid #000 !important;
+        border-left: 3px solid #000 !important;
+        padding: 5px 0;
+        height: auto;
+    }
+    
+    /* أعمدة الاعتماد */
+    .approval-signatures-container-v4 {
+        flex-direction: column; 
+        align-items: stretch;
+    }
+    .sig-column-v4 {
+        border-left: none !important;
+        border-bottom: 1px solid #000;
+        padding: 5px 10px;
+        margin-bottom: 5px;
+    }
+    .sig-column-v4:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+    }
+    .sig-detail-group-inline-v4 {
+        flex-direction: row; 
+        justify-content: space-between;
+    }
+    .name-line-v4, .date-line-v4 {
+        width: 48%; 
+        font-size: 11px;
+    }
+}

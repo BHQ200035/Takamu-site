@@ -1,0 +1,2413 @@
+/* 1. إعدادات عامة */
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;400;700;900&display=swap'); /* استخدام خط عربي مثل تاجول */
+html {
+    scroll-behavior: smooth;
+}
+:root {
+    --dark-blue: #ffffff;
+    --green-color: #008e36; /* لون الأزرار والنقاط النشطة (بينك/وردي) */
+    --light-color: #ffffff;
+    --main-font: 'Tajawal', sans-serif;
+    --text-color: #333333; /* افتراض للون النص */
+    --green-shadow: #006226; /* تعريف الظل الزهري */
+    --form-bg-dark: var(--dark-blue); /* #121826 */
+    --form-bg-light: var(--light-color); /* #ffffff */
+    --form-primary-blue: #007bff; /* لون زر الإرسال وتركيز الحقول (يمكنك تغييره ليتناسب مع تصميمك) */
+    --form-text-dark: #333333; /* لون نص الحقول */
+    --form-text-label: #000000; /* لون التسميات */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--dark-blue);
+    color: var(--light-color);
+    font-family: var(--main-font);
+    direction: rtl; /* اتجاه النص من اليمين لليسار */
+}
+
+
+
+
+/* 0. إعادة تعيين تنسيقات المتصفح */
+body, html {
+    margin: 0; /* 🚀 إزالة الهامش الافتراضي 🚀 */
+    padding: 0; /* إزالة الحشوة الافتراضية */
+    overflow-x: hidden; /* 💡 يمنع ظهور شريط التمرير الأفقي بسبب المحتوى الزائد 💡 */
+    width: 100%;
+}
+
+/* 2. شريط التنقل (Navbar) */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2px 5px;
+    background-color: transparent; /* خلفية شفافة أو بلون الخلفية */
+    height: 100px;
+        /* ... (التنسيقات السابقة تبقى كما هي) ... */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    /* إضافة خاصية الانتقال (Transition) لحركة سلسة */
+    transition: top 0.3s ease-in-out, background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+
+
+
+/* الفئة الجديدة لإخفاء شريط التنقل: دفعه لأعلى خارج الشاشة */
+.navbar.hidden {
+    top: -100px; /* القيمة يجب أن تكون أكبر من ارتفاع شريط التنقل (100px) */
+}
+
+/* الفئة .scrolled يجب أن تبقى لتغيير الخلفية عند وجودها */
+.navbar.scrolled {
+    background-color: #005a22;
+    box-shadow: 0 2px 10px rgb(0, 47, 18);
+
+}
+
+
+/*==================================
+  تغيير لون الروابط عندما يكون شريط التنقل في وضع التمرير (.scrolled)
+====================================*/
+
+/* 1. جعل الروابط بيضاء عندما يكون شريط التنقل ملونًا (في وضع التمرير) */
+.navbar.scrolled .nav-links a {
+    /* تغيير لون الروابط إلى الأبيض (أو لون فاتح) */
+    color: var(--light-color, #ffffff) !important; 
+    /* ملاحظة: استخدمت !important لضمان تجاوز اللون الرمادي #333333 */
+}
+
+/* 2. التأكد من أن الخط تحت الروابط (::after) يبقى زهريًا */
+.navbar.scrolled .nav-links a::after {
+    /* هذه القاعدة ليست ضرورية طالما أن لون الخلفية يعتمد على var(--green-color) */
+}
+
+/* 3. التأكد من أن حالة التحويم (hover/active) لا تزال تعمل */
+.navbar.scrolled .nav-links a:hover,
+.navbar.scrolled .nav-links a.active {
+    /* عند التحويم/التفعيل، يبقى اللون الزهري هو السائد */
+    color: var(--green-color) !important;
+}
+
+
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--light-color);
+}
+
+.logo-text {
+    margin-left: 5px;
+}
+
+.logo-shape {
+    font-size: 30px;
+    line-height: 0.8;
+    color: var(--light-color);
+    margin-right: 5px;
+}
+
+.nav-links ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links li {
+    margin: 0 15px;
+    padding: 5px 0;
+}
+/*==================================
+  تعديل تنسيق روابط شريط التنقل (الـ Navbar Links)
+====================================*/
+
+.nav-links a {
+    text-decoration: none;
+    color:#333333 ; /* اللون الافتراضي (قد يكون داكناً) */
+    font-size: 16px;
+    font-weight: 400;
+    transition: color 0.3s;
+    
+    /* 🚀 أساسيات التأثير 🚀 */
+    position: relative; /* ضروري لتموضع الخط الـ ::after */
+    padding-bottom: 8px; /* زيادة المسافة السفلية لإظهار الخط أسفل النص */
+}
+
+/* 🚀 تنسيق حالة التحويم والنشاط (اللون والخط) 🚀 */
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--green-color); /* 💡 اجعل اللون زهرياً عند التحويم 💡 */
+}
+
+/* ---------------------------------------------------- */
+/* 2. الخط المتحرك (يبدأ من المنتصف) */
+/* ---------------------------------------------------- */
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    
+    /* 💡 لبدء الخط من المنتصف 💡 */
+    left: 50%; 
+    transform: translateX(-50%); /* إزاحة لليسار بنصف عرض العنصر لضمان التوسيط */
+    
+    width: 0; /* 🚀 العرض الابتدائي صفر (مخفي) 🚀 */
+    height: 3px; /* سمك الخط */
+    background-color: var(--green-color); /* اللون الزهري */
+    
+    /* حركة ناعمة لتغيير العرض */
+    transition: width 0.3s ease-out; 
+}
+
+/* 3. تمديد الخط عند التحويم أو عند التفعيل */
+.nav-links a:hover::after,
+.nav-links a.active::after {
+
+    width: 100%; /* 🚀 التمدد ليغطي عرض الرابط بالكامل من المنتصف 🚀 */
+}
+
+
+/* ---------------------------------------------------- */
+/* باقي تنسيقات النافبار تبقى كما هي */
+/* ---------------------------------------------------- */
+
+.nav-links .separator {
+    width: 1px;
+    height: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 0 20px;
+}
+
+.english-link {
+    display: flex;
+    align-items: center;
+    font-weight: 700 !important;
+}
+
+.english-link i {
+    margin-left: 5px;
+}
+
+/* أينما تجد تنسيق .social-icons في ملف styles.css */
+
+.social-icons a {
+    /* الخصائص المطلوبة لإزالة الخط الأزرق */
+    text-decoration: none; 
+    /* باقي التنسيقات التي جعلت الزر مربعًا وزهريًا تبقى كما هي */
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 4px; /* الشكل المربع بزوايا منحنية */
+    background-color: var(--green-color); 
+    box-shadow: 0 2px 8px #006226;
+    margin-right: 5px; 
+    transition: background-color 0.3s;
+}
+
+/* تنسيق الأيقونة (الحرف) داخل الزر */
+.social-icons a i {
+    font-size: 16px; 
+    color: var(--light-color); /* لون الأيقونة الأبيض */
+
+}
+
+/* تأثير عند التحويم */
+.social-icons a:hover {
+    background-color: #006226; 
+    transform: translateY(-2px); 
+}
+
+
+
+
+
+/*==================================
+  1. تنسيق زر القائمة (Toggler)
+====================================*/
+.menu-toggler {
+    display: none; /* مخفي افتراضياً */
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: var(--green-color); 
+    cursor: pointer;
+    order: -1; /* يضمن وضعه في أقصى اليسار في شريط التنقل */
+    z-index: 1001; /* فوق كل شيء */
+    padding: 5px;
+}
+
+.menu-toggler:hover {
+    opacity: 0.8;
+}
+
+/*==================================
+  تنسيق القائمة الجانبية (Mobile Menu Overlay)
+  التأكد من أن الخلفية زرقاء داكنة وغير شفافة.
+====================================*/
+.mobile-menu-overlay {
+    height: 100%;
+    width: 0; 
+    position: fixed;
+    z-index: 1050; 
+    top: 0;
+    right: 0; 
+    
+    /* 🚀 التعديل 1: إضافة لون خلفية داكن وموحد (استخدم أي لون داكن تفضله) 🚀 */
+    /* استخدم var(--dark-blue) إذا كان معرَّفاً لديك، أو قيمة HEX مباشرة */
+    background-color: #121826; /* لون أزرق داكن (لتجنب الشفافية) */
+    
+    overflow-x: hidden;
+    transition: 0.5s; 
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5); 
+}
+
+
+.mobile-menu-overlay.active {
+    /* 💡 التعديل 2: زيادة العرض قليلاً (لجعلها تغطي جزءاً أكبر من الشاشة) */
+    width: 320px; 
+}
+
+.mobile-menu-content {
+    padding: 60px 20px 20px;
+}
+
+/* زر الإغلاق داخل القائمة الجانبية */
+/* زر الإغلاق داخل القائمة الجانبية */
+.mobile-menu-overlay .close-btn {
+    /* 💡 التعديل 3: تأكيد اللون والحجم المناسبين 💡 */
+    color: #ffffff; /* يجب أن يكون فاتحاً على الخلفية الداكنة */
+    position: absolute;
+    top: 20px;
+    left: 20px; 
+    font-size: 35px; /* تكبير الحجم قليلاً */
+    opacity: 0.8;
+    cursor: pointer;
+    border: none;
+    background: none;
+    transition: opacity 0.3s;
+}
+.mobile-menu-overlay .close-btn:hover {
+    opacity: 1;
+}
+
+/* تنسيق الروابط داخل القائمة الجانبية */
+.mobile-nav-links {
+    list-style: none;
+    padding: 0;
+    margin-top: 30px;
+    border-top: 1px solid #eee;
+}
+
+.mobile-nav-links li a {
+    padding: 15px 0;
+    text-decoration: none;
+    /* تغيير لون الروابط إلى الأبيض أو الفاتح */
+    color: var(--light-color); 
+    font-size: 1.1rem;
+    display: block;
+    /* جعل خط الفصل فاتحاً */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+    transition: background-color 0.3s;
+}
+
+.mobile-nav-links li a:hover {
+        /* لون فاتح عند التحويم */
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--green-color); /* استخدام اللون الزهري عند التحويم */
+}
+
+.mobile-social-icons {
+    margin-top: 20%;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    color: var(--light-color); /* ضمان أن الأيقونات نفسها بيضاء */
+}
+
+/* استخدام نفس تنسيق أيقونات السوشيال ميديا الملونة للموبايل */
+.mobile-social-icons a {
+    /* يُفضل استخدام تنسيقات .social-icons a السابقة */
+    width: 35px;
+    height: 35px;
+    background-color: var(--green-color); 
+    color: var(--light-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+}
+
+/*==================================
+  3. تنسيق الاستجابة (Responsive)
+====================================*/
+@media (max-width: 1024px) {
+    
+    /* إخفاء الروابط وشريط الأيقونات في العرض الكامل */
+    .nav-links, .social-icons {
+        display: none;
+    }
+    
+    /* إظهار زر القائمة في الجوال */
+    .menu-toggler {
+        display: block;
+    }
+    
+    /* ترتيب العناصر في شريط التنقل للجوال */
+    .navbar {
+        justify-content: space-between; 
+        /* 🚀 التعديل هنا: استخدام 0px في اليمين واليسار (أو قيمة صغيرة) 🚀 */
+        padding: 15px 0; 
+        
+        /* 💡 ملاحظة: إذا كنت تريد حشوة داخلية للعناصر 
+           (مثل الشعار والزر)، أضفها للعناصر الفرعية بدلاً من الـ navbar نفسه.
+           إذا أردت حشوة على حواف الـ navbar، استخدم هذه: */
+        /* padding: 15px 20px; */ 
+    }
+    
+    /* 💡 التعديل المقترح إذا كنت تستخدم padding: 15px 20px; 💡 */
+    /* قم بتطبيق هذا التنسيق في ملف CSS العام لديك إذا لم يعمل التعديل السابق */
+    .navbar {
+        left: 0; /* تأكيد أن شريط التنقل يبدأ من حافة اليسار */
+        right: 0; /* تأكيد أن شريط التنقل يبدأ من حافة اليمين */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 6. تنسيق النافذة المنبثقة (Modal) */
+
+.modal {
+    display: none; /* مخفية افتراضياً */
+    position: fixed;
+    z-index: 2000; /* قيمة عالية جداً لتظهر فوق شريط التنقل */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7); /* خلفية داكنة شفافة */
+    direction: rtl; 
+}
+
+/* حالة الإظهار */
+.modal.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* توسيط عمودي وأفقي */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px; /* حجم معقول للنصوص */
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal.is-visible .modal-content {
+    transform: translateY(0);
+}
+
+/* تنسيق زر الإغلاق */
+.close-btn {
+    color: #aaa;
+    float: left; /* يظهر على اليسار في RTL */
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1; /* ضبط محاذاة النص */
+}
+.close-btn:hover,
+.close-btn:focus {
+    color: var(--green-color, #f75d79);
+    text-decoration: none;
+}
+
+.modal-content h3 {
+    color: var(--green-color);
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 26px;
+}
+
+.modal-content p {
+    color: rgb(60, 59, 59);
+
+}
+
+
+
+
+/* تنسيق خاص بنافذة الصورة (Image Modal) */
+.center-image-modal .modal-content.image-content {
+    background-color: transparent; /* خلفية شفافة لظهور الصورة بوضوح */
+    margin: 10% auto;
+    border: none;
+    box-shadow: none;
+    max-width: 90%;
+}
+
+.image-display-container {
+    text-align: center;
+}
+
+.modal-center-image {
+    max-width: 10%;
+    max-height: 10vh; /* تحديد ارتفاع أقصى */
+    display: block;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*==================================
+  1. تنسيق قسم الخدمات (Services Section)
+====================================*/
+
+.services-title {
+    color: var(--green-color); 
+    margin-bottom: 3%;
+    text-align: center;
+    font-size: 42px;
+    font-weight: bold;
+
+
+}
+
+
+
+/* شبكة البطاقات (Grid) */
+.services-grid {
+    display: grid;
+    /* تثبيت العرض الأدنى والأقصى للبطاقة عند 357 بكسل على الشاشات الكبيرة */
+    grid-template-columns: repeat(auto-fit, minmax(357px, 357px)); 
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: center; /* لتوسيط الشبكة في منتصف الشاشة */
+}
+
+/* البطاقة الواحدة */
+.service-card {
+    border-radius: 10px;
+    box-shadow: 0 5px 20px #b9dbc6;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    padding: 30px;
+    
+    /* 🚀 التعديل المطلوب: إضافة إطار أبيض 🚀 */
+    border: 1px solid white; 
+    
+    /* 🚀 تثبيت العرض على الشاشات الكبيرة 🚀 */
+    width: 357px; 
+    
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, border 0.3s ease-out;
+}
+
+.service-card:hover {
+    transform: scale(1.02); 
+    /* الإطار عند التحويم: زهري صلب */
+    border: 1px solid var(--green-color); 
+    z-index: 10;
+}
+
+/* تنسيق المحتوى الداخلي للبطاقة */
+.service-card h3 {
+    color: var(--green-color);
+    margin-top: 15px;
+    font-size: 1.5rem;
+}
+
+.service-card p {
+    color: var(--text-color);
+    line-height: 1.6;
+    min-height: 75px; 
+}
+
+/* تنسيق الصورة وتأثير التحويم */
+.card-image-wrapper {
+    width: 75px;
+    height: 75px;
+    overflow: hidden;
+    border-radius: 50%;
+    position: relative;
+    margin-right: 38%;
+    margin-left: auto;
+    margin-bottom: 15px;
+    transition: background-color 0.3s;
+
+}
+
+.service-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    transition: opacity 0.3s;
+    margin-right: -50%;
+
+}
+
+.img-hover { opacity: 0; }
+.service-card:hover .img-default { opacity: 0; }
+.service-card:hover .img-hover { opacity: 1; }
+
+/* رابط "أقرأ المزيد" */
+.read-more {
+    display: inline-block;
+    color: var(--green-color);
+    text-decoration: none;
+    font-weight: 700;
+    margin-top: 10px;
+    position: relative;
+    z-index: 10; 
+}
+.read-more:hover {
+    text-decoration: underline;
+}
+
+/*==================================
+  استجابة العرض (Media Queries) - الحل الجذري للمشكلة
+====================================*/
+
+@media (max-width: 600px) {
+    
+    .services-grid {
+        /* 🚀 الحل 1: فرض عمود واحد (يمنع البطاقتين المتجاورتين) 🚀 */
+        grid-template-columns: 1fr; 
+        gap: 25px; 
+        padding: 0 10px; 
+    }
+    
+    .service-card {
+        /* 🚀 الحل 2: تثبيت العرض الأقصى وتوسيط البطاقة 🚀 */
+        
+        /* هذا يمنع البطاقة من التمدد بشكل غير مرغوب فيه */
+        max-width: 357px; 
+        /* يسمح لها بالانكماش في الشاشات الأصغر من 357px */
+        width: 100%; 
+        /* توسيط البطاقة ضمن عرض شاشة الجوال */
+        margin: 0 auto; 
+        
+        padding: 25px 20px;
+        /* إلغاء تأثير التكبير عند التحويم */
+        transform: none; 
+    }
+    
+    .services-section {
+        padding: 40px 0;
+    }
+    
+    .service-card h3 {
+        font-size: 1.3rem;
+    }
+}
+
+
+
+
+
+.row {
+    display: flex; /* يجعل العناصر في نفس السطر */
+    flex-wrap: wrap; /* يسمح للعناصر بالنزول لسطر جديد عند ضيق المساحة */
+    margin: 0 -15px; /* لتعويض الهامش داخل الأعمدة */
+    justify-content: center; /* توسيط مجموعة البطاقات */
+}
+
+
+/* Style the counter cards */
+.card {
+  padding: 16px;
+}
+
+/* Responsive columns - one column layout (vertical) on small screens */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*==================================
+  2. تنسيق النوافذ المنبثقة (Modals)
+====================================*/
+
+.modal {
+    display: none; /* مخفية افتراضياً */
+    position: fixed;
+    z-index: 2000; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7); /* خلفية داكنة شفافة */
+    direction: rtl; 
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto; /* توسيط عمودي وأفقي */
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px; 
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: right;
+}
+
+/* نافذة التفاصيل */
+.service-content h3 {
+    color: var(--green-color);
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+        text-align: center;
+
+}
+.service-content p {
+       text-align: center;
+
+    white-space: pre-wrap; /* للحفاظ على تنسيق **النص** في data-modal-content */
+}
+
+/* نافذة الصورة (Image Modal) */
+.center-image-modal .modal-content.image-content {
+    background-color: #ffffff; /* 🚀 خلفية بيضاء لنافذة الصورة 🚀 */
+    margin: 10% auto;
+    max-width: 800px;
+    text-align: center;
+}
+
+.modal-center-image {
+    max-width: 50%;
+    max-height: 50vh; /* تحديد ارتفاع أقصى */
+    display: block;
+}
+
+.image-modal-text {
+    font-size: 0.9rem;
+    color: #999;
+}
+
+/* زر الإغلاق */
+.close-btn {
+    color: #aaa;
+    float: left; 
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1; 
+}
+.close-btn:hover {
+    color: var(--green-color);
+}
+
+
+/* الاستجابة للشاشات الصغيرة */
+@media (max-width: 768px) {
+    .services-section { padding: 40px 20px; }
+    .modal-content { width: 90%; margin: 20% auto; }
+}
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+/*==================================
+  1. تنسيق نافذة الاستفسار الجديدة (Standalone Modal)
+====================================*/
+
+.standalone-modal-overlay {
+    display: none; /* مخفية افتراضياً */
+    position: fixed;
+    z-index: 2200; /* قيمة عالية جداً لضمان الظهور */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.85); /* خلفية داكنة جداً */
+    direction: rtl; 
+}
+
+.standalone-modal-content {
+    background-color: var(--dark-blue); 
+    margin: 5% auto; 
+    padding: 30px;
+    border: 2px solid var(--green-color);
+    width: 90%;
+    max-width: 750px; 
+    border-radius: 12px;
+    position: relative;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+}
+
+/* زر الإغلاق */
+.standalone-close-btn {
+    color: var(--light-color);
+    float: left; 
+    font-size: 38px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1; 
+    transition: color 0.3s;
+}
+.standalone-close-btn:hover {
+    color: var(--green-color);
+}
+
+/* عناوين النموذج */
+.form-title-new {
+    color: var(--green-color);
+    text-align: right;
+    margin-bottom: 5px;
+    font-size: 2.2rem;
+}
+.form-subtitle-new {
+    color: #ccc;
+    text-align: right;
+    margin-bottom: 35px;
+}
+.required-new {
+    color: var(--green-color);
+}
+
+/*==================================
+  2. تنسيق حقول النموذج الجديد
+====================================*/
+
+.form-group-new {
+    margin-bottom: 25px;
+}
+
+.form-label-new {
+    display: block;
+    color: var(--light-color);
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-align: right;
+}
+.form-input{
+    text-align: right;
+}
+.form-input-new, .form-select-new, .form-textarea-new {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #555;
+    border-radius: 8px;
+    background-color: #2e3542; /* خلفية داكنة قليلاً للحقل */
+    color: var(--light-color);
+    font-size: 1.1rem;
+    box-sizing: border-box;
+}
+
+.form-input-new:focus, .form-select-new:focus, .form-textarea-new:focus {
+    outline: none;
+    border-color: var(--green-color);
+    box-shadow: 0 0 0 2px var(--green-color);
+}
+/* 1. تنسيق الحقول النصية القياسية (لضمان ارتفاع مناسب للجميع) */
+.form-input {
+    width: 100%;
+    padding: 10px 15px; /* لتحديد ارتفاع الحقل */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box; 
+    margin-bottom: 10px; 
+}
+
+
+
+
+
+
+
+
+/* ⬅️ تأكد أن الحاوية الأم مضبوطة بشكل صحيح */
+.file-upload-wrapper {
+    position: relative; /* يجب أن تكون الحاوية الأم لها position: relative */
+    /* ... (بقية تنسيقات الـ flexbox تبقى كما هي) ... */
+}
+
+
+
+/* 2. تنسيق حاوية رفع الملفات (لجعلها تبدو كـ form-input) */
+.file-upload-wrapper.form-input {
+    display: flex;
+    align-items: center; 
+    padding: 0 !important; /* إزالة الـ padding من الحاوية الأم */
+    height: auto; 
+}
+
+/* 3. تنسيق الزر المخصص (لتطبيق اللون الأزرق) */
+.file-upload-wrapper .custom-file-button {
+    /* ⬅️ اللون المطلوب: أزرق */
+    background-color:  #01AE44;
+    color: white; 
+    
+    padding: 10px 15px; /* تطابق الارتفاع مع الحقول الأخرى */
+    border-radius: 0; 
+    cursor: pointer;
+    white-space: nowrap; 
+    z-index: 5;
+    font-size: 0.9em;
+    
+    /* ترتيب العناصر داخل flexbox */
+    order: 2; /* وضع الزر في نهاية المحتوى */
+    height: 100%; 
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+}
+
+/* 4. تأثير التحويم على الزر (أزرق أغمق) */
+.file-upload-wrapper .custom-file-button:hover {
+    background-color: #0056b3;
+}
+
+/* 5. تنسيق منطقة عرض اسم الملفات */
+.file-upload-wrapper .file-name-display {
+    color: #666;
+    font-size: 0.9em;
+    flex-grow: 1; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    white-space: nowrap;
+    text-align: right;
+    padding: 10px; /* إضافة padding لتبدو كجزء من الحقل */
+    border: none;
+    order: 1; /* وضع النص في بداية المحتوى */
+}
+
+/* هذا التنسيق يخفي حقل الإدخال الأصلي تمامًا ويضعه فوق الزر المخصص للنقر */
+.actual-file-input {
+    opacity: 0;         /* ⬅️ جعله شفافًا تماماً */
+    position: absolute; /* وضعه في موقع مطلق */
+    width: 100%;        /* جعله يغطي الحاوية بالكامل */
+    height: 100%;       /* جعله يغطي الحاوية بالكامل */
+    cursor: pointer;    /* لإظهار شكل اليد عند التحويم */
+    z-index: 10;        /* وضعه فوق الزر المخصص للنقر عليه */
+    top: 0;             /* تثبيته في الأعلى */
+    right: 0;           /* تثبيته في اليمين (مهم لتصميم RTL) */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* تجميع حقلين في صف واحد */
+.form-group-inline-new {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 25px;
+}
+.form-group-inline-new .form-group-new {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+/* زر الإرسال */
+.submit-button-new {
+    background-color: var(--green-color);
+    color: var(--light-color);
+    border: none;
+    padding: 15px 40px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    float: left; 
+}
+.submit-button-new:hover {
+    background-color: #01AE44; 
+    transform: translateY(-2px);
+}
+
+/* الاستجابة للشاشات الصغيرة */
+@media (max-width: 600px) {
+    .standalone-modal-content {
+        margin: 10% auto;
+        padding: 20px;
+    }
+    .form-group-inline-new {
+        flex-direction: column;
+        gap: 0;
+    }
+    .submit-button-new {
+        float: none; 
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*==================================
+  تنسيق الصورة داخل نافذة التسجيل
+====================================*/
+
+.image-display-container {
+    text-align: center;
+    margin-bottom: 25px; /* فصل الصورة عن النموذج */
+    padding-bottom: 15px;
+    border-bottom: 1px solid #333; /* خط فاصل بين الصورة والنموذج */
+}
+
+/* 🚀 تنسيق الصورة 🚀 */
+.modal-center-image-form {
+    /* حدد حجم مناسب لعرض الصورة في النموذج. يمكنك تغيير 150px و 150px */
+    width: 20%; 
+    height: 20%; 
+    display: inline-block; /* لتكون قابلة للتوسيط */
+    margin: 0 auto;
+    border-radius: 50%; /* إذا كنت تفضل أن تكون دائرية */
+    object-fit: cover;
+}
+
+/* تعديل خصائص الحاوية للحجم الأكبر */
+.modal-content.image-content {
+    background-color: var(--dark-blue);
+    margin: 5% auto;
+    max-width: 650px; /* زيادة قليلة لاستيعاب الصورة والنموذج */
+    padding: 30px;
+    border: 1px solid var(--green-color);
+    border-radius: 10px;
+}
+
+
+
+/*==================================
+  تنسيق زر الإرسال (داخل نافذة imageModal/التسجيل)
+====================================*/
+
+.registration-form .submit-button {
+    background-color: var(--green-color); 
+    color: var(--light-color);
+    border: none;
+    padding: 12px 30px;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    
+    /* 🚀 التعديل الرئيسي للتوسيط 🚀 */
+    display: block; /* اجعل الزر يأخذ عرض السطر بالكامل لكي يعمل التوسيط */
+    margin: 20px auto 0 auto; /* توسيط أفقي مع هامش علوي (20px) */
+    float: none; /* إزالة خاصية المحاذاة اليسرى */
+    
+    width: fit-content; /* اجعل عرض الزر يتناسب مع محتواه فقط */
+}
+
+.registration-form .submit-button:hover {
+    background-color: #01AE44; 
+    transform: translateY(-2px);
+    box-shadow: 0 3px 8px #006226
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*==================================
+  القسم الخارجي - الحاوية البيضاء ذات الظل
+====================================*/
+.page-container2 {
+    /* هذه الحاوية الخارجية التي تعطي الظل والخلفية */
+    background-color: #008e36; /* خلفية بيضاء خفيفة */
+    border-radius: 15px; /* حواف مستديرة */
+    box-shadow: 0 10px 30px #006226; /* ظل خفيف */
+    max-width: 1000px; /* عرض أقصى للحاوية */
+    margin: 50px auto; /* توسيط الحاوية مع مسافة علوية وسفلية */
+    padding: 30px; /* مسافة داخلية */
+}
+
+/*==================================
+  مغلف الفورم (إذا كان مطلوبًا) - يمكن دمجه مع page-container2
+====================================*/
+.form-wrapper2 {
+    /* قد لا تحتاج هذا العنصر إذا كانت page-container2 هي الحاوية المباشرة */
+    /* إذا استخدمتها، اجعلها مجرد حاوية مرنة أو كتلة */
+    display: block; 
+}
+
+/*==================================
+  الفورم نفسه - layout الداخلي باستخدام Flexbox
+====================================*/
+.contact-form2 {
+    display: flex; /* لترتيب المحتوى والأزرار في صف واحد */
+    align-items: center; /* توسيط العناصر عمودياً */
+    justify-content: space-between; /* توزيع المساحة بين الجزء الأيسر والزر */
+    padding: 20px; /* مسافة داخلية خفيفة */
+    /* تأكد أن الخلفية شفافة أو بنفس لون page-container2 إذا كانت موجودة */
+    background-color: transparent; 
+}
+
+/*==================================
+  الجانب الأيسر (الأيقونة والنصوص)
+====================================*/
+.form-content-left {
+    display: flex; /* لترتيب الأيقونة ومجموعة النصوص في صف واحد */
+    align-items: center; /* توسيط الأيقونة والنصوص عمودياً */
+    gap: 20px; /* مسافة بين الأيقونة ومجموعة النصوص */
+}
+
+/*==================================
+  تنسيق الأيقونة
+====================================*/
+.form-icon {
+    width: 60px; /* حجم الأيقونة (يمكن تعديله) */
+    height: auto; /* للحفاظ على نسبة الأبعاد */
+    /* هذا الفلتر يحاول تحويل اللون إلى بني/برونزي
+       قد تحتاج لضبطه أو استبدال الأيقونة بأخرى ذات لون صحيح. */
+    /* إذا كانت الأيقونة بالفعل ذات لون صحيح، أزل الفلتر */
+}
+
+/*==================================
+  مجموعة النصوص (العنوان والنص الوصفي)
+====================================*/
+.form-text-group {
+    display: flex;
+    flex-direction: column; /* لترتيب العنوان والنص تحت بعضهما */
+    text-align: right; /* محاذاة النصوص لليسار */
+}
+
+.form-main-heading {
+    color: #ffffff; /* لون نص العنوان الرئيسي */
+    font-size: 1.6rem; /* حجم الخط */
+    font-weight: 700; /* خط سميك */
+    margin-bottom: 5px; /* مسافة بسيطة تحت العنوان */
+}
+
+.form-sub-text {
+    color: #ffffff; /* لون النص الوصفي أغمق قليلاً */
+    font-size: 0.95rem; /* حجم خط أصغر */
+    line-height: 1.5;
+}
+
+/*==================================
+  تنسيق الزر "Start Now"
+====================================*/
+.btn-consult {
+    background-color: #ffffff; /* اللون الوردي/الأحمر للزر */
+    color: #000000; /* لون النص أبيض */
+    padding: 12px 25px; /* مسافة داخلية للزر */
+    border-radius: 8px; /* حواف مستديرة للزر */
+    text-decoration: none; /* إزالة خط تحت النص */
+    font-size: 1.1rem; /* حجم خط الزر */
+    font-weight: 600; /* خط سميك */
+    transition: background-color 0.3s ease; /* تأثير التحويم */
+    white-space: nowrap; /* منع النص من الالتفاف على سطرين */
+}
+
+.btn-consult:hover {
+    background-color: #006226; /* لون أغمق عند التحويم */
+}
+
+/*==================================
+  الاستجابة للشاشات الصغيرة
+====================================*/
+@media (max-width: 768px) {
+    .contact-form2 {
+        flex-direction: column; /* جعل الأيقونة/النصوص والزر تحت بعضهما */
+        text-align: center; /* توسيط النصوص عند الترتيب العمودي */
+    }
+
+    .form-content-left {
+        flex-direction: column; /* جعل الأيقونة والنصوص تحت بعضهما */
+        text-align: center; /* توسيط الأيقونة والنصوص */
+        margin-bottom: 20px; /* مسافة بين النصوص والزر */
+    }
+    
+    .form-text-group {
+        align-items: center; /* توسيط النصوص داخل مجموعتها */
+    }
+
+    .form-main-heading {
+        font-size: 1.4rem;
+    }
+
+    .form-sub-text {
+        font-size: 0.85rem;
+    }
+
+    .btn-consult {
+        width: 80%; /* جعل الزر يأخذ عرضاً أكبر على الجوال */
+        max-width: 250px; /* تحديد أقصى عرض للزر */
+    }
+
+    .page-container2 {
+        margin: 30px 15px; /* هوامش أقل على الجوال */
+        padding: 20px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*==================================
+  إضافة قسم نموذج الاستفسار (Form Section)
+====================================*/
+
+/* لتجنب التداخل، سنستخدم محددات أكثر تفصيلاً */
+.page-container {
+    padding: 50px;
+    background-color: var(--form-bg-dark); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.form-wrapper {
+    background-color: var(--form-bg-light); 
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    width: 100%;
+    max-width: 1200px; 
+}
+
+.contact-form {
+    padding: 20px;
+    direction: rtl; 
+}
+
+/* تنسيق الصفوف والحقول */
+.form-row {
+    display: flex;
+    margin-bottom: 25px;
+    gap: 30px; 
+    width: 100%;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    /* 💡 مهم: لضمان أن الـ form-group يمتد على كامل مساحته المخصصة */
+    width: 100%;
+}
+
+/* الصفوف ذات العرض الكامل: حقل الاسم وحقل الاستفسار */
+.first-row .full-width-field,
+.form-row.full-row .full-width-field {
+    /* 🚀 التعديل هنا: لضمان العرض الكامل 🚀 */
+    flex: 1 1 100%; 
+}
+
+/* الصف الثاني: البريد الإلكتروني ورقم الهاتف (مقسوم) */
+.split-row {
+    display: grid;
+    grid-template-columns: 3fr 2fr; 
+    gap: 30px;
+}
+
+.form-group label {
+    display: flex; /* 💡 التعديل الرئيسي: تفعيل Flexbox 💡 */
+    
+    /* 🚀 مهم: عكس الترتيب لوضع النجمة على اليمين 🚀 */
+    flex-direction: row-reverse; 
+    
+    /* توسيط عموديًا لضمان محاذاة النص والنجمة */
+    align-items: center; 
+    
+    /* توزيع المساحة (اختياري، للحفاظ على النجمة ملاصقة للنص) */
+    justify-content: flex-end; 
+
+    /* ... باقي التنسيقات تبقى كما هي ... */
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--form-text-label); 
+    margin-bottom: 8px;
+    font-family: var(--main-font);
+}
+
+.required {
+    /* 💡 التعديل هنا: إضافة مسافة صغيرة بين النص والنجمة 💡 */
+    margin-right: 5px; /* مسافة على يمين النجمة (بما أن الترتيب معكوس) */
+    
+    color: var(--green-color); 
+    font-size: 1.2rem;
+    font-weight: bold;
+    flex-shrink: 0; /* منع النجمة من التقلص */
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 1rem;
+    color: var(--form-text-dark);
+    box-sizing: border-box; 
+    font-family: var(--main-font);
+    text-align: right;
+}
+
+/* 💡 التعديل هنا: مربع النص لجعله مستطيلاً طويلاً وعريضاً 💡 */
+textarea {
+    resize: vertical; 
+    /* 🚀 الارتفاع هو المفتاح لشكل المستطيل 🚀 */
+    height: 200px; 
+}
+
+/* تأثير التركيز الأزرق المطابق للصورة */
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--form-primary-blue);
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+
+/* زر الإرسال */
+.submit-row {
+    text-align: left; 
+    margin-top: 30px;
+}
+
+.submit-btn {
+    background-color: var( --green-color);
+    color: var(--light-color);
+    border: none;
+    padding: 10px 30px;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: var(--main-font);
+}
+
+.submit-btn:hover {
+    background-color: #006226;
+}
+
+/* الاستجابة للشاشات الصغيرة */
+@media (max-width: 768px) {
+    .form-wrapper {
+        padding: 20px;
+    }
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+    .split-row {
+        grid-template-columns: 1fr;
+    }
+    .submit-row {
+        text-align: center; 
+    }
+}
+
+/*==================================
+  تنسيق رسالة الخطأ (Validation Error)
+====================================*/
+
+/* إخفاء رسالة الخطأ افتراضياً */
+.error-message {
+    color: var(--green-color); 
+    font-size: 0.85rem;
+    margin-top: 5px;
+    display: none; 
+    font-weight: 700;
+    text-align: right;
+}
+
+/* إظهار الرسالة عندما يتم إضافة فئة 'error' إلى الـ form-group */
+.form-group.error .error-message {
+    display: block; 
+}
+
+/* تمييز حدود الحقل باللون الزهري عند وجود خطأ */
+.form-group.error input,
+.form-group.error select,
+.form-group.error textarea {
+    border-color: var(--green-color);
+    box-shadow: 0 0 0 0.2rem rgba(247, 93, 121, 0.3); 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*==================================
+  11. تذييل الصفحة (Footer)
+====================================*/
+
+.main-footer {
+    background-color:  #01AE44; /* لون خلفية داكن */
+    color: var(--light-color, #ffffff);
+    padding: 60px 50px 20px; /* حشو علوي وسفلي جيد */
+    direction: rtl; /* ضمان الاتجاه من اليمين لليسار */
+    margin-bottom: 1%;
+}
+
+/*==================================
+  تعديل توزيع المساحة داخل حاوية الفوتر
+====================================*/
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1300px;
+    margin: 0 auto;
+    gap: 60px;
+    margin-right: 15%;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-heading {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    position: relative;
+    display: inline-block;
+}
+
+/* الخط تحت العناوين (لتتناسب مع الصورة) */
+.footer-heading::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -8px;
+    width: 60%; 
+    height: 3px;
+    background-color: var(--green-color, #f75d79); /* اللون الزهري */
+}
+
+/* --- القسم الأيمن: الشعار والمعلومات (.footer-info) --- */
+.footer-info {
+    /* التعديل: تقليل الوزن لجعله أصغر (كان 2) */
+    flex: 1; 
+    /* يمكن تقليل الحد الأدنى للوصول إلى الحجم الأصغر المطلوب */
+    min-width: 200px; /* تم تقليله */
+    max-width: 300px; /* تم تقليله */
+    text-align: right;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 900;
+    color: white;
+    margin-bottom: 15px;
+}
+/* استخدام تنسيقات الشعار التي لديك بالفعل (.logo-shape, .logo-text) */
+
+.company-desc {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: white;
+        margin-top: 10%;
+
+}
+
+
+
+/* --- القسم الأوسط: الروابط (.footer-links-group) --- */
+.footer-links-group {
+    /* الاحتفاظ به كعمود متوسط الحجم (كان 1) */
+    flex: 1; 
+    min-width: 150px;
+    text-align: right;
+}
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: rgb(0, 78, 4);
+
+}
+
+/* --- القسم الأيسر: التواصل (.footer-contact) --- */
+.footer-contact {
+    /* التعديل: زيادة الوزن لجعله أكبر (كان 1) */
+    /* زيادة وزنه إلى 2 يجعله يأخذ ضعف مساحة الروابط وقسم المعلومات (الجديد) */
+    flex: 2; 
+    min-width: 250px; /* زيادة الحد الأدنى لدعم المحتوى الجديد */
+    text-align: right;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.contact-item i {
+    color: var(--green-color, #f75d79);
+    font-size: 1.1rem;
+    margin-left: 10px; /* مسافة بين الأيقونة والنص */
+    width: 20px; /* لتنسيق الأيقونات */
+    text-align: center;
+}
+
+/*==================================
+  الاستجابة للشاشات الصغيرة (Responsive Design)
+====================================*/
+@media (max-width: 900px) {
+    .footer-container {
+        /* تحويل التذييل إلى تخطيط عمودي */
+        flex-direction: column;
+        gap: 50px;
+        align-items: flex-start; /* محاذاة كل الأقسام إلى اليمين */
+    }
+
+    .footer-info, .footer-links-group, .footer-contact {
+        flex: none; /* إزالة Flexbox Weights */
+        width: 100%;
+        max-width: none;
+        text-align: right;
+    }
+    
+    .footer-info {
+        order: 3; /* وضع قسم المعلومات في الأسفل (قبل حقوق النشر) */
+        padding-top: 20px;
+    }
+    
+    .footer-links-group {
+        order: 1; /* وضع الروابط في الأعلى */
+    }
+    
+    .footer-contact {
+        order: 2; /* وضع التواصل في المنتصف */
+    }
+
+    .company-desc {
+        max-width: 100%;
+    }
+}
+@media (max-width: 600px) {
+    .main-footer {
+        padding: 40px 15px 15px;
+    }
+    .copyright {
+        text-align: right;
+        font-size: 0.75rem;
+    }
+}
+
+
+
+
+
+
+
+/*==================================
+ 1. التنسيقات العامة لقسم التواصل (Footer Contact)
+====================================*/
+
+.footer-contact {
+    /* لجعل المحتوى داخل هذا القسم يميل إلى اليمين (لغة عربية) */
+    direction: rtl; 
+    /* لمحاذاة العناصر إلى اليمين */
+    text-align: right;
+    /* لإضافة مسافة تحت العنوان */
+    margin-top: 20px;
+}
+
+/*==================================
+ 2. تنسيق رابط عنصر التواصل (الموقع، الهاتف، البريد)
+====================================*/
+
+.contact-item-link {
+    display: flex;       /* لترتيب الأيقونة والنص في صف واحد */
+    align-items: center; /* توسيط عموديًا */
+    text-decoration: none;
+    color: var(--text-color-light, #fefefe); /* لون النص فاتح ليظهر في الفوتر الداكن */
+    
+    /* 🌟 ضبط الاتجاه ليتناسب مع RTL: الأيقونة على اليمين 🌟 */
+    flex-direction: row-reverse; 
+    /* محاذاة كل العناصر إلى يمين الحاوية */
+    justify-content: flex-end; 
+    
+    /* المسافات */
+    margin-bottom: 15px;
+    gap: 15px; /* مسافة بين الأيقونة والنص */
+    
+    transition: color 0.3s;
+}
+
+/*==================================
+ 3. تنسيق الأيقونة الدائرية (Icon Circle)
+====================================*/
+
+.social-icon-link-details {
+    /* أساسيات الدائرة والتوسيط */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* الحجم الأساسي لشاشات سطح المكتب */
+    width: 40px; 
+    height: 40px;
+    border-radius: 50%;
+    
+    /* الألوان الافتراضية: الخلفية بيضاء والرمز زهري */
+    background-color: var(--light-color, #ffffff); 
+    color: var(--green-color); 
+    
+    transition: all 0.3s ease;
+}
+
+.social-icon-link-details i {
+    font-size: 1rem;
+    /* التأكد من عدم وجود هوامش مسببة لعدم التمركز */
+    margin: 0; 
+}
+
+/*==================================
+ 4. تأثير التحويم (Hover Effects)
+====================================*/
+
+.contact-item-link:hover .social-icon-link-details {
+    /* انعكاس الألوان على الدائرة */
+    background-color: var(--green-color);
+    color: var(--light-color, #ffffff); 
+    box-shadow: 0 0 10px #006226;
+}
+
+.contact-item-link:hover {
+    /* لجعل النص زهرياً عند التحويم */
+    color: var(--light-color, #ffffff); 
+}
+
+
+/*==================================
+ 5. الاستجابة للهواتف المحمولة (Media Query)
+====================================*/
+
+@media (max-width: 600px) {
+    
+    /* تصغير حجم الدائرة لملائمة الشاشات الصغيرة */
+    .social-icon-link-details {
+        width: 30px; 
+        height: 30px;
+    }
+
+    /* تصغير حجم الأيقونة داخل الدائرة */
+    .social-icon-link-details i {
+        font-size: 0.8rem; /* حجم أصغر ليتمركز بشكل أفضل */
+    }
+
+    /* تقليل المسافات لملائمة الشاشة الصغيرة */
+    .contact-item-link {
+        margin-bottom: 8px; /* تقليل المسافة العمودية بين عناصر التواصل */
+        gap: 8px;           /* تقليل المسافة بين الأيقونة والنص */
+    }
+    
+    /* تصغير حجم خط النص ليكون أكثر قراءة */
+    .contact-item-link span {
+        font-size: 14px; 
+    }
+}
+
+
+
+
+
+
+
+
+
+
+/*==================================
+  زر الواتساب العائم (Floating WhatsApp)
+====================================*/
+
+.whatsapp-float {
+    /* الوضعية: جعله عائمًا دائمًا */
+    position: fixed; 
+    /* الموقع: الزاوية اليمنى السفلية (مناسب للمواقع العربية RTL) */
+    bottom: 25px;
+    right: 25px; 
+    
+    /* الشكل والحجم */
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    
+    /* الألوان */
+    background-color: #25d366; /* اللون الأخضر لواتساب */
+    color: white;
+    
+    /* التوسيط */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    
+    /* الأيقونة */
+    font-size: 30px; 
+    
+    /* الظل والانتقال */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 1000; /* لضمان ظهوره فوق باقي العناصر */
+    transition: transform 0.3s ease-in-out;
+}
+
+/* تأثير عند التحويم */
+.whatsapp-float:hover {
+    background-color: #128c7e; /* لون أغمق عند التحويم */
+    transform: scale(1.1); /* تكبير خفيف لجذب الانتباه */
+}
+
+/* الاستجابة للهواتف المحمولة */
+@media (max-width: 600px) {
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        font-size: 25px;
+        bottom: 15px;
+        right: 15px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ---------------------------------------------------- */
+/* ------------------- الأنماط العامة وإعادة تعيين التنسيقات ------------------- */
+/* ---------------------------------------------------- */
+body {
+    font-family: 'Arial', sans-serif;
+}
+.purchase-order-container {
+    width: 95%;
+    max-width: 950px; 
+    margin: 30px auto;
+    direction: rtl; 
+    color: #000; 
+    font-size: 13px;
+}
+.main-form-table-unified {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; 
+    border: 3px solid #000; 
+}
+.main-form-table-unified td {
+    border: 1px solid #000;
+    padding: 3px; 
+    vertical-align: middle;
+    text-align: center; 
+    height: 25px; 
+    box-sizing: border-box; 
+    color: #000; 
+    font-size: 13px;
+}
+
+/* ------------------- أنماط عناوين الأقسام الرئيسية (الخلايا الداخلية) ------------------- */
+.section-title-cell {
+    background-color: #f0f0f0; /* خلفية العنوان داخل القسم */
+    font-weight: bold;
+    font-size: 15px;
+    height: 30px;
+    text-align: center !important; 
+    padding-right: 0;
+    border-left: 3px solid #000 !important; 
+    border-right: 1px solid #000 !important; /* يتصل بالعمود المدمج */
+    border-bottom: 1px solid #000 !important; 
+    border-top: 3px solid #000 !important;
+    vertical-align: middle !important;
+}
+
+/* عنوان معلومات الطلب (Header) لا يحتاج لحد علوي سميك لأنه يبدأ الجدول */
+.info-title-cell {
+    border-top: none !important; 
+}
+/* عناوين التسعير والتعميد غامقة وخلفيتها أغمق قليلاً (كما طلبت سابقاً) */
+.pricing-title-cell,
+.ordering-title-cell,
+.approval-title-cell {
+    font-weight: bold !important; 
+    background-color: #e6e6e6 !important; 
+}
+
+
+/* فواصل سميكة بين الأقسام */
+.section-bottom-border td { 
+    border-bottom: 3px solid #000 !important;
+}
+.section-top-border td {
+    border-top: 3px solid #000 !important;
+}
+/* إزالة الحدود المكررة بعد تطبيق الحدود السميكة في HTML */
+.items-end-row td, 
+.payment-end-row td, 
+.approval-end-row td { 
+    border-bottom: 3px solid #000 !important;
+}
+
+
+/* ------------------- النمط العام للخلايا الرأسية المدمجة ------------------- */
+.merged-vertical-cell {
+    writing-mode: vertical-rl; 
+    text-orientation: mixed;
+    transform: rotate(0deg); 
+    font-weight: bold;
+    background-color: #f0f0f0; 
+    width: 3%; 
+    min-width: 25px;
+    border-right: 3px solid #000 !important; /* الحد الأيمن للجدول */
+    border-left: 1px solid #000 !important;
+    vertical-align: middle !important; 
+    text-align: center !important; 
+    padding: 0;
+}
+/* التأكد من أن العمود المدمج على أقصى اليسار له حد يسار سميك */
+.merged-vertical-cell.merged-left-side {
+    border-left: 3px solid #000 !important;
+}
+
+
+/* ------------------- قسم معلومات الطلب ------------------- */
+.logo-cell-large { 
+    width: 19%; 
+    min-width: 100px;
+    border-left: 3px solid #000 !important; 
+    border-right: 1px solid #000 !important;
+    display: table-cell !important; 
+    text-align: center; 
+    vertical-align: middle;
+}
+.logo-cell-large img {
+    max-width: 160px; 
+    max-height: 150px; 
+    height: auto;
+    display: block; 
+    margin: 0 auto; 
+}
+
+.main-title-section-complex { 
+    text-align: center; 
+}
+.main-title-text {margin-left: 50%; font-size: 16px;     color: var(--green-color);
+}
+.company-sub-text {margin-left:50%; font-size: 11px; }
+
+.code-label-cell, 
+.order-details-complex-key-top, 
+.order-details-complex-key-middle, 
+.order-details-complex-key-bottom { 
+    font-weight: bold; 
+    background-color: #f0f0f0; 
+    width: 9%;
+    min-width: 45px;
+}
+
+/* أنماط خانات الكود */
+.code-digit {
+    width: 3.1%; 
+    padding: 0; 
+    position: relative;
+}
+.code-digit-input {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    border: none;
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+    box-sizing: border-box;
+    background-color: transparent; 
+    -moz-appearance: textfield; 
+}
+.code-digit-input::-webkit-outer-spin-button,
+.code-digit-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.code-digit-input:focus {
+    outline: 2px solid #007bff; 
+    box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
+    background-color: #f9f9f9;
+}
+
+
+/* ------------------- قسم البنود المطلوبة ------------------- */
+.items-headers-row td { background-color: #e6e6e6; font-weight: bold; height: 30px; } 
+.item-row td {
+    height: 20px; 
+    padding: 1px 3px; 
+}
+/* أوزان الأعمدة القياسية (لشاشات الكمبيوتر) - التوزيع الأصلي */
+.item-id-header, .item-id-cell { width: 4.7%; min-width: 40px; text-align: center; }
+.item-unit-header, .item-unit-cell { width: 7%; min-width: 50px; text-align: center; }
+.item-quantity-header, .item-quantity-cell { width: 9%; min-width: 60px; text-align: center; }
+.item-price-header, .item-price-cell { width: 11%; min-width: 75px; text-align: center; }
+.item-total-header, .item-total-cell, .total-value-final { width: 13%; min-width: 85px; text-align: center; }
+.item-desc-header-merged-new { 
+    width: 43%; 
+    text-align: right;
+    padding-right: 5px;
+    border-left: 1px solid #000 !important; 
+}
+.item-desc-cell { 
+    text-align: right;
+    padding-right: 5px;
+    border-left: 1px solid #000 !important; 
+}
+
+/* عمود الصورة وتعديل حجم الأيقونة (صغيرة جداً) */
+.item-image-header { 
+    width: 12.3%; 
+    font-weight: bold;
+    border-left: 3px solid #000 !important; 
+    display: table-cell; 
+    vertical-align: middle;
+}
+.item-image-cell {
+    width: 12.3%;
+    border-left: 3px solid #000 !important; 
+    padding: 0; 
+    height: 30px; 
+    display: table-cell; 
+    vertical-align: middle;
+    text-align: center;
+}
+
+/* صف الإجمالي */
+.total-row td { background-color: #e6e6e6; font-weight: bold; height: 30px; }
+.total-label-merged-new { text-align: center; padding-right: 5px; }
+.total-empty-cell-desc { 
+    width: 55.3%; 
+    text-align: right;
+    padding-right: 5px;
+    border-left: 3px solid #000 !important; 
+}
+
+
+/* ------------------- قسم التسعير والتعميد (مُعدَّل) ------------------- */
+/* 2. العناوين الفرعية ("الاسم", "التوقيع", "التاريخ") - الآن مُتَمركزة */
+.pricing-key-cell,
+.ordering-key-cell {
+    font-weight: bold;
+    background-color: #f9f9f9;
+    text-align: center !important; 
+    padding: 0 !important; 
+}
+
+/* 3. مدخلات حقول النص (الاسم والتوقيع) - محاذاة لليمين كما طلبت */
+.pricing-value-cell,
+.ordering-value-cell {
+    text-align: right !important;
+    padding-right: 5px;
+}
+.pricing-value-cell input,
+.ordering-value-cell input {
+    width: 100%;
+    box-sizing: border-box;
+    text-align: right; 
+    padding: 0 5px;
+    border: 1px solid #bbb;
+    margin: 2px 0;
+}
+
+
+/* ------------------- قسم المالية (مُعدَّل) ------------------- */
+.payment-key { 
+    font-weight: bold; 
+    background-color: #e6e6e6; 
+    text-align: right; 
+    padding-right: 5px; 
+    border-right: 1px solid #000 !important; /* ضمان اتصالها بالعمود المدمج */
+    border-left: 1px solid #000 !important; 
+}
+.payment-value { 
+    text-align: right; 
+    padding-right: 5px; 
+    border-left: 3px solid #000 !important; /* الحد الأيسر للجدول */
+}
+.payment-value-text, .payment-value-digit {
+    border-left: 1px solid #000 !important; 
+}
+.payment-value-text {
+    border-left: 3px solid #000 !important; /* الحد الأيسر للجدول */
+}
+
+
+/* ------------------- قسم الاعتمادات (لا يتغير كثيراً) ------------------- */
+.approval-signatures-container-v4 {
+    height: 150px; 
+    padding: 10px 0; 
+    vertical-align: top; 
+    text-align: right;
+    /* تم تقليل عرض الحد لتناسب الدمج العمودي */
+    border-left: 3px solid #000 !important; 
+    border-right: 1px solid #000 !important;
+}
+.sig-column-v4 {
+    display: inline-block; 
+    width: 32%; 
+    padding: 0 0.5%; 
+    vertical-align: top; 
+    text-align: center; 
+    direction: rtl;
+    border-left: 1px solid #ccc; 
+    box-sizing: border-box;
+    color: #000; 
+}
+.sig-column-v4.last-sig-v4 { border-left: none; }
+.sig-title-key-inline-v4 { font-weight: bold; font-size: 14px; display: block; margin-bottom: 5px; text-align: center; }
+.sig-detail-group-inline-v4 { text-align: right; font-size: 13px; width: 100%; margin: 0 auto; display: block; }
+.name-line-v4, .date-line-v4 { display: block; margin-bottom: 10px; text-align: right; padding: 0 5px; }
+.sig-name-input-v4 { 
+    width: 70%; 
+    border: none; 
+    border-bottom: 1px solid #000; 
+    text-align: center; 
+    padding: 0; 
+    background-color: transparent; 
+    font-size: 12px; 
+}
+
+
+/* ------------------- أنماط المدخلات (Inputs) ------------------- */
+.input-field {
+    width: 95%; 
+    padding: 2px; 
+    border: 1px solid #ccc; 
+    box-sizing: border-box; 
+    font-size: 12px; 
+    direction: rtl;
+    background-color: transparent; 
+    text-align: center;
+}
+.item-readonly-id { background-color: transparent; }
+.item-row .input-field { padding: 1px 2px; }
+.item-desc-cell textarea {
+    min-height: 18px; 
+    height: 18px; 
+    max-height: 18px;
+    line-height: 1.2;
+    text-align: right; 
+}
+.total-input, .final-total-input { background-color: transparent; }
+
+/* ------------------- أنماط الأيقونات والملفات ------------------- */
+.file-input-hidden {
+    display: none; 
+}
+.file-upload-label {
+    display: inline-block;
+    padding: 5px 8px; 
+    border: none; 
+    background-color: transparent; 
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.file-icon {
+    font-size: 18px; 
+    line-height: 1;
+    display: inline-block;
+    color: #007bff; 
+}
+.file-upload-label.file-attached .file-icon {
+    color: #28a745; 
+}
+
+
+/* ------------------- استجابة الجوال (Mobile Responsiveness) ------------------- */
+@media (max-width: 768px) {
+    .table-wrapper {
+        overflow-x: auto; 
+        -webkit-overflow-scrolling: touch; 
+    }
+
+    .main-form-table-unified {
+        width: 150%; 
+        min-width: 750px; 
+        table-layout: auto; 
+    }
+    
+    .section-title-cell {
+        font-size: 14px;
+    }
+    .items-headers-row td {
+        font-size: 12px;
+    }
+    
+    /* الأعمدة المدمجة الرأسية يمكن أن تسبب مشاكل، نقوم بإلغاء دورانها */
+    .merged-vertical-cell {
+        writing-mode: horizontal-tb;
+        text-orientation: mixed;
+        width: 100%;
+        display: block;
+        border-right: 3px solid #000 !important;
+        border-left: 3px solid #000 !important;
+        padding: 5px 0;
+        height: auto;
+    }
+    
+    /* أعمدة الاعتماد */
+    .approval-signatures-container-v4 {
+        flex-direction: column; 
+        align-items: stretch;
+    }
+    .sig-column-v4 {
+        border-left: none !important;
+        border-bottom: 1px solid #000;
+        padding: 5px 10px;
+        margin-bottom: 5px;
+    }
+    .sig-column-v4:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+    }
+    .sig-detail-group-inline-v4 {
+        flex-direction: row; 
+        justify-content: space-between;
+    }
+    .name-line-v4, .date-line-v4 {
+        width: 48%; 
+        font-size: 11px;
+    }
+}
