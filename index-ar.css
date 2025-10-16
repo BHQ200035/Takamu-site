@@ -544,8 +544,21 @@ body, html {
     }
 }
 
+/* ==================================
+ * تأثيرات متقدمة (Keyframes) على Hero Section
+ * ================================== */
 
 
+
+/* تطبيق الحركة على الكلمة المميزة */
+.text-and-buttons h1 span {
+    /* تطبيق الحركة الجديدة */
+    animation: glowing-green 3s infinite alternate ease-in-out; 
+    
+    /* لضمان رؤية الظل، قد تحتاج للتأكد من لون الخلفية */
+    position: relative; 
+    z-index: 2;
+}
 
 
 
@@ -589,13 +602,13 @@ body, html {
 .modal {
     display: none; /* مخفية افتراضياً */
     position: fixed;
-    z-index: 2000; /* قيمة عالية جداً لتظهر فوق شريط التنقل */
+    z-index: 2000;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.7); /* خلفية داكنة شفافة */
+    background-color: rgba(0, 0, 0, 0.7);
     direction: rtl; 
 }
 
@@ -607,11 +620,12 @@ body, html {
 
 .modal-content {
     background-color: #fefefe;
-    margin: 15% auto; /* توسيط عمودي وأفقي */
+    /* الهامش الأصلي للتوسيط على الشاشات الكبيرة */
+    margin: 15% auto; 
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
-    max-width: 600px; /* حجم معقول للنصوص */
+    max-width: 600px;
     border-radius: 8px;
     position: relative;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
@@ -624,11 +638,11 @@ body, html {
 /* تنسيق زر الإغلاق */
 .close-btn {
     color: #aaa;
-    float: left; /* يظهر على اليسار في RTL */
+    float: left;
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
-    line-height: 1; /* ضبط محاذاة النص */
+    line-height: 1;
 }
 .close-btn:hover,
 .close-btn:focus {
@@ -648,12 +662,22 @@ body, html {
 
 }
 
-
+/* ================================================== */
+/* 🚀 التعديل المطلوب: إلغاء الهوامش على الجوال 🚀 */
+/* ================================================== */
+@media (max-width: 650px) {
+    .modal-content {
+        /* تعيين الهامش على قيمة صغيرة جداً أو صفرية 
+           لجعل النافذة تلتصق بالحواف الأفقية والعمودية */
+        margin: 5% auto; /* 5% هامش علوي وسفلي، وتوسيط أفقي تلقائي */
+        width: 90%; /* زيادة عرض النافذة لتشغل مساحة أكبر */
+    }
+}
 
 
 /* تنسيق خاص بنافذة الصورة (Image Modal) */
 .center-image-modal .modal-content.image-content {
-    background-color: transparent; /* خلفية شفافة لظهور الصورة بوضوح */
+    background-color: transparent;
     margin: 10% auto;
     border: none;
     box-shadow: none;
@@ -666,12 +690,11 @@ body, html {
 
 .modal-center-image {
     max-width: 10%;
-    max-height: 10vh; /* تحديد ارتفاع أقصى */
+    max-height: 10vh;
     display: block;
     margin: 0 auto;
     border-radius: 5px;
 }
-
 
 
 
@@ -1589,15 +1612,11 @@ body, html {
     max-height: 90%; 
     width: auto; 
     height: auto;
-    filter: grayscale(100%); 
-    opacity: 0.7; 
+
     transition: filter 0.3s ease, opacity 0.3s ease;
 }
 
-.logo-link:hover .logo-item img {
-    filter: grayscale(0%); 
-    opacity: 1;
-}
+
 
 /* ---------------------------------------------------- */
 /* توافق الشاشات (Media Queries) */
@@ -1760,7 +1779,7 @@ body, html {
     
     .feature-card {
         /* تصبح كل بطاقة تأخذ العرض الكامل للحاوية (100% - الهوامش) */
-        width: 90%; 
+        width: 100%; 
         /* توسيط البطاقة لضمان الترتيب الجيد */
         margin: 0 auto; 
     }
@@ -1770,6 +1789,134 @@ body, html {
         font-size: 1.3em;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
