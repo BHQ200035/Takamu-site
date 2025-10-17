@@ -3,47 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تكامل - الرئيسية</title>
+    <title data-i18n="title">تكامل - الرئيسية</title> 
 
-<link rel="icon" type="image/png" href="takamul/sprite/logotop.png"> 
 
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> 
-
-    <link rel="stylesheet" href="index-ar.css">     
-    <link rel="stylesheet" href="device-width.css">
+    <link rel="icon" type="image/png" href="sprite/logotop.png"> 
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/index-ar.css">
+    <link rel="stylesheet" href="css/device-width.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-</head>
-<body>
+    </head>
 
-    
+<body dir="rtl" class="rtl"> 
+
 
 <nav class="navbar">
     
     <a href="index.html" class="navbar-brand logo" style="margin-right: 2%;">
-        <img src="takamul/sprite/logo.png" alt="takamul" style="max-width: 150px;"id="navbarLogo">
+        <img src="sprite/logo.png" alt="takamul" style="max-width: 150px;">
     </a>
     
     <div class="nav-links">
         <ul>
-            <li><a href="index.html" class="active">الرئيسية</a></li>
-            <li><a href="Aboutus-ar.html">عن تكامل</a></li>
-            <li><a href="OurServices-ar.html">خدماتنا</a></li>
-            <li><a href="index.html#clients-section">عملائنا</a></li>
-            <li><a href="#">المدونة</a></li>
-            <li><a href="#">تواصل معنا</a></li>
+            <li><a href="index.html" class="active" data-i18n="nav.home">الرئيسية</a></li>
+            <li><a href="aboutus-ar.html" data-i18n="nav.about">عن تكامل</a></li> 
+            <li><a href="ourServices-ar.html" data-i18n="nav.services">خدماتنا</a></li>
+            <li><a href="index.html#clients-section" data-i18n="nav.clients">عملائنا</a></li>
+            <li><a href="#" data-i18n="nav.blog">المدونة</a></li>
+            <li><a href="contactus-ar.html" data-i18n="nav.contact">تواصل معنا</a></li>
             <li class="separator"></li>
-            <li><a href="index-en.html" class="english-link"><i class="fas fa-globe"></i>ENGLISH</a></li>
+            
+            <li><a href="#" id="lang-toggle" data-lang="en" class="english-link"><i class="fas fa-globe"></i><span data-i18n="nav.lang">ENGLISH</span></a></li>
         </ul>
     </div>
     
     <div class="social-icons" style="margin-left: 2%;">
-        <a href="https://wa.me/966533808888" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-        <a href="https://twitter.com/yourhandle" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
-        <a href="https://linkedin.com/in/yourprofile" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://wa.me/966533808888" target="_blank" title="WhatsApp" data-i18n-title="social.whatsapp_title"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://twitter.com/yourhandle" target="_blank" title="Twitter" data-i18n-title="social.twitter_title"><i class="fab fa-twitter"></i></a>
+        <a href="https://linkedin.com/in/yourprofile" target="_blank" title="LinkedIn" data-i18n-title="social.linkedin_title"><i class="fab fa-linkedin-in"></i></a>
     </div>
 
-    <button class="menu-toggler" aria-label="فتح القائمة">
+    <button class="menu-toggler" aria-label="فتح القائمة" data-i18n-aria="menu.open_aria">
         <i class="fa fa-bars"></i>
     </button>
     
@@ -54,16 +54,15 @@
         <button class="close-btn">&times;</button>
         
         <ul class="mobile-nav-links">
-            <li><a href="index.html" class="active">الرئيسية</a></li>
-            <li><a href="Aboutus-ar.html">عن تكامل</a></li>
-            <li><a href="OurServices-ar.html">خدماتنا</a></li>
-            <li><a href="index.html#clients-section">عملائنا</a></li>
-            <li><a href="#">المدونة</a></li>
-            <li><a href="#">تواصل معنا</a></li>
+            <li><a href="index.html" class="active" data-i18n="nav.home">الرئيسية</a></li>
+            <li><a href="page-arhtml/aboutus-ar.html" data-i18n="nav.about">عن تكامل</a></li> 
+            <li><a href="page-arhtml/ourServices-ar.html" data-i18n="nav.services">خدماتنا</a></li>
+            <li><a href="page-arindex.html#clients-section" data-i18n="nav.clients">عملائنا</a></li>
+            <li><a href="#" data-i18n="nav.blog">المدونة</a></li>
+            <li><a href="contactus-ar.html" data-i18n="nav.contact">تواصل معنا</a></li>
             <li class="separator"></li>
-            <li><a href="index-en.html" class="english-link"><i class="fas fa-globe"></i>ENGLISH</a></li>
-
-            </ul>
+            <li><a href="#" class="english-link" id="lang-toggle-mobile"><i class="fas fa-globe"></i><span data-i18n="nav.lang_mobile">ENGLISH</span></a></li>
+        </ul>
         
         <div class="mobile-social-icons">
              <a href="https://wa.me/966533808888" target="_blank"><i class="fab fa-whatsapp"></i></a>
@@ -72,7 +71,7 @@
         </div>
 
     </div>
-            <h6 style="margin-bottom: -5%; text-align: center;" class="copyright-text">© Copyright 2025, All rights reserved.</h6>
+    <h6 style="margin-bottom: -5%; text-align: center;" class="copyright-text" data-i18n="footer.copyright">© Copyright 2025, All rights reserved.</h6>
 
 </div>
 
@@ -84,59 +83,35 @@
 <main class="hero-section">
     <div class="content-container">
 
-            <div class="abstract-image" 
-                data-aos="fade-left" 
-                data-aos-delay="300">
-        <img src="takamul/sprite/bg.jpg" alt=" " class="graph-placeholder">
-      </div>
-
-            <div class="text-and-buttons" 
-                data-aos="fade-right">
-        <h1>
-          <span> : تكامل التقنية </span> 
-        </h1>
-        <br><br><br>
-        <p>شركــة سعوديــة تقــوم بتوريد وتنفيذ جميع احتياجات المشاريع <br> من ادوات ومعدات وموارد بشرية </p>
-        
-                <div class="cta-buttons" 
-                    data-aos="fade-up" 
-                    data-aos-delay="600">
-          <a href="#services" class="btn btn-discover">اكتشف خدماتنا</a>
-          <a href="#OurVision" class="btn btn-consult"> رؤيتنــا</a>
+        <div class="abstract-image" 
+             data-aos="fade-left" 
+             data-aos-delay="300">
+            <img src="sprite/bg.jpg" alt="صورة تجريدية لخلفية" class="graph-placeholder" data-i18n-alt="hero.img_alt">
         </div>
-      </div>
+
+        <div class="text-and-buttons" 
+             data-aos="fade-right">
+            <h1>
+                <span data-i18n="hero.title_part1"> : تكامل التقنية </span> 
+            </h1>
+            <br><br><br>
+            <p data-i18n="hero.description">شركــة سعوديــة تقــوم بتوريد وتنفيذ جميع احتياجات المشاريع <br> من ادوات ومعدات وموارد بشرية </p>
+            
+            <div class="cta-buttons" 
+                 data-aos="fade-up" 
+                 data-aos-delay="600">
+                <a href="#services" class="btn btn-discover" data-i18n="hero.btn_discover">اكتشف خدماتنا</a>
+                <a href="#OurVision" class="btn btn-consult" data-i18n="hero.btn_vision"> رؤيتنــا</a>
+            </div>
+        </div>
     </div>
-  </main>
+</main>
 
 
-
-
-
-    <section class="services-section" id="services">
-        </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <h1 class="services-title"data-aos="fade-down">خدماتنا </h1>
-
-
-
-
-
-
-
+    <section class="services-section" id="services" style=" margin-top: 10%;">
+       
+ 
+    <h1 class="services-title">خدماتنا</h1>
 
 <div id="serviceModal" class="modal" id="services">
     <div class="modal-content service-content">
@@ -154,7 +129,7 @@
             <img id="modalCenterImage" src="" alt="صورة الخدمة" class="modal-center-image-form">
         </div>
         <form class="registration-form" action="#" method="POST">
-            <h3 class="form-title">  تسجيل مورد</h3>
+            <h3 class="form-title">   تسجيل مورد</h3>
             
             <div class="form-group">
                 <label for="regName" class="form-label">الاسم بالكامل <span class="required">*</span></label>
@@ -187,7 +162,8 @@
 
 
 <div class="form-group">
-    <label for="regDocuments" style="text-align: right;" class="form-label"> صور الوثائق الخاصة بالشركة <span class="required">*</span>
+    <label for="regDocuments" class="form-label">
+        صور الوثائق الخاصة بالشركة <span class="required">*</span>
     </label>
     
     <div class="file-upload-wrapper form-input"> 
@@ -280,21 +256,43 @@
                     <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="11" class="code-digit-input" value=""></td> 
                     <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="12" class="code-digit-input" value=""></td> 
                     <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="13" class="code-digit-input" value=""></td> 
-                    
-                    <td rowspan="6" colspan="4" class="logo-cell-large"> 
-                        <img src="takamul/sprite/logoskidu.png" alt="شعار الشركة" class="company-logo">
-                    </td>
+                    <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="14" class="code-digit-input" value=""></td> 
+                    <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="15" class="code-digit-input" value=""></td> 
+                    <td class="code-digit-input" style="background-color: #008e36; color: white;" >1</td> 
+                    <td class="code-digit-input" style="background-color: #008e36; color: white;" >0</td> 
                 </tr>
-                
+
+
+
+
+
+
                 <tr class="header-details-row-complex">
                     <td colspan="3" class="order-details-complex-key-top">التاريخ:</td>
                     <td colspan="8" class="order-details-complex-value-middle">
                         <input type="date" name="order_date" value="2025-01-01" class="input-field date-input">
                     </td>
-                    <td rowspan="3" colspan="9" class="main-title-section-complex"> 
+
+
+
+
+                    <td rowspan="3" colspan="6" class="main-title-section-complex"> 
                         <h3 class="main-title-text">نموذج عرض سعر</h3>
                     </td>
+
+                <td rowspan="5" colspan="4" class="logo-cell-large"> 
+                        <img src="sprite/logoskidu.png" alt="شعار الشركة" class="company-logo">
+                    </td>
+
+
                 </tr>
+
+
+
+
+
+
+
                 <tr class="order-info-row">
                     <td colspan="3" class="order-details-complex-key-middle">مُعد الطلب:</td>
                     <td colspan="8" class="order-details-complex-value-middle">
@@ -329,7 +327,7 @@
 
 
 
-                
+              
 
                 <tr class="section-divider-row section-items-header">
 <td rowspan="15" colspan="1" class="merged-vertical-cell items-label-vertical merged-left-side section-top-border">البنود المطلوبة</td>
@@ -920,254 +918,241 @@
 <div class="row">
 
 
-     <div class="column">
-  <div class="card">
-        <div class="service-card open-inquiry-modal-from-card" 
-            data-service-name="تسجيل مورد" 
-            data-modal-target="modal-tsjeel-moured"
-            data-aos="zoom-in" 
-            data-aos-delay="100">
-      <div class="card-image-wrapper corner-position">
-        <img src="takamul/sprite/BusinessValuation1.png" alt="صورة افتراضية" class="service-card-image img-default">
-        <img src="takamul/sprite/BusinessValuation2.png" alt="صورة عند التحويم" class="service-card-image img-hover">
-      </div>
-      <h3>تسجيل مورد</h3>
-      <p> يستخدم هذا الجدول لتسجيل مورد جديد</p>
-      <a href="#" class="read-more" 
-       data-modal-title="تسجيل مورد: " 
-       data-modal-content="يقوم المورد بتسجيل جميع معلوماته والرفع لنا حيث يتم منحه اسم مستخدم ورقم سري للدخول بعد الموافقة  "
-       onclick="event.stopPropagation();">
-        أقرأ المزيد
-      </a>
+  <div class="column">
+    <div class="card">
+<div class="service-card open-inquiry-modal-from-card" data-service-name="تسجيل مورد"data-modal-target="modal-tsjeel-moured">
+            <div  class="card-image-wrapper corner-position">
+                <img  src="sprite/BusinessValuation1.png" alt="صورة افتراضية" class="service-card-image img-default">
+                <img  src="sprite/BusinessValuation2.png" alt="صورة عند التحويم" class="service-card-image img-hover">
+            </div>
+            <h3>تسجيل مورد</h3>
+            <p> يستخدم هذا الجدول لتسجيل مورد جديد</p>
+            <a href="#" class="read-more" 
+               data-modal-title="تسجيل مورد: التفاصيل الكاملة" 
+               data-modal-content="**التفاصيل المخصصة للبطاقة 1:** هذه الخدمة هي خطوتك الأولى لدمج أي مورد جديد. يتم إنشاء جدول زمني للتحقق من البيانات (منتج، معدة، أو موظف). يتم التحقق من جميع المعايير اللازمة للجودة والمطابقة قبل إصدار الموافقة النهائية."
+               onclick="event.stopPropagation();">
+                أقرأ المزيد
+            </a>
+        </div>
     </div>
   </div>
- </div>
 
 
-     <div class="column">
-  <div class="card">
-    <div class="service-card open-inquiry-modal-from-card" 
-            data-service-name="تسعير" 
-            data-modal-target="modal-tas3eer"
-            data-aos="zoom-in" 
-            data-aos-delay="200">
-      <div class="card-image-wrapper corner-position">
-        <img src="takamul/sprite/Feasibility Studies.png" alt="صورة افتراضية" class="service-card-image img-default">
-        <img src="takamul/sprite/Feasibility Studies2.png" alt="صورة عند التحويم" class="service-card-image img-hover">
-      </div>
-      <h3>تسعير</h3>
-      <p>يتم ارسال طلب التسعير والتعامل مع كل ما يخص التسعير</p>
-      <a href="#" class="read-more" 
-       data-modal-title="تسعير: آلية العمل والتنافسية" 
-       data-modal-content="**التفاصيل المخصصة للبطاقة 2:** خدمة التسعير تتضمن إنشاء طلب عرض أسعار (RFQ) احترافي، وإرساله للموردين المتخصصين. يتم تحديد مهلة زمنية صارمة للرد، تليها عملية تحليل مقارن للأسعار لضمان اختيار العرض الأفضل من ناحية التكلفة والجودة."
-       onclick="event.stopPropagation();">
-        أقرأ المزيد
-      </a>
+
+
+  <div class="column">
+    <div class="card">
+        <div class="service-card open-inquiry-modal-from-card" data-service-name="تسعير" data-modal-target="modal-tas3eer">
+            <div class="card-image-wrapper corner-position">
+                <img src="sprite/Feasibility Studies.png" alt="صورة افتراضية" class="service-card-image img-default">
+                <img src="sprite/Feasibility Studies2.png" alt="صورة عند التحويم" class="service-card-image img-hover">
+            </div>
+            <h3>تسعير</h3>
+            <p>يتم ارسال طلب التسعير والتعامل مع كل ما يخص التسعير</p>
+            <a href="#" class="read-more" 
+               data-modal-title="تسعير: آلية العمل والتنافسية" 
+               data-modal-content="**التفاصيل المخصصة للبطاقة 2:** خدمة التسعير تتضمن إنشاء طلب عرض أسعار (RFQ) احترافي، وإرساله للموردين المتخصصين. يتم تحديد مهلة زمنية صارمة للرد، تليها عملية تحليل مقارن للأسعار لضمان اختيار العرض الأفضل من ناحية التكلفة والجودة."
+               onclick="event.stopPropagation();">
+                أقرأ المزيد
+            </a>
+        </div>
     </div>
   </div>
- </div>
 
 
-     <div class="column">
-  <div class="card">
 
-    <div class="service-card open-inquiry-modal-from-card" 
-            data-service-name="نقليات ومعدات"
-            data-modal-target="modal-naqleyat"
-            data-aos="zoom-in" 
-            data-aos-delay="300">
-      <div class="card-image-wrapper corner-position">
-        <img src="takamul/sprite/Due Diligence.png" alt="صورة افتراضية" class="service-card-image img-default">
-        <img src="takamul/sprite/Due Diligence2.png" alt="صورة عند التحويم" class="service-card-image img-hover">
-      </div>
-      <h3>نقليات ومعدات</h3>
-      <p>يتم عمل جدول تسجيل المعدات ونوعها وسنة صنعها والمنطقة المتواجد فيها وهوية السائق</p>
-      <a href="#" class="read-more" 
-       data-modal-title="تقنيات ومعدات: التوثيق الشامل" 
-       data-modal-content="**التفاصيل المخصصة للبطاقة 3:** هذه الخدمة تركز على أرشفة وتتبع أصولك المادية. يتم تسجيل كل قطعة معدات برقم تسلسلي، ونوعها، وتاريخ الصنع، ومنطقتها الجغرافية الحالية، بالإضافة إلى ربطها ببطاقة هوية السائق أو المشغل المسؤول."
-       onclick="event.stopPropagation();">
-        أقرأ المزيد
-      </a>
+
+
+  <div class="column">
+    <div class="card">
+
+        <div class="service-card open-inquiry-modal-from-card" data-service-name="نقليات ومعدات"data-modal-target="modal-naqleyat">
+            <div class="card-image-wrapper corner-position">
+                <img src="sprite/Due Diligence.png" alt="صورة افتراضية" class="service-card-image img-default">
+                <img src="sprite/Due Diligence2.png" alt="صورة عند التحويم" class="service-card-image img-hover">
+            </div>
+            <h3>نقليات ومعدات</h3>
+            <p>يتم عمل جدول تسجيل المعدات ونوعها وسنة صنعها والمنطقة المتواجد فيها وهوية السائق</p>
+            <a href="#" class="read-more" 
+               data-modal-title="تقنيات ومعدات: التوثيق الشامل" 
+               data-modal-content="**التفاصيل المخصصة للبطاقة 3:** هذه الخدمة تركز على أرشفة وتتبع أصولك المادية. يتم تسجيل كل قطعة معدات برقم تسلسلي، ونوعها، وتاريخ الصنع، ومنطقتها الجغرافية الحالية، بالإضافة إلى ربطها ببطاقة هوية السائق أو المشغل المسؤول."
+               onclick="event.stopPropagation();">
+                أقرأ المزيد
+            </a>
+        </div>
     </div>
   </div>
- </div>
 
 
-     <div class="column">
-  <div class="card">
-    <div class="service-card open-inquiry-modal-from-card" 
-            data-service-name="طلب موارد بشرية" 
-            data-modal-target="modal-mowared-bashareya"
-            data-aos="zoom-in" 
-            data-aos-delay="400">
-      <div class="card-image-wrapper corner-position">
-        <img src="takamul/sprite/Funding Arrangement.png" alt="صورة افتراضية" class="service-card-image img-default">
-        <img src="takamul/sprite/Funding Arrangement2.png" alt="صورة عند التحويم" class="service-card-image img-hover">
-      </div>
-      <h3>طلب موارد بشرية</h3>
-      <p> يتم تعبئة النموذج كاملا والتأكد من صحة البيانات من قبل الموظف</p>
-      <a href="#" class="read-more" 
-       data-modal-title="الموارد البشرية: التحديد والتوظيف" 
-       data-modal-content="**التفاصيل المخصصة للبطاقة 4:** يتم استخدام نموذج موحد لجمع كافة البيانات الشخصية والمهنية المطلوبة للعامل (المهنة، الموقع، نوعية العمل). يهدف هذا الإجراء إلى تسهيل عملية التوظيف والفرز وتوفير سجل كامل للموارد البشرية العاملة."
-       onclick="event.stopPropagation();">
-        أقرأ المزيد
-      </a>
+
+
+
+  <div class="column">
+    <div class="card">
+        <div class="service-card open-inquiry-modal-from-card" data-service-name="طلب موارد بشرية" data-modal-target="modal-mowared-bashareya">
+            <div class="card-image-wrapper corner-position">
+                <img src="sprite/Funding Arrangement.png" alt="صورة افتراضية" class="service-card-image img-default">
+                <img src="sprite/Funding Arrangement2.png" alt="صورة عند التحويم" class="service-card-image img-hover">
+            </div>
+            <h3>طلب موارد بشرية</h3>
+            <p> يتم تعبئة النموذج كاملا والتأكد من صحة البيانات من قبل الموظف</p>
+            <a href="#" class="read-more" 
+               data-modal-title="الموارد البشرية: التحديد والتوظيف" 
+               data-modal-content="**التفاصيل المخصصة للبطاقة 4:** يتم استخدام نموذج موحد لجمع كافة البيانات الشخصية والمهنية المطلوبة للعامل (المهنة، الموقع، نوعية العمل). يهدف هذا الإجراء إلى تسهيل عملية التوظيف والفرز وتوفير سجل كامل للموارد البشرية العاملة."
+               onclick="event.stopPropagation();">
+                أقرأ المزيد
+            </a>
+        </div>
     </div>
   </div>
- </div>
 
 
-      <div class="column">
-  <div class="card">
-
-    <div class="service-card open-inquiry-modal-from-card" 
-            data-service-name="تقارير"
-            data-modal-target="modal-taqareer"
-            data-aos="zoom-in" 
-            data-aos-delay="500">
-      <div class="card-image-wrapper corner-position">
-        <img src="takamul/sprite/Reports1.png" alt="صورة افتراضية" class="service-card-image img-default">
-        <img src="takamul/sprite/Reports2.png" alt="صورة عند التحويم" class="service-card-image img-hover">
-      </div>
-      <h3>تقارير</h3>
-      <p>عمل تقرير شامل عن جميع الأعمال وربطها بقناة واحدة</p>
-      <a href="#" class="read-more" 
-       data-modal-title="التقارير: الإعداد والمتابعة" 
-       data-modal-content="**التفاصيل المخصصة للبطاقة 5:** نقدم خدمة إعداد تقارير شاملة وموحدة. يتم جمع البيانات من مختلف الأقسام وربطها في قناة عرض واحدة (Dashboard) لتوفير رؤية متكاملة وسهلة التحليل لجميع أعمال المنشأة."
-       onclick="event.stopPropagation();">
-        أقرأ المزيد
-      </a>
-    </div>
-    
-  </div>
- </div>
 
 
-      <div class="column">
-  <div class="card">
-        <div class="service-card open-inquiry-modal-from-card" 
-            data-service-name="أعمال"
-            data-modal-target="modal-a3mal"
-            data-aos="zoom-in" 
-            data-aos-delay="600">
-      <div class="card-image-wrapper corner-position">
-        <img src="takamul/sprite/Business1.png" alt="صورة افتراضية" class="service-card-image img-default">
-        <img src="takamul/sprite/Business2.png" alt="صورة عند التحويم" class="service-card-image img-hover">
-      </div>
-      <h3>أعمال</h3>
-      <p>عمل قناة مشاهدة جميع الأعمال اليومية أو الاسبوعية عن قرب</p>
-      <a href="#" class="read-more" 
-       data-modal-title="الأعمال: الرؤية المباشرة" 
-       data-modal-content="**التفاصيل المخصصة للبطاقة 6:** نوفر منصة (قناة) تتيح لك المتابعة المباشرة والدقيقة لجميع الأعمال المنفذة سواء كانت يومية أو أسبوعية. الهدف هو تعزيز الشفافية وتسهيل عملية التدقيق والمراقبة عن بعد."
-       onclick="event.stopPropagation();">
-        أقرأ المزيد
-      </a>
+
+    <div class="column">
+    <div class="card">
+
+        <div class="service-card open-inquiry-modal-from-card" data-service-name="تقارير"data-modal-target="modal-taqareer">
+            <div class="card-image-wrapper corner-position">
+                <img src="sprite/Reports1.png" alt="صورة افتراضية" class="service-card-image img-default">
+                <img src="sprite/Reports2.png" alt="صورة عند التحويم" class="service-card-image img-hover">
+            </div>
+            <h3>تقارير</h3>
+            <p>عمل تقرير شامل عن جميع الأعمال وربطها بقناة واحدة</p>
+            <a href="#" class="read-more" 
+               data-modal-title="التقارير: الإعداد والمتابعة" 
+               data-modal-content="**التفاصيل المخصصة للبطاقة 5:** نقدم خدمة إعداد تقارير شاملة وموحدة. يتم جمع البيانات من مختلف الأقسام وربطها في قناة عرض واحدة (Dashboard) لتوفير رؤية متكاملة وسهلة التحليل لجميع أعمال المنشأة."
+               onclick="event.stopPropagation();">
+                أقرأ المزيد
+            </a>
+        </div>
     </div>
   </div>
- </div>
 
 
-      <div class="column">
-  <div class="card ">
-    <div class="service-card open-inquiry-modal-from-card" 
-            data-service-name="مراجعة الأداء التنفيذي"
-            data-modal-target="modal-ada2-tanfeezy"
-            data-aos="zoom-in" 
-            data-aos-delay="700">
-      <div class="card-image-wrapper corner-position">
-        <img src="takamul/sprite/Executive.png" alt="صورة افتراضية" class="service-card-image img-default">
-        <img src="takamul/sprite/Executive2.png" alt="صورة عند التحويم" class="service-card-image img-hover">
-      </div>
-      <h3> طلب عرض السعر </h3>
-      <p>في حالة طلب تسعير من الشركة ترسل الطلبات في هذه المجموعة ويكون النموذج </p>
-      <a href="#" class="read-more" 
-       data-modal-title="..........."
-       data-modal-content="**........"
-       onclick="event.stopPropagation();">
-        أقرأ المزيد
-      </a>
+
+    <div class="column">
+    <div class="card">
+<div class="service-card open-inquiry-modal-from-card" data-service-name="أعمال"data-modal-target="modal-a3mal">
+            <div class="card-image-wrapper corner-position">
+                <img src="sprite/Business1.png" alt="صورة افتراضية" class="service-card-image img-default">
+                <img src="sprite/Business2.png" alt="صورة عند التحويم" class="service-card-image img-hover">
+            </div>
+            <h3>أعمال</h3>
+            <p>عمل قناة مشاهدة جميع الأعمال اليومية أو الاسبوعية عن قرب</p>
+            <a href="#" class="read-more" 
+               data-modal-title="الأعمال: الرؤية المباشرة" 
+               data-modal-content="**التفاصيل المخصصة للبطاقة 6:** نوفر منصة (قناة) تتيح لك المتابعة المباشرة والدقيقة لجميع الأعمال المنفذة سواء كانت يومية أو أسبوعية. الهدف هو تعزيز الشفافية وتسهيل عملية التدقيق والمراقبة عن بعد."
+               onclick="event.stopPropagation();">
+                أقرأ المزيد
+            </a>
+        </div>
     </div>
   </div>
- </div>
 
 
-      <div class="column">
-  <div class="card">
 
-    <div class="service-card open-inquiry-modal-from-card" 
-            data-service-name="أرشف"
-            data-modal-target="modal-arsheef"
-            data-aos="zoom-in" 
-            data-aos-delay="800">
-      <div class="card-image-wrapper corner-position">
-        <img src="takamul/sprite/Business Development.png " alt="صورة افتراضية" class="service-card-image img-default">
-        <img src="takamul/sprite/Business Development2.png " alt="صورة عند التحويم" class="service-card-image img-hover">
-      </div>
-      <h3>أرشيف</h3>
-      <p>يبحث عن جميع البنود وأعمال الشركة...</p>
-      <a href="#" class="read-more" 
-       data-modal-title="أرشف: حلول الأرشيف والبحث" 
-       data-modal-content="**التفاصيل المخصصة للبطاقة 9:** خدمة متقدمة للبحث والتنقيب في أرشيف الشركة. تتيح لك العثور بسرعة على أي بند، مستند، أو سجل عمل قديم، مما يسهل عملية التدقيق ويقلل من الوقت المستغرق في استرجاع المعلومات."
-       onclick="event.stopPropagation();">
-        أقرأ المزيد
-      </a>
+
+
+
+
+
+
+
+
+
+    <div class="column">
+    <div class="card ">
+        <div class="service-card open-inquiry-modal-from-card" data-service-name="مراجعة الأداء التنفيذي"data-modal-target="modal-ada2-tanfeezy">
+            <div class="card-image-wrapper corner-position">
+                <img src="sprite/Executive.png" alt="صورة افتراضية" class="service-card-image img-default">
+                <img src="sprite/Executive2.png" alt="صورة عند التحويم" class="service-card-image img-hover">
+            </div>
+            <h3>  طلب عرض السعر </h3>
+            <p>في حالة طلب تسعير من الشركة ترسل الطلبات في هذه المجموعة ويكون النموذج </p>
+            <a href="#" class="read-more" 
+               data-modal-title="..........."
+               data-modal-content="**........"
+               onclick="event.stopPropagation();">
+                أقرأ المزيد
+            </a>
+        </div>
     </div>
   </div>
- </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="column">
+    <div class="card">
+
+        <div class="service-card open-inquiry-modal-from-card" data-service-name="أرشف"data-modal-target="modal-arsheef">
+            <div class="card-image-wrapper corner-position">
+                <img src="sprite/Business Development.png " alt="صورة افتراضية" class="service-card-image img-default">
+                <img src="sprite/Business Development2.png " alt="صورة عند التحويم" class="service-card-image img-hover">
+            </div>
+            <h3>أرشيف</h3>
+            <p>يبحث عن جميع البنود وأعمال الشركة...</p>
+            <a href="#" class="read-more" 
+               data-modal-title="أرشف: حلول الأرشيف والبحث" 
+               data-modal-content="**التفاصيل المخصصة للبطاقة 9:** خدمة متقدمة للبحث والتنقيب في أرشيف الشركة. تتيح لك العثور بسرعة على أي بند، مستند، أو سجل عمل قديم، مما يسهل عملية التدقيق ويقلل من الوقت المستغرق في استرجاع المعلومات."
+               onclick="event.stopPropagation();">
+                أقرأ المزيد
+            </a>
+        </div>
+    </div>
+  </div>
 
 
 
 </div>
 
-
-
-
-
-
-
-
-
-
-
-<section  class="vision-section">
+<section class="vision-section">
+ 
+    <div class="vision-container" id="OurVision">
   
-  <div class="vision-container" id="OurVision">
-    
         <div class="vision-image-wrapper" 
             data-aos="fade-left" 
             data-aos-delay="200">
-      <img src="takamul/sprite/vision.jpg" alt="نسهل لك الطلبات" class="vision-image">
-    </div>
-    
-    <div class="vision-content">
-      
+            <img src="sprite/vision.jpg" alt="نسهل لك الطلبات" class="vision-image" data-i18n-alt="vision.img_alt">
+        </div>
+        
+        <div class="vision-content">
+   
             <h1 style="margin-bottom: 10%; font-size: 30px;" class="section-title-right"
-                data-aos="fade-right"> 
+                data-aos="fade-right"
+                data-i18n="vision.main_title"> 
                 نسهل لك الطلبات 
             </h1>
-      
+   
             <div class="vision-item" 
                 data-aos="fade-up" 
                 data-aos-delay="400">
-        <h3 class="vision-title "><i class="far fa-eye"></i>رؤيتنا</h3>
-        <p>ان نكون الشريك الأول في توريد طلباتكم بالمشاريع.</p>
-      </div>
-      
+                <h3 class="vision-title " data-i18n="vision.our_vision_title"><i class="far fa-eye"></i>رؤيتنا</h3>
+                <p data-i18n="vision.our_vision_text">ان نكون الشريك الأول في توريد طلباتكم بالمشاريع.</p>
+            </div>
+            
             <div class="vision-item" 
                 data-aos="fade-up" 
                 data-aos-delay="600">
-        <h3 class="vision-title"><i class="fas fa-handshake"></i>قيمنا </h3>
-        <p>الشفافية الجودة سرعة الاستجابة</p>
-      </div>
+                <h3 class="vision-title" data-i18n="vision.our_values_title"><i class="fas fa-handshake"></i>قيمنا </h3>
+                <p data-i18n="vision.our_values_text">الشفافية الجودة سرعة الاستجابة</p>
+            </div>
+        </div>
+  
+
     </div>
-    
-
-  </div>
 </section>
-
-
-
-
 
 
 
@@ -1179,435 +1164,246 @@
 
 
 <section class="clients-section" dir="rtl" id="clients-section">
+ 
+    <h1 class="clients-title" data-aos="fade-down" data-i18n="clients.main_title">عملاؤنا</h1>
+ 
+    <div class="customer-slider"> 
   
-    <h1 class="clients-title" data-aos="fade-down">عملاؤنا</h1>
-  
-  <div class="customer-slider"> 
-    
+        <a href="#" class="logo-link" data-aos="fade-up" data-aos-delay="50">
+            <div class="logo-item"><img src="sprite/madinah.png" alt="أمانة منطقة المدينة المنورة" data-i18n-alt="clients.madinah_alt"></div>
+        </a>
         
-    <a href="#" class="logo-link" data-aos="fade-up" data-aos-delay="50">
-      <div class="logo-item"><img src="takamul/sprite/madinah.png" alt="أمانة منطقة المدينة المنورة"></div>
-    </a>
-    
-    <a href="#" class="logo-link" data-aos="fade-up" data-aos-delay="100">
-      <div class="logo-item"><img src="takamul/sprite/kafala.png" alt="كفالة"></div>
-    </a>
-    
-    <a href="#" class="logo-link" data-aos="fade-up" data-aos-delay="150">
-      <div class="logo-item"><img src="takamul/sprite/hadi.png" alt="Hadi Golf Cart"></div>
-    </a>
+        <a href="#" class="logo-link" data-aos="fade-up" data-aos-delay="100">
+            <div class="logo-item"><img src="sprite/kafala.png" alt="كفالة" data-i18n-alt="clients.kafala_alt"></div>
+        </a>
+        
+        <a href="#" class="logo-link" data-aos="fade-up" data-aos-delay="150">
+            <div class="logo-item"><img src="sprite/hadi.png" alt="Hadi Golf Cart" data-i18n-alt="clients.hadi_alt"></div>
+        </a>
 
-    <a href="#" class="logo-link" data-aos="fade-up" data-aos-delay="200">
-      <div class="logo-item"><img src="takamul/sprite/rakas.png" alt="الأركان الثامنة"></div>
-    </a>
+        <a href="#" class="logo-link" data-aos="fade-up" data-aos-delay="200">
+            <div class="logo-item"><img src="sprite/rakas.png" alt="الأركان الثامنة" data-i18n-alt="clients.rakas_alt"></div>
+        </a>
 
-    <a href="#" class="logo-link" data-aos="fade-up" data-aos-delay="250">
-      <div class="logo-item"><img src="takamul/sprite/asass.png" alt="شركة أساسات التربة العربية للمقاولات"></div>
-    </a>
-    
-    <a href="#" class="logo-link" data-aos="fade-up" data-aos-delay="300">
-      <div class="logo-item"><img src="takamul/sprite/pnc.png" alt="PNC Power Networks Co."></div>
-    </a>
+        <a href="#" class="logo-link" data-aos="fade-up" data-aos-delay="250">
+            <div class="logo-item"><img src="sprite/asass.png" alt="شركة أساسات التربة العربية للمقاولات" data-i18n-alt="clients.asass_alt"></div>
+        </a>
+        
+        <a href="#" class="logo-link" data-aos="fade-up" data-aos-delay="300">
+            <div class="logo-item"><img src="sprite/pnc.png" alt="PNC Power Networks Co." data-i18n-alt="clients.pnc_alt"></div>
+        </a>
 
-    <a href="#" class="logo-link" data-aos="fade-up" data-aos-delay="350">
-      <div class="logo-item"><img src="takamul/sprite/dgj.png" alt="DGJ"></div>
-    </a>
-    
-    <a href="#" class="logo-link" data-aos="fade-up" data-aos-delay="400">
-      <div class="logo-item"><img src="takamul/sprite/read.png" alt="هيئة ملكية لمدينة الرياض"></div>
-    </a>
-    
-  </div>
+        <a href="#" class="logo-link" data-aos="fade-up" data-aos-delay="350">
+            <div class="logo-item"><img src="sprite/dgj.png" alt="DGJ" data-i18n-alt="clients.dgj_alt"></div>
+        </a>
+        
+        <a href="#" class="logo-link" data-aos="fade-up" data-aos-delay="400">
+            <div class="logo-item"><img src="sprite/read.png" alt="هيئة ملكية لمدينة الرياض" data-i18n-alt="clients.read_alt"></div>
+        </a>
+        
+    </div>
 </section>
 
-
-
-
-
-
-
-
-
-
 <section class="why-takamul-section" dir="rtl">
-    
-    <h1 class="why-takamul-title" data-aos="fade-up">لماذا تكامل؟</h1>
-    
+  
+    <h1 class="why-takamul-title" data-aos="fade-up" data-i18n="why_takamul.main_title">لماذا تكامل؟</h1>
+  
     <div class="features-grid">
-        
+    
         <div class="feature-card card-1" data-aos="fade-right" data-aos-delay="200">
             <div class="title-group">
                 <div class="feature-icon">
-                    <img style="width: 90%; height: 90%;" src="takamul/sprite/icon-1.png" alt="أيقونة شُركاء">
+                    <img style="width: 90%; height: 90%;" src="sprite/icon-1.png" alt="أيقونة شُركاء" data-i18n-alt="why_takamul.icon1_alt">
                 </div>
-                <h3 class="feature-title green-main-title">شركاء</h3>
+                <h3 class="feature-title green-main-title" data-i18n="why_takamul.feature1_title">شركاء</h3>
             </div>
             
-            <p class="feature-description gray-sub-text">نعمل مع منشآت حكومية وخاصة، ونلبي احتياجات كل عميل.</p>
+            <p class="feature-description gray-sub-text" data-i18n="why_takamul.feature1_desc">نعمل مع منشآت حكومية وخاصة، ونلبي احتياجات كل عميل.</p>
         </div>
 
 
         <div class="feature-card card-2" data-aos="fade-left" data-aos-delay="400">
             <div class="title-group">
                 <div class="feature-icon">
-                    <img style="width: 90%; height: 90%;" src="takamul/sprite/icon-2.png" alt="أيقونة مُرخصة رسميًا">
+                    <img style="width: 90%; height: 90%;" src="sprite/icon-2.png" alt="أيقونة مُرخصة رسميًا" data-i18n-alt="why_takamul.icon2_alt">
                 </div>
-                <h3 class="feature-title green-main-title">مرخصة رسمياً</h3>
+                <h3 class="feature-title green-main-title" data-i18n="why_takamul.feature2_title">مرخصة رسمياً</h3>
             </div>
-            <p class="feature-description gray-sub-text"></p>
+            <p class="feature-description gray-sub-text" data-i18n="why_takamul.feature2_desc">شركة مسجلة ورسمية تضمن حقوقك وتعاملاتك.</p>
         </div>
-
 
 
         <div class="feature-card card-3" data-aos="fade-right" data-aos-delay="600">
             <div class="title-group">
                 <div class="feature-icon">
-                    <img style="width: 90%; height: 90%;" src="takamul/sprite/icon-3.png" alt="أيقونة خبرات متنوعة">
+                    <img style="width: 90%; height: 90%;" src="sprite/icon-3.png" alt="أيقونة خبرات متنوعة" data-i18n-alt="why_takamul.icon3_alt">
                 </div>
-                <h3 class="feature-title green-main-title">خبرات متنوعة</h3>
+                <h3 class="feature-title green-main-title" data-i18n="why_takamul.feature3_title">خبرات متنوعة</h3>
             </div>
             
-            <p class="feature-description gray-sub-text">يضم فريقنا خبراء مهندسين ومستشارين بخبرة في السوق المحلي والعالمي.</p>
+            <p class="feature-description gray-sub-text" data-i18n="why_takamul.feature3_desc">يضم فريقنا خبراء مهندسين ومستشارين بخبرة في السوق المحلي والعالمي.</p>
         </div>
         
         <div class="feature-card card-4" data-aos="fade-left" data-aos-delay="800">
             <div class="title-group">
                 <div class="feature-icon">
-                    <img style="width: 90%; height: 90%;" src="takamul/sprite/icon-4.png" alt="أيقونة منهجية دقيقة">
+                    <img style="width: 90%; height: 90%;" src="sprite/icon-4.png" alt="أيقونة منهجية دقيقة" data-i18n-alt="why_takamul.icon4_alt">
                 </div>
-                <h3 class="feature-title green-main-title">منهجية دقيقة</h3>
+                <h3 class="feature-title green-main-title" data-i18n="why_takamul.feature4_title">منهجية دقيقة</h3>
             </div>
             
-            <p class="feature-description gray-sub-text">نستخدم معايير تقييم معتمدة لضمان نتائج موثوقة .</p>
+            <p class="feature-description gray-sub-text" data-i18n="why_takamul.feature4_desc">نستخدم معايير تقييم معتمدة لضمان نتائج موثوقة .</p>
         </div>
 
     </div>
 </section>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <div class="page-container">
     <div class="form-wrapper">
-        <form class="contact-form">
+        <form action="https://formsubmit.co/tkamel7050@gmail.com" method="POST" id="inquiryForm" class="contact-form">
             
-<form action="https://formsubmit.co/tkamel7050@gmail.com" method="POST" id="inquiryForm" class="contact-form">
-    
-    <div class="form-row first-row">
-        <div class="form-group full-width-field" data-input-name="fullName">
-            <label for="fullName">الاسم بالكامل <span class="required">*</span></label>
-            <input type="text" id="fullName" name="الاسم_بالكامل" placeholder="أكتب أسمك بالكامل" required>
-            <span class="error-message">هذا الحقل مطلوب</span> 
-        </div>
-    </div>
-    
+            <div class="form-row first-row">
+                <div class="form-group full-width-field" data-input-name="fullName">
+                    <label for="fullName" data-i18n="contact.full_name_label">الاسم بالكامل <span class="required">*</span></label>
+                    <input type="text" id="fullName" name="الاسم_بالكامل" placeholder="أكتب أسمك بالكامل" required data-i18n-placeholder="contact.full_name_placeholder">
+                    <span class="error-message" data-i18n="contact.error_required">هذا الحقل مطلوب</span> 
+                </div>
+            </div>
+            
             <div class="form-row split-row">
                 <div class="form-group large-half">
-                    <label for="email">البريد الإلكتروني <span class="required">*</span></label>
-                    <input type="email" id="email" placeholder="بريدك الإلكتروني" required>
-                    <span class="error-message">هذا الحقل مطلوب</span>
+                    <label for="email" data-i18n="contact.email_label">البريد الإلكتروني <span class="required">*</span></label>
+                    <input type="email" id="email" name="البريد_الإلكتروني" placeholder="بريدك الإلكتروني" required data-i18n-placeholder="contact.email_placeholder">
+                    <span class="error-message" data-i18n="contact.error_required">هذا الحقل مطلوب</span>
                 </div>
                 <div class="form-group small-half">
-                    <label for="phone">رقم الهاتف <span class="required">*</span></label>
-                    <input type="tel" id="phone" placeholder="رقم هاتفك" required>
-                    <span class="error-message">هذا الحقل مطلوب</span>
+                    <label for="phone" data-i18n="contact.phone_label">رقم الهاتف <span class="required">*</span></label>
+                    <input type="tel" id="phone" name="رقم_الهاتف" placeholder="رقم هاتفك" required data-i18n-placeholder="contact.phone_placeholder">
+                    <span class="error-message" data-i18n="contact.error_required">هذا الحقل مطلوب</span>
                 </div>
             </div>
 
             <div class="form-row full-row">
                 <div class="form-group full-width-field">
-                    <label for="service">أختار الخدمة التي تود الإستفسار عنها <span class="required">*</span></label>
-                    <select id="service" required>
-                        <option value="" disabled selected>أختار الخدمة</option>
-                        <option value="supplier">تسجيل مورد</option>
-                        <option value="pricing">تسعير</option>
-                        <option value="equipment">نقليات ومعدات</option>
-                        <option value="HR Request">طلب موارد بشرية  </option>
-                        <option value="Reports">تقارير</option>
-                        <option value="Business"> اعمال</option>
-                        <option value="Executive Performance Review">مراجعة الاداء التنفيذي</option>
-                        <option value="Archive"> ارشيف</option>
-                        <span class="error-message">هذا الحقل مطلوب</span>
+                    <label for="service" data-i18n="contact.service_select_label">أختار الخدمة التي تود الإستفسار عنها <span class="required">*</span></label>
+                    <select id="service" name="الخدمة_المطلوبة" required>
+                        <option value="" disabled selected data-i18n="contact.select_default">أختار الخدمة</option>
+                        <option value="supplier" data-i18n="card.supplier_reg.title">تسجيل مورد</option>
+                        <option value="pricing" data-i18n="card.pricing.title">تسعير</option>
+                        <option value="equipment" data-i18n="card.transport.title">نقليات ومعدات</option>
+                        <option value="HR Request" data-i18n="card.hr_request.title">طلب موارد بشرية </option>
+                        <option value="Reports" data-i18n="card.reports.title">تقارير</option>
+                        <option value="Business" data-i18n="card.business.title"> اعمال</option>
+                        <option value="Executive Performance Review" data-i18n="card.rfq.title">طلب عرض السعر</option>
+                        <option value="Archive" data-i18n="card.archive.title"> أرشيف</option>
                     </select>
+                    <span class="error-message" data-i18n="contact.error_required">هذا الحقل مطلوب</span>
                 </div>
             </div>
             
-<div class="form-row full-row">
-    <div class="form-group full-width-field">
-        <label for="inquiry">إستفسارك <span class="required">*</span></label>
-        <textarea id="inquiry" rows="10" placeholder="أكتب استفسارك" required></textarea> 
-        <span class="error-message">هذا الحقل مطلوب</span>
-    </div>
-</div>
+            <div class="form-row full-row">
+                <div class="form-group full-width-field">
+                    <label for="inquiry" data-i18n="contact.inquiry_label">إستفسارك <span class="required">*</span></label>
+                    <textarea id="inquiry" name="الاستفسار" rows="10" placeholder="أكتب استفسارك" required data-i18n-placeholder="contact.inquiry_placeholder"></textarea> 
+                    <span class="error-message" data-i18n="contact.error_required">هذا الحقل مطلوب</span>
+                </div>
+            </div>
 
             <div class="submit-row">
-                <button type="submit" class="submit-btn">إرسال</button>
+                <button type="submit" class="submit-btn" data-i18n="contact.submit_btn">إرسال</button>
             </div>
             
         </form>
     </div>
 </div>
 
-
-
-
-
-
-
-
 <footer class="main-footer">
     <div class="footer-container">
 
         <div class="footer-info">
             <div class="footer-logo">
-        <img src="takamul/sprite/logo (1).png" alt="takamul" style="max-width: 150px;">
+                <img src="sprite/logo (1).png" alt="takamul" style="max-width: 150px;">
             </div>
-            <p class="company-desc">
+            <p class="company-desc" data-i18n="footer.description">
                 شركة سعودية تقوم بتوريد جميع احتياجات المشاريع من عدد وادوات ومعدات وموارد بشرية 
             </p>
 
         </div>
 
         <div class="footer-links-group">
-            <h4 class="footer-heading">روابط هامة</h4>
+            <h4 class="footer-heading" data-i18n="footer.links_heading">روابط هامة</h4>
             <ul class="footer-links">
-                <li><a href="index.html">الرئيسية</a></li>
-                <li><a href="Aboutus-ar.html">عن تكامل</a></li>
-                <li><a href="OurServices-ar.html">خدماتنا</a></li>
-                <li><a href="#">الأسئلة الشائعة</a></li>
-                <li><a href="#">سياسة الخصوصية</a></li>
+                <li><a href="index.html" data-i18n="nav.home">الرئيسية</a></li>
+                <li><a href="aboutus-ar.html" data-i18n="nav.about">عن تكامل</a></li>
+                <li><a href="ourServices-ar.html" data-i18n="nav.services">خدماتنا</a></li>
+                <li><a href="#" data-i18n="footer.faq">الأسئلة الشائعة</a></li>
+                <li><a href="#" data-i18n="footer.privacy">سياسة الخصوصية</a></li>
             </ul>
         </div>
 
-<div class="footer-contact">
-    <h4 class="footer-heading">تواصل معنا</h4>
-    
-    <a href="#" target="_blank" class="contact-item-link">
-        <span>المملكة العربية السعودية</span>
-        <div class="social-icon-link-details">
-            <i class="fas fa-map-marker-alt"></i>
+        <div class="footer-contact">
+            <h4 class="footer-heading" data-i18n="footer.contact_heading">تواصل معنا</h4>
+            
+            <a href="#" target="_blank" class="contact-item-link" data-i18n-title="footer.location_title">
+                <span data-i18n="footer.location_text">المملكة العربية السعودية</span>
+                <div class="social-icon-link-details">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+            </a>
+            
+            <a href="tel:+00966533808888" class="contact-item-link" data-i18n-title="footer.phone_title">
+                <span>00966533808888</span>
+                <div class="social-icon-link-details">
+                    <i class="fas fa-phone-alt"></i>
+                </div>
+            </a>
+            
+            <a href="mailto:contact@takamulgroup.sa" class="contact-item-link" data-i18n-title="footer.email_title">
+                <span>tkamel7050@gmail.com</span>
+                <div class="social-icon-link-details">
+                    <i class="fas fa-envelope"></i>
+                </div>
+            </a>
         </div>
-    </a>
-    
-    <a href="tel:+00966533808888" class="contact-item-link">
-        <span>00966533808888</span>
-        <div class="social-icon-link-details">
-            <i class="fas fa-phone-alt"></i>
-        </div>
-    </a>
-    
-    <a href="mailto:contact@takamulgroup.sa" class="contact-item-link">
-        <span>tkamel7050@gmail.com</span>
-        <div class="social-icon-link-details">
-            <i class="fas fa-envelope"></i>
-        </div>
-    </a>
-</div>
+    </div>
 </footer>
-
-
-
-
-
 
 <div style="text-align: center; margin-bottom: 1%; color: rgb(57, 59, 58);" class="copyright-bar">
     <div class="container">
-        <p class="copyright-text">
+        <p class="copyright-text" data-i18n="footer.copyright_bar">
             Copyright &copy; 2025 takamul. All Rights Reserved.
         </p>
     </div>
 </div>
 
-
-
 <a href="https://wa.me/966533808888" target="_blank" class="whatsapp-float">
     <i class="fab fa-whatsapp"></i>
 </a>
-   <script src="index.js"></script>
-      <script src="services.js"></script>
-      <script src="total.js"></script>
+    <script src="script/index.js"></script>
+    <script src="script/services.js"></script>
+    <script src="script/total.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="script/i18n.js"></script>
+
+
+
 <script>
-  AOS.init({
-    // 🚀 زيادة مدة الحركة (Duration): 
-    // نرفعها من 500ms إلى 800ms (0.8 ثانية) لتصبح أكثر سلاسة ووضوحًا.
-    duration: 800, 
-    
-    // ⬇️ تعديل الإزاحة (Offset):
-    // نستخدم 150-200 بكسل فقط لضمان ظهور الحركة مبكرًا دون أن تكون مفاجئة جدًا.
-    offset: 200, 
-    
-    // التأخير الافتراضي: (للعناصر التي لا تحتوي على data-aos-delay)
-    delay: 50,
-    
-    // لتبقى الحركة تظهر مرة واحدة فقط
-    once: true,    
-  });
+    AOS.init({
+        // 🚀 زيادة مدة الحركة (Duration): 
+        // نرفعها من 500ms إلى 800ms (0.8 ثانية) لتصبح أكثر سلاسة ووضوحًا.
+        duration: 800, 
+        
+        // ⬇️ تعديل الإزاحة (Offset):
+        // نستخدم 150-200 بكسل فقط لضمان ظهور الحركة مبكرًا دون أن تكون مفاجئة جدًا.
+        offset: 200, 
+        
+        // التأخير الافتراضي: (للعناصر التي لا تحتوي على data-aos-delay)
+        delay: 50,
+        
+        // لتبقى الحركة تظهر مرة واحدة فقط
+        once: true,  
+    });
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </body>
 </html>

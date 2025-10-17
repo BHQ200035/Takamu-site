@@ -237,3 +237,30 @@ document.addEventListener('DOMContentLoaded', function() {
     // ... (باقي كود البطاقات يبقى كما هو)
     
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

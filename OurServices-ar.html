@@ -3,46 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تكامل - خدماتنا</title>
-
-<link rel="icon" type="image/png" href="takamul/sprite/logotop.png"> 
+    <title data-i18n="title">تكامل - الرئيسية</title> 
 
 
-    <link rel="stylesheet" href="OurServices-ar.css">     
-    <link rel="stylesheet" href="device-width.css">
+    <link rel="icon" type="image/png" href="sprite/logotop.png"> 
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/ourServices-ar.css">
+    <link rel="stylesheet" href="css/device-width.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-</head>
-<body>
+    </head>
 
-    
+<body dir="rtl" class="rtl"> 
+
 
 <nav class="navbar">
     
     <a href="index.html" class="navbar-brand logo" style="margin-right: 2%;">
-        <img src="takamul/sprite/logo.png" alt="takamul" style="max-width: 150px;"id="navbarLogo">
+        <img src="sprite/logo.png" alt="takamul" style="max-width: 150px;">
     </a>
     
     <div class="nav-links">
         <ul>
-            <li><a href="index.html" >الرئيسية</a></li>
-            <li><a href="Aboutus-ar.html">عن تكامل</a></li>
-            <li><a href="OurServices-ar.html"class="active">خدماتنا</a></li>
-            <li><a href="index.html#clients-section">عملائنا</a></li>
-            <li><a href="#">المدونة</a></li>
-            <li><a href="#">تواصل معنا</a></li>
+            <li><a href="index.html" class="active" data-i18n="nav.home">الرئيسية</a></li>
+            <li><a href="aboutus-ar.html" data-i18n="nav.about">عن تكامل</a></li> 
+            <li><a href="ourServices-ar.html" data-i18n="nav.services">خدماتنا</a></li>
+            <li><a href="index.html#clients-section" data-i18n="nav.clients">عملائنا</a></li>
+            <li><a href="#" data-i18n="nav.blog">المدونة</a></li>
+            <li><a href="contactus-ar.html" data-i18n="nav.contact">تواصل معنا</a></li>
             <li class="separator"></li>
-            <li><a href="index-en.html" class="english-link"><i class="fas fa-globe"></i>ENGLISH</a></li>
+            
+            <li><a href="#" id="lang-toggle" data-lang="en" class="english-link"><i class="fas fa-globe"></i><span data-i18n="nav.lang">ENGLISH</span></a></li>
         </ul>
     </div>
     
     <div class="social-icons" style="margin-left: 2%;">
-        <a href="https://wa.me/966533808888" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-        <a href="https://twitter.com/yourhandle" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
-        <a href="https://linkedin.com/in/yourprofile" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://wa.me/966533808888" target="_blank" title="WhatsApp" data-i18n-title="social.whatsapp_title"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://twitter.com/yourhandle" target="_blank" title="Twitter" data-i18n-title="social.twitter_title"><i class="fab fa-twitter"></i></a>
+        <a href="https://linkedin.com/in/yourprofile" target="_blank" title="LinkedIn" data-i18n-title="social.linkedin_title"><i class="fab fa-linkedin-in"></i></a>
     </div>
 
-    <button class="menu-toggler" aria-label="فتح القائمة">
+    <button class="menu-toggler" aria-label="فتح القائمة" data-i18n-aria="menu.open_aria">
         <i class="fa fa-bars"></i>
     </button>
     
@@ -53,16 +54,15 @@
         <button class="close-btn">&times;</button>
         
         <ul class="mobile-nav-links">
-            <li><a href="index.html" >الرئيسية</a></li>
-            <li><a href="Aboutus-ar.html">عن تكامل</a></li>
-            <li><a href="OurServices-ar.html"class="active">خدماتنا</a></li>
-            <li><a href="index.html#clients-section">عملائنا</a></li>
-            <li><a href="#">المدونة</a></li>
-            <li><a href="#">تواصل معنا</a></li>
+            <li><a href="index.html" class="active" data-i18n="nav.home">الرئيسية</a></li>
+            <li><a href="page-arhtml/aboutus-ar.html" data-i18n="nav.about">عن تكامل</a></li> 
+            <li><a href="page-arhtml/ourServices-ar.html" data-i18n="nav.services">خدماتنا</a></li>
+            <li><a href="page-arindex.html#clients-section" data-i18n="nav.clients">عملائنا</a></li>
+            <li><a href="#" data-i18n="nav.blog">المدونة</a></li>
+            <li><a href="contactus-ar.html" data-i18n="nav.contact">تواصل معنا</a></li>
             <li class="separator"></li>
-            <li><a href="index-en.html" class="english-link"><i class="fas fa-globe"></i>ENGLISH</a></li>
-
-            </ul>
+            <li><a href="#" class="english-link" id="lang-toggle-mobile"><i class="fas fa-globe"></i><span data-i18n="nav.lang_mobile">ENGLISH</span></a></li>
+        </ul>
         
         <div class="mobile-social-icons">
              <a href="https://wa.me/966533808888" target="_blank"><i class="fab fa-whatsapp"></i></a>
@@ -71,7 +71,7 @@
         </div>
 
     </div>
-            <h6 style="margin-bottom: -5%; text-align: center;" class="copyright-text">© Copyright 2025, All rights reserved.</h6>
+    <h6 style="margin-bottom: -5%; text-align: center;" class="copyright-text" data-i18n="footer.copyright">© Copyright 2025, All rights reserved.</h6>
 
 </div>
 
@@ -79,13 +79,7 @@
 
 
 
-
-
-
-
-
-    <section class="services-section" id="services" style="            margin-top: 10%;
-">
+    <section class="services-section" id="services" style=" margin-top: 10%;">
        
  
     <h1 class="services-title">خدماتنا</h1>
@@ -233,21 +227,43 @@
                     <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="11" class="code-digit-input" value=""></td> 
                     <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="12" class="code-digit-input" value=""></td> 
                     <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="13" class="code-digit-input" value=""></td> 
-                    
-                    <td rowspan="6" colspan="4" class="logo-cell-large"> 
-                        <img src="takamul/sprite/logoskidu.png" alt="شعار الشركة" class="company-logo">
-                    </td>
+                    <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="14" class="code-digit-input" value=""></td> 
+                    <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="15" class="code-digit-input" value=""></td> 
+                    <td class="code-digit-input" style="background-color: #008e36; color: white;" >1</td> 
+                    <td class="code-digit-input" style="background-color: #008e36; color: white;" >0</td> 
                 </tr>
-                
+
+
+
+
+
+
                 <tr class="header-details-row-complex">
                     <td colspan="3" class="order-details-complex-key-top">التاريخ:</td>
                     <td colspan="8" class="order-details-complex-value-middle">
                         <input type="date" name="order_date" value="2025-01-01" class="input-field date-input">
                     </td>
-                    <td rowspan="3" colspan="9" class="main-title-section-complex"> 
+
+
+
+
+                    <td rowspan="3" colspan="6" class="main-title-section-complex"> 
                         <h3 class="main-title-text">نموذج عرض سعر</h3>
                     </td>
+
+                <td rowspan="5" colspan="4" class="logo-cell-large"> 
+                        <img src="sprite/logoskidu.png" alt="شعار الشركة" class="company-logo">
+                    </td>
+
+
                 </tr>
+
+
+
+
+
+
+
                 <tr class="order-info-row">
                     <td colspan="3" class="order-details-complex-key-middle">مُعد الطلب:</td>
                     <td colspan="8" class="order-details-complex-value-middle">
@@ -282,7 +298,7 @@
 
 
 
-                
+              
 
                 <tr class="section-divider-row section-items-header">
 <td rowspan="15" colspan="1" class="merged-vertical-cell items-label-vertical merged-left-side section-top-border">البنود المطلوبة</td>
@@ -877,8 +893,8 @@
     <div class="card">
 <div class="service-card open-inquiry-modal-from-card" data-service-name="تسجيل مورد"data-modal-target="modal-tsjeel-moured">
             <div  class="card-image-wrapper corner-position">
-                <img  src="takamul/sprite/BusinessValuation1.png" alt="صورة افتراضية" class="service-card-image img-default">
-                <img  src="takamul/sprite/BusinessValuation2.png" alt="صورة عند التحويم" class="service-card-image img-hover">
+                <img  src="sprite/BusinessValuation1.png" alt="صورة افتراضية" class="service-card-image img-default">
+                <img  src="sprite/BusinessValuation2.png" alt="صورة عند التحويم" class="service-card-image img-hover">
             </div>
             <h3>تسجيل مورد</h3>
             <p> يستخدم هذا الجدول لتسجيل مورد جديد</p>
@@ -899,8 +915,8 @@
     <div class="card">
         <div class="service-card open-inquiry-modal-from-card" data-service-name="تسعير" data-modal-target="modal-tas3eer">
             <div class="card-image-wrapper corner-position">
-                <img src="takamul/sprite/Feasibility Studies.png" alt="صورة افتراضية" class="service-card-image img-default">
-                <img src="takamul/sprite/Feasibility Studies2.png" alt="صورة عند التحويم" class="service-card-image img-hover">
+                <img src="sprite/Feasibility Studies.png" alt="صورة افتراضية" class="service-card-image img-default">
+                <img src="sprite/Feasibility Studies2.png" alt="صورة عند التحويم" class="service-card-image img-hover">
             </div>
             <h3>تسعير</h3>
             <p>يتم ارسال طلب التسعير والتعامل مع كل ما يخص التسعير</p>
@@ -923,8 +939,8 @@
 
         <div class="service-card open-inquiry-modal-from-card" data-service-name="نقليات ومعدات"data-modal-target="modal-naqleyat">
             <div class="card-image-wrapper corner-position">
-                <img src="takamul/sprite/Due Diligence.png" alt="صورة افتراضية" class="service-card-image img-default">
-                <img src="takamul/sprite/Due Diligence2.png" alt="صورة عند التحويم" class="service-card-image img-hover">
+                <img src="sprite/Due Diligence.png" alt="صورة افتراضية" class="service-card-image img-default">
+                <img src="sprite/Due Diligence2.png" alt="صورة عند التحويم" class="service-card-image img-hover">
             </div>
             <h3>نقليات ومعدات</h3>
             <p>يتم عمل جدول تسجيل المعدات ونوعها وسنة صنعها والمنطقة المتواجد فيها وهوية السائق</p>
@@ -946,8 +962,8 @@
     <div class="card">
         <div class="service-card open-inquiry-modal-from-card" data-service-name="طلب موارد بشرية" data-modal-target="modal-mowared-bashareya">
             <div class="card-image-wrapper corner-position">
-                <img src="takamul/sprite/Funding Arrangement.png" alt="صورة افتراضية" class="service-card-image img-default">
-                <img src="takamul/sprite/Funding Arrangement2.png" alt="صورة عند التحويم" class="service-card-image img-hover">
+                <img src="sprite/Funding Arrangement.png" alt="صورة افتراضية" class="service-card-image img-default">
+                <img src="sprite/Funding Arrangement2.png" alt="صورة عند التحويم" class="service-card-image img-hover">
             </div>
             <h3>طلب موارد بشرية</h3>
             <p> يتم تعبئة النموذج كاملا والتأكد من صحة البيانات من قبل الموظف</p>
@@ -970,8 +986,8 @@
 
         <div class="service-card open-inquiry-modal-from-card" data-service-name="تقارير"data-modal-target="modal-taqareer">
             <div class="card-image-wrapper corner-position">
-                <img src="takamul/sprite/Reports1.png" alt="صورة افتراضية" class="service-card-image img-default">
-                <img src="takamul/sprite/Reports2.png" alt="صورة عند التحويم" class="service-card-image img-hover">
+                <img src="sprite/Reports1.png" alt="صورة افتراضية" class="service-card-image img-default">
+                <img src="sprite/Reports2.png" alt="صورة عند التحويم" class="service-card-image img-hover">
             </div>
             <h3>تقارير</h3>
             <p>عمل تقرير شامل عن جميع الأعمال وربطها بقناة واحدة</p>
@@ -991,8 +1007,8 @@
     <div class="card">
 <div class="service-card open-inquiry-modal-from-card" data-service-name="أعمال"data-modal-target="modal-a3mal">
             <div class="card-image-wrapper corner-position">
-                <img src="takamul/sprite/Business1.png" alt="صورة افتراضية" class="service-card-image img-default">
-                <img src="takamul/sprite/Business2.png" alt="صورة عند التحويم" class="service-card-image img-hover">
+                <img src="sprite/Business1.png" alt="صورة افتراضية" class="service-card-image img-default">
+                <img src="sprite/Business2.png" alt="صورة عند التحويم" class="service-card-image img-hover">
             </div>
             <h3>أعمال</h3>
             <p>عمل قناة مشاهدة جميع الأعمال اليومية أو الاسبوعية عن قرب</p>
@@ -1021,8 +1037,8 @@
     <div class="card ">
         <div class="service-card open-inquiry-modal-from-card" data-service-name="مراجعة الأداء التنفيذي"data-modal-target="modal-ada2-tanfeezy">
             <div class="card-image-wrapper corner-position">
-                <img src="takamul/sprite/Executive.png" alt="صورة افتراضية" class="service-card-image img-default">
-                <img src="takamul/sprite/Executive2.png" alt="صورة عند التحويم" class="service-card-image img-hover">
+                <img src="sprite/Executive.png" alt="صورة افتراضية" class="service-card-image img-default">
+                <img src="sprite/Executive2.png" alt="صورة عند التحويم" class="service-card-image img-hover">
             </div>
             <h3>  طلب عرض السعر </h3>
             <p>في حالة طلب تسعير من الشركة ترسل الطلبات في هذه المجموعة ويكون النموذج </p>
@@ -1053,8 +1069,8 @@
 
         <div class="service-card open-inquiry-modal-from-card" data-service-name="أرشف"data-modal-target="modal-arsheef">
             <div class="card-image-wrapper corner-position">
-                <img src="takamul/sprite/Business Development.png " alt="صورة افتراضية" class="service-card-image img-default">
-                <img src="takamul/sprite/Business Development2.png " alt="صورة عند التحويم" class="service-card-image img-hover">
+                <img src="sprite/Business Development.png " alt="صورة افتراضية" class="service-card-image img-default">
+                <img src="sprite/Business Development2.png " alt="صورة عند التحويم" class="service-card-image img-hover">
             </div>
             <h3>أرشيف</h3>
             <p>يبحث عن جميع البنود وأعمال الشركة...</p>
@@ -1083,100 +1099,11 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <div class="page-container2" >
     <div class="form-wrapper2">
         <form action="#" method="POST" id="inquiryForm2" class="contact-form2">
             <div class="form-content-left">
-                <img src="takamul/sprite/icon-1.png" alt="Icon" class="form-icon">
+                <img src="sprite/icon-1.png" alt="Icon" class="form-icon">
                 <div class="form-text-group">
                     <h3 class="form-main-heading">ابدأ اليوم واحصل على الخطة الخاصة بك</h3>
 
@@ -1207,179 +1134,152 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <div class="page-container">
     <div class="form-wrapper">
-        <form class="contact-form">
+        <form action="https://formsubmit.co/tkamel7050@gmail.com" method="POST" id="inquiryForm" class="contact-form">
             
-<form action="https://formsubmit.co/tkamel7050@gmail.com" method="POST" id="inquiryForm" class="contact-form">
-    
-    <div class="form-row first-row">
-        <div class="form-group full-width-field" data-input-name="fullName">
-            <label for="fullName">الاسم بالكامل <span class="required">*</span></label>
-            <input type="text" id="fullName" name="الاسم_بالكامل" placeholder="أكتب أسمك بالكامل" required>
-            <span class="error-message">هذا الحقل مطلوب</span> 
-        </div>
-    </div>
-    
+            <div class="form-row first-row">
+                <div class="form-group full-width-field" data-input-name="fullName">
+                    <label for="fullName" data-i18n="contact.full_name_label">الاسم بالكامل <span class="required">*</span></label>
+                    <input type="text" id="fullName" name="الاسم_بالكامل" placeholder="أكتب أسمك بالكامل" required data-i18n-placeholder="contact.full_name_placeholder">
+                    <span class="error-message" data-i18n="contact.error_required">هذا الحقل مطلوب</span> 
+                </div>
+            </div>
+            
             <div class="form-row split-row">
                 <div class="form-group large-half">
-                    <label for="email">البريد الإلكتروني <span class="required">*</span></label>
-                    <input type="email" id="email" placeholder="بريدك الإلكتروني" required>
-                    <span class="error-message">هذا الحقل مطلوب</span>
+                    <label for="email" data-i18n="contact.email_label">البريد الإلكتروني <span class="required">*</span></label>
+                    <input type="email" id="email" name="البريد_الإلكتروني" placeholder="بريدك الإلكتروني" required data-i18n-placeholder="contact.email_placeholder">
+                    <span class="error-message" data-i18n="contact.error_required">هذا الحقل مطلوب</span>
                 </div>
                 <div class="form-group small-half">
-                    <label for="phone">رقم الهاتف <span class="required">*</span></label>
-                    <input type="tel" id="phone" placeholder="رقم هاتفك" required>
-                    <span class="error-message">هذا الحقل مطلوب</span>
+                    <label for="phone" data-i18n="contact.phone_label">رقم الهاتف <span class="required">*</span></label>
+                    <input type="tel" id="phone" name="رقم_الهاتف" placeholder="رقم هاتفك" required data-i18n-placeholder="contact.phone_placeholder">
+                    <span class="error-message" data-i18n="contact.error_required">هذا الحقل مطلوب</span>
                 </div>
             </div>
 
             <div class="form-row full-row">
                 <div class="form-group full-width-field">
-                    <label for="service">أختار الخدمة التي تود الإستفسار عنها <span class="required">*</span></label>
-                    <select id="service" required>
-                        <option value="" disabled selected>أختار الخدمة</option>
-                        <option value="supplier">تسجيل مورد</option>
-                        <option value="pricing">تسعير</option>
-                        <option value="equipment">نقليات ومعدات</option>
-                        <option value="HR Request">طلب موارد بشرية  </option>
-                        <option value="Reports">تقارير</option>
-                        <option value="Business"> اعمال</option>
-                        <option value="Executive Performance Review">مراجعة الاداء التنفيذي</option>
-                        <option value="Archive"> ارشيف</option>
-                        <span class="error-message">هذا الحقل مطلوب</span>
+                    <label for="service" data-i18n="contact.service_select_label">أختار الخدمة التي تود الإستفسار عنها <span class="required">*</span></label>
+                    <select id="service" name="الخدمة_المطلوبة" required>
+                        <option value="" disabled selected data-i18n="contact.select_default">أختار الخدمة</option>
+                        <option value="supplier" data-i18n="card.supplier_reg.title">تسجيل مورد</option>
+                        <option value="pricing" data-i18n="card.pricing.title">تسعير</option>
+                        <option value="equipment" data-i18n="card.transport.title">نقليات ومعدات</option>
+                        <option value="HR Request" data-i18n="card.hr_request.title">طلب موارد بشرية </option>
+                        <option value="Reports" data-i18n="card.reports.title">تقارير</option>
+                        <option value="Business" data-i18n="card.business.title"> اعمال</option>
+                        <option value="Executive Performance Review" data-i18n="card.rfq.title">طلب عرض السعر</option>
+                        <option value="Archive" data-i18n="card.archive.title"> أرشيف</option>
                     </select>
+                    <span class="error-message" data-i18n="contact.error_required">هذا الحقل مطلوب</span>
                 </div>
             </div>
             
-<div class="form-row full-row">
-    <div class="form-group full-width-field">
-        <label for="inquiry">إستفسارك <span class="required">*</span></label>
-        <textarea id="inquiry" rows="10" placeholder="أكتب استفسارك" required></textarea> 
-        <span class="error-message">هذا الحقل مطلوب</span>
-    </div>
-</div>
+            <div class="form-row full-row">
+                <div class="form-group full-width-field">
+                    <label for="inquiry" data-i18n="contact.inquiry_label">إستفسارك <span class="required">*</span></label>
+                    <textarea id="inquiry" name="الاستفسار" rows="10" placeholder="أكتب استفسارك" required data-i18n-placeholder="contact.inquiry_placeholder"></textarea> 
+                    <span class="error-message" data-i18n="contact.error_required">هذا الحقل مطلوب</span>
+                </div>
+            </div>
 
             <div class="submit-row">
-                <button type="submit" class="submit-btn">إرسال</button>
+                <button type="submit" class="submit-btn" data-i18n="contact.submit_btn">إرسال</button>
             </div>
             
         </form>
     </div>
 </div>
 
-
-
-
-
-
-
-
 <footer class="main-footer">
     <div class="footer-container">
 
         <div class="footer-info">
             <div class="footer-logo">
-        <img src="takamul/sprite/logo (1).png" alt="takamul" style="max-width: 150px;">
+                <img src="sprite/logo (1).png" alt="takamul" style="max-width: 150px;">
             </div>
-            <p class="company-desc">
+            <p class="company-desc" data-i18n="footer.description">
                 شركة سعودية تقوم بتوريد جميع احتياجات المشاريع من عدد وادوات ومعدات وموارد بشرية 
             </p>
 
         </div>
 
         <div class="footer-links-group">
-            <h4 class="footer-heading">روابط هامة</h4>
+            <h4 class="footer-heading" data-i18n="footer.links_heading">روابط هامة</h4>
             <ul class="footer-links">
-                <li><a href="index.html">الرئيسية</a></li>
-                <li><a href="Aboutus-ar.html">عن تكامل</a></li>
-                <li><a href="OurServices-ar.html">خدماتنا</a></li>
-                <li><a href="#">الأسئلة الشائعة</a></li>
-                <li><a href="#">سياسة الخصوصية</a></li>
+                <li><a href="index.html" data-i18n="nav.home">الرئيسية</a></li>
+                <li><a href="aboutus-ar.html" data-i18n="nav.about">عن تكامل</a></li>
+                <li><a href="ourServices-ar.html" data-i18n="nav.services">خدماتنا</a></li>
+                <li><a href="#" data-i18n="footer.faq">الأسئلة الشائعة</a></li>
+                <li><a href="#" data-i18n="footer.privacy">سياسة الخصوصية</a></li>
             </ul>
         </div>
 
-<div class="footer-contact">
-    <h4 class="footer-heading">تواصل معنا</h4>
-    
-    <a href="#" target="_blank" class="contact-item-link">
-        <span>المملكة العربية السعودية</span>
-        <div class="social-icon-link-details">
-            <i class="fas fa-map-marker-alt"></i>
+        <div class="footer-contact">
+            <h4 class="footer-heading" data-i18n="footer.contact_heading">تواصل معنا</h4>
+            
+            <a href="#" target="_blank" class="contact-item-link" data-i18n-title="footer.location_title">
+                <span data-i18n="footer.location_text">المملكة العربية السعودية</span>
+                <div class="social-icon-link-details">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+            </a>
+            
+            <a href="tel:+00966533808888" class="contact-item-link" data-i18n-title="footer.phone_title">
+                <span>00966533808888</span>
+                <div class="social-icon-link-details">
+                    <i class="fas fa-phone-alt"></i>
+                </div>
+            </a>
+            
+            <a href="mailto:contact@takamulgroup.sa" class="contact-item-link" data-i18n-title="footer.email_title">
+                <span>tkamel7050@gmail.com</span>
+                <div class="social-icon-link-details">
+                    <i class="fas fa-envelope"></i>
+                </div>
+            </a>
         </div>
-    </a>
-    
-    <a href="tel:+00966533808888" class="contact-item-link">
-        <span>00966533808888</span>
-        <div class="social-icon-link-details">
-            <i class="fas fa-phone-alt"></i>
-        </div>
-    </a>
-    
-    <a href="mailto:contact@takamulgroup.sa" class="contact-item-link">
-        <span>tkamel7050@gmail.com</span>
-        <div class="social-icon-link-details">
-            <i class="fas fa-envelope"></i>
-        </div>
-    </a>
-</div>
+    </div>
 </footer>
-
-
-
-
-
 
 <div style="text-align: center; margin-bottom: 1%; color: rgb(57, 59, 58);" class="copyright-bar">
     <div class="container">
-        <p class="copyright-text">
+        <p class="copyright-text" data-i18n="footer.copyright_bar">
             Copyright &copy; 2025 takamul. All Rights Reserved.
         </p>
     </div>
 </div>
 
-
-
 <a href="https://wa.me/966533808888" target="_blank" class="whatsapp-float">
     <i class="fab fa-whatsapp"></i>
 </a>
-   <script src="index.js"></script>
-      <script src="services.js"></script>
-      <script src="total.js"></script>
+    <script src="script/index.js"></script>
+    <script src="script/services.js"></script>
+    <script src="script/total.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="script/i18n.js"></script>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<script>
+    AOS.init({
+        // 🚀 زيادة مدة الحركة (Duration): 
+        // نرفعها من 500ms إلى 800ms (0.8 ثانية) لتصبح أكثر سلاسة ووضوحًا.
+        duration: 800, 
+        
+        // ⬇️ تعديل الإزاحة (Offset):
+        // نستخدم 150-200 بكسل فقط لضمان ظهور الحركة مبكرًا دون أن تكون مفاجئة جدًا.
+        offset: 200, 
+        
+        // التأخير الافتراضي: (للعناصر التي لا تحتوي على data-aos-delay)
+        delay: 50,
+        
+        // لتبقى الحركة تظهر مرة واحدة فقط
+        once: true,  
+    });
+</script>
 
 </body>
 </html>
