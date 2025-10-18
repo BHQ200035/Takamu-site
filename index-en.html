@@ -1,0 +1,1405 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title >Takamul - Home</title> 
+
+
+    <link rel="icon" type="image/png" href="sprite/logotop.png"> 
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/index-en.css">
+    <link rel="stylesheet" href="css/device-width.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    </head>
+
+<body > 
+
+
+<nav class="navbar">
+    
+   <a href="index-en.html" class="navbar-brand logo" style="margin-left: 2%;">
+        <img src="sprite/logo.png" alt="takamul" id="navbar-logo" style="max-width: 150px;">
+    </a>
+    
+    <div class="nav-links">
+        <ul>
+            <li><a href="index-en.html" class="active" >Home</a></li>
+            <li><a href="#" > About Us</a></li> 
+            <li><a href="#" >Services</a></li>
+            <li><a href="#clients-section">Clients</a></li>
+            <li><a href="#" >Blog</a></li>
+            <li><a href="#" >Contact Us </a></li>
+            <li class="separator"></li>
+            
+            <li><a href="index.html" id="lang-toggle" ><i class="fas fa-globe"></i><span >Arabic</span></a></li>
+        </ul>
+    </div>
+    
+    <div class="social-icons" style="margin-right: 2%;">
+        <a href="https://wa.me/966533808888" target="_blank" title="WhatsApp" ><i class="fab fa-whatsapp"></i></a>
+        <a href="https://twitter.com/yourhandle" target="_blank" title="Twitter" ><i class="fab fa-twitter"></i></a>
+        <a href="https://linkedin.com/in/yourprofile" target="_blank" title="LinkedIn" ><i class="fab fa-linkedin-in"></i></a>
+    </div>
+
+    <button class="menu-toggler" aria-label="فتح القائمة" >
+        <i class="fa fa-bars"></i>
+    </button>
+    
+</nav>
+
+<div id="mobile-menu" class="mobile-menu-overlay">
+    <div class="mobile-menu-content">
+        <button class="close-btn">&times;</button>
+        
+        <ul class="mobile-nav-links">
+            <li><a href="index-en.html" class="active" >Home</a></li>
+            <li><a href="#" > About Us</a></li> 
+            <li><a href="#" >Services</a></li>
+            <li><a href="#clients-section">Clients</a></li>
+            <li><a href="#" >Blog</a></li>
+            <li><a href="#" >Contact Us </a></li>
+            <li class="separator"></li>
+            <li><a href="index.html" class="english-link" id="lang-toggle-mobile"><i class="fas fa-globe"></i><span >Arabic</span></a></li>
+        </ul>
+        
+        <div class="mobile-social-icons">
+             <a href="https://wa.me/966533808888" target="_blank"><i class="fab fa-whatsapp"></i></a>
+             <a href="https://twitter.com/yourhandle" target="_blank"><i class="fab fa-twitter"></i></a>
+             <a href="https://linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+
+    </div>
+    <h6 style="margin-bottom: -5%; text-align: center;" class="copyright-text" >© Copyright 2025, All rights reserved.</h6>
+
+</div>
+
+
+
+
+
+
+<main class="hero-section">
+    <div class="content-container">
+
+        <div class="abstract-image" 
+             data-aos="fade-left" 
+             data-aos-delay="300">
+            <img src="sprite/bg.jpg" alt="صورة تجريدية لخلفية" class="graph-placeholder" alt="hero.img_alt">
+        </div>
+
+        <div class="text-and-buttons" 
+             data-aos="fade-right">
+            <h1>
+                <span> Takamul Tec  </span> 
+            </h1>
+            <br><br><br>
+            <p >  A Saudi company that supplies and executes all project requirements for tools, equipment, and human resources.  </p>
+            
+            <div class="cta-buttons" 
+                 data-aos="fade-right" 
+                 data-aos-delay="600">
+                <a href="#services" class="btn btn-discover" > Discover Our Services</a>
+                <a href="#OurVision" class="btn btn-consult" > Our Vision</a>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+    <section class="services-section" id="services" style=" margin-top: 10%;">
+       
+ 
+<h1 class="services-title" data-aos="fade-down" data-aos-duration="1000">Our Services</h1>
+
+<div id="serviceModal" class="modal" id="services">
+    <div class="modal-content service-content">
+        <span class="close-btn image-close">&times;</span> 
+        <h3 id="modalTitle">عنوان الخدمة هنا</h3>
+        <p id="modalDescription">هنا سيتم عرض المزيد من التفاصيل عن الخدمة المحددة.</p>
+    </div>
+</div>
+
+
+<div id="modal-tsjeel-moured" class="modal center-image-modal">
+    <div class="modal-content image-content form-container">
+<span class="close-btn image-close">&times;</span>
+        <div class="image-display-container">
+            <img id="modalCenterImage" src="" alt="صورة الخدمة" class="modal-center-image-form">
+        </div>
+        <form class="registration-form" action="#" method="POST">
+            <h3 class="form-title">Supplier Registration</h3>
+            
+<div class="form-group">
+        <label for="regName" class="form-label">Full Name <span class="required">*</span>
+        </label> 
+        <input type="text" id="regName" name="fullName" class="form-input" placeholder="Your full name" required> 
+    </div>
+
+<div class="form-group">
+        <label for="regNationality" class="form-label"> Nationality <span class="required">*</span>
+        </label> 
+        <input type="text" id="regNationality" name="nationality" class="form-input" placeholder="Enter nationality" required> 
+    </div>
+
+            <div class="form-group">
+        <label for="regActivity" class="form-label"> Activity <span class="required">*</span>
+        </label> 
+        <input type="text" id="regActivity" name="activity" class="form-input" placeholder="Your activity" required> 
+    </div>
+    
+    <div class="form-group">
+        <label for="regRegion" class="form-label"> Region <span class="required">*</span>
+        </label> 
+        <input type="text" id="regRegion" name="region" class="form-input" placeholder="The region" required> 
+    </div>
+    
+    <div class="form-group">
+        <label for="regDelegate" class="form-label"> Authorized Person <span class="required">*</span>
+        </label> 
+        <input type="text" id="regDelegate" name="authorizedPerson" class="form-input" placeholder="Authorized Person" required> 
+    </div>
+    
+    <div class="form-group">
+        <label for="regEmail" class="form-label">Email Address <span class="required">*</span>
+        </label> 
+        <input type="email" id="regEmail" name="emailAddress" class="form-input" placeholder="Your email address" required> 
+    </div>
+            
+
+
+
+<div class="form-group">
+    <label for="regDocuments" class="form-label">
+         Company's Documents Photos   <span class="required">*</span>
+    </label>
+    
+    <div class="file-upload-wrapper form-input"> 
+        <input 
+            type="file" 
+            id="regDocuments" 
+            name="companyDocuments" 
+            class="actual-file-input" 
+            required 
+            multiple 
+            accept="image/*, application/pdf" 
+        >
+        
+<span class="custom-file-button">Choose Documents / Images</span>
+<span class="file-name-display">No files chosen yet...</span>    </div>
+    </div>
+
+
+
+            <div class="form-group">
+                <label for="regPhone" class="form-label">Phone Number  <span class="required">*</span></label>
+                <input 
+                    type="tel" 
+                    id="regPhone" 
+                    name="phoneNumber" 
+                    class="form-input" 
+                    placeholder="Your phone number " 
+                    required
+                    oninput="this.value = this.value.replace(/[^0-9]/g, '');" 
+                >
+            </div>
+            
+            <div class="form-group">
+                <label for="regMobile" class="form-label">Mobile Number  <span class="required">*</span></label>
+                <input 
+                    type="tel" 
+                    id="regMobile" 
+                    name="mobileNumber" 
+                    class="form-input" 
+                    placeholder="Mobile Number " 
+                    required
+                    oninput="this.value = this.value.replace(/[^0-9]/g, '');"
+                >
+            </div>
+
+            <button type="submit" class="submit-button">Submit </button>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+<div id="modal-tas3eer" class="modal center-image-modal">
+    <div class="modal-content image-content form-container">
+        <span class="close-btn image-close">&times;</span> 
+
+
+        <form class="registration-form" action="#" method="POST">
+            
+<div class="purchase-order-container">
+    <form action="/submit-purchase-order" method="POST" id="purchase-order-form" enctype="multipart/form-data">
+        
+        <input type="hidden" id="main-code-output" name="main_code_combined" value="" />
+        <div class="table-wrapper">
+        
+            <table class="main-form-table-unified">
+                
+                <tr class="info-vertical-merged-row">
+                    <td rowspan="6" colspan="1" class="merged-vertical-cell info-label-vertical merged-left-side section-top-border">Order Information </td>
+                    
+                </tr>
+                <tr class="main-code-row">
+                    <td colspan="3" class="code-label-cell">Main Code </td>
+                    
+                    <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="0" class="code-digit-input" value=""></td> 
+                    <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="1" class="code-digit-input" value=""></td> 
+                    <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="2" class="code-digit-input" value=""></td> 
+                    <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="3" class="code-digit-input" value=""></td> 
+                    <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="4" class="code-digit-input" value=""></td> 
+                    <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="5" class="code-digit-input" value=""></td> 
+                    <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="6" class="code-digit-input" value=""></td> 
+                    <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="7" class="code-digit-input" value=""></td> 
+                    <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="8" class="code-digit-input" value=""></td> 
+                    <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="9" class="code-digit-input" value=""></td> 
+                    <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="10" class="code-digit-input" value=""></td> 
+                    <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="11" class="code-digit-input" value=""></td> 
+                    <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="12" class="code-digit-input" value=""></td> 
+                    <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="13" class="code-digit-input" value=""></td> 
+                    <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="14" class="code-digit-input" value=""></td> 
+                    <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="15" class="code-digit-input" value=""></td> 
+                    <td class="code-digit-input" style="background-color: #008e36; color: white;" >1</td> 
+                    <td class="code-digit-input" style="background-color: #008e36; color: white;" >0</td> 
+                </tr>
+
+
+
+
+
+
+                <tr class="header-details-row-complex">
+                    <td colspan="3" class="order-details-complex-key-top">Date:</td>
+                    <td colspan="8" class="order-details-complex-value-middle">
+                        <input type="date" name="order_date" value="2025-01-01" class="input-field date-input">
+                    </td>
+
+
+
+
+                    <td rowspan="3" colspan="6" class="main-title-section-complex"> 
+                        <h3 class="main-title-text">  Quotation Request Form</h3>
+                    </td>
+
+                <td rowspan="4" colspan="4" class="logo-cell-large"> 
+                        <img src="sprite/logoskidu.png" alt="شعار الشركة" class="company-logo">
+                    </td>
+
+
+                </tr>
+
+
+
+
+
+
+
+                <tr class="order-info-row">
+                    <td colspan="3" class="order-details-complex-key-middle">  Requesting Entity Name</td>
+                    <td colspan="8" class="order-details-complex-value-middle">
+                        <input type="text" name="requester_name" value="خالد إبراهيم" class="input-field">
+                    </td>
+                </tr>
+                <tr class="order-info-row">
+                    <td colspan="3" class="order-details-complex-key-middle"> Person Name </td>
+                    <td colspan="8" class="order-details-complex-value-middle">
+                        <input type="text" name="project_name" value="الجحفة + قصير بن متروك" class="input-field">
+                    </td>
+                </tr>
+                
+
+<tr class="order-info-row contact-info-row info-end-row section-bottom-border">
+    <td colspan="3" class="order-details-complex-key-bottom">Mobile Number :</td>
+    <td colspan="4" class="order-details-complex-value-bottom">
+        <input type="tel" name="mobile_number" class="input-field" pattern="[0-9]{10}" placeholder="05xxxxxxxx">
+    </td>
+    <td colspan="3" class="order-details-complex-key-bottom">Email :</td>
+    <td colspan="7" class="order-details-complex-value-bottom">
+        <input type="email" name="email_address" class="input-field" required 
+               pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+               title="الرجاء إدخال بريد إلكتروني صحيح (مثال: example@domain.com)">
+    </td>
+</tr>
+
+
+
+              
+
+                <tr class="section-divider-row section-items-header">
+<td rowspan="15" colspan="1" class="merged-vertical-cell items-label-vertical merged-left-side section-top-border"> Requested Items</td>
+                                    </tr>
+
+                <tr class="items-headers-row">
+                    <td colspan="1" class="item-id-header">Item </td>
+                    <td colspan="1" class="item-unit-header">Unit</td>
+                    <td colspan="2" class="item-quantity-header">Quantity</td>
+                    <td colspan="2" class="item-price-header">Price</td>
+                    <td colspan="2" class="item-total-header">Total</td>
+                    <td colspan="11" class="item-desc-header-merged-new"> Item Description</td>
+                    <td colspan="2" class="item-image-header">Item Image </td> 
+                </tr>
+                
+                <tr class="item-row">
+                    <td colspan="1" class="item-id-cell"><input type="number" value="1" readonly class="input-field item-readonly-id"></td>
+                    <td colspan="1" class="item-unit-cell"><input type="text" value="Quantity" class="input-field item-input"></td>
+                    <td colspan="2" class="item-quantity-cell"><input type="number" value="1" class="input-field item-input quantity-input"></td>
+                    <td colspan="2" class="item-price-cell"><input type="number" value="10000" class="input-field item-input price-input"></td>
+                    <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
+                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"> Plumbing Work Installment  </textarea></td>
+                    
+                    <td colspan="2" class="item-image-cell">
+                        <label for="item_image_1" class="file-upload-label">
+                            <span class="image-icon file-icon">🖼️</span>
+                        </label>
+                        <input type="file" id="item_image_1" name="item_image_1" accept="image/*" class="file-input-hidden">
+                    </td>
+                </tr>
+                <tr class="item-row">
+                    <td colspan="1" class="item-id-cell"><input type="number" value="2" readonly class="input-field item-readonly-id"></td>
+                    <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
+                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
+                    <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
+                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    
+                    <td colspan="2" class="item-image-cell">
+                        <label for="item_image_2" class="file-upload-label">
+                            <span class="image-icon file-icon">🖼️</span>
+                        </label>
+                        <input type="file" id="item_image_2" name="item_image_2" accept="image/*" class="file-input-hidden">
+                    </td>
+                </tr>
+                <tr class="item-row">
+                    <td colspan="1" class="item-id-cell"><input type="number" value="3" readonly class="input-field item-readonly-id"></td>
+                    <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
+                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
+                    <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
+                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="2" class="item-image-cell">
+                        <label for="item_image_3" class="file-upload-label">
+                            <span class="image-icon file-icon">🖼️</span>
+                        </label>
+                        <input type="file" id="item_image_3" name="item_image_3" accept="image/*" class="file-input-hidden">
+                    </td>
+                </tr>
+                <tr class="item-row">
+                    <td colspan="1" class="item-id-cell"><input type="number" value="4" readonly class="input-field item-readonly-id"></td>
+                    <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
+                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
+                    <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
+                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="2" class="item-image-cell">
+                        <label for="item_image_4" class="file-upload-label">
+                            <span class="image-icon file-icon">🖼️</span>
+                        </label>
+                        <input type="file" id="item_image_4" name="item_image_4" accept="image/*" class="file-input-hidden">
+                    </td>
+                </tr>
+                <tr class="item-row">
+                    <td colspan="1" class="item-id-cell"><input type="number" value="5" readonly class="input-field item-readonly-id"></td>
+                    <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
+                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
+                    <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
+                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="2" class="item-image-cell">
+                        <label for="item_image_5" class="file-upload-label">
+                            <span class="image-icon file-icon">🖼️</span>
+                        </label>
+                        <input type="file" id="item_image_5" name="item_image_5" accept="image/*" class="file-input-hidden">
+                    </td>
+                </tr>
+                <tr class="item-row">
+                    <td colspan="1" class="item-id-cell"><input type="number" value="6" readonly class="input-field item-readonly-id"></td>
+                    <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
+                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
+                    <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
+                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="2" class="item-image-cell">
+                        <label for="item_image_6" class="file-upload-label">
+                            <span class="image-icon file-icon">🖼️</span>
+                        </label>
+                        <input type="file" id="item_image_6" name="item_image_6" accept="image/*" class="file-input-hidden">
+                    </td>
+                </tr>
+                <tr class="item-row">
+                    <td colspan="1" class="item-id-cell"><input type="number" value="7" readonly class="input-field item-readonly-id"></td>
+                    <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
+                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
+                    <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
+                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="2" class="item-image-cell">
+                        <label for="item_image_7" class="file-upload-label">
+                            <span class="image-icon file-icon">🖼️</span>
+                        </label>
+                        <input type="file" id="item_image_7" name="item_image_7" accept="image/*" class="file-input-hidden">
+                    </td>
+                </tr>
+                <tr class="item-row">
+                    <td colspan="1" class="item-id-cell"><input type="number" value="8" readonly class="input-field item-readonly-id"></td>
+                    <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
+                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
+                    <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
+                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="2" class="item-image-cell">
+                        <label for="item_image_8" class="file-upload-label">
+                            <span class="image-icon file-icon">🖼️</span>
+                        </label>
+                        <input type="file" id="item_image_8" name="item_image_8" accept="image/*" class="file-input-hidden">
+                    </td>
+                </tr>
+                <tr class="item-row">
+                    <td colspan="1" class="item-id-cell"><input type="number" value="9" readonly class="input-field item-readonly-id"></td>
+                    <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
+                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
+                    <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
+                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="2" class="item-image-cell">
+                        <label for="item_image_9" class="file-upload-label">
+                            <span class="image-icon file-icon">🖼️</span>
+                        </label>
+                        <input type="file" id="item_image_9" name="item_image_9" accept="image/*" class="file-input-hidden">
+                    </td>
+                </tr>
+                <tr class="item-row">
+                    <td colspan="1" class="item-id-cell"><input type="number" value="10" readonly class="input-field item-readonly-id"></td>
+                    <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
+                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
+                    <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
+                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="2" class="item-image-cell">
+                        <label for="item_image_10" class="file-upload-label">
+                            <span class="image-icon file-icon">🖼️</span>
+                        </label>
+                        <input type="file" id="item_image_10" name="item_image_10" accept="image/*" class="file-input-hidden">
+                    </td>
+                </tr>
+                <tr class="item-row">
+                    <td colspan="1" class="item-id-cell"><input type="number" value="11" readonly class="input-field item-readonly-id"></td>
+                    <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
+                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
+                    <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
+                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="2" class="item-image-cell">
+                        <label for="item_image_11" class="file-upload-label">
+                            <span class="image-icon file-icon">🖼️</span>
+                        </label>
+                        <input type="file" id="item_image_11" name="item_image_11" accept="image/*" class="file-input-hidden">
+                    </td>
+                </tr>
+                <tr class="item-row">
+                    <td colspan="1" class="item-id-cell"><input type="number" value="12" readonly class="input-field item-readonly-id"></td>
+                    <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
+                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
+                    <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
+                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="2" class="item-image-cell">
+                        <label for="item_image_12" class="file-upload-label">
+                            <span class="image-icon file-icon">🖼️</span>
+                        </label>
+                        <input type="file" id="item_image_12" name="item_image_12" accept="image/*" class="file-input-hidden">
+                    </td>
+                </tr>
+                <tr class="item-row">
+                    <td colspan="1" class="item-id-cell"><input type="number" value="13" readonly class="input-field item-readonly-id"></td>
+                    <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
+                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
+                    <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
+                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="2" class="item-image-cell">
+                        <label for="item_image_13" class="file-upload-label">
+                            <span class="image-icon file-icon">🖼️</span>
+                        </label>
+                        <input type="file" id="item_image_13" name="item_image_13" accept="image/*" class="file-input-hidden">
+                    </td>
+                </tr>
+                
+                <tr class="total-row items-end-row section-bottom-border">
+                    <td colspan="7" class="total-label-merged-new">Grand Total</td>
+                    <td colspan="2" class="total-value-final">
+                        <input type="number" readonly class="input-field final-total-input" name="final_total_display">
+                    </td>
+                    <td colspan="13" class="total-empty-cell-desc"></td>
+                </tr>
+                
+                <tr class="pricing-header-row section-top-border">
+                    <td rowspan="3" colspan="1" class="merged-vertical-cell pricing-label-vertical section-top-border merged-left-side">Approval</td>
+                    <td colspan="21" class="section-title-cell pricing-title-cell section-top-border">   The Request Has Been Approved   </td>
+                </tr>
+                <tr class="pricing-detail-row">
+                    <td colspan="3" class="pricing-key-cell">Name</td> 
+                    <td colspan="18" class="pricing-value-cell"><input type="text" class="input-field pricing-input"></td>
+                </tr>
+                <tr class="pricing-detail-row pricing-end-row section-bottom-border">
+                    <td colspan="3" class="pricing-key-cell">Signature</td> 
+                    <td colspan="6" class="pricing-value-cell"><input type="text" class="input-field pricing-input"></td>
+                    
+                    <td colspan="3" class="pricing-key-cell">Date</td>
+                    <td colspan="9" class="pricing-value-cell">
+                        <input type="date" name="order_date" value="2025-01-01" class="input-field date-input">
+                    </td>
+                </tr>
+
+
+                <tr class="ordering-header-row section-top-border">
+                    <td rowspan="3" colspan="1" class="merged-vertical-cell ordering-label-vertical merged-left-side">Pricing </td>
+                    <td colspan="21" class="section-title-cell ordering-title-cell">Requested Items have been priced </td>
+                </tr>
+                <tr class="ordering-detail-row">
+                    <td colspan="3" class="ordering-key-cell">Name</td>
+                    <td colspan="18" class="ordering-value-cell"><input type="text" class="input-field ordering-input"></td>
+                </tr>
+                <tr class="ordering-detail-row ordering-end-row section-bottom-border">
+                    <td colspan="3" class="ordering-key-cell">Signature</td>
+                    <td colspan="6" class="ordering-value-cell"><input type="text" class="input-field ordering-input"></td>
+                    <td colspan="3" class="ordering-key-cell">Date</td>
+                    <td colspan="9" class="ordering-value-cell">
+                        <input type="date" name="order_date" value="2025-01-01" class="input-field date-input">
+                    </td> 
+                </tr>
+
+
+
+
+                                <tr class="ordering-header-row section-top-border">
+                    <td colspan="22" class="section-title-cell ordering-title-cell">Kindly Approve the Request    </td>
+                </tr>
+                <tr class="ordering-detail-row">
+                    <td colspan="3" class="ordering-key-cell">Name</td>
+                    <td colspan="19" class="ordering-value-cell"><input type="text" class="input-field ordering-input"></td>
+                </tr>
+                <tr class="ordering-detail-row ordering-end-row section-bottom-border">
+                    <td colspan="3" class="ordering-key-cell">Signature</td>
+                    <td colspan="6" class="ordering-value-cell"><input type="text" class="input-field ordering-input"></td>
+                    <td colspan="3" class="ordering-key-cell">Date</td>
+                    <td colspan="10" class="ordering-value-cell">
+                        <input type="date" name="order_date" value="2025-01-01" class="input-field date-input">
+                    </td> 
+                </tr>
+
+
+
+
+
+
+
+
+
+                    
+                <tr class="payment-header-row section-top-border">
+                    <td rowspan="5" colspan="1" class="merged-vertical-cell payment-label-vertical section-top-border merged-left-side">Financials</td>
+                    
+                    <td colspan="3" class="payment-key section-top-border">Beneficiary Name :</td>
+                    <td colspan="18" class="payment-value section-top-border"><input type="text" value="شائلي محمود عمر خطاب" class="input-field payment-input"></td>
+                </tr>
+                <tr class="payment-row">
+                    <td colspan="3" class="payment-key">Account Number :</td>
+                    <td colspan="18" class="payment-value"><input type="text" value="SA134608010405131" class="input-field payment-input"></td>
+                </tr>
+                <tr class="payment-row">
+                    <td colspan="3" class="payment-key">Bank Name :</td>
+                    <td colspan="18" class="payment-value"><input type="text" class="input-field payment-input"></td>
+                </tr>
+                <tr class="payment-row-merged">
+                    <td colspan="3" class="payment-key"> Amount (in figures):</td>
+                    <td colspan="3" class="payment-value-digit"><input type="number" name="amount_numeric" class="input-field payment-input"></td>
+                    <td colspan="2" class="payment-key">Amount (in words) :</td>
+                    <td colspan="13" class="payment-value-text"><input type="text" value="Ten Thousand Riyals Only" class="input-field payment-input"></td>
+                </tr>
+                <tr class="payment-row last-in-section payment-end-row section-bottom-border">
+                    <td colspan="3" class="payment-key section-bottom-border"> Payment Method:</td>
+                    <td colspan="18" class="payment-value section-bottom-border"><input type="text" value="Bank Transfer" class="input-field payment-input"></td>
+                </tr>
+                
+                <tr class="approval-header-row section-top-border">
+                    <td rowspan="2" colspan="1" class="merged-vertical-cell approval-label-vertical section-top-border merged-left-side">  For Approval</td>
+                    
+                </tr>
+                <tr class="approval-row-v4 approval-end-row section-bottom-border">
+                    <td colspan="21" class="approval-signatures-container-v4">
+                        <div class="sig-column-v4">
+                            <span class="sig-title-key-inline-v4"> Projects Manager</span>
+                            <div class="sig-detail-group-inline-v4">
+                                <span class="name-line-v4">Name: <input type="text" value="أحمد عبدالرحمن" class="sig-name-input-v4"></span>
+                                <span class="date-line-v4">Signature: <input type="text" class="sig-name-input-v4"></span>
+                                <span class="date-line-v4">Card No: <input type="text" class="sig-name-input-v4"></span>
+                            </div>
+                        </div>
+                        <div class="sig-column-v4">
+                            <span class="sig-title-key-inline-v4">Financial Management </span>
+                            <div class="sig-detail-group-inline-v4">
+                                <span class="name-line-v4">Name: <input type="text" value="محمد علي" class="sig-name-input-v4"></span>
+                                <span class="date-line-v4">Signature: <input type="text" class="sig-name-input-v4"></span>
+                                <span class="date-line-v4">Card No: <input type="text" class="sig-name-input-v4"></span>
+                            </div>
+                        </div>
+                        <div class="sig-column-v4 last-sig-v4">
+                            <span class="sig-title-key-inline-v4">Approval Authority </span>
+                            <div class="sig-detail-group-inline-v4">
+                                <span class="name-line-v4">Name: <input type="text" value="إبراهيم سليمان الغافص" class="sig-name-input-v4"></span>
+                                <span class="date-line-v4">Signature: <input type="text" class="sig-name-input-v4"></span>
+                                <span class="date-line-v4"> Card No: <input type="text" class="sig-name-input-v4"></span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                
+            </table>
+        
+        </div>
+                    <button type="submit" class="submit-button">Submit </button>
+
+    </form>
+</div>
+
+
+
+
+        </form>
+        </div>
+</div>
+    </div>
+</div>
+
+
+
+
+
+<div id="modal-naqleyat" class="modal center-image-modal">
+    <div class="modal-content image-content form-container">
+        <span class="close-btn image-close">&times;</span> 
+
+        <div class="image-display-container">
+            <img id="modalCenterImage" src="" alt="صورة الخدمة" class="modal-center-image-form">
+        </div>
+        <form class="registration-form" action="#" method="POST">
+            <h3 class="form-title">    Transport and Equipment</h3>
+            
+            <div class="form-group">
+                <label for="regName" class="form-label">  Vehicle type <span class="required">*</span></label>
+                <input type="text" id="regName" name="fullName" class="form-input" placeholder=" Vehicle type " required>
+            </div>
+                        <div class="form-group">
+                <label for="regPlate" class="form-label">  Vehicle plate number <span class="required">*</span></label>
+                <input type="text" id="regPlate" name="licensePlate" class="form-input" placeholder=" Vehicle plate number  " required>
+            </div>
+            <div class="form-group">
+                <label for="regMobile" class="form-label">Mobile number  <span class="required">*</span></label>
+                <input 
+                    type="tel" 
+                    id="regMobile" 
+                    name="mobileNumber" 
+                    class="form-input" 
+                    placeholder=" Mobile number" 
+                    required
+                    oninput="this.value = this.value.replace(/[^0-9]/g, '');"
+                >
+            </div>
+                        <div class="form-group">
+                <label for="regEmail" class="form-label">Emai  <span class="required">*</span></label>
+                <input type="email" id="regEmail" name="emailAddress" class="form-input" placeholder="Your email " required>
+            </div>
+                        <div class="form-group">
+                <label for="regName" class="form-label">  Vehicle owner <span class="required">*</span></label>
+                <input type="text" id="regName" name="fullName" class="form-input" placeholder="  Vehicle owner" required>
+            </div>
+                                    <div class="form-group">
+                <label for="regName" class="form-label"> Region / Area<span class="required">*</span></label>
+                <input type="text" id="regName" name="fullName" class="form-input" placeholder=" Region / Area" required>
+            </div>
+
+            <div class="form-group">
+    <label for="regDocuments" class="form-label">
+        Vehicle's Documents Photos    <span class="required">*</span>
+    </label>
+    
+    <div class="file-upload-wrapper form-input"> 
+        <input 
+            type="file" 
+            id="regDocuments" 
+            name="companyDocuments" 
+            class="actual-file-input" 
+            required 
+            multiple 
+            accept="image/*, application/pdf" 
+        >
+        
+        <span class="custom-file-button">Choose Documents / Images  </span>
+        <span class="file-name-display">(e.g.: Driving License, Registration, Form)  </span> 
+    </div>
+    </div>
+
+            
+            <button type="submit" class="submit-button">Submit </button>
+        </form>
+        </div>
+</div>
+    </div>
+</div>
+
+
+<div id="modal-mowared-bashareya" class="modal center-image-modal">
+    <div class="modal-content image-content form-container">
+        <span class="close-btn image-close">&times;</span> 
+
+        <div class="image-display-container">
+            <img id="modalCenterImage" src="" alt="صورة الخدمة" class="modal-center-image-form">
+        </div>
+        <form class="registration-form" action="#" method="POST">
+            <h3 class="form-title">   Human Resources Request  </h3>
+            
+            <div class="form-group">
+                <label for="regName" class="form-label"> Full Name <span class="required">*</span></label>
+                <input type="text" id="regName" name="fullName" class="form-input" placeholder="Your full name " required>
+            </div>
+                        <div class="form-group">
+                <label for="regName" class="form-label"> Address <span class="required">*</span></label>
+                <input type="text" id="regName" name="fullName" class="form-input" placeholder=" Address" required>
+            </div>
+            <div class="form-group">
+    <label for="regDocuments" class="form-label">
+         Experience Certificates    <span class="required">*</span>
+    </label>
+    
+    <div class="file-upload-wrapper form-input"> 
+        <input 
+            type="file" 
+            id="regDocuments" 
+            name="companyDocuments" 
+            class="actual-file-input" 
+            required 
+            multiple 
+            accept="image/*, application/pdf" 
+        >
+        
+        <span class="custom-file-button"> Choose Certificates / Images  </span>
+        <span class="file-name-display">No images chosen  </span> 
+    </div>
+    </div>
+
+                                    <div class="form-group">
+                <label for="regName" class="form-label"> Job Title <span class="required">*</span></label>
+                <input type="text" id="regName" name="fullName" class="form-input" placeholder=" Job Title" required>
+            </div>
+
+<div class="form-group">
+    <label for="regAccountNumber" class="form-label">
+        Bank Account Number (Sequential Number) (Digits only) <span class="required">*</span>
+    </label>
+    <input 
+        type="tel" 
+        id="regAccountNumber" 
+        name="bankAccountNumber" 
+        class="form-input" 
+        placeholder="    Bank Account Number (Sequential Number) (Digits only)" 
+        required
+        oninput="this.value = this.value.replace(/[^0-9]/g, '');" 
+    >
+</div>
+
+<div class="form-group">
+    <label for="regIBAN" class="form-label"> 
+         IBAN Number  <span class="required">*</span>
+    </label>
+    <input 
+        type="text" 
+        id="regIBAN" 
+        name="ibanNumber" 
+        class="form-input" 
+        placeholder=" Starts with two letters (Country Code) followed by numbers and letters" 
+        required
+        style="text-transform: uppercase;"
+        oninput="this.value = this.value.toUpperCase().replace(/[^0-9A-Z]/g, '');"
+    >
+</div>
+            <div class="form-group">
+                <label for="regMobile" class="form-label">Mobile Number Approved in Absher  <span class="required">*</span></label>
+                <input 
+                    type="tel" 
+                    id="regMobile" 
+                    name="mobileNumber" 
+                    class="form-input" 
+                    placeholder="Mobile Number " 
+                    required
+                    oninput="this.value = this.value.replace(/[^0-9]/g, '');"
+                >
+            </div>
+                        <div class="form-group">
+                <label for="regEmail" class="form-label"> Email <span class="required">*</span></label>
+                <input type="email" id="regEmail" name="emailAddress" class="form-input" placeholder="Your email " required>
+            </div>
+
+            
+            <button type="submit" class="submit-button">Submit </button>
+        </form>
+        </div>
+</div>
+    </div>
+</div>
+
+<div id="modal-taqareer" class="modal center-image-modal">
+    <div class="modal-content image-content form-container">
+        <span class="close-btn image-close">&times;</span> 
+
+        <div class="image-display-container">
+            <img id="modalCenterImage" src="" alt="صورة الخدمة" class="modal-center-image-form">
+        </div>
+        <form class="registration-form" action="#" method="POST">
+            <h3 class="form-title">   تقارير  </h3>
+            
+                        <h3 class="form-title">   تقارير عمل وذلك عن طريق جدول يوضح كل الاعمال التي تمت وحالاتها</h3>
+
+            <button type="submit" class="submit-button">تسجيل </button>
+        </form>
+        </div>
+</div>
+    </div>
+</div>
+
+<div id="modal-a3mal" class="modal center-image-modal">
+    <div class="modal-content image-content form-container">
+        <span class="close-btn image-close">&times;</span> 
+
+        <div class="image-display-container">
+            <img id="modalCenterImage" src="" alt="صورة الخدمة" class="modal-center-image-form">
+        </div>
+        <form class="registration-form" action="#" method="POST">
+            <h3 class="form-title">   اعمال  </h3>
+            
+                        <h3 class="form-title"> جدول بالاعمال المطلوب تنفيذها من قبل الشركة الخارجية</h3>
+
+            <button type="submit" class="submit-button">تسجيل </button>
+        </form>
+        </div>
+</div>
+    </div>
+</div>
+
+
+<div id="modal-ada2-tanfeezy" class="modal center-image-modal">
+    <div class="modal-content image-content form-container">
+        <span class="close-btn image-close">&times;</span> 
+
+        <div class="image-display-container">
+            <img id="modalCenterImage" src="" alt="صورة الخدمة" class="modal-center-image-form">
+        </div>
+        <form class="registration-form" action="#" method="POST">
+            <h3 class="form-title">   مراجعة الاداء التنفيذي  </h3>
+            
+                        <h3 class="form-title"> جدول بالاعمال المطلوب تنفيذها من قبل الشركة الخارجية</h3>
+
+            <button type="submit" class="submit-button">تسجيل </button>
+        </form>
+        </div>
+</div>
+    </div>
+</div>
+
+
+<div id="modal-arsheef" class="modal center-image-modal">
+    <div class="modal-content image-content form-container">
+        <span class="close-btn image-close">&times;</span> 
+
+        <div class="image-display-container">
+            <img id="modalCenterImage" src="" alt="صورة الخدمة" class="modal-center-image-form">
+        </div>
+        <form class="registration-form" action="#" method="POST">
+            <h3 class="form-title">     ارشيف  </h3>
+            
+                        <h3 class="form-title"> جدول بالاعمال المطلوب تنفيذها من قبل الشركة الخارجية</h3>
+
+            <button type="submit" class="submit-button">تسجيل </button>
+        </form>
+        </div>
+</div>
+    </div>
+</div>
+
+
+<div class="row">
+
+
+  <div class="column"data-aos="zoom-in" data-aos-delay="50">
+    <div class="card">
+<div class="service-card open-inquiry-modal-from-card" data-service-name="تسجيل مورد"data-modal-target="modal-tsjeel-moured">
+            <div  class="card-image-wrapper corner-position">
+                <img  src="sprite/BusinessValuation1.png" alt="صورة افتراضية" class="service-card-image img-default">
+                <img  src="sprite/BusinessValuation2.png" alt="صورة عند التحويم" class="service-card-image img-hover">
+            </div>
+            <h3> Supplier Registration</h3>
+            <p>  This form is used to register a new supplier.</p>
+            <a href="#" class="read-more" 
+data-modal-title="Supplier Registration: Full Details" 
+data-modal-content="**Custom Details for Card 1:** This service is your first step to integrating any new supplier. A timeline is created for data verification (product, equipment, or employee). All necessary standards for quality and compliance are verified before issuing final approval."               onclick="event.stopPropagation();">
+                 Read More
+            </a>
+        </div>
+    </div>
+  </div>
+
+
+
+
+  <div class="column"data-aos="zoom-in" data-aos-delay="150">
+    <div class="card">
+        <div class="service-card open-inquiry-modal-from-card" data-service-name="تسعير" data-modal-target="modal-tas3eer">
+            <div class="card-image-wrapper corner-position">
+                <img src="sprite/Feasibility Studies.png" alt="صورة افتراضية" class="service-card-image img-default">
+                <img src="sprite/Feasibility Studies2.png" alt="صورة عند التحويم" class="service-card-image img-hover">
+            </div>
+            <h3>Pricing</h3>
+            <p>The pricing request is sent and everything related to pricing is handled. </p>
+            <a href="#" class="read-more" 
+data-modal-title="Pricing: Mechanism of Work and Competitiveness" 
+data-modal-content="**Custom Details for Card 2:** The pricing service includes creating a professional Request for Quotation (RFQ) and sending it to specialized suppliers. A strict deadline for response is set, followed by a comparative price analysis process to ensure selecting the best offer in terms of cost and quality."               onclick="event.stopPropagation();">
+                 Read More
+            </a>
+        </div>
+    </div>
+  </div>
+
+
+
+
+
+  <div class="column"data-aos="zoom-in" data-aos-delay="250">
+    <div class="card">
+
+        <div class="service-card open-inquiry-modal-from-card" data-service-name="نقليات ومعدات"data-modal-target="modal-naqleyat">
+            <div class="card-image-wrapper corner-position">
+                <img src="sprite/Due Diligence.png" alt="صورة افتراضية" class="service-card-image img-default">
+                <img src="sprite/Due Diligence2.png" alt="صورة عند التحويم" class="service-card-image img-hover">
+            </div>
+            <h3> Transport & Equipment</h3>
+            <p>A registration schedule is created for equipment, its type, year of manufacture, location, and the driver's ID.</p>
+            <a href="#" class="read-more" 
+data-modal-title="Equipment and Machinery: Comprehensive Documentation" 
+data-modal-content="**Custom Details for Card 3:** This service focuses on archiving and tracking your physical assets. Every piece of equipment is registered with a serial number, type, manufacturing date, current geographical area, in addition to linking it with the ID card of the responsible driver or operator."               onclick="event.stopPropagation();">
+                 Read More
+            </a>
+        </div>
+    </div>
+  </div>
+
+
+
+
+
+  <div class="column"data-aos="zoom-in" data-aos-delay="350">
+    <div class="card">
+        <div class="service-card open-inquiry-modal-from-card" data-service-name="طلب موارد بشرية" data-modal-target="modal-mowared-bashareya">
+            <div class="card-image-wrapper corner-position">
+                <img src="sprite/Funding Arrangement.png" alt="صورة افتراضية" class="service-card-image img-default">
+                <img src="sprite/Funding Arrangement2.png" alt="صورة عند التحويم" class="service-card-image img-hover">
+            </div>
+            <h3>Human Resources Request  </h3>
+            <p> The form is completed and data validity is ensured by the employee.</p>
+            <a href="#" class="read-more" 
+data-modal-title="Human Resources: Selection and Recruitment" 
+data-modal-content="**Custom Details for Card 4:** A unified form is used to collect all required personal and professional data for the worker (profession, location, type of work). This procedure aims to facilitate the recruitment and screening process and provide a complete record of the employed human resources."               onclick="event.stopPropagation();">
+                 Read More
+            </a>
+        </div>
+    </div>
+  </div>
+
+
+
+
+
+    <div class="column"data-aos="zoom-in" data-aos-delay="450">
+    <div class="card">
+
+        <div class="service-card open-inquiry-modal-from-card" data-service-name="تقارير"data-modal-target="modal-taqareer">
+            <div class="card-image-wrapper corner-position">
+                <img src="sprite/Reports1.png" alt="صورة افتراضية" class="service-card-image img-default">
+                <img src="sprite/Reports2.png" alt="صورة عند التحويم" class="service-card-image img-hover">
+            </div>
+            <h3>Reports</h3>
+            <p>Create a comprehensive report on all work and link it to a single channel.</p>
+            <a href="#" class="read-more" 
+data-modal-title="Reports: Preparation and Follow-up" 
+data-modal-content="**Custom Details for Card 5:** We offer a service for preparing comprehensive and unified reports. Data is collected from various departments and linked in a single viewing channel (Dashboard) to provide an integrated and easily analyzed view of all the establishment's operations."               onclick="event.stopPropagation();">
+                 Read More
+            </a>
+        </div>
+    </div>
+  </div>
+
+
+
+    <div class="column"data-aos="zoom-in" data-aos-delay="550">
+    <div class="card">
+<div class="service-card open-inquiry-modal-from-card" data-service-name="أعمال"data-modal-target="modal-a3mal">
+            <div class="card-image-wrapper corner-position">
+                <img src="sprite/Business1.png" alt="صورة افتراضية" class="service-card-image img-default">
+                <img src="sprite/Business2.png" alt="صورة عند التحويم" class="service-card-image img-hover">
+            </div>
+            <h3>Business Operations</h3>
+            <p>Create a channel to closely view all daily or weekly operations.</p>
+            <a href="#" class="read-more" 
+data-modal-title="Business Operations: Direct Visibility" 
+data-modal-content="**Custom Details for Card 6:** We provide a platform (channel) that allows for direct and precise monitoring of all executed work, whether daily or weekly. The goal is to enhance transparency and facilitate the auditing and remote monitoring process."               onclick="event.stopPropagation();">
+                 Read More
+            </a>
+        </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="column"data-aos="zoom-in" data-aos-delay="650">
+    <div class="card ">
+        <div class="service-card open-inquiry-modal-from-card" data-service-name="مراجعة الأداء التنفيذي"data-modal-target="modal-ada2-tanfeezy">
+            <div class="card-image-wrapper corner-position">
+                <img src="sprite/Executive.png" alt="صورة افتراضية" class="service-card-image img-default">
+                <img src="sprite/Executive2.png" alt="صورة عند التحويم" class="service-card-image img-hover">
+            </div>
+            <h3>   Request for Quotation (RFQ)  </h3>
+            <p>  In case of requesting a price quote from the company, requests are sent in this group and the form will be [completed]. </p>
+            <a href="#" class="read-more" 
+               data-modal-title="..........."
+               data-modal-content="**........"
+               onclick="event.stopPropagation();">
+                 Read More
+            </a>
+        </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="column"data-aos="zoom-in" data-aos-delay="750">
+    <div class="card">
+
+        <div class="service-card open-inquiry-modal-from-card" data-service-name="أرشف"data-modal-target="modal-arsheef">
+            <div class="card-image-wrapper corner-position">
+                <img src="sprite/Business Development.png " alt="صورة افتراضية" class="service-card-image img-default">
+                <img src="sprite/Business Development2.png " alt="صورة عند التحويم" class="service-card-image img-hover">
+            </div>
+            <h3>Archive</h3>
+            <p> Searches for all company items and business records...</p>
+            <a href="#" class="read-more" 
+               data-modal-title="Archive: Archiving and Search Solutions" 
+            data-modal-content="**Custom Details for Card 9:** An advanced service for searching and retrieving company archives. It allows you to quickly find any item, document, or old business record, simplifying the auditing process and reducing the time spent on information retrieval."
+            onclick="event.stopPropagation();">
+                 Read More
+        </a>
+        </div>
+    </div>
+  </div>
+
+
+
+
+</div>
+
+<section class="vision-section">
+ 
+    <div class="vision-container" id="OurVision">
+  
+        <div class="vision-image-wrapper" 
+            data-aos="fade-left" 
+            data-aos-delay="200">
+            <img src="sprite/vision.jpg" alt="نسهل لك الطلبات" class="vision-image" alt="vision.img_alt">
+        </div>
+        
+        <div class="vision-content">
+   
+            <h1 style="margin-bottom: 10%; font-size: 30px;" class="section-title-right"
+                data-aos="fade-right"> 
+                 We Facilitate Your Orders  
+            </h1>
+   
+            <div class="vision-item" 
+                data-aos="fade-up" 
+                data-aos-delay="400">
+                <h3 class="vision-title " ><i class="far fa-eye"></i>Our Vision</h3>
+                <p > To be the first partner in supplying your project requirements.</p>
+            </div>
+            
+            <div class="vision-item" 
+                data-aos="fade-up" 
+                data-aos-delay="600">
+                <h3 class="vision-title"><i class="fas fa-handshake"></i>Our Values </h3>
+                <p >   Transparency, Quality, Response Speed.</p>
+            </div>
+        </div>
+  
+
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+<section class="clients-section"  id="clients-section">
+ 
+    <h1 class="clients-title" data-aos="fade-down" >Our Clients</h1>
+ 
+    <div class="customer-slider"> 
+  
+        <a href="#" class="logo-link" data-aos="fade-up" data-aos-delay="50">
+            <div class="logo-item"><img src="sprite/madinah.png" alt="أمانة منطقة المدينة المنورة" ></div>
+        </a>
+        
+        <a href="#" class="logo-link" data-aos="fade-up" data-aos-delay="100">
+            <div class="logo-item"><img src="sprite/kafala.png" alt="كفالة" ></div>
+        </a>
+        
+        <a href="#" class="logo-link" data-aos="fade-up" data-aos-delay="150">
+            <div class="logo-item"><img src="sprite/hadi.png" alt="Hadi Golf Cart" ></div>
+        </a>
+
+        <a href="#" class="logo-link" data-aos="fade-up" data-aos-delay="200">
+            <div class="logo-item"><img src="sprite/rakas.png" alt="الأركان الثامنة" ></div>
+        </a>
+
+        <a href="#" class="logo-link" data-aos="fade-up" data-aos-delay="250">
+            <div class="logo-item"><img src="sprite/asass.png" alt="شركة أساسات التربة العربية للمقاولات" ></div>
+        </a>
+        
+        <a href="#" class="logo-link" data-aos="fade-up" data-aos-delay="300">
+            <div class="logo-item"><img src="sprite/pnc.png" alt="PNC Power Networks Co." ></div>
+        </a>
+
+        <a href="#" class="logo-link" data-aos="fade-up" data-aos-delay="350">
+            <div class="logo-item"><img src="sprite/dgj.png" alt="DGJ" ></div>
+        </a>
+        
+        <a href="#" class="logo-link" data-aos="fade-up" data-aos-delay="400">
+            <div class="logo-item"><img src="sprite/read.png" alt="هيئة ملكية لمدينة الرياض" ></div>
+        </a>
+        
+    </div>
+</section>
+
+<section class="why-takamul-section" >
+  
+    <h1 class="why-takamul-title" data-aos="fade-up" > Why Takamul?</h1>
+  
+    <div class="features-grid">
+    
+        <div class="feature-card card-1" data-aos="fade-right" data-aos-delay="200">
+            <div class="title-group">
+                <div class="feature-icon">
+                    <img style="width: 90%; height: 90%;" src="sprite/icon-1.png" alt="أيقونة شُركاء" >
+                </div>
+                <h3 class="feature-title green-main-title" >Partners</h3>
+            </div>
+            
+            <p class="feature-description gray-sub-text" >  We work with governmental and private entities and meet the needs of every client.</p>
+        </div>
+
+
+        <div class="feature-card card-2" data-aos="fade-left" data-aos-delay="400">
+            <div class="title-group">
+                <div class="feature-icon">
+                    <img style="width: 90%; height: 90%;" src="sprite/icon-2.png" alt="أيقونة مُرخصة رسميًا" >
+                </div>
+                <h3 class="feature-title green-main-title" > Officially Licensed</h3>
+            </div>
+            <p class="feature-description gray-sub-text" >A company with official registration that guarantees your rights and transactions.</p>
+        </div>
+
+
+        <div class="feature-card card-3" data-aos="fade-right" data-aos-delay="600">
+            <div class="title-group">
+                <div class="feature-icon">
+                    <img style="width: 90%; height: 90%;" src="sprite/icon-3.png" alt="أيقونة خبرات متنوعة" >
+                </div>
+                <h3 class="feature-title green-main-title" >Diverse Expertise </h3>
+            </div>
+            
+            <p class="feature-description gray-sub-text" >Our team includes experts, engineers, and consultants with experience in local and global markets.</p>
+        </div>
+        
+        <div class="feature-card card-4" data-aos="fade-left" data-aos-delay="800">
+            <div class="title-group">
+                <div class="feature-icon">
+                    <img style="width: 90%; height: 90%;" src="sprite/icon-4.png" alt="أيقونة منهجية دقيقة" >
+                </div>
+                <h3 class="feature-title green-main-title" >Precise Methodology </h3>
+            </div>
+            
+            <p class="feature-description gray-sub-text" >We use advanced evaluation standards to ensure reliable results.</p>
+        </div>
+
+    </div>
+</section>
+
+<div class="page-container">
+    <div class="form-wrapper">
+        <form action="https://formsubmit.co/tkamel7050@gmail.com" method="POST" id="inquiryForm" class="contact-form">
+            
+            <div class="form-row first-row">
+                <div class="form-group full-width-field" data-input-name="fullName">
+                    <label for="fullName" > Full Name <span class="required">*</span></label>
+                    <input type="text" id="fullName" name="الاسم_بالكامل" placeholder="Write your full name" required >
+<span class="error-message" >This field is required</span>                </div>
+            </div>
+            
+            <div class="form-row split-row">
+                <div class="form-group large-half">
+                    <label for="email" > Email <span class="required">*</span></label>
+                    <input type="email" id="email" name="البريد_الإلكتروني" placeholder="Your email " required >
+<span class="error-message" >This field is required</span>                </div>
+                <div class="form-group small-half">
+                    <label for="phone" >Phone Number  <span class="required">*</span></label>
+                    <input type="tel" id="phone" name="رقم_الهاتف" placeholder="Your phone number " required >
+<span class="error-message" >This field is required</span>                </div>
+            </div>
+
+            <div class="form-row full-row">
+                <div class="form-group full-width-field">
+                    <label for="service" >Choose the service you wish to inquire about <span class="required">*</span></label>
+                    <select id="service" name="الخدمة_المطلوبة" required>
+<option value="" disabled selected >Choose the Service</option> 
+            <option value="supplier" >Supplier Registration</option>
+            <option value="pricing" >Pricing</option>
+            <option value="equipment" >Transport and Equipment</option>
+            <option value="HR Request" >HR Request</option>
+            <option value="Reports" >Reports</option>
+            <option value="Business" >Business Operations</option>
+            <option value="Executive Performance Review" >Request for Quotation (RFQ)</option>
+            <option value="Archive" >Archive</option>
+                    </select>
+<span class="error-message" >This field is required</span>                </div>
+            </div>
+            
+            <div class="form-row full-row">
+                <div class="form-group full-width-field">
+                    <label for="inquiry" >Your Inquiry <span class="required">*</span></label>
+                    <textarea id="inquiry" name="الاستفسار" rows="10" placeholder="Write your inquiry " required ></textarea> 
+                    <span class="error-message" >This field is required  </span>
+                </div>
+            </div>
+
+            <div class="submit-row">
+<button type="submit" class="submit-btn" >Send</button>
+            </div>
+            
+        </form>
+    </div>
+</div>
+<footer class="main-footer">
+    <div class="footer-container">
+
+        <div class="footer-info">
+            <div class="footer-logo">
+                <img src="sprite/logo (1).png" alt="takamul" style="max-width: 150px;">
+            </div>
+            <p class="company-desc" >
+                A Saudi company that supplies all project requirements for tools, equipment, materials, and human resources. 
+            </p>
+
+        </div>
+
+        <div class="footer-links-group">
+            <h4 class="footer-heading" >Quick Links</h4> <ul class="footer-links">
+                <li><a href="index.html" >Home</a></li> <li><a href="aboutus-ar.html" >About Us</a></li> <li><a href="ourServices-ar.html" >Our Services</a></li> <li><a href="#" >FAQ</a></li> <li><a href="#" >Privacy Policy</a></li> </ul>
+        </div>
+
+        <div class="footer-contact">
+            <h4 class="footer-heading" >Contact Us</h4> <a href="#" target="_blank" class="contact-item-link" >
+                <span >Kingdom of Saudi Arabia</span> <div class="social-icon-link-details">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+            </a>
+
+            <a href="tel:+00966533808888" class="contact-item-link" >
+                <span>00966533808888</span>
+                <div class="social-icon-link-details">
+                    <i class="fas fa-phone-alt"></i>
+                </div>
+            </a>
+            
+            <a href="mailto:contact@takamulgroup.sa" class="contact-item-link" >
+                <span>tkamel7050@gmail.com</span>
+                <div class="social-icon-link-details">
+                    <i class="fas fa-envelope"></i>
+                </div>
+            </a>
+        </div>
+    </div>
+</footer>
+
+<div style="text-align: center; margin-bottom: 1%; color: rgb(57, 59, 58);" class="copyright-bar">
+    <div class="container">
+        <p class="copyright-text" >
+            Copyright &copy; 2025 takamul. All Rights Reserved.
+        </p>
+    </div>
+</div>
+
+<a href="https://wa.me/966533808888" target="_blank" class="whatsapp-float">
+    <i class="fab fa-whatsapp"></i>
+</a>
+    <script src="script/index.js"></script>
+    <script src="script/services.js"></script>
+    <script src="script/total.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+
+
+<script>
+    AOS.init({
+        // 🚀 زيادة مدة الحركة (Duration): 
+        // نرفعها من 500ms إلى 800ms (0.8 ثانية) لتصبح أكثر سلاسة ووضوحًا.
+        duration: 800, 
+        
+        // ⬇️ تعديل الإزاحة (Offset):
+        // نستخدم 150-200 بكسل فقط لضمان ظهور الحركة مبكرًا دون أن تكون مفاجئة جدًا.
+        offset: 200, 
+        
+        // التأخير الافتراضي: (للعناصر التي لا تحتوي على data-aos-delay)
+        delay: 50,
+        
+        // لتبقى الحركة تظهر مرة واحدة فقط
+        once: true,  
+    });
+</script>
+
+</body>
+</html>

@@ -1,5 +1,18 @@
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 document.addEventListener('DOMContentLoaded', function() {
     
     // ==============================================================
@@ -75,50 +88,60 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+document.addEventListener('DOMContentLoaded', function() {
+    // 1. تعريف المتغيرات
+    const navbar = document.querySelector('.navbar');
+    const logoImage = document.getElementById('navbar-logo');
+    
+    // 2. تعريف مسارات الصور
+    // مسار الصورة الافتراضية (عندما يكون النافبار في الأعلى)
+    const defaultLogo = 'sprite/logo.png'; 
+    // مسار الصورة الجديدة (عندما ينزل المستخدم)
+    // *** يجب استبدال هذا المسار بمسار صورتك الجديدة ***
+    const scrolledLogo = 'sprite/logo (1).png'; // مثال: شعار بلون مختلف أو أصغر
 
- document.addEventListener('DOMContentLoaded', function() {
-        
-        // جلب العناصر الأساسية
-        const navbar = document.querySelector('.navbar');
-        const navbarLogo = document.getElementById('navbarLogo'); 
-        
-        const scrollThreshold = 50; // المسافة التي يجب التمريرها لتفعيل التغيير
+    // 3. دالة معالجة التمرير
+    function handleScrollLogo() {
+        // التأكد من أن النافبار موجود
+        if (!navbar || !logoImage) return; 
 
-        // 💡 مسارات الصور: تأكد من أن هذه الملفات موجودة في المسار الصحيح
-        const defaultLogoSrc = 'takamul/sprite/logo.png';
-        const scrolledLogoSrc = 'takamul/sprite/logo (1).png'; 
-
-        function toggleLogoOnScroll() {
-            // التحقق من وجود عنصر الشعار قبل محاولة التغيير
-            if (!navbarLogo) return; 
-
-            if (window.scrollY > scrollThreshold) {
-                // 1. إضافة كلاس التمرير
-                navbar.classList.add('scrolled');
-                
-                // 2. تبديل صورة الشعار
-                if (navbarLogo.src.indexOf('logo-scrolled') === -1) {
-                    navbarLogo.src = scrolledLogoSrc;
-                }
-            } else {
-                // 1. إزالة كلاس التمرير
-                navbar.classList.remove('scrolled');
-                
-                // 2. إعادة الصورة الأصلية
-                if (navbarLogo.src.indexOf('logo.png') === -1) {
-                    navbarLogo.src = defaultLogoSrc;
-                }
+        // التحقق مما إذا كانت الفئة .scrolled مطبقة على النافبار
+        // (وهي الفئة التي تطبقها عندما ينزل المستخدم بمسافة معينة)
+        if (navbar.classList.contains('scrolled')) {
+            // إذا كان المستخدم قد نزل (النافبار تغير لونه)
+            if (logoImage.src.indexOf(scrolledLogo) === -1) {
+                logoImage.src = scrolledLogo;
+            }
+        } else {
+            // إذا كان المستخدم في أعلى الصفحة
+            if (logoImage.src.indexOf(defaultLogo) === -1) {
+                logoImage.src = defaultLogo;
             }
         }
-        
-        // ربط الدالة بحدث التمرير
-        window.addEventListener('scroll', toggleLogoOnScroll);
-        
-        // تشغيل الدالة عند التحميل لضبط الحالة الابتدائية
-        toggleLogoOnScroll();
+    }
 
+    // 4. ربط الدالة بحدث التمرير
+    window.addEventListener('scroll', handleScrollLogo);
+
+    // *ملاحظة:* تأكد من أن لديك دالة JavaScript تقوم بإضافة وإزالة الفئة .scrolled إلى النافبار
+    // بناءً على موضع التمرير، مثل هذا المثال:
+
+    window.addEventListener('scroll', function() {
+        const scrollPosition = window.scrollY;
+        // قم بتغيير القيمة 100 بكسل حسب المسافة التي تريدها
+        if (scrollPosition > 100) { 
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+        
+        // استدعاء دالة تغيير الشعار للتأكد من تحديثها
+        handleScrollLogo();
     });
-
+    
+    // استدعاء الدالة عند تحميل الصفحة لتحديد الشعار الصحيح
+    handleScrollLogo();
+});
 
 
 
@@ -237,30 +260,3 @@ document.addEventListener('DOMContentLoaded', function() {
     // ... (باقي كود البطاقات يبقى كما هو)
     
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
