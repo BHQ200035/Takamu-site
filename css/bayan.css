@@ -1,0 +1,75 @@
+/* =======================================
+    تنسيق قسم الميزات الأساسية (Core Features)
+    ======================================= */
+.core-features {
+    /* الخلفية قد تكون بيضاء أو رمادية فاتحة جداً */
+    background-color: white; 
+    padding: 60px 0;
+}
+
+/* حاوية التوزيع الشبكي للميزات */
+.features-grid {
+    display: flex;
+    /* التوزيع المتساوي بين العناصر */
+    justify-content: space-around; 
+    /* التفاف العناصر في حال الشاشات الصغيرة */
+    flex-wrap: wrap; 
+    gap: 20px;
+    text-align: center;
+        margin-left: 20%;
+    margin-right: 20%;
+}
+
+.feature-item {
+    /* لتوزيع 4 عناصر في صف واحد */
+    width: 23%; 
+    min-width: 200px;
+    padding: 20px 10px;
+    /* ظل بسيط وحواف دائرية */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    height: 100%; /* ضمان ارتفاع موحد */
+            border: 1px solid  var(--green-color);;
+
+}
+
+.feature-item:hover {
+    /* تأثير طفيف عند مرور الماوس */
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+    font-size: 40px;
+    /* استخدم لونك الرئيسي الأخضر أو الأزرق الداكن */
+    color: var(--green-color); 
+    margin-bottom: 15px;
+    display: block;
+}
+
+.feature-item h4 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.feature-item p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* تفعيل التجاوب للشاشات الصغيرة */
+@media (max-width: 992px) {
+    .feature-item {
+        width: 48%; /* 2 عنصر في الصف على التابلت */
+        margin-bottom: 20px;
+    }
+}
+@media (max-width: 576px) {
+    .feature-item {
+        width: 100%; /* عنصر واحد في الصف على الهاتف */
+    }
+}

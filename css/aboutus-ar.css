@@ -392,6 +392,217 @@ body, html {
 
 
 
+/* =======================================
+    تنسيق قسم الميزات الأساسية (Core Features)
+    ======================================= */
+.core-features {
+    /* الخلفية قد تكون بيضاء أو رمادية فاتحة جداً */
+    background-color: white; 
+    padding: 60px 0;
+}
+
+/* حاوية التوزيع الشبكي للميزات */
+.features-grid {
+    display: flex;
+    /* التوزيع المتساوي بين العناصر */
+    justify-content: space-around; 
+    /* التفاف العناصر في حال الشاشات الصغيرة */
+    flex-wrap: wrap; 
+    gap: 20px;
+    text-align: center;
+        margin-left: 20%;
+    margin-right: 20%;
+}
+
+.feature-item {
+    /* لتوزيع 4 عناصر في صف واحد */
+    width: 23%; 
+    min-width: 200px;
+    padding: 20px 10px;
+    /* ظل بسيط وحواف دائرية */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    height: 100%; /* ضمان ارتفاع موحد */
+            border: 1px solid  var(--green-color);;
+
+}
+
+.feature-item:hover {
+    /* تأثير طفيف عند مرور الماوس */
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+    font-size: 40px;
+    /* استخدم لونك الرئيسي الأخضر أو الأزرق الداكن */
+    color: var(--green-color); 
+    margin-bottom: 15px;
+    display: block;
+}
+
+.feature-item h4 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.feature-item p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* تفعيل التجاوب للشاشات الصغيرة */
+@media (max-width: 992px) {
+    .feature-item {
+        width: 48%; /* 2 عنصر في الصف على التابلت */
+        margin-bottom: 20px;
+    }
+}
+@media (max-width: 576px) {
+    .feature-item {
+        width: 100%; /* عنصر واحد في الصف على الهاتف */
+    }
+}
+
+
+/* 💡 يُفضل تعريف هذه المتغيرات في بداية ملف CSS في :root */
+:root {
+  /* لون برتقالي أو مميز لتحديد بعض العناصر */
+    --light-bg: #f8f8f8;          /* لون خلفية القسم */
+}
+
+/* =======================================
+    تنسيق قسم عن تكامل (About Takmol)
+    ======================================= */
+.about-takmol {
+    background-color: var(--light-bg); 
+    padding: 60px 100px;
+    gap: 20%;
+
+}
+
+.about-content-grid {
+    display: flex;
+    gap: 40px;
+    align-items: center; /* توسيط العناصر عمودياً لضمان التناسق */
+}
+
+/* ----------------------------------
+    تنسيق عمود الصورة
+    ---------------------------------- */
+.about-image-side {
+    flex: 1; 
+    order: 1; 
+}
+
+.main-about-img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    /* ظل عميق وخفيف يعطي عمقاً عصرياً */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); 
+}
+
+/* ----------------------------------
+    تنسيق عمود النص
+    ---------------------------------- */
+.about-text-side {
+    flex: 1; 
+    order: 2; 
+}
+
+.about-title {
+    font-size: 32px;
+    color: var(--green-color); /* استخدام اللون الرئيسي للشركة */
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.arrow-icon {
+    /* أيقونة مميزة بجوار العنوان */
+    color: var(--green-color); /* استخدام اللون الرئيسي للشركة */
+    margin-right: 10px;
+    font-size: 26px;
+}
+
+.about-paragraph {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+/* ----------------------------------
+    تنسيق صندوق المعلومات (Info Box)
+    ---------------------------------- */
+.info-box {
+    background-color: #fffaf0; /* خلفية كريمية أو بيضاء ناصعة */
+    border-right: 5px solid var(--green-color); /* شريط جانبي بلون مميز لجذب الانتباه */
+    padding: 25px;
+    border-radius: 8px;
+    margin-top: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.info-box p {
+    font-size: 15px;
+    color: #444;
+    margin-bottom: 15px;
+}
+
+/* تنسيق زر "تواصل معنا" */
+.btn-consult-small {
+    display: inline-block;
+    background-color: var(--green-color);
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 15px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-consult-small:hover {
+    background-color: #00643d; 
+    transform: translateY(-2px);
+}
+
+/* ----------------------------------
+    التجاوب (Responsive)
+    ---------------------------------- */
+@media (max-width: 992px) {
+    .about-content-grid {
+        flex-direction: column; 
+        gap: 30px;
+    }
+    .about-image-side, .about-text-side {
+        width: 100%;
+        order: initial; 
+    }
+    .about-title {
+        font-size: 28px;
+        text-align: right;
+    }
+    /* الصورة تظهر أولاً على الجوال */
+    .about-image-side { order: -1; } 
+    .about-text-side { order: 0; }
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -401,33 +612,93 @@ body, html {
 
 
 /* =======================================
-   تنسيق السلايدر (Slider CSS)
-   ======================================= */
+    GLOBAL VARIABLES
+    ======================================= */
+:root {
+    --main-accent-color: #f75d79; /* لون النقاط النشطة والأزرار */
+    --secondary-color: #e04a65;   /* لون زر الاستشارة */
+}
 
+/* =======================================
+    تنسيق السلايدر (Slider CSS)
+    ======================================= */
+
+
+    .slider-header {
+    text-align: center;
+    padding-top: 40px; /* مسافة من أعلى الصفحة أو القسم السابق */
+    padding-bottom: 20px;
+}
+
+
+.slider-header .container {
+    /* ضمان أن العنوان يتوسط ضمن حدود الـ 1100 بكسل ويترك مسافة من الجوانب */
+    width: 100%;
+    margin: 0 auto; 
+}
+
+
+.section-title {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--primary-green, #008e36); /* اللون الأخضر الرئيسي */
+}
+
+
+.section-subtitle {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 30px; /* مسافة تفصل العنوان عن السلايدر نفسه */
+}
 .slider-container {
     max-width: 100%;
     position: relative;
     margin: auto;
+    /* ⭐️ إزالة الـ margin-top القديمة لأن العنوان سيوفر المسافة */
+    margin-top: 0; 
+    overflow: hidden; 
 }
-
-/* لتأكد من أن الصور تغطي كامل ارتفاع وعرض السلايدر */
-.mySlides img {
+.slides-wrapper{
+    margin-top: -2%;
+}
+.images-center-container {
+    /* تفعيل فليكس بوكس لترتيب الصور أفقياً */
+    display: flex;
+    /* لتوسيط الصور الثلاثة أفقياً */
+    justify-content: center; 
+    /* لتوسيط الصور الثلاثة عمودياً */
+    align-items: center; 
+    
+    /* تحديد ارتفاع الشريحة */
+    height: 70vh; 
     width: 100%;
-    height: 70vh; /* تحديد ارتفاع مناسب، يمكنك تغييره حسب الحاجة */
-    object-fit: cover; /* لضمان ملء الصورة دون تشويه */
 }
 
-/* النص الموضوع على الصورة */
+/* تنسيق الصور داخل الحاوية الجديدة */
+.images-center-container img {
+    /* تحديد حجم موحد لكل صورة */
+    width: 25%; /* 3 صور * 25% = 75% من العرض، والباقي مسافات */
+    height: auto; 
+    max-height: 80%; 
+    object-fit: cover; 
+    margin: 0 10px; /* مسافة بين الصور */
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+
+/* النص الموضوع على الصورة (إذا استخدمت خاصية slide-text في HTML) */
 .slide-text {
     position: absolute;
-    bottom: 50%; /* أو 20% حسب رغبتك */
-    right: 10%; /* لتظهر النصوص في اليمين (RTL) */
-    transform: translateY(50%);
+    bottom: 10%; 
+    right: 10%; 
     color: white;
     width: 50%;
     padding: 10px;
     text-align: right;
-    z-index: 5; /* لضمان ظهور النص فوق الصورة */
+    z-index: 5;
+    transform: none;
 }
 
 .slide-text h1 {
@@ -501,6 +772,12 @@ body, html {
     transition: background-color 0.6s ease;
 }
 
+/* حالة النقطة النشطة */
+.active-dot, .dot:hover {
+    background-color: var(--main-accent-color); 
+}
+
+/* تنسيق الأزرار (CTAs) */
 .btn {
     text-decoration: none;
     padding: 12px 30px;
@@ -511,19 +788,163 @@ body, html {
 }
 .btn-consult {
     background-color: rgb(255, 255, 255);
-    color: #e04a65;
+    color: var(--secondary-color);
 }
 
 .btn-consult:hover {
-    background-color: #e04a65;
+    background-color: var(--secondary-color);
     color: rgb(255, 255, 255);
     transform: translateY(-2px);
 }
 
 
 
-.active-dot, .dot:hover {
-    background-color: #f75d79; /* لونك المميز */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =======================================
+    تنسيق قسم آراء العملاء (Testimonials)
+    ======================================= */
+.testimonials {
+    /* يمكن تغيير الخلفية لتكون بلون متباين (مثلاً رمادي فاتح) أو الأبيض */
+    background-color: var(--light-bg, #f8f8f8); 
+    padding: 80px 0;
+}
+
+/* تنسيق العنوان العام في المنتصف */
+.section-header-centered {
+    text-align: center;
+    margin-bottom: 50px;
+}
+.section-header-centered .section-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--green-color);
+}
+.section-header-centered .section-subtitle {
+    font-size: 18px;
+    color: #666;
+}
+
+
+/* حاوية التوزيع الشبكي */
+.testimonials-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.testimonial-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    /* ظل واضح يعطي البطاقة بروزاً وشكلاً عصرياً */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); 
+    flex: 1; /* جعل البطاقات تأخذ مساحة متساوية */
+    min-width: 300px;
+    position: relative;
+    border-top: 4px solid var(--green-color); /* شريط علوي بلون مميز */
+}
+
+.quote-icon {
+    font-size: 30px;
+    color: var(--green-color); /* اللون الأخضر المميز */
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    opacity: 0.2; /* جعل الأيقونة خفيفة في الخلفية */
+}
+
+.testimonial-text {
+    font-size: 16px;
+    color: #444;
+    line-height: 1.7;
+    margin-bottom: 25px;
+    /* إعطاء مسافة للأيقونة في الركن */
+    padding-left: 10px; 
+}
+
+/* معلومات العميل (الصورة والاسم) */
+.client-info {
+    display: flex;
+    align-items: center;
+    text-align: right;
+    direction: rtl; 
+}
+
+.client-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-left: 15px;
+    object-fit: cover;
+    border: 2px solid var(--green-color);
+}
+
+.client-details .client-name {
+    font-size: 17px;
+    font-weight: bold;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.client-details .client-project {
+    display: block;
+    font-size: 14px;
+    color: #888;
+}
+
+/* ----------------------------------
+    التجاوب (Responsive)
+    ---------------------------------- */
+@media (max-width: 1024px) {
+    .testimonials-grid {
+        justify-content: center;
+    }
+    .testimonial-card {
+        flex-basis: 45%; /* عرض بطاقتين في الصف على التابلت */
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .testimonial-card {
+        flex-basis: 100%; /* بطاقة واحدة في الصف على الهاتف */
+    }
 }
 
 
@@ -543,13 +964,53 @@ body, html {
 
 
 
+/* القسم الرئيسي (Hero Section) */
+.hero-section {
+    /* هذه الأنماط تحتاج إلى صورة خلفية حقيقية لشركة المقاولات */
+background: url('https://fawzyabdou.com/wp-content/uploads/2019/12/01.jpg') no-repeat center center/cover;    
 
+height: 60vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    position: relative;
+    z-index: 1; /* لضمان ظهور المحتوى فوق تراكب اللون */
+}
 
+/* تراكب لوني لجعل النص مقروءًا */
+.hero-section::before { 
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); 
+    z-index: -1; 
+}
 
+.hero-content h2 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
 
+.primary-cta {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: var(--dark-color);
+    text-decoration: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
 
-
-
+.primary-cta:hover {
+    background-color: #e68900;
+}
 
 
 
@@ -753,274 +1214,6 @@ color: #000;
 
 
 
-
-
-
-
-
-
-
-
-
-
-/* 8. قسم ننير لك الطريق (Vision Section) */
-.vision-section {
-    background-color: var(--dark-blue); 
-    padding: 80px 0; /* إضافة حشوة علوية وسفلية للقسم */
-}
-
-.vision-container {
-    display: flex;
-    /* 💡 التعديل هنا: عكس الترتيب لوضع الصورة على اليسار والنص على اليمين 💡 */
-    flex-direction: row-reverse; 
-    
-    gap: 10%; /* مسافة بين الصورة والمحتوى */
-    align-items: center; 
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
-/* ------------------------------------------------ */
-/* تنسيق المحتوى النصي (Vision Content) */
-/* ------------------------------------------------ */
-.vision-content {
-    /* 💡 التعديل هنا: السماح له بأخذ نسبة أكبر ليناسب الصورة الأصغر */
-    flex: 1; /* يأخذ جزء من المساحة */
-    max-width: 45%; /* تحديد أقصى عرض */
-    text-align: right; 
-    padding: 20px; /* حشوة داخلية للحواف */
-}
-
-.vision-content .section-title-right {
-    /* العنوان الرئيسي "نسهل لك الطلبات" */
-    color: var(--green-color); 
-    font-size: 50px;
-    margin-bottom: 40px; /* زيادة المسافة */
-    text-align: right;
-    font-weight: bold;
-}
-
-.vision-item {
-    margin-bottom: 30px;
-    color: white; /* لون النص في هذا القسم */
-}
-
-/* 💡 تنسيق الأيقونات (بدون دائرة كما طلبت سابقاً) 💡 */
-.vision-title i {
-    display: inline-flex; 
-    font-size: 26px; /* حجم الأيقونة */
-    color: #01AE44; /* لون الأيقونة خضراء */
-    margin-left: 15px; 
-    flex-shrink: 0; 
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
-.vision-item h3 {
-    font-size: 28px; /* حجم العنوان */
-    display: flex;
-    align-items: center; 
-    color: rgb(34, 34, 34); /* لون العنوان أبيض ليناسب الخلفية الداكنة */
-}
-
-.vision-item p {
-    padding-right: 40px; /* زيادة حشوة لليمين لتبدأ بعد العنوان */
-    font-size: 1.15rem; /* حجم النص */
-    line-height: 1.6;
-    color: #484848; /* لون رمادي فاتح للنص */
-    margin-top: 10px;
-}
-
-/* ------------------------------------------------ */
-/* تنسيق الصورة (Vision Image) */
-/* ------------------------------------------------ */
-.vision-image-wrapper {
-    /* 💡 التعديل هنا: السماح للصورة بأخذ نسبة من المساحة */
-    flex: 1; 
-    max-width: 50%; /* تحديد أقصى عرض للصورة */
-    display: flex; 
-    justify-content: center;
-    align-items: center;
-}
-
-.vision-image {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: contain; 
-    max-height: 500px; /* تحديد أقصى ارتفاع للصورة للحفاظ على تناسبها */
-}
-
-/* ------------------------------------------------ */
-/* الاستجابة للهواتف المحمولة (Media Queries) */
-/* ------------------------------------------------ */
-@media (max-width: 992px) {
-    .vision-container {
-        flex-direction: column; /* جعل الصورة والمحتوى يتراصان عموديًا */
-        gap: 40px;
-        padding: 0 20px; /* حشوة جانبية للكونتينر */
-    }
-    .vision-content, .vision-image-wrapper {
-        max-width: 100%; /* تأخذ العرض الكامل */
-        text-align: center; /* توسيط النصوص في الجوال */
-    }
-    .vision-content .section-title-right {
-        font-size: 40px;
-        text-align: center;
-        margin-bottom: 30px;
-    }
-    .vision-item h3 {
-        justify-content: center; /* توسيط الأيقونات والنصوص في الجوال */
-    }
-    .vision-item p {
-        padding-right: 0; /* إزالة البادينج في الجوال */
-        text-align: center; /* توسيط الفقرات */
-    }
-}
-
-
-
-
-
-
-
-
-
-
-.why-takamul-title{
-    color: var(--green-color); 
-    margin-bottom: 3%;
-    margin-top: 5%;
-
-    text-align: center;
-    font-size: 42px;
-    font-weight: bold;
-
-}
-
-
-/* ------------------ تنسيق الحاوية والبطاقة الأساسي (2x2 Layout) ------------------ */
-
-.features-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; 
-    gap: 30px; 
-    max-width: 1200px; 
-    margin: 0 auto; 
-}
-
-.feature-card {
-    /* 💡 التعديل هنا: تحديد حجم الحشوة الأساسي لجميع البطاقات (سيكون هو حجم البطاقات البيضاء) */
-    width: calc(50% - 15px); 
-    padding: 25px; /* قيمة أقل لجعلها أصغر من القيمة الأصلية (30px) */
-    border-radius: 15px;
-    
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; 
-    text-align: right;
-    transition: all 0.3s ease; /* إضافة حركة انتقالية للحركة السلسة */
-}
-
-/* ------------------ تنسيق الألوان والخلفيات (المطلوب) ------------------ */
-
-/* 🟢 تنسيق البطاقات ذات الخلفية الخضراء (الأولى والرابعة) 🟢 */
-.card-1, .card-4 {
-    background-color: #4CAF50; 
-    border: none;
-
-    width: calc(50% - 15px); 
-    padding: 25px; /* قيمة أقل لجعلها أصغر من القيمة الأصلية (30px) */
-
-}
-/* ⚪ تنسيق البطاقات البيضاء بإطار أخضر (الثانية والثالثة) ⚪ */
-.card-2, .card-3 {
-    background-color: white; 
-    border: 1px solid #4CAF50; 
-    /* ملاحظة: لا حاجة لتغيير الـ padding أو الـ transform هنا، ستحصل على القيم الأساسية (25px) */
-}
-
-/* ------------------ تنسيق المحتوى الداخلي (الأيقونة والعناوين) ------------------ */
-
-.title-group {
-    /* يجعل الأيقونة والعنوان الرئيسي على نفس السطر */
-    display: flex;
-    /* هذا هو المفتاح: يضمن المحاذاة الرأسية في المنتصف */
-    align-items: center; 
-    margin-bottom: 10px;
-}
-
-.feature-icon {
-    /* تحديد حجم الأيقونة وضمان مساحة بينها وبين العنوان */
-    width: 40px; 
-    height: 40px; 
-    margin-left: 15px; 
-    flex-shrink: 0; 
-    /* تأكد أن الأيقونة لا تحتوي على هوامش عمودية عليا أو سفلى غير مرغوب فيها */
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
-/* تنسيق العنوان الرئيسي (لكل البطاقات) */
-.green-main-title {
-    font-size: 1.5em; 
-    /* إزالة الهوامش العمودية الافتراضية للـ h3 لتحقيق توسيط أدق */
-    margin-top: 0;
-    margin-bottom: 0;
-    font-weight: bold;
-}
-
-/* تنسيق العنوان الثانوي (الوصف) */
-.gray-sub-text {
-    font-size: 1em;
-    line-height: 1.6;
-    margin-top: 5px;
-    padding-right: 55px; 
-}
-
-/* 🖍️ التحكم بألوان النص حسب الخلفية 🖍️ */
-
-/* داخل البطاقات الخضراء (1 و 4): العنوان الرئيسي أبيض والوصف رمادي فاتح */
-.card-1 .green-main-title, .card-4 .green-main-title {
-        color: white !important; 
-}
-.card-1 .gray-sub-text, .card-4 .gray-sub-text {
-        color: white !important; 
-}
-
-/* داخل البطاقات البيضاء (2 و 3): العنوان الرئيسي أخضر داكن والوصف رمادي داكن */
-.card-2 .green-main-title, .card-3 .green-main-title {
-   
-    color: #388e3c !important; /* أخضر داكن */
-}
-.card-2 .gray-sub-text, .card-3 .gray-sub-text {
-    color: #6c757d !important; /* رمادي داكن */
-}
-
-
-
-/* ------------------ توافق الشاشات (MEDIA QUERIES) ------------------ */
-/* تطبق هذه التنسيقات عندما يكون عرض الشاشة 768 بكسل أو أقل (الهواتف والأجهزة اللوحية الصغيرة) */
-
-@media (max-width: 768px) {
-    .features-grid {
-        /* إزالة المسافة الأفقية لتوفير مساحة أكبر */
-        gap: 20px 0; 
-    }
-    
-    .feature-card {
-        /* تصبح كل بطاقة تأخذ العرض الكامل للحاوية (100% - الهوامش) */
-        width: 90%; 
-        /* توسيط البطاقة لضمان الترتيب الجيد */
-        margin: 0 auto; 
-    }
-
-    /* يمكنك هنا تقليل حجم النص إذا لزم الأمر */
-    .green-main-title {
-        font-size: 1.3em;
-    }
-}
 
 
 
@@ -1489,405 +1682,3 @@ color: #000;
 
 
 
-
-
-/* ---------------------------------------------------- */
-/* ------------------- الأنماط العامة وإعادة تعيين التنسيقات ------------------- */
-/* ---------------------------------------------------- */
-body {
-    font-family: 'Arial', sans-serif;
-}
-.purchase-order-container {
-    width: 95%;
-    max-width: 950px; 
-    margin: 30px auto;
-    direction: rtl; 
-    color: #000; 
-    font-size: 13px;
-}
-.main-form-table-unified {
-    width: 100%;
-    border-collapse: collapse;
-    table-layout: fixed; 
-    border: 3px solid #000; 
-}
-.main-form-table-unified td {
-    border: 1px solid #000;
-    padding: 3px; 
-    vertical-align: middle;
-    text-align: center; 
-    height: 25px; 
-    box-sizing: border-box; 
-    color: #000; 
-    font-size: 13px;
-}
-
-/* ------------------- أنماط عناوين الأقسام الرئيسية (الخلايا الداخلية) ------------------- */
-.section-title-cell {
-    background-color: #f0f0f0; /* خلفية العنوان داخل القسم */
-    font-weight: bold;
-    font-size: 15px;
-    height: 30px;
-    text-align: center !important; 
-    padding-right: 0;
-    border-left: 3px solid #000 !important; 
-    border-right: 1px solid #000 !important; /* يتصل بالعمود المدمج */
-    border-bottom: 1px solid #000 !important; 
-    border-top: 3px solid #000 !important;
-    vertical-align: middle !important;
-}
-
-/* عنوان معلومات الطلب (Header) لا يحتاج لحد علوي سميك لأنه يبدأ الجدول */
-.info-title-cell {
-    border-top: none !important; 
-}
-/* عناوين التسعير والتعميد غامقة وخلفيتها أغمق قليلاً (كما طلبت سابقاً) */
-.pricing-title-cell,
-.ordering-title-cell,
-.approval-title-cell {
-    font-weight: bold !important; 
-    background-color: #e6e6e6 !important; 
-}
-
-
-/* فواصل سميكة بين الأقسام */
-.section-bottom-border td { 
-    border-bottom: 3px solid #000 !important;
-}
-.section-top-border td {
-    border-top: 3px solid #000 !important;
-}
-/* إزالة الحدود المكررة بعد تطبيق الحدود السميكة في HTML */
-.items-end-row td, 
-.payment-end-row td, 
-.approval-end-row td { 
-    border-bottom: 3px solid #000 !important;
-}
-
-
-/* ------------------- النمط العام للخلايا الرأسية المدمجة ------------------- */
-.merged-vertical-cell {
-    writing-mode: vertical-rl; 
-    text-orientation: mixed;
-    transform: rotate(0deg); 
-    font-weight: bold;
-    background-color: #f0f0f0; 
-    width: 3%; 
-    min-width: 25px;
-    border-right: 3px solid #000 !important; /* الحد الأيمن للجدول */
-    border-left: 1px solid #000 !important;
-    vertical-align: middle !important; 
-    text-align: center !important; 
-    padding: 0;
-}
-/* التأكد من أن العمود المدمج على أقصى اليسار له حد يسار سميك */
-.merged-vertical-cell.merged-left-side {
-    border-left: 3px solid #000 !important;
-}
-
-
-/* ------------------- قسم معلومات الطلب ------------------- */
-.logo-cell-large { 
-    width: 19%; 
-    min-width: 100px;
-    border-left: 3px solid #000 !important; 
-    border-right: 1px solid #000 !important;
-    display: table-cell !important; 
-    text-align: center; 
-    vertical-align: middle;
-}
-.logo-cell-large img {
-    max-width: 160px; 
-    max-height: 150px; 
-    height: auto;
-    display: block; 
-    margin: 0 auto; 
-}
-
-.main-title-section-complex { 
-    text-align: center; 
-}
-.main-title-text {margin-left: 50%; font-size: 16px;     color: var(--green-color);
-}
-.company-sub-text {margin-left:50%; font-size: 11px; }
-
-.code-label-cell, 
-.order-details-complex-key-top, 
-.order-details-complex-key-middle, 
-.order-details-complex-key-bottom { 
-    font-weight: bold; 
-    background-color: #f0f0f0; 
-    width: 9%;
-    min-width: 45px;
-}
-
-/* أنماط خانات الكود */
-.code-digit {
-    width: 3.1%; 
-    padding: 0; 
-    position: relative;
-}
-.code-digit-input {
-    width: 100%;
-    height: 100%;
-    padding: 0;
-    margin: 0;
-    border: none;
-    text-align: center;
-    font-weight: bold;
-    font-size: 14px;
-    box-sizing: border-box;
-    background-color: transparent; 
-    -moz-appearance: textfield; 
-}
-.code-digit-input::-webkit-outer-spin-button,
-.code-digit-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-.code-digit-input:focus {
-    outline: 2px solid #007bff; 
-    box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
-    background-color: #f9f9f9;
-}
-
-
-/* ------------------- قسم البنود المطلوبة ------------------- */
-.items-headers-row td { background-color: #e6e6e6; font-weight: bold; height: 30px; } 
-.item-row td {
-    height: 20px; 
-    padding: 1px 3px; 
-}
-/* أوزان الأعمدة القياسية (لشاشات الكمبيوتر) - التوزيع الأصلي */
-.item-id-header, .item-id-cell { width: 4.7%; min-width: 40px; text-align: center; }
-.item-unit-header, .item-unit-cell { width: 7%; min-width: 50px; text-align: center; }
-.item-quantity-header, .item-quantity-cell { width: 9%; min-width: 60px; text-align: center; }
-.item-price-header, .item-price-cell { width: 11%; min-width: 75px; text-align: center; }
-.item-total-header, .item-total-cell, .total-value-final { width: 13%; min-width: 85px; text-align: center; }
-.item-desc-header-merged-new { 
-    width: 43%; 
-    text-align: right;
-    padding-right: 5px;
-    border-left: 1px solid #000 !important; 
-}
-.item-desc-cell { 
-    text-align: right;
-    padding-right: 5px;
-    border-left: 1px solid #000 !important; 
-}
-
-/* عمود الصورة وتعديل حجم الأيقونة (صغيرة جداً) */
-.item-image-header { 
-    width: 12.3%; 
-    font-weight: bold;
-    border-left: 3px solid #000 !important; 
-    display: table-cell; 
-    vertical-align: middle;
-}
-.item-image-cell {
-    width: 12.3%;
-    border-left: 3px solid #000 !important; 
-    padding: 0; 
-    height: 30px; 
-    display: table-cell; 
-    vertical-align: middle;
-    text-align: center;
-}
-
-/* صف الإجمالي */
-.total-row td { background-color: #e6e6e6; font-weight: bold; height: 30px; }
-.total-label-merged-new { text-align: center; padding-right: 5px; }
-.total-empty-cell-desc { 
-    width: 55.3%; 
-    text-align: right;
-    padding-right: 5px;
-    border-left: 3px solid #000 !important; 
-}
-
-
-/* ------------------- قسم التسعير والتعميد (مُعدَّل) ------------------- */
-/* 2. العناوين الفرعية ("الاسم", "التوقيع", "التاريخ") - الآن مُتَمركزة */
-.pricing-key-cell,
-.ordering-key-cell {
-    font-weight: bold;
-    background-color: #f9f9f9;
-    text-align: center !important; 
-    padding: 0 !important; 
-}
-
-/* 3. مدخلات حقول النص (الاسم والتوقيع) - محاذاة لليمين كما طلبت */
-.pricing-value-cell,
-.ordering-value-cell {
-    text-align: right !important;
-    padding-right: 5px;
-}
-.pricing-value-cell input,
-.ordering-value-cell input {
-    width: 100%;
-    box-sizing: border-box;
-    text-align: right; 
-    padding: 0 5px;
-    border: 1px solid #bbb;
-    margin: 2px 0;
-}
-
-
-/* ------------------- قسم المالية (مُعدَّل) ------------------- */
-.payment-key { 
-    font-weight: bold; 
-    background-color: #e6e6e6; 
-    text-align: right; 
-    padding-right: 5px; 
-    border-right: 1px solid #000 !important; /* ضمان اتصالها بالعمود المدمج */
-    border-left: 1px solid #000 !important; 
-}
-.payment-value { 
-    text-align: right; 
-    padding-right: 5px; 
-    border-left: 3px solid #000 !important; /* الحد الأيسر للجدول */
-}
-.payment-value-text, .payment-value-digit {
-    border-left: 1px solid #000 !important; 
-}
-.payment-value-text {
-    border-left: 3px solid #000 !important; /* الحد الأيسر للجدول */
-}
-
-
-/* ------------------- قسم الاعتمادات (لا يتغير كثيراً) ------------------- */
-.approval-signatures-container-v4 {
-    height: 150px; 
-    padding: 10px 0; 
-    vertical-align: top; 
-    text-align: right;
-    /* تم تقليل عرض الحد لتناسب الدمج العمودي */
-    border-left: 3px solid #000 !important; 
-    border-right: 1px solid #000 !important;
-}
-.sig-column-v4 {
-    display: inline-block; 
-    width: 32%; 
-    padding: 0 0.5%; 
-    vertical-align: top; 
-    text-align: center; 
-    direction: rtl;
-    border-left: 1px solid #ccc; 
-    box-sizing: border-box;
-    color: #000; 
-}
-.sig-column-v4.last-sig-v4 { border-left: none; }
-.sig-title-key-inline-v4 { font-weight: bold; font-size: 14px; display: block; margin-bottom: 5px; text-align: center; }
-.sig-detail-group-inline-v4 { text-align: right; font-size: 13px; width: 100%; margin: 0 auto; display: block; }
-.name-line-v4, .date-line-v4 { display: block; margin-bottom: 10px; text-align: right; padding: 0 5px; }
-.sig-name-input-v4 { 
-    width: 70%; 
-    border: none; 
-    border-bottom: 1px solid #000; 
-    text-align: center; 
-    padding: 0; 
-    background-color: transparent; 
-    font-size: 12px; 
-}
-
-
-/* ------------------- أنماط المدخلات (Inputs) ------------------- */
-.input-field {
-    width: 95%; 
-    padding: 2px; 
-    border: 1px solid #ccc; 
-    box-sizing: border-box; 
-    font-size: 12px; 
-    direction: rtl;
-    background-color: transparent; 
-    text-align: center;
-}
-.item-readonly-id { background-color: transparent; }
-.item-row .input-field { padding: 1px 2px; }
-.item-desc-cell textarea {
-    min-height: 18px; 
-    height: 18px; 
-    max-height: 18px;
-    line-height: 1.2;
-    text-align: right; 
-}
-.total-input, .final-total-input { background-color: transparent; }
-
-/* ------------------- أنماط الأيقونات والملفات ------------------- */
-.file-input-hidden {
-    display: none; 
-}
-.file-upload-label {
-    display: inline-block;
-    padding: 5px 8px; 
-    border: none; 
-    background-color: transparent; 
-    cursor: pointer;
-    transition: all 0.2s;
-}
-.file-icon {
-    font-size: 18px; 
-    line-height: 1;
-    display: inline-block;
-    color: #007bff; 
-}
-.file-upload-label.file-attached .file-icon {
-    color: #28a745; 
-}
-
-
-/* ------------------- استجابة الجوال (Mobile Responsiveness) ------------------- */
-@media (max-width: 768px) {
-    .table-wrapper {
-        overflow-x: auto; 
-        -webkit-overflow-scrolling: touch; 
-    }
-
-    .main-form-table-unified {
-        width: 150%; 
-        min-width: 750px; 
-        table-layout: auto; 
-    }
-    
-    .section-title-cell {
-        font-size: 14px;
-    }
-    .items-headers-row td {
-        font-size: 12px;
-    }
-    
-    /* الأعمدة المدمجة الرأسية يمكن أن تسبب مشاكل، نقوم بإلغاء دورانها */
-    .merged-vertical-cell {
-        writing-mode: horizontal-tb;
-        text-orientation: mixed;
-        width: 100%;
-        display: block;
-        border-right: 3px solid #000 !important;
-        border-left: 3px solid #000 !important;
-        padding: 5px 0;
-        height: auto;
-    }
-    
-    /* أعمدة الاعتماد */
-    .approval-signatures-container-v4 {
-        flex-direction: column; 
-        align-items: stretch;
-    }
-    .sig-column-v4 {
-        border-left: none !important;
-        border-bottom: 1px solid #000;
-        padding: 5px 10px;
-        margin-bottom: 5px;
-    }
-    .sig-column-v4:last-child {
-        border-bottom: none;
-        margin-bottom: 0;
-    }
-    .sig-detail-group-inline-v4 {
-        flex-direction: row; 
-        justify-content: space-between;
-    }
-    .name-line-v4, .date-line-v4 {
-        width: 48%; 
-        font-size: 11px;
-    }
-}
