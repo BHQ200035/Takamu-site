@@ -1339,8 +1339,37 @@ body, html {
 
 
 
+/* =================== تعديلات خاصة بالجوال (Max Width 767px) =================== */
+@media (max-width: 767px) {
+    
+    /* 1. استهداف الغلاف الخارجي للتمرير (الجدول) */
+    .scrollable-wrapper {
+        /* الهامش الضيق: 0 من الأعلى والأسفل، و 5px من اليمين واليسار */
+        margin: 0 2px !important; 
+        
+        /* تقليل العرض ليناسب الهامش (100% - 5px يمين - 5px يسار) */
+        width: calc(100% - 10px) !important; 
+        
+        /* إلغاء أي قيود أخرى */
+        max-width: none !important; 
+        padding: 0 !important;
+    }
 
+    /* 2. حاوية طلب الشراء الداخلية */
+    /* إزالة الهوامش الداخلية بالكامل هنا لتعتمد على هامش الغلاف 
+       هذا يضمن أن الجدول نفسه ملتصق بحافة الـ scrollable-wrapper 
+    */
+    .purchase-order-container {
+        margin: 0 !important; 
+        width: 100% !important;
+        padding: 0 !important;
+    }
 
+    /* ملاحظة: 
+       لن يتم إضافة أي تعديلات على .registration-form أو .modal-content 
+       للحفاظ على الهوامش الافتراضية لبقية عناصر النموذج.
+    */
+}
 
 
 
@@ -2629,12 +2658,7 @@ textarea:focus {
 
 
 
-/* ---------------------------------------------------- */
-/* ------------------- الأنماط العامة وإعادة تعيين التنسيقات ------------------- */
-/* ---------------------------------------------------- */
-body {
-    font-family: 'Arial', sans-serif;
-}
+
 .purchase-order-container {
     width: 95%;
     max-width: 950px; 
@@ -2973,59 +2997,41 @@ body {
 }
 
 
-/* ------------------- استجابة الجوال (Mobile Responsiveness) ------------------- */
-@media (max-width: 768px) {
-    .table-wrapper {
-        overflow-x: auto; 
-        -webkit-overflow-scrolling: touch; 
-    }
+.scrollable-wrapper {
+    /* للحفاظ على عرض 95% والمركزة */
+    width: 95%; 
+    max-width: 950px; 
+    margin: 30px auto; 
+    
+    /* الخاصيتان الأساسيتان للتمرير */
+    overflow-x: auto; /* تمكين التمرير الأفقي عند الحاجة */
+    -webkit-overflow-scrolling: touch; /* تحسين التمرير على iOS */
+}
 
-    .main-form-table-unified {
-        width: 150%; 
-        min-width: 750px; 
-        table-layout: auto; 
-    }
+/* ------------------- تعديل الحاوية الأصلية ------------------- */
+/* إزالة الخصائص الهندسية من الحاوية الأصلية 
+   ونقلها إلى الغلاف الجديد ليتولى التمرير.
+*/
+.purchase-order-container {
+    width: 100%; /* يجب أن يأخذ عرض الغلاف 100% */
+    max-width: none; /* إزالة الحد الأقصى للعرض */
+    margin: 0; /* إزالة الهوامش */
+    direction: rtl; 
+    color: #000; 
+    font-size: 13px;
+}
+/* =================== تعديل عرض الجدول الداخلي =================== */
+
+.main-form-table-unified {
+    /* تغيير حاسم: تحديد الحد الأدنى للعرض 
+       يجب أن يكون هذا الحد الأدنى أكبر من عرض شاشة الهاتف
+       (مثلاً 700 بكسل، وهو عرض أكبر من شاشات الجوال النموذجية)
+       هذا يضمن أن الجدول يتمدد ويتجاوز عرض الشاشة، مما يُفعل التمرير.
+    */
+    min-width: 700px; 
     
-    .section-title-cell {
-        font-size: 14px;
-    }
-    .items-headers-row td {
-        font-size: 12px;
-    }
-    
-    /* الأعمدة المدمجة الرأسية يمكن أن تسبب مشاكل، نقوم بإلغاء دورانها */
-    .merged-vertical-cell {
-        writing-mode: horizontal-tb;
-        text-orientation: mixed;
-        width: 100%;
-        display: block;
-        border-right: 3px solid #000 !important;
-        border-left: 3px solid #000 !important;
-        padding: 5px 0;
-        height: auto;
-    }
-    
-    /* أعمدة الاعتماد */
-    .approval-signatures-container-v4 {
-        flex-direction: column; 
-        align-items: stretch;
-    }
-    .sig-column-v4 {
-        border-left: none !important;
-        border-bottom: 1px solid #000;
-        padding: 5px 10px;
-        margin-bottom: 5px;
-    }
-    .sig-column-v4:last-child {
-        border-bottom: none;
-        margin-bottom: 0;
-    }
-    .sig-detail-group-inline-v4 {
-        flex-direction: row; 
-        justify-content: space-between;
-    }
-    .name-line-v4, .date-line-v4 {
-        width: 48%; 
-        font-size: 11px;
-    }
+    width: 100%; 
+    border-collapse: collapse;
+    table-layout: fixed; 
+    border: 3px solid #000; 
 }

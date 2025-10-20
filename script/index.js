@@ -1,72 +1,75 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 document.addEventListener('DOMContentLoaded', function() {
     
     // ==============================================================
     // 🚀 1. وظيفة فتح وإغلاق القائمة الجانبية (Mobile Menu) 🚀
     // ==============================================================
     
-    // تحديد العناصر الأساسية
     const menuToggler = document.querySelector('.menu-toggler');
-    const closeBtn = document.querySelector('.mobile-menu-overlay .close-btn'); // محدد أكثر دقة
+    const closeBtn = document.querySelector('.mobile-menu-overlay .close-btn');
     const mobileMenu = document.querySelector('.mobile-menu-overlay');
     const mobileLinks = document.querySelectorAll('.mobile-nav-links li a');
 
-    // وظيفة فتح القائمة (ربطها بـ .menu-toggler)
+    // وظيفة الفتح
     if (menuToggler && mobileMenu) {
         menuToggler.addEventListener('click', () => {
-            // إضافة فئة 'active' التي تجعل width: 300px في CSS
             mobileMenu.classList.add('active'); 
         });
     }
 
-    // وظيفة إغلاق القائمة (ربطها بـ .close-btn)
+    // وظيفة الإغلاق بزر X
     if (closeBtn && mobileMenu) {
         closeBtn.addEventListener('click', () => {
-            // إزالة فئة 'active' التي تعيد width: 0 في CSS
             mobileMenu.classList.remove('active');
         });
     }
 
-    // إغلاق القائمة عند النقر على أي رابط داخلها
+    // إغلاق القائمة عند النقر على أي رابط
     mobileLinks.forEach(link => {
         link.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
+            if (mobileMenu) {
+                mobileMenu.classList.remove('active');
+            }
         });
     });
 
     
     // ==============================================================
-    // 2. كود الشريط الذكي (Smart Navbar) الحالي
+    // 2. كود الشريط الذكي (Smart Navbar) وتغيير الشعار (المدمج)
     // ==============================================================
     
     const navbar = document.querySelector('.navbar');
+    const logoImage = document.getElementById('navbar-logo');
     let lastScrollY = window.scrollY;
     const scrollThreshold = 50; 
 
-    function toggleBackground() {
+    // مسارات الصور
+    const defaultLogo = 'sprite/logo.png'; 
+    const scrolledLogo = 'sprite/logo (1).png'; 
+
+    function toggleBackgroundAndLogo() {
+        if (!navbar || !logoImage) return; // فحص وجود العناصر أولاً (مهم لحل مشكلة null)
+
+        // 2-1: معالجة الخلفية والتغيرات عند التمرير
         if (window.scrollY > scrollThreshold) {
             navbar.classList.add('scrolled');
+            // تغيير الشعار إلى Scrolled
+            if (logoImage.src.indexOf(scrolledLogo) === -1) {
+                logoImage.src = scrolledLogo;
+            }
         } else {
             navbar.classList.remove('scrolled');
+            // تغيير الشعار إلى Default
+            if (logoImage.src.indexOf(defaultLogo) === -1) {
+                logoImage.src = defaultLogo;
+            }
         }
     }
     
     function handleSmartNavbar() {
+        if (!navbar) return;
         const currentScrollY = window.scrollY;
+
+        // إخفاء الشريط عند النزول، وإظهاره عند الصعود
         if (currentScrollY > lastScrollY && currentScrollY > 200) {
             navbar.classList.add('hidden');
         } else if (currentScrollY < lastScrollY) {
@@ -76,126 +79,22 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     window.addEventListener('scroll', function() {
-        toggleBackground();
+        toggleBackgroundAndLogo();
         handleSmartNavbar();
     });
-    toggleBackground(); // لتشغيل الخلفية عند التحميل إذا كان الصفحة غير في القمة
 
-});
-
-
+    // تشغيل الدالة عند التحميل لتحديد الحالة الأولية
+    toggleBackgroundAndLogo(); 
 
 
+    // ==============================================================
+    // 3. منطق النوافذ المنبثقة للخدمات (Modals)
+    // ==============================================================
 
-
-document.addEventListener('DOMContentLoaded', function() {
-    // 1. تعريف المتغيرات
-    const navbar = document.querySelector('.navbar');
-    const logoImage = document.getElementById('navbar-logo');
-    
-    // 2. تعريف مسارات الصور
-    // مسار الصورة الافتراضية (عندما يكون النافبار في الأعلى)
-    const defaultLogo = 'sprite/logo.png'; 
-    // مسار الصورة الجديدة (عندما ينزل المستخدم)
-    // *** يجب استبدال هذا المسار بمسار صورتك الجديدة ***
-    const scrolledLogo = 'sprite/logo (1).png'; // مثال: شعار بلون مختلف أو أصغر
-
-    // 3. دالة معالجة التمرير
-    function handleScrollLogo() {
-        // التأكد من أن النافبار موجود
-        if (!navbar || !logoImage) return; 
-
-        // التحقق مما إذا كانت الفئة .scrolled مطبقة على النافبار
-        // (وهي الفئة التي تطبقها عندما ينزل المستخدم بمسافة معينة)
-        if (navbar.classList.contains('scrolled')) {
-            // إذا كان المستخدم قد نزل (النافبار تغير لونه)
-            if (logoImage.src.indexOf(scrolledLogo) === -1) {
-                logoImage.src = scrolledLogo;
-            }
-        } else {
-            // إذا كان المستخدم في أعلى الصفحة
-            if (logoImage.src.indexOf(defaultLogo) === -1) {
-                logoImage.src = defaultLogo;
-            }
-        }
-    }
-
-    // 4. ربط الدالة بحدث التمرير
-    window.addEventListener('scroll', handleScrollLogo);
-
-    // *ملاحظة:* تأكد من أن لديك دالة JavaScript تقوم بإضافة وإزالة الفئة .scrolled إلى النافبار
-    // بناءً على موضع التمرير، مثل هذا المثال:
-
-    window.addEventListener('scroll', function() {
-        const scrollPosition = window.scrollY;
-        // قم بتغيير القيمة 100 بكسل حسب المسافة التي تريدها
-        if (scrollPosition > 100) { 
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-        
-        // استدعاء دالة تغيير الشعار للتأكد من تحديثها
-        handleScrollLogo();
-    });
-    
-    // استدعاء الدالة عند تحميل الصفحة لتحديد الشعار الصحيح
-    handleScrollLogo();
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-document.addEventListener('DOMContentLoaded', function() {
-    
-    // ===============================================
-    // 1. تحديد العناصر الأساسية والنوافذ (تعديل طفيف هنا)
-    // ===============================================
-
-    const serviceCards = document.querySelectorAll('.service-card');
     const serviceModal = document.getElementById('serviceModal'); 
+    // لا نحتاج لتعريف serviceCards و modalTitle/Description إذا لم يكن منطق البطاقات كاملاً هنا
     
-    const modalTitle = document.getElementById('modalTitle');
-    const modalDescription = document.getElementById('modalDescription');
-    
-    // دالة لفتح النافذة
+    // دوال الفتح والإغلاق (مع استخدام متغيرات local لمنع التضارب)
     function openModal(modalElement) {
         if (modalElement) {
             modalElement.style.display = 'block';
@@ -203,7 +102,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // دالة لإغلاق النافذة
     function closeModal(modalElement) {
         if (modalElement) {
             modalElement.style.display = 'none';
@@ -211,13 +109,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // دالة موحدة لربط زر الإغلاق (X) بالنافذة
     function setupCloseButton(modal) {
         if (modal) {
-            // نبحث عن زر الإغلاق الذي يحمل الفئة 'close-btn' (أو 'service-close')
             const closeBtn = modal.querySelector('.close-btn, .service-close'); 
             if (closeBtn) {
-                // التأكد من عدم إضافة الحدث أكثر من مرة إذا كان الكود يعمل
                 closeBtn.onclick = function() { 
                     closeModal(modal);
                 };
@@ -225,25 +120,19 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-
-    // ===============================================
-    // 3. معالجات الإغلاق العامة (التعديل الرئيسي هنا)
-    // ===============================================
-
     // ربط جميع أزرار الإغلاق في جميع النوافذ المنبثقة
     document.querySelectorAll('.modal').forEach(modal => {
-        setupCloseButton(modal); // تطبيق دالة الربط على كل نافذة
+        setupCloseButton(modal); 
     });
 
-
-    // الإغلاق عند النقر خارج النافذة (يبقى كما هو)
+    // الإغلاق عند النقر خارج النافذة
     window.addEventListener('click', function(event) {
         if (event.target.classList.contains('modal')) {
             closeModal(event.target);
         }
     });
 
-    // الإغلاق عند الضغط على زر ESCAPE (يبقى كما هو)
+    // الإغلاق عند الضغط على زر ESCAPE
     document.addEventListener('keydown', function(event) {
         if (event.key === 'Escape') {
             document.querySelectorAll('.modal').forEach(modal => {
@@ -253,10 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     });
-    
-    // ===============================================
-    // 4. منطق البطاقات (بدون تغيير)
-    // ===============================================
-    // ... (باقي كود البطاقات يبقى كما هو)
+
+    // ... (هنا يتم وضع أي كود متبقي يتعلق بـ serviceCards إذا كان موجوداً)
     
 });

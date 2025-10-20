@@ -1,0 +1,435 @@
+/* 1. إعدادات عامة */
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;400;700;900&display=swap'); /* استخدام خط عربي مثل تاجول */
+html {
+    scroll-behavior: smooth;
+}
+:root {
+    --dark-blue: #ffffff;
+    --green-color: #008e36; /* لون الأزرار والنقاط النشطة (بينك/وردي) */
+    --light-color: #ffffff;
+    --main-font: 'Tajawal', sans-serif;
+    --text-color: #333333; /* افتراض للون النص */
+    --green-shadow: #006226; /* تعريف الظل الزهري */
+    --form-bg-dark: var(--dark-blue); /* #121826 */
+    --form-bg-light: var(--light-color); /* #ffffff */
+    --form-primary-blue: #007bff; /* لون زر الإرسال وتركيز الحقول (يمكنك تغييره ليتناسب مع تصميمك) */
+    --form-text-dark: #333333; /* لون نص الحقول */
+    --form-text-label: #000000; /* لون التسميات */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--dark-blue);
+    color: var(--light-color);
+    font-family: var(--main-font);
+    direction: rtl; /* اتجاه النص من اليمين لليسار */
+}
+
+
+
+
+/* 0. إعادة تعيين تنسيقات المتصفح */
+body, html {
+    margin: 0; /* 🚀 إزالة الهامش الافتراضي 🚀 */
+    padding: 0; /* إزالة الحشوة الافتراضية */
+    overflow-x: hidden; /* 💡 يمنع ظهور شريط التمرير الأفقي بسبب المحتوى الزائد 💡 */
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.purchase-order-container {
+    width: 95%;
+    max-width: 950px; 
+    margin: 30px auto;
+    direction: rtl; 
+    color: #000; 
+    font-size: 13px;
+}
+.main-form-table-unified {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; 
+    border: 3px solid #000; 
+}
+.main-form-table-unified td {
+    border: 1px solid #000;
+    padding: 3px; 
+    vertical-align: middle;
+    text-align: center; 
+    height: 25px; 
+    box-sizing: border-box; 
+    color: #000; 
+    font-size: 13px;
+}
+
+/* ------------------- أنماط عناوين الأقسام الرئيسية (الخلايا الداخلية) ------------------- */
+.section-title-cell {
+    background-color: #f0f0f0; /* خلفية العنوان داخل القسم */
+    font-weight: bold;
+    font-size: 15px;
+    height: 30px;
+    text-align: center !important; 
+    padding-right: 0;
+    border-left: 3px solid #000 !important; 
+    border-right: 1px solid #000 !important; /* يتصل بالعمود المدمج */
+    border-bottom: 1px solid #000 !important; 
+    border-top: 3px solid #000 !important;
+    vertical-align: middle !important;
+}
+
+/* عنوان معلومات الطلب (Header) لا يحتاج لحد علوي سميك لأنه يبدأ الجدول */
+.info-title-cell {
+    border-top: none !important; 
+}
+/* عناوين التسعير والتعميد غامقة وخلفيتها أغمق قليلاً (كما طلبت سابقاً) */
+.pricing-title-cell,
+.ordering-title-cell,
+.approval-title-cell {
+    font-weight: bold !important; 
+    background-color: #e6e6e6 !important; 
+}
+
+
+/* فواصل سميكة بين الأقسام */
+.section-bottom-border td { 
+    border-bottom: 3px solid #000 !important;
+}
+.section-top-border td {
+    border-top: 3px solid #000 !important;
+}
+/* إزالة الحدود المكررة بعد تطبيق الحدود السميكة في HTML */
+.items-end-row td, 
+.payment-end-row td, 
+.approval-end-row td { 
+    border-bottom: 3px solid #000 !important;
+}
+
+
+/* ------------------- النمط العام للخلايا الرأسية المدمجة ------------------- */
+.merged-vertical-cell {
+    writing-mode: vertical-rl; 
+    text-orientation: mixed;
+    transform: rotate(0deg); 
+    font-weight: bold;
+    background-color: #f0f0f0; 
+    width: 3%; 
+    min-width: 25px;
+    border-right: 3px solid #000 !important; /* الحد الأيمن للجدول */
+    border-left: 1px solid #000 !important;
+    vertical-align: middle !important; 
+    text-align: center !important; 
+    padding: 0;
+}
+/* التأكد من أن العمود المدمج على أقصى اليسار له حد يسار سميك */
+.merged-vertical-cell.merged-left-side {
+    border-left: 3px solid #000 !important;
+}
+
+
+/* ------------------- قسم معلومات الطلب ------------------- */
+.logo-cell-large { 
+    width: 19%; 
+    min-width: 100px;
+    border-left: 3px solid #000 !important; 
+    border-right: 1px solid #000 !important;
+    display: table-cell !important; 
+    text-align: center; 
+    vertical-align: middle;
+}
+.logo-cell-large img {
+    max-width: 160px; 
+    max-height: 150px; 
+    height: auto;
+    display: block; 
+    margin: 0 auto; 
+}
+
+.main-title-section-complex { 
+    text-align: center; 
+}
+.main-title-text { font-size: 12px;     color: var(--green-color);
+}
+.company-sub-text { font-size: 11px; }
+
+.code-label-cell, 
+.order-details-complex-key-top, 
+.order-details-complex-key-middle, 
+.order-details-complex-key-bottom { 
+    font-weight: bold; 
+    background-color: #f0f0f0; 
+    width: 9%;
+    min-width: 45px;
+}
+
+/* أنماط خانات الكود */
+.code-digit {
+    width: 3.1%; 
+    padding: 0; 
+    position: relative;
+}
+.code-digit-input {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    border: none;
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+    box-sizing: border-box;
+    background-color: transparent; 
+    -moz-appearance: textfield; 
+}
+.code-digit-input::-webkit-outer-spin-button,
+.code-digit-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.code-digit-input:focus {
+    outline: 2px solid #007bff; 
+    box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
+    background-color: #f9f9f9;
+}
+
+
+/* ------------------- قسم البنود المطلوبة ------------------- */
+.items-headers-row td { background-color: #e6e6e6; font-weight: bold; height: 30px; } 
+.item-row td {
+    height: 20px; 
+    padding: 1px 3px; 
+}
+/* أوزان الأعمدة القياسية (لشاشات الكمبيوتر) - التوزيع الأصلي */
+.item-id-header, .item-id-cell { width: 4.7%; min-width: 40px; text-align: center; }
+.item-unit-header, .item-unit-cell { width: 7%; min-width: 50px; text-align: center; }
+.item-quantity-header, .item-quantity-cell { width: 9%; min-width: 60px; text-align: center; }
+.item-price-header, .item-price-cell { width: 11%; min-width: 75px; text-align: center; }
+.item-total-header, .item-total-cell, .total-value-final { width: 13%; min-width: 85px; text-align: center; }
+.item-desc-header-merged-new { 
+    width: 43%; 
+    text-align: right;
+    padding-right: 5px;
+    border-left: 1px solid #000 !important; 
+}
+.item-desc-cell { 
+    text-align: right;
+    padding-right: 5px;
+    border-left: 1px solid #000 !important; 
+}
+
+/* عمود الصورة وتعديل حجم الأيقونة (صغيرة جداً) */
+.item-image-header { 
+    width: 12.3%; 
+    font-weight: bold;
+    border-left: 3px solid #000 !important; 
+    display: table-cell; 
+    vertical-align: middle;
+}
+.item-image-cell {
+    width: 12.3%;
+    border-left: 3px solid #000 !important; 
+    padding: 0; 
+    height: 30px; 
+    display: table-cell; 
+    vertical-align: middle;
+    text-align: center;
+}
+
+/* صف الإجمالي */
+.total-row td { background-color: #e6e6e6; font-weight: bold; height: 30px; }
+.total-label-merged-new { text-align: center; padding-right: 5px; }
+.total-empty-cell-desc { 
+    width: 55.3%; 
+    text-align: right;
+    padding-right: 5px;
+    border-left: 3px solid #000 !important; 
+}
+
+
+/* ------------------- قسم التسعير والتعميد (مُعدَّل) ------------------- */
+/* 2. العناوين الفرعية ("الاسم", "التوقيع", "التاريخ") - الآن مُتَمركزة */
+.pricing-key-cell,
+.ordering-key-cell {
+    font-weight: bold;
+    background-color: #f9f9f9;
+    text-align: center !important; 
+    padding: 0 !important; 
+}
+
+/* 3. مدخلات حقول النص (الاسم والتوقيع) - محاذاة لليمين كما طلبت */
+.pricing-value-cell,
+.ordering-value-cell {
+    text-align: right !important;
+    padding-right: 5px;
+}
+.pricing-value-cell input,
+.ordering-value-cell input {
+    width: 100%;
+    box-sizing: border-box;
+    text-align: right; 
+    padding: 0 5px;
+    border: 1px solid #bbb;
+    margin: 2px 0;
+}
+
+
+/* ------------------- قسم المالية (مُعدَّل) ------------------- */
+.payment-key { 
+    font-weight: bold; 
+    background-color: #e6e6e6; 
+    text-align: right; 
+    padding-right: 5px; 
+    border-right: 1px solid #000 !important; /* ضمان اتصالها بالعمود المدمج */
+    border-left: 1px solid #000 !important; 
+}
+.payment-value { 
+    text-align: right; 
+    padding-right: 5px; 
+    border-left: 3px solid #000 !important; /* الحد الأيسر للجدول */
+}
+.payment-value-text, .payment-value-digit {
+    border-left: 1px solid #000 !important; 
+}
+.payment-value-text {
+    border-left: 3px solid #000 !important; /* الحد الأيسر للجدول */
+}
+
+
+/* ------------------- قسم الاعتمادات (لا يتغير كثيراً) ------------------- */
+.approval-signatures-container-v4 {
+    height: 150px; 
+    padding: 10px 0; 
+    vertical-align: top; 
+    text-align: right;
+    /* تم تقليل عرض الحد لتناسب الدمج العمودي */
+    border-left: 3px solid #000 !important; 
+    border-right: 1px solid #000 !important;
+}
+.sig-column-v4 {
+    display: inline-block; 
+    width: 32%; 
+    padding: 0 0.5%; 
+    vertical-align: top; 
+    text-align: center; 
+    direction: rtl;
+    border-left: 1px solid #ccc; 
+    box-sizing: border-box;
+    color: #000; 
+}
+.sig-column-v4.last-sig-v4 { border-left: none; }
+.sig-title-key-inline-v4 { font-weight: bold; font-size: 14px; display: block; margin-bottom: 5px; text-align: center; }
+.sig-detail-group-inline-v4 { text-align: right; font-size: 13px; width: 100%; margin: 0 auto; display: block; }
+.name-line-v4, .date-line-v4 { display: block; margin-bottom: 10px; text-align: right; padding: 0 5px; }
+.sig-name-input-v4 { 
+    width: 70%; 
+    border: none; 
+    border-bottom: 1px solid #000; 
+    text-align: center; 
+    padding: 0; 
+    background-color: transparent; 
+    font-size: 12px; 
+}
+
+
+/* ------------------- أنماط المدخلات (Inputs) ------------------- */
+.input-field {
+    width: 95%; 
+    padding: 2px; 
+    border: 1px solid #ccc; 
+    box-sizing: border-box; 
+    font-size: 12px; 
+    direction: rtl;
+    background-color: transparent; 
+    text-align: center;
+}
+.item-readonly-id { background-color: transparent; }
+.item-row .input-field { padding: 1px 2px; }
+.item-desc-cell textarea {
+    min-height: 18px; 
+    height: 18px; 
+    max-height: 18px;
+    line-height: 1.2;
+    text-align: right; 
+}
+.total-input, .final-total-input { background-color: transparent; }
+
+/* ------------------- أنماط الأيقونات والملفات ------------------- */
+.file-input-hidden {
+    display: none; 
+}
+.file-upload-label {
+    display: inline-block;
+    padding: 5px 8px; 
+    border: none; 
+    background-color: transparent; 
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.file-icon {
+    font-size: 18px; 
+    line-height: 1;
+    display: inline-block;
+    color: #007bff; 
+}
+.file-upload-label.file-attached .file-icon {
+    color: #28a745; 
+}
+
+
+.scrollable-wrapper {
+    /* للحفاظ على عرض 95% والمركزة */
+    width: 95%; 
+    max-width: 950px; 
+    margin: 30px auto; 
+    
+    /* الخاصيتان الأساسيتان للتمرير */
+    overflow-x: auto; /* تمكين التمرير الأفقي عند الحاجة */
+    -webkit-overflow-scrolling: touch; /* تحسين التمرير على iOS */
+}
+
+/* ------------------- تعديل الحاوية الأصلية ------------------- */
+/* إزالة الخصائص الهندسية من الحاوية الأصلية 
+   ونقلها إلى الغلاف الجديد ليتولى التمرير.
+*/
+.purchase-order-container {
+    width: 100%; /* يجب أن يأخذ عرض الغلاف 100% */
+    max-width: none; /* إزالة الحد الأقصى للعرض */
+    margin: 0; /* إزالة الهوامش */
+    direction: rtl; 
+    color: #000; 
+    font-size: 13px;
+}
+/* =================== تعديل عرض الجدول الداخلي =================== */
+
+.main-form-table-unified {
+    /* تغيير حاسم: تحديد الحد الأدنى للعرض 
+       يجب أن يكون هذا الحد الأدنى أكبر من عرض شاشة الهاتف
+       (مثلاً 700 بكسل، وهو عرض أكبر من شاشات الجوال النموذجية)
+       هذا يضمن أن الجدول يتمدد ويتجاوز عرض الشاشة، مما يُفعل التمرير.
+    */
+    min-width: 700px; 
+    
+    width: 100%; 
+    border-collapse: collapse;
+    table-layout: fixed; 
+    border: 3px solid #000; 
+}
