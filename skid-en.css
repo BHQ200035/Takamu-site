@@ -1,0 +1,317 @@
+/* 1. إعدادات عامة */
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;400;700;900&display=swap');
+html {
+    scroll-behavior: smooth;
+}
+:root {
+    /* ... المتغيرات لم تتغير ... */
+    --dark-blue: #ffffff;
+    --green-color: #008e36;
+    --light-color: #ffffff;
+    --main-font: 'Tajawal', sans-serif;
+    --text-color: #333333;
+    --green-shadow: #006226;
+    --form-bg-dark: var(--dark-blue);
+    --form-bg-light: var(--light-color);
+    --form-primary-blue: #007bff;
+    --form-text-dark: #333333;
+    --form-text-label: #000000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--dark-blue);
+    color: var(--light-color);
+    font-family: var(--main-font);
+    direction: ltr; /* صحيح */
+}
+.purchase-order-container {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    direction: ltr; /* صحيح */
+    color: #000;
+    font-size: 13px;
+}
+.main-form-table-unified {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    border: 3px solid #000;
+    text-align: left; /* صحيح */
+    min-width: 700px;
+}
+.main-form-table-unified td {
+    border: 1px solid #000;
+    padding: 3px;
+    vertical-align: middle;
+    text-align: center;
+    height: 25px;
+    box-sizing: border-box;
+    color: #000;
+    font-size: 13px;
+}
+
+/* ------------------- أنماط عناوين الأقسام الرئيسية (الخلايا الداخلية) ------------------- */
+.section-title-cell {
+    background-color: #f0f0f0;
+    font-weight: bold;
+    font-size: 15px;
+    height: 30px;
+    text-align: center !important;
+    padding-right: 0;
+    
+    /* 💥 تصحيح الحدود لـ LTR: الآن الحد الأيسر رفيق والحد الأيمن سميك */
+    border-left: 1px solid #000 !important;
+    border-right: 3px solid #000 !important; /* الحد الأيمن هو الحد النهائي للجدول */
+    border-bottom: 1px solid #000 !important;
+    border-top: 3px solid #000 !important;
+    vertical-align: middle !important;
+}
+
+/* عنوان معلومات الطلب (Header) */
+.info-title-cell {
+    border-top: none !important;
+}
+.pricing-title-cell,
+.ordering-title-cell,
+.approval-title-cell {
+    font-weight: bold !important;
+    background-color: #e6e6e6 !important;
+}
+
+/* فواصل سميكة بين الأقسام */
+.section-bottom-border td { 
+    border-bottom: 3px solid #000 !important;
+}
+.section-top-border td {
+    border-top: 3px solid #000 !important;
+}
+.items-end-row td, 
+.payment-end-row td, 
+.approval-end-row td { 
+    border-bottom: 3px solid #000 !important;
+}
+
+
+/* ------------------- النمط العام للخلايا الرأسية المدمجة ------------------- */
+.merged-vertical-cell {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    /* تحويل الدوران غير مطلوب إذا كان النص عموديًا والقراءة من الأسفل للأعلى */
+    transform: rotate(0deg); 
+    font-weight: bold;
+    background-color: #f0f0f0;
+    width: 3%;
+    min-width: 25px;
+    
+    /* 💥 الأهم: الحد السميك على اليسار ليتطابق مع بداية LTR 💥 */
+    border-right: 1px solid #000 !important; /* رفيع */
+    border-left: 3px solid #000 !important; /* سميك (الحد الأيسر للجدول) */ 
+    vertical-align: middle !important;
+    text-align: center !important;
+    padding: 0;
+}
+
+/* 💥 إلغاء منطق الفئة merged-left-side 💥 */
+/* بما أنك قمت بإزالة هذه الفئة من HTML، فإنه لا داعي لها. إذا كانت موجودة في HTML، يجب إلغاؤها هنا لـ LTR */
+.merged-vertical-cell.merged-left-side {
+    /* هذه القاعدة لم تعد ضرورية، ولكن إذا كانت موجودة، يجب أن تعكس المنطق */
+    border-left: 3px solid #000 !important; /* الحد الأيسر للجدول */
+    border-right: 1px solid #000 !important; /* الحد الرفيع على اليمين */
+}
+
+
+/* ------------------- قسم معلومات الطلب ------------------- */
+.logo-cell-large {
+    width: 19%;
+    min-width: 100px;
+    /* 💥 تصحيح الحدود: الحد الأيسر سميك والحد الأيمن رقيق 💥 */
+    border-left: 3px solid #000 !important; /* الحد الأيسر للجدول */
+    border-right: 1px solid #000 !important; /* فاصل رقيق عن العنوان */
+    display: table-cell !important;
+    text-align: center;
+    vertical-align: middle;
+}
+.logo-cell-large img {
+    max-width: 160px;
+    max-height: 150px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+.code-label-cell,
+.order-details-complex-key-top,
+.order-details-complex-key-middle,
+.order-details-complex-key-bottom {
+    font-weight: bold;
+    background-color: #f0f0f0;
+    width: 9%;
+    min-width: 45px;
+    text-align: left !important; /* صحيح */
+    padding-left: 5px; /* صحيح */
+    padding-right: 0;
+}
+
+/* ------------------- قسم البنود المطلوبة ------------------- */
+.items-headers-row td { background-color: #e6e6e6; font-weight: bold; height: 30px; }
+.item-row td {
+    height: 20px;
+    padding: 1px 3px;
+}
+
+.item-desc-header-merged-new {
+    width: 43%;
+    text-align: left; /* صحيح */
+    padding-left: 5px; /* صحيح */
+    padding-right: 0;
+    border-left: 1px solid #000 !important;
+    border-right: 1px solid #000 !important;
+}
+.item-desc-cell {
+    text-align: left; /* صحيح */
+    padding-left: 5px; /* صحيح */
+    padding-right: 0;
+    border-left: 1px solid #000 !important;
+    border-right: 1px solid #000 !important;
+}
+
+/* عمود الصورة (الذي كان على اليمين في RTL ويجب أن يكون على اليسار الآن) */
+.item-image-header {
+    width: 12.3%;
+    font-weight: bold;
+    /* 💥 تصحيح الحدود لـ LTR: الحد الأيسر سميك والحد الأيمن رقيق 💥 */
+    border-left: 3px solid #000 !important; /* الحد الأيسر للجدول */
+    border-right: 1px solid #000 !important;
+    display: table-cell;
+    vertical-align: middle;
+}
+.item-image-cell {
+    width: 12.3%;
+    /* 💥 تصحيح الحدود لـ LTR: الحد الأيسر سميك والحد الأيمن رقيق 💥 */
+    border-left: 3px solid #000 !important; /* الحد الأيسر للجدول */
+    border-right: 1px solid #000 !important;
+    padding: 0;
+    height: 30px;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+/* صف الإجمالي */
+.total-row td { background-color: #e6e6e6; font-weight: bold; height: 30px; }
+.total-label-merged-new { text-align: left; padding-left: 5px; padding-right: 0; }
+.total-empty-cell-desc {
+    width: 55.3%;
+    text-align: left; /* صحيح */
+    padding-left: 5px; /* صحيح */
+    padding-right: 0;
+    /* 💥 تصحيح الحدود لـ LTR: الحد الأيسر سميك والحد الأيمن رقيق 💥 */
+    border-left: 3px solid #000 !important; /* الحد الأيسر للجدول */
+    border-right: 1px solid #000 !important;
+}
+
+
+/* ------------------- قسم التسعير والتعميد ------------------- */
+.pricing-value-cell,
+.ordering-value-cell {
+    text-align: left !important; /* صحيح */
+    padding-left: 5px; /* صحيح */
+    padding-right: 0;
+}
+.pricing-value-cell input,
+.ordering-value-cell input {
+    text-align: left; /* صحيح */
+    padding: 0 5px;
+}
+
+
+/* ------------------- قسم المالية ------------------- */
+.payment-key {
+    font-weight: bold;
+    background-color: #e6e6e6;
+    text-align: left; /* صحيح */
+    padding-left: 5px; /* صحيح */
+    padding-right: 0;
+    border-right: 1px solid #000 !important;
+    border-left: 1px solid #000 !important;
+}
+.payment-value {
+    text-align: left; /* صحيح */
+    padding-left: 5px;
+    padding-right: 0;
+    /* 💥 تصحيح الحدود: الحد الأيسر سميك 💥 */
+    border-right: 1px solid #000 !important;
+    border-left: 3px solid #000 !important; /* الحد الأيسر للجدول */
+}
+.payment-value-text, .payment-value-digit {
+    border-left: 1px solid #000 !important;
+    border-right: 1px solid #000 !important;
+}
+.payment-value-text {
+    /* 💥 تصحيح الحدود: الحد الأيسر سميك 💥 */
+    border-left: 3px solid #000 !important; /* الحد الأيسر للجدول */
+    border-right: 1px solid #000 !important;
+}
+
+
+/* ------------------- قسم الاعتمادات ------------------- */
+.approval-signatures-container-v4 {
+    height: 150px;
+    padding: 10px 0;
+    vertical-align: top;
+    text-align: left; /* صحيح */
+    /* 💥 تصحيح الحدود: الحد الأيسر رقيق والحد الأيمن سميك 💥 */
+    border-left: 1px solid #000 !important;
+    border-right: 3px solid #000 !important; /* الحد الأيمن للجدول */
+    
+    /* ضمان توزيع الأعمدة من اليسار لليمين */
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between;
+}
+.sig-column-v4 {
+    /* إعدادات Flexbox */
+    flex: 1; /* للسماح بالتوزيع المتساوي */
+    min-width: 0; /* يسمح بالانكماش دون تجاوز */
+    
+    /* التنسيقات الأخرى */
+    display: block; /* لضمان أن flexbox يعمل بشكل صحيح */
+    padding: 0 0.5%;
+    vertical-align: top;
+    text-align: center;
+    direction: ltr; /* صحيح */
+    border-left: 1px solid #ccc;
+    box-sizing: border-box;
+    color: #000;
+}
+.sig-column-v4:first-child { 
+    border-left: none; /* إزالة الفاصل من العمود الأول في LTR */
+}
+.sig-column-v4.last-sig-v4 { 
+    /* إزالة هذه القاعدة إذا كانت تتعارض مع ما سبقها */
+    border-left: 1px solid #ccc; /* يجب أن يكون له فاصل بينه وبين الذي قبله */
+}
+.sig-title-key-inline-v4 { text-align: center; }
+.sig-detail-group-inline-v4 { text-align: left; /* صحيح */ }
+.name-line-v4, .date-line-v4 { text-align: left; /* صحيح */ }
+.sig-name-input-v4 {
+    text-align: left; /* صحيح */
+}
+
+
+/* ------------------- أنماط المدخلات (Inputs) ------------------- */
+.input-field {
+    /* ... */
+    direction: ltr; /* صحيح */
+    text-align: left; /* صحيح */
+}
+.item-desc-cell textarea {
+    text-align: left; /* صحيح */
+}
+/* ... أنماط أخرى ... */
