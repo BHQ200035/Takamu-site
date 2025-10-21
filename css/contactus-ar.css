@@ -190,6 +190,7 @@ body, html {
     margin: 0 20px;
 }
 
+
 .english-link {
     display: flex;
     align-items: center;
@@ -412,423 +413,292 @@ body, html {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* 6. تنسيق النافذة المنبثقة (Modal) */
-
-.modal {
-    display: none; /* مخفية افتراضياً */
-    position: fixed;
-    z-index: 2000; /* قيمة عالية جداً لتظهر فوق شريط التنقل */
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.7); /* خلفية داكنة شفافة */
-    direction: rtl; 
-}
-
-/* حالة الإظهار */
-.modal.is-visible {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; /* توسيط عمودي وأفقي */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 600px; /* حجم معقول للنصوص */
-    border-radius: 8px;
-    position: relative;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-.modal.is-visible .modal-content {
-    transform: translateY(0);
-}
-
-/* تنسيق زر الإغلاق */
-.close-btn {
-    color: #aaa;
-    float: left; /* يظهر على اليسار في RTL */
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-    line-height: 1; /* ضبط محاذاة النص */
-}
-.close-btn:hover,
-.close-btn:focus {
-    color: var(--green-color, #f75d79);
-    text-decoration: none;
-}
-
-.modal-content h3 {
-    color: var(--green-color);
-    margin-top: 0;
-    margin-bottom: 15px;
-    font-size: 26px;
-}
-
-.modal-content p {
-    color: rgb(60, 59, 59);
-
-}
-
-
-
-
-/* تنسيق خاص بنافذة الصورة (Image Modal) */
-.center-image-modal .modal-content.image-content {
-    background-color: transparent; /* خلفية شفافة لظهور الصورة بوضوح */
-    margin: 10% auto;
-    border: none;
-    box-shadow: none;
-    max-width: 90%;
-}
-
-.image-display-container {
+/* =======================================
+   تنسيق قسم تواصل معنا (Contact Page)
+   ======================================= */
+.contact-page-section {
+    padding: 80px 0;
+    background-color: #f4f4f4;
+    direction: rtl;
     text-align: center;
 }
 
-.modal-center-image {
-    max-width: 10%;
-    max-height: 10vh; /* تحديد ارتفاع أقصى */
-    display: block;
-    margin: 0 auto;
-    border-radius: 5px;
+.section-title {
+    font-size: 3em;
+    color: #333;
+    margin-bottom: 10px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ========================================= */
-/* تنسيق البانر الأفقي (Hero Banner) */
-/* ========================================= */
-
-.main-hero-banner {
-    /* **مهم:** ضع مسار الصورة المناسب هنا */
-    background-image: url('takamul/images/hero-banner-image.jpg'); /* استبدل هذا المسار بمسار الصورة الفعلية */
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    height: 500px; /* تحديد ارتفاع البانر */
-    width: 100%;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    /* إضافة تظليل غامق خفيف لتحسين قراءة النص على الصورة */
-    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.4); 
-}
-
-.banner-content {
-    color: white;
-    z-index: 10;
-    max-width: 90%;
-    padding: 20px;
-    direction: rtl; /* لضمان محاذاة النص العربي */
-}
-
-.banner-content h1 {
-    font-size: 3.5em; /* حجم كبير للعنوان الرئيسي */
-    margin-bottom: 15px;
-    font-weight: 700;
-}
-
-.banner-content p {
-    font-size: 1.5em;
-    margin-bottom: 30px;
-}
-
-.cta-button {
-    display: inline-block;
-    padding: 12px 30px;
-    background-color: #00796B; /* لون زر الدعوة للعمل (يمكن تغييره) */
-    color: white;
-    text-decoration: none;
+.section-subtitle {
     font-size: 1.1em;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+    color: #666;
+    margin-bottom: 50px;
 }
 
-.cta-button:hover {
-    background-color: #004d40;
-}
-
-/* تنسيقات الشاشات الصغيرة (للاستجابة) */
-@media (max-width: 768px) {
-    .main-hero-banner {
-        height: 350px;
-    }
-    .banner-content h1 {
-        font-size: 2em;
-    }
-    .banner-content p {
-        font-size: 1em;
-    }
-    .cta-button {
-        padding: 10px 20px;
-        font-size: 1em;
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*==================================
-  إضافة قسم نموذج الاستفسار (Form Section)
-====================================*/
-
-/* لتجنب التداخل، سنستخدم محددات أكثر تفصيلاً */
-.page-container {
-    padding: 50px;
-    background-color: var(--form-bg-dark); 
+.contact-grid {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    justify-content: space-between;
+    gap: 40px;
+    text-align: right;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-.form-wrapper {
-    background-color: var(--form-bg-light); 
+/* ----------------------------------
+   1. معلومات الاتصال (اليسار)
+   ---------------------------------- */
+.contact-info {
+    flex: 1;
+    min-width: 300px;
+    padding: 30px;
+    background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    padding: 40px;
-    width: 100%;
-    max-width: 1200px; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
-.contact-form {
-    padding: 20px;
-    direction: rtl; 
+.contact-info h3 {
+    color: var(--green-color);
+    font-size: 24px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
 }
 
-/* تنسيق الصفوف والحقول */
-.form-row {
+.info-item {
     display: flex;
+    align-items: flex-start;
     margin-bottom: 25px;
-    gap: 30px; 
-    width: 100%;
 }
 
-.form-group {
-    display: flex;
-    flex-direction: column;
-    /* 💡 مهم: لضمان أن الـ form-group يمتد على كامل مساحته المخصصة */
-    width: 100%;
-}
-
-/* الصفوف ذات العرض الكامل: حقل الاسم وحقل الاستفسار */
-.first-row .full-width-field,
-.form-row.full-row .full-width-field {
-    /* 🚀 التعديل هنا: لضمان العرض الكامل 🚀 */
-    flex: 1 1 100%; 
-}
-
-/* الصف الثاني: البريد الإلكتروني ورقم الهاتف (مقسوم) */
-.split-row {
-    display: grid;
-    grid-template-columns: 3fr 2fr; 
-    gap: 30px;
-}
-
-.form-group label {
-    display: flex; /* 💡 التعديل الرئيسي: تفعيل Flexbox 💡 */
-    
-    /* 🚀 مهم: عكس الترتيب لوضع النجمة على اليمين 🚀 */
-    flex-direction: row-reverse; 
-    
-    /* توسيط عموديًا لضمان محاذاة النص والنجمة */
-    align-items: center; 
-    
-    /* توزيع المساحة (اختياري، للحفاظ على النجمة ملاصقة للنص) */
-    justify-content: flex-end; 
-
-    /* ... باقي التنسيقات تبقى كما هي ... */
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--form-text-label); 
-    margin-bottom: 8px;
-    font-family: var(--main-font);
-}
-
-.required {
-    /* 💡 التعديل هنا: إضافة مسافة صغيرة بين النص والنجمة 💡 */
-    margin-right: 5px; /* مسافة على يمين النجمة (بما أن الترتيب معكوس) */
-    
-    color: var(--green-color); 
-    font-size: 1.2rem;
-    font-weight: bold;
-    flex-shrink: 0; /* منع النجمة من التقلص */
-}
-
-input, select, textarea {
-    width: 100%;
-    padding: 12px 15px;
-    border: 1px solid #ced4da;
-    border-radius: 4px;
-    font-size: 1rem;
-    color: var(--form-text-dark);
-    box-sizing: border-box; 
-    font-family: var(--main-font);
-    text-align: right;
-}
-
-/* 💡 التعديل هنا: مربع النص لجعله مستطيلاً طويلاً وعريضاً 💡 */
-textarea {
-    resize: vertical; 
-    /* 🚀 الارتفاع هو المفتاح لشكل المستطيل 🚀 */
-    height: 200px; 
-}
-
-/* تأثير التركيز الأزرق المطابق للصورة */
-input:focus,
-select:focus,
-textarea:focus {
-    border-color: var(--form-primary-blue);
-    outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-}
-
-
-/* زر الإرسال */
-.submit-row {
-    text-align: left; 
-    margin-top: 30px;
-}
-
-.submit-btn {
-    background-color: var( --green-color);
-    color: var(--light-color);
-    border: none;
-    padding: 10px 30px;
-    border-radius: 4px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-family: var(--main-font);
-}
-
-.submit-btn:hover {
-    background-color: #006226;
-}
-
-/* الاستجابة للشاشات الصغيرة */
-@media (max-width: 768px) {
-    .form-wrapper {
-        padding: 20px;
-    }
-    .form-row {
-        flex-direction: column;
-        gap: 0;
-    }
-    .split-row {
-        grid-template-columns: 1fr;
-    }
-    .submit-row {
-        text-align: center; 
-    }
-}
-
-/*==================================
-  تنسيق رسالة الخطأ (Validation Error)
-====================================*/
-
-/* إخفاء رسالة الخطأ افتراضياً */
-.error-message {
-    color: var(--green-color); 
-    font-size: 0.85rem;
+.contact-icon {
+    font-size: 24px;
+    color: var(--green-color);
+    margin-left: 15px;
     margin-top: 5px;
-    display: none; 
-    font-weight: 700;
+}
+
+.info-item p {
+    font-size: 16px;
+    color: #444;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.info-item span {
+    display: block;
+    font-weight: bold;
+}
+.social-links {
+text-align: center;
+}
+/* أيقونات التواصل الاجتماعي */
+.social-links a {
+    font-size: 20px;
+    color: #888;
+    margin-left: 15px;
+    transition: color 0.3s;
+}
+.social-links a:hover {
+    color: var(--green-color);
+}
+
+/* ----------------------------------
+   2. نموذج الاتصال (اليمين)
+   ---------------------------------- */
+.contact-form-wrapper {
+    flex: 1.5; /* لجعل النموذج أكبر قليلاً */
+    min-width: 400px;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="tel"],
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--green-color);
+    outline: none;
+}
+
+.btn-submit {
+    display: block;
+    width: 100%;
+    background-color: var(--green-color);
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    font-weight: bold;
+}
+
+.btn-submit:hover {
+    background-color: #00643d;
+    transform: translateY(-1px);
+}
+
+/* ----------------------------------
+   3. قسم الخريطة (Map Section)
+   ---------------------------------- */
+.map-section {
+    padding: 0; 
+    margin-top: 50px; /* فصل الخريطة عن القسم الذي يسبقها */
+    text-align: center; /* لضمان أن الخريطة المعروضة كـ block تتوسط */
+}
+
+/* تنسيق الـ Iframe نفسه */
+.map-section iframe {
+    /* العرض يملأ الحاوية (ولكن الحاوية لها عرض أقصى) */
+    width: 100%;
+    height: 450px;
+    border: 0; 
+    
+    /* 🚀 التعديلات لـ الشكل البصري */
+    border-radius: 8px; /* حواف دائرية خفيفة */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* ظل خفيف وعصري */
+    
+    /* توسيط الخريطة وضمان هوامش على الجوانب */
+    max-width: 1200px; /* تحديد عرض أقصى مقبول */
+    margin: 0 auto;
+    display: block; /* ضروري لعمل التوسيط */
+}
+
+/* للتجاوب: تقليل الارتفاع على الشاشات الصغيرة */
+@media (max-width: 768px) {
+    .map-section iframe {
+        height: 350px; /* ارتفاع أقل للهواتف */
+    }
+}
+
+/* ----------------------------------
+   التجاوب (Responsive)
+   ---------------------------------- */
+@media (max-width: 992px) {
+    .contact-grid {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .contact-info, .contact-form-wrapper {
+        min-width: 100%;
+        width: 100%;
+    }
+    .contact-page-section {
+        padding: 50px 20px; /* تقليل الهوامش على الجوال */
+    }
+    .section-title {
+        font-size: 2.5em;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.faq-section {
+    padding: 60px 0;
+    background-color: white; /* خلفية مختلفة لتمييز القسم */
+    direction: rtl;
     text-align: right;
 }
 
-/* إظهار الرسالة عندما يتم إضافة فئة 'error' إلى الـ form-group */
-.form-group.error .error-message {
-    display: block; 
+.faq-title {
+    text-align: center;
+    font-size: 2.2em;
+    color: var(--green-color);
+    margin-bottom: 40px;
 }
 
-/* تمييز حدود الحقل باللون الزهري عند وجود خطأ */
-.form-group.error input,
-.form-group.error select,
-.form-group.error textarea {
-    border-color: var(--green-color);
-    box-shadow: 0 0 0 0.2rem rgba(247, 93, 121, 0.3); 
+.faq-item {
+    border: 1px solid #eee;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    transition: box-shadow 0.3s;
 }
+
+.faq-item:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.faq-question {
+    font-size: 1.2em;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.faq-answer {
+    font-size: 1em;
+    color: #666;
+    line-height: 1.6;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1279,405 +1149,3 @@ textarea:focus {
 
 
 
-
-
-/* ---------------------------------------------------- */
-/* ------------------- الأنماط العامة وإعادة تعيين التنسيقات ------------------- */
-/* ---------------------------------------------------- */
-body {
-    font-family: 'Arial', sans-serif;
-}
-.purchase-order-container {
-    width: 95%;
-    max-width: 950px; 
-    margin: 30px auto;
-    direction: rtl; 
-    color: #000; 
-    font-size: 13px;
-}
-.main-form-table-unified {
-    width: 100%;
-    border-collapse: collapse;
-    table-layout: fixed; 
-    border: 3px solid #000; 
-}
-.main-form-table-unified td {
-    border: 1px solid #000;
-    padding: 3px; 
-    vertical-align: middle;
-    text-align: center; 
-    height: 25px; 
-    box-sizing: border-box; 
-    color: #000; 
-    font-size: 13px;
-}
-
-/* ------------------- أنماط عناوين الأقسام الرئيسية (الخلايا الداخلية) ------------------- */
-.section-title-cell {
-    background-color: #f0f0f0; /* خلفية العنوان داخل القسم */
-    font-weight: bold;
-    font-size: 15px;
-    height: 30px;
-    text-align: center !important; 
-    padding-right: 0;
-    border-left: 3px solid #000 !important; 
-    border-right: 1px solid #000 !important; /* يتصل بالعمود المدمج */
-    border-bottom: 1px solid #000 !important; 
-    border-top: 3px solid #000 !important;
-    vertical-align: middle !important;
-}
-
-/* عنوان معلومات الطلب (Header) لا يحتاج لحد علوي سميك لأنه يبدأ الجدول */
-.info-title-cell {
-    border-top: none !important; 
-}
-/* عناوين التسعير والتعميد غامقة وخلفيتها أغمق قليلاً (كما طلبت سابقاً) */
-.pricing-title-cell,
-.ordering-title-cell,
-.approval-title-cell {
-    font-weight: bold !important; 
-    background-color: #e6e6e6 !important; 
-}
-
-
-/* فواصل سميكة بين الأقسام */
-.section-bottom-border td { 
-    border-bottom: 3px solid #000 !important;
-}
-.section-top-border td {
-    border-top: 3px solid #000 !important;
-}
-/* إزالة الحدود المكررة بعد تطبيق الحدود السميكة في HTML */
-.items-end-row td, 
-.payment-end-row td, 
-.approval-end-row td { 
-    border-bottom: 3px solid #000 !important;
-}
-
-
-/* ------------------- النمط العام للخلايا الرأسية المدمجة ------------------- */
-.merged-vertical-cell {
-    writing-mode: vertical-rl; 
-    text-orientation: mixed;
-    transform: rotate(0deg); 
-    font-weight: bold;
-    background-color: #f0f0f0; 
-    width: 3%; 
-    min-width: 25px;
-    border-right: 3px solid #000 !important; /* الحد الأيمن للجدول */
-    border-left: 1px solid #000 !important;
-    vertical-align: middle !important; 
-    text-align: center !important; 
-    padding: 0;
-}
-/* التأكد من أن العمود المدمج على أقصى اليسار له حد يسار سميك */
-.merged-vertical-cell.merged-left-side {
-    border-left: 3px solid #000 !important;
-}
-
-
-/* ------------------- قسم معلومات الطلب ------------------- */
-.logo-cell-large { 
-    width: 19%; 
-    min-width: 100px;
-    border-left: 3px solid #000 !important; 
-    border-right: 1px solid #000 !important;
-    display: table-cell !important; 
-    text-align: center; 
-    vertical-align: middle;
-}
-.logo-cell-large img {
-    max-width: 160px; 
-    max-height: 150px; 
-    height: auto;
-    display: block; 
-    margin: 0 auto; 
-}
-
-.main-title-section-complex { 
-    text-align: center; 
-}
-.main-title-text {margin-left: 50%; font-size: 16px;     color: var(--green-color);
-}
-.company-sub-text {margin-left:50%; font-size: 11px; }
-
-.code-label-cell, 
-.order-details-complex-key-top, 
-.order-details-complex-key-middle, 
-.order-details-complex-key-bottom { 
-    font-weight: bold; 
-    background-color: #f0f0f0; 
-    width: 9%;
-    min-width: 45px;
-}
-
-/* أنماط خانات الكود */
-.code-digit {
-    width: 3.1%; 
-    padding: 0; 
-    position: relative;
-}
-.code-digit-input {
-    width: 100%;
-    height: 100%;
-    padding: 0;
-    margin: 0;
-    border: none;
-    text-align: center;
-    font-weight: bold;
-    font-size: 14px;
-    box-sizing: border-box;
-    background-color: transparent; 
-    -moz-appearance: textfield; 
-}
-.code-digit-input::-webkit-outer-spin-button,
-.code-digit-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-.code-digit-input:focus {
-    outline: 2px solid #007bff; 
-    box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
-    background-color: #f9f9f9;
-}
-
-
-/* ------------------- قسم البنود المطلوبة ------------------- */
-.items-headers-row td { background-color: #e6e6e6; font-weight: bold; height: 30px; } 
-.item-row td {
-    height: 20px; 
-    padding: 1px 3px; 
-}
-/* أوزان الأعمدة القياسية (لشاشات الكمبيوتر) - التوزيع الأصلي */
-.item-id-header, .item-id-cell { width: 4.7%; min-width: 40px; text-align: center; }
-.item-unit-header, .item-unit-cell { width: 7%; min-width: 50px; text-align: center; }
-.item-quantity-header, .item-quantity-cell { width: 9%; min-width: 60px; text-align: center; }
-.item-price-header, .item-price-cell { width: 11%; min-width: 75px; text-align: center; }
-.item-total-header, .item-total-cell, .total-value-final { width: 13%; min-width: 85px; text-align: center; }
-.item-desc-header-merged-new { 
-    width: 43%; 
-    text-align: right;
-    padding-right: 5px;
-    border-left: 1px solid #000 !important; 
-}
-.item-desc-cell { 
-    text-align: right;
-    padding-right: 5px;
-    border-left: 1px solid #000 !important; 
-}
-
-/* عمود الصورة وتعديل حجم الأيقونة (صغيرة جداً) */
-.item-image-header { 
-    width: 12.3%; 
-    font-weight: bold;
-    border-left: 3px solid #000 !important; 
-    display: table-cell; 
-    vertical-align: middle;
-}
-.item-image-cell {
-    width: 12.3%;
-    border-left: 3px solid #000 !important; 
-    padding: 0; 
-    height: 30px; 
-    display: table-cell; 
-    vertical-align: middle;
-    text-align: center;
-}
-
-/* صف الإجمالي */
-.total-row td { background-color: #e6e6e6; font-weight: bold; height: 30px; }
-.total-label-merged-new { text-align: center; padding-right: 5px; }
-.total-empty-cell-desc { 
-    width: 55.3%; 
-    text-align: right;
-    padding-right: 5px;
-    border-left: 3px solid #000 !important; 
-}
-
-
-/* ------------------- قسم التسعير والتعميد (مُعدَّل) ------------------- */
-/* 2. العناوين الفرعية ("الاسم", "التوقيع", "التاريخ") - الآن مُتَمركزة */
-.pricing-key-cell,
-.ordering-key-cell {
-    font-weight: bold;
-    background-color: #f9f9f9;
-    text-align: center !important; 
-    padding: 0 !important; 
-}
-
-/* 3. مدخلات حقول النص (الاسم والتوقيع) - محاذاة لليمين كما طلبت */
-.pricing-value-cell,
-.ordering-value-cell {
-    text-align: right !important;
-    padding-right: 5px;
-}
-.pricing-value-cell input,
-.ordering-value-cell input {
-    width: 100%;
-    box-sizing: border-box;
-    text-align: right; 
-    padding: 0 5px;
-    border: 1px solid #bbb;
-    margin: 2px 0;
-}
-
-
-/* ------------------- قسم المالية (مُعدَّل) ------------------- */
-.payment-key { 
-    font-weight: bold; 
-    background-color: #e6e6e6; 
-    text-align: right; 
-    padding-right: 5px; 
-    border-right: 1px solid #000 !important; /* ضمان اتصالها بالعمود المدمج */
-    border-left: 1px solid #000 !important; 
-}
-.payment-value { 
-    text-align: right; 
-    padding-right: 5px; 
-    border-left: 3px solid #000 !important; /* الحد الأيسر للجدول */
-}
-.payment-value-text, .payment-value-digit {
-    border-left: 1px solid #000 !important; 
-}
-.payment-value-text {
-    border-left: 3px solid #000 !important; /* الحد الأيسر للجدول */
-}
-
-
-/* ------------------- قسم الاعتمادات (لا يتغير كثيراً) ------------------- */
-.approval-signatures-container-v4 {
-    height: 150px; 
-    padding: 10px 0; 
-    vertical-align: top; 
-    text-align: right;
-    /* تم تقليل عرض الحد لتناسب الدمج العمودي */
-    border-left: 3px solid #000 !important; 
-    border-right: 1px solid #000 !important;
-}
-.sig-column-v4 {
-    display: inline-block; 
-    width: 32%; 
-    padding: 0 0.5%; 
-    vertical-align: top; 
-    text-align: center; 
-    direction: rtl;
-    border-left: 1px solid #ccc; 
-    box-sizing: border-box;
-    color: #000; 
-}
-.sig-column-v4.last-sig-v4 { border-left: none; }
-.sig-title-key-inline-v4 { font-weight: bold; font-size: 14px; display: block; margin-bottom: 5px; text-align: center; }
-.sig-detail-group-inline-v4 { text-align: right; font-size: 13px; width: 100%; margin: 0 auto; display: block; }
-.name-line-v4, .date-line-v4 { display: block; margin-bottom: 10px; text-align: right; padding: 0 5px; }
-.sig-name-input-v4 { 
-    width: 70%; 
-    border: none; 
-    border-bottom: 1px solid #000; 
-    text-align: center; 
-    padding: 0; 
-    background-color: transparent; 
-    font-size: 12px; 
-}
-
-
-/* ------------------- أنماط المدخلات (Inputs) ------------------- */
-.input-field {
-    width: 95%; 
-    padding: 2px; 
-    border: 1px solid #ccc; 
-    box-sizing: border-box; 
-    font-size: 12px; 
-    direction: rtl;
-    background-color: transparent; 
-    text-align: center;
-}
-.item-readonly-id { background-color: transparent; }
-.item-row .input-field { padding: 1px 2px; }
-.item-desc-cell textarea {
-    min-height: 18px; 
-    height: 18px; 
-    max-height: 18px;
-    line-height: 1.2;
-    text-align: right; 
-}
-.total-input, .final-total-input { background-color: transparent; }
-
-/* ------------------- أنماط الأيقونات والملفات ------------------- */
-.file-input-hidden {
-    display: none; 
-}
-.file-upload-label {
-    display: inline-block;
-    padding: 5px 8px; 
-    border: none; 
-    background-color: transparent; 
-    cursor: pointer;
-    transition: all 0.2s;
-}
-.file-icon {
-    font-size: 18px; 
-    line-height: 1;
-    display: inline-block;
-    color: #007bff; 
-}
-.file-upload-label.file-attached .file-icon {
-    color: #28a745; 
-}
-
-
-/* ------------------- استجابة الجوال (Mobile Responsiveness) ------------------- */
-@media (max-width: 768px) {
-    .table-wrapper {
-        overflow-x: auto; 
-        -webkit-overflow-scrolling: touch; 
-    }
-
-    .main-form-table-unified {
-        width: 150%; 
-        min-width: 750px; 
-        table-layout: auto; 
-    }
-    
-    .section-title-cell {
-        font-size: 14px;
-    }
-    .items-headers-row td {
-        font-size: 12px;
-    }
-    
-    /* الأعمدة المدمجة الرأسية يمكن أن تسبب مشاكل، نقوم بإلغاء دورانها */
-    .merged-vertical-cell {
-        writing-mode: horizontal-tb;
-        text-orientation: mixed;
-        width: 100%;
-        display: block;
-        border-right: 3px solid #000 !important;
-        border-left: 3px solid #000 !important;
-        padding: 5px 0;
-        height: auto;
-    }
-    
-    /* أعمدة الاعتماد */
-    .approval-signatures-container-v4 {
-        flex-direction: column; 
-        align-items: stretch;
-    }
-    .sig-column-v4 {
-        border-left: none !important;
-        border-bottom: 1px solid #000;
-        padding: 5px 10px;
-        margin-bottom: 5px;
-    }
-    .sig-column-v4:last-child {
-        border-bottom: none;
-        margin-bottom: 0;
-    }
-    .sig-detail-group-inline-v4 {
-        flex-direction: row; 
-        justify-content: space-between;
-    }
-    .name-line-v4, .date-line-v4 {
-        width: 48%; 
-        font-size: 11px;
-    }
-}

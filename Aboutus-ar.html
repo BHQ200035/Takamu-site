@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="css/aboutus-ar.css">     
     <link rel="stylesheet" href="device-width.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
 
 </head>
 <body>
@@ -22,30 +24,33 @@
 
 <nav class="navbar">
     
-    <a href="index.html" class="navbar-brand logo" style="margin-right: 2%;">
-        <img src="sprite/logo.png" alt="takamul" style="max-width: 150px;"id="navbarLogo">
+   <a href="index.html" class="navbar-brand logo" style="margin-right: 2%;">
+        <img src="sprite/logo (1).png" alt="takamul" id="navbar-logo" style="max-width: 150px;">
     </a>
     
     <div class="nav-links">
         <ul>
             <li><a href="index.html" >الرئيسية</a></li>
-            <li><a href="aboutus-ar.html"class="active">عن تكامل</a></li>
-            <li><a href="ourServices-ar.html">خدماتنا</a></li>
-            <li><a href="index.html#clients-section">عملائنا</a></li>
-            <li><a href="#">المدونة</a></li>
-            <li><a href="contactus-ar.html">تواصل معنا</a></li>
+            <li><a href="aboutus-ar.html"class="active"  >عن تكامل</a></li> 
+            <li><a href="ourServices-ar.html" >خدماتنا</a></li>
+            <li><a href="#clients-section">عملائنا</a></li>
+            <li><a href="blog-ar.html" >المدونة</a></li>
+            <li><a href="contactus-ar.html" >تواصل معنا</a></li>
+            <li><a href="skid.html" > الجداول</a></li>
+
             <li class="separator"></li>
-            <li><a href="#" class="english-link"><i class="fas fa-globe"></i>ENGLISH</a></li>
+            
+            <li><a href="index-en.html" id="lang-toggle" ><span >ENGLISH</span><i class="fas fa-globe"></i></a></li>
         </ul>
     </div>
     
     <div class="social-icons" style="margin-left: 2%;">
-        <a href="https://wa.me/966533808888" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-        <a href="https://twitter.com/yourhandle" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
-        <a href="https://linkedin.com/in/yourprofile" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://wa.me/966533808888" target="_blank" title="WhatsApp" ><i class="fab fa-whatsapp"></i></a>
+        <a href="https://twitter.com/yourhandle" target="_blank" title="Twitter" ><i class="fab fa-twitter"></i></a>
+        <a href="https://linkedin.com/in/yourprofile" target="_blank" title="LinkedIn" ><i class="fab fa-linkedin-in"></i></a>
     </div>
 
-    <button class="menu-toggler" aria-label="فتح القائمة">
+    <button class="menu-toggler" aria-label="فتح القائمة" >
         <i class="fa fa-bars"></i>
     </button>
     
@@ -56,16 +61,17 @@
         <button class="close-btn">&times;</button>
         
         <ul class="mobile-nav-links">
-            <li><a href="index.html" >الرئيسية</a></li>
-            <li><a href="aboutus-ar.html">عن تكامل</a></li>
-            <li><a href="ourServices-ar.html"class="active">خدماتنا</a></li>
-            <li><a href="index.html#clients-section">عملائنا</a></li>
-            <li><a href="#">المدونة</a></li>
-            <li><a href="contactus-ar.html">تواصل معنا</a></li>
-            <li class="separator"></li>
-            <li><a href="#" class="english-link"><i class="fas fa-globe"></i>ENGLISH</a></li>
+            <li><a href="index.html"  >الرئيسية</a></li>
+            <li><a href="aboutus-ar.html"class="active" >عن تكامل</a></li> 
+            <li><a href="ourServices-ar.html" >خدماتنا</a></li>
+            <li><a href="#clients-section">عملائنا</a></li>
+            <li><a href="blog-ar.html" >المدونة</a></li>
+            <li><a href="contactus-ar.html" >تواصل معنا</a></li>
+            <li><a href="skid.html" > الجداول</a></li>
 
-            </ul>
+            <li class="separator"></li>
+            <li><a href="index-en.html" class="english-link" id="lang-toggle-mobile"><span >ENGLISH</span><i class="fas fa-globe"></i></a></li>
+        </ul>
         
         <div class="mobile-social-icons">
              <a href="https://wa.me/966533808888" target="_blank"><i class="fab fa-whatsapp"></i></a>
@@ -74,11 +80,9 @@
         </div>
 
     </div>
-            <h6 style="margin-bottom: -5%; text-align: center;" class="copyright-text">© Copyright 2025, All rights reserved.</h6>
+    <h6 style="margin-bottom: -5%; text-align: center;" class="copyright-text" >© Copyright 2025, All rights reserved.</h6>
 
 </div>
-
-
 
 
 
@@ -182,49 +186,93 @@
 
 
 
-<section class="slider-container" id="main-slider">
-    
-    <div class="slider-header">
-        <div class="container">
-            <h2 class="section-title">مشاريعنا المنجزة</h2>
-            <p class="section-subtitle">شاهد أحدث أعمالنا التي تعكس التزامنا بالجودة والتكامل.</p>
-        </div>
-    </div>
-    <div class="slides-wrapper">
-        <div class="mySlides fade" >
-            <div class="images-center-container">
-                <img src="https://fawzyabdou.com/wp-content/uploads/2019/12/5.jpg" alt="صورة 1" >
-                <img src="https://fawzyabdou.com/wp-content/uploads/2019/12/4.jpg" alt="صورة 2" >
-                <img src="https://fawzyabdou.com/wp-content/uploads/2019/12/03.jpg" alt="صورة 3" >
-            </div>
-        </div>
 
-        <div class="mySlides fade">
-            <div class="images-center-container">
-                <img src="https://fawzyabdou.com/wp-content/uploads/2019/12/01.jpg" alt="صورة 1" >
-                <img src="https://fawzyabdou.com/wp-content/uploads/2019/12/54.jpg" alt="صورة 2" >
-                <img src="https://fawzyabdou.com/wp-content/uploads/2019/12/6.jpg" alt="صورة 3" >
-            </div>      
-        </div>
 
-        <div class="mySlides fade">
-            <div class="images-center-container">
-                <img src="https://fawzyabdou.com/wp-content/uploads/2019/12/7.jpg" alt="صورة 1" >
-                <img src="https://fawzyabdou.com/wp-content/uploads/2019/12/9.jpg" alt="صورة 2" >
-                <img src="https://fawzyabdou.com/wp-content/uploads/2019/12/06.jpg" alt="صورة 3" >
+
+
+
+
+
+<section class="featured-projects-section">
+    <h2>مشاريعنا المميزة</h2>
+    <div class="slider-container">
+        
+        <div class="slick-projects-slider">
+
+            <div class="project-card">
+                <img src="https://kcc.com.sa/wp-content/uploads/2023/12/compound-585x585.jpg" alt="المشروع 1">
+                <div class="project-details">
+                    <h3>المشروع الأول (1)</h3>
+                    <p>الموقع: الرياض</p>
+                    <p>الإنجاز: 2023-01-15</p>
+                </div>
             </div>
+        
+            <div class="project-card">
+                <img src="https://kcc.com.sa/wp-content/uploads/2023/10/kfupm-585x585.jpg" alt="المشروع 2">
+                <div class="project-details">
+                    <h3>المشروع الثاني (2)</h3>
+                    <p>الموقع: جدة</p>
+                    <p>الإنجاز: 2023-06-20</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="https://kcc.com.sa/wp-content/uploads/2023/10/pvw.i1-1068x580_LE_auto_x2-585x585.jpg" alt="المشروع 3">
+                <div class="project-details">
+                    <h3>المشروع الثالث (3)</h3>
+                    <p>الموقع: مكة</p>
+                    <p>الإنجاز: 2024-03-10</p>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <img src="https://kcc.com.sa/wp-content/uploads/2023/12/JEC-585x585.jpg" alt="المشروع 4">
+                <div class="project-details">
+                    <h3>المشروع الرابع (4)</h3>
+                    <p>الموقع: الدمام</p>
+                    <p>الإنجاز: 2024-05-01</p>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <img src="https://kcc.com.sa/wp-content/uploads/2023/12/mod-hasa-585x585.jpg" alt="المشروع 5">
+                <div class="project-details">
+                    <h3>المشروع الخامس (5)</h3>
+                    <p>الموقع: المدينة</p>
+                    <p>الإنجاز: 2024-06-12</p>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <img src="https://kcc.com.sa/wp-content/uploads/2023/12/307-585x585.jpg" alt="المشروع 6">
+                <div class="project-details">
+                    <h3>المشروع السادس (6)</h3>
+                    <p>الموقع: أبها</p>
+                    <p>الإنجاز: 2024-08-25</p>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <img src="https://kcc.com.sa/wp-content/uploads/2023/11/Administration-Buildings-1-585x585.jpeg" alt="المشروع 7">
+                <div class="project-details">
+                    <h3>المشروع السابع (7)</h3>
+                    <p>الموقع: تبوك</p>
+                    <p>الإنجاز: 2024-10-21</p>
+                </div>
+            </div>
+            
         </div>
-    </div>
-    
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-    
-    <div style="text-align:center" class="slider-dots">
-        <span class="dot" onclick="currentSlide(1)"></span> 
-        <span class="dot" onclick="currentSlide(2)"></span> 
-        <span class="dot" onclick="currentSlide(3)"></span> 
+        
     </div>
 </section>
+
+
+
+
+
+
+
 
 
 
@@ -286,30 +334,6 @@
         </div>
     </div>
 </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -564,6 +588,11 @@
       <script src="script/services.js"></script>
       <script src="script/total.js"></script>
           <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
+
+          <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 
             <script src="script/slider.js"></script>
 

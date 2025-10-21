@@ -1,21 +1,19 @@
-
 document.addEventListener('DOMContentLoaded', function() {
 
     // ========================================================
-    // 1. وظيفة الحساب التلقائي (Calculation Logic)
-    // (هذا القسم تم تصحيحه بالفعل ويعمل بكفاءة)
+    // 1. وظيفة الحساب التلقائي (Calculation Logic) - مُعَدَّلة لدعم الجداول المتعددة
     // ========================================================
+    
+    // نحدد مدخلات الكمية والسعر في كل صفوف البنود للاستماع للأحداث
     const itemInputs = document.querySelectorAll('.item-row .quantity-input, .item-row .price-input');
-    const totalInputs = document.querySelectorAll('.item-row .total-input');
-    const finalTotalInput = document.querySelector('.final-total-input');
-    const amountNumericInput = document.querySelector('input[name="amount_numeric"]');
-
+    
+    // دالة تحسب مجموع السطر الواحد
     function calculateRowTotal(row) {
         const quantityInput = row.querySelector('.quantity-input');
         const priceInput = row.querySelector('.price-input');
         const totalInput = row.querySelector('.total-input');
         
-        // التأكد من أن القيمة رقمية موجبة، وإلا تكون صفر.
+        // التأكد من أن القيمة رقمية موجبة
         const quantity = Math.max(0, parseFloat(quantityInput?.value) || 0);
         const price = Math.max(0, parseFloat(priceInput?.value) || 0);
         
@@ -23,7 +21,15 @@ document.addEventListener('DOMContentLoaded', function() {
         totalInput.value = rowTotal.toFixed(2);
     }
 
-    function calculateGrandTotal() {
+    // دالة تحسب المجموع الكلي لنطاق جدول محدد
+    function calculateGrandTotal(scopeElement) {
+        // نجد جميع مدخلات المجموع ('total-input') داخل النطاق المحدد (الجدول) فقط
+        const totalInputs = scopeElement.querySelectorAll('.item-row .total-input');
+        // نجد حقل الإجمالي النهائي ('final-total-input') داخل النطاق المحدد
+        const finalTotalInput = scopeElement.querySelector('.final-total-input');
+        // نجد حقل المبلغ رقماً ('amount_numeric') داخل النطاق المحدد
+        const amountNumericInput = scopeElement.querySelector('input[name="amount_numeric"]');
+        
         let grandTotal = 0;
         totalInputs.forEach(input => {
             const rowValue = parseFloat(input.value) || 0;
@@ -31,34 +37,47 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         const finalValue = grandTotal.toFixed(2);
+        
         if (finalTotalInput) finalTotalInput.value = finalValue;
-        // قم بتحديث حقل المبلغ رقماً إذا كان فارغاً، أو اتركه إذا تم إدخاله يدوياً (اختياري)
-        if (amountNumericInput && amountNumericInput.value === '') { 
-             amountNumericInput.value = finalValue;
-        } else if (amountNumericInput) {
-            // تحديثه دائماً لضمان المزامنة
+        
+        // تحديث حقل المبلغ رقماً لضمان المزامنة
+        if (amountNumericInput) {
             amountNumericInput.value = finalValue;
         }
     }
 
+    // معالج الحدث الذي يحدد نطاق الجدول
     function handleCalculation(event) {
         const row = event.target.closest('.item-row');
+        // الخطوة الحاسمة: نجد أقرب عنصر <table> يحيط بالصف
+        const table = event.target.closest('table'); 
+
         if (row) {
-            calculateRowTotal(row);  
-            calculateGrandTotal();   
+            calculateRowTotal(row);  
+        }
+        
+        // ونستخدم عنصر الجدول كنطاق لحساب الإجمالي الكلي
+        if (table) {
+            calculateGrandTotal(table);   
         }
     }
 
+
+    // نربط الدالة المعدلة بجميع مدخلات الكمية والسعر في جميع الجداول
     itemInputs.forEach(input => {
         input.addEventListener('input', handleCalculation);
     });
-
-    // تنفيذ الحساب عند التحميل الأولي
-    document.querySelectorAll('.item-row').forEach(row => calculateRowTotal(row));
-    calculateGrandTotal();
+    
+    // تنفيذ الحساب عند التحميل الأولي لجميع الجداول
+    document.querySelectorAll('table').forEach(table => {
+        if (table.querySelector('.item-row')) { // نتأكد أن الجدول يحتوي على بنود قبل محاولة الحساب
+             table.querySelectorAll('.item-row').forEach(row => calculateRowTotal(row));
+             calculateGrandTotal(table);
+        }
+    });
 
     // ========================================================
-    // 2. وظيفة إدخال الكود المدمج (Code Input Logic) - مُحسَّنة
+    // 2. وظيفة إدخال الكود المدمج (Code Input Logic) 
     // ========================================================
     
     const codeInputs = document.querySelectorAll('.code-digit-input');
@@ -68,24 +87,22 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateMainCodeOutput() {
         let fullCode = '';
         codeInputs.forEach(input => {
-            // تنظيف القيمة والتأكد من أنها رقم واحد فقط
             const value = input.value.replace(/\D/g, '').slice(0, 1); 
             input.value = value;
-            fullCode += value || ' '; // أضف مسافة بدلاً من الفراغ لتتبع الطول
+            fullCode += value || ' '; 
         });
         
         if (mainCodeOutput) {
-            mainCodeOutput.value = fullCode.trim().replace(/\s/g, ''); // إزالة المسافات وتحديث الحقل المخفي
+            mainCodeOutput.value = fullCode.trim().replace(/\s/g, ''); 
         }
     }
 
     function focusNext(currentIndex) {
         if (currentIndex < maxIndex) {
-            // استخدام setTimeout لحل مشكلة الانتقال غير المستقر
             setTimeout(() => {
                 codeInputs[currentIndex + 1].focus();
                 codeInputs[currentIndex + 1].select();
-            }, 50); // تأخير بسيط جداً
+            }, 50); 
         }
     }
 
@@ -103,13 +120,10 @@ document.addEventListener('DOMContentLoaded', function() {
         // 1. حدث الإدخال (للانتقال التلقائي وقبول رقم واحد)
         input.addEventListener('input', (e) => {
             let value = e.target.value;
-            
-            // تنظيف القيمة
             value = value.replace(/\D/g, ''); 
             
             // التعامل مع اللصق أو الكتابة السريعة: توزيع القيمة
             if (value.length > 1) {
-                // نوزع القيمة على الخانات المتبقية
                 for (let i = 0; i < value.length; i++) {
                     const targetIndex = index + i;
                     if (targetIndex <= maxIndex) {
@@ -117,7 +131,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 }
                 
-                // التركيز على الخانة التالية بعد آخر رقم تم إدخاله
                 const nextFocusIndex = Math.min(maxIndex, index + value.length - 1);
                 focusNext(nextFocusIndex);
                 
@@ -126,7 +139,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 focusNext(index);
             }
             
-            // إبقاء قيمة الخانة الحالية على رقم واحد فقط (سواء كانت مدخلة أو نتيجة لصق)
             e.target.value = e.target.value.slice(-1);
             
             updateMainCodeOutput();
@@ -134,24 +146,19 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // 2. حدث الضغط على مفتاح (للتنقل بالـ Backspace ومفاتيح الأسهم)
         input.addEventListener('keydown', (e) => {
-            const isRTL = true; 
+            const isRTL = true; // نفترض أن التوجيه عربي/من اليمين لليسار
             const isBackspace = e.key === 'Backspace';
             
             if (isBackspace) {
-                // إذا كانت الخانة فارغة، انتقل للخلف ومسح الخانة السابقة
                 if (e.target.value === '') {
                     e.preventDefault(); 
                     focusPrev(index);
                 }
-                // عند العودة لتعديل رقم، سيتم مسحه أولاً ثم في الضغطة الثانية ينتقل للخلف.
-                
             } else if (e.key === 'ArrowRight') {
                 e.preventDefault();
-                // في RTL: السهم الأيمن ينقل للخلف
                 isRTL ? focusPrev(index) : focusNext(index); 
             } else if (e.key === 'ArrowLeft') {
                 e.preventDefault();
-                // في RTL: السهم الأيسر ينقل للأمام
                 isRTL ? focusNext(index) : focusPrev(index); 
             }
         });
@@ -162,7 +169,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // تحديث الكود عند تحميل الصفحة للقيم الافتراضية
     updateMainCodeOutput();
 
 
@@ -181,7 +187,7 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             const imageUrl = link.getAttribute('data-image-url');
             
-            if (imageUrl && modal) {
+            if (imageUrl && modal && modalImage) {
                 modal.style.display = "block";
                 modalImage.src = imageUrl;
             }
@@ -191,7 +197,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // وظيفة إغلاق النافذة المنبثقة بالزر
     if (closeBtn) {
         closeBtn.addEventListener('click', () => {
-            if (modal) {
+            if (modal && modalImage) {
                 modal.style.display = "none";
                 modalImage.src = ""; 
             }
@@ -205,44 +211,41 @@ document.addEventListener('DOMContentLoaded', function() {
             modalImage.src = "";
         }
     });
-
-});
-
-
-
-
-
-
-
-// ========================================================
-// 3. وظيفة رفع الملفات (File Upload Logic) - **مُصَحَّح**
-// ========================================================
-
-const fileInputs = document.querySelectorAll('.file-input-hidden');
-
-fileInputs.forEach(fileInput => {
     
-    const label = fileInput.previousElementSibling; // الليبل هو العنصر السابق لـ input file
-    const iconElement = label.querySelector('.file-icon');
-    
-    // **تهيئة الأيقونة الافتراضية عند التحميل:** // التأكد من أن رمز الصورة هو الرمز الأساسي إذا لم يكن هناك ملف موجود.
-    // يتم وضع هذا الإعداد أيضاً في HTML كما في الخطوة 1.
-    if (!fileInput.files || fileInput.files.length === 0) {
-        iconElement.textContent = '🖼️';
-        label.classList.remove('file-attached');
-    }
+    // ========================================================
+    // 4. وظيفة رفع الملفات (File Upload Logic) 
+    // **تم نقل هذا القسم داخل DOMContentLoaded ليعمل بشكل صحيح**
+    // ========================================================
 
-    // الاستماع لحدث اختيار الملف
-    fileInput.addEventListener('change', (e) => {
+    const fileInputs = document.querySelectorAll('.file-input-hidden');
+
+    fileInputs.forEach(fileInput => {
         
-        if (e.target.files && e.target.files.length > 0) {
-            // تم اختيار ملف: تغيير الأيقونة إلى علامة صح
-            label.classList.add('file-attached');
-            iconElement.textContent = '✅'; 
-        } else {
-            // تم إلغاء اختيار الملف (أو لم يتم اختياره): العودة إلى أيقونة الصورة
-            label.classList.remove('file-attached');
-            iconElement.textContent = '🖼️'; 
+        // الليبل هو العنصر السابق لـ input file
+        const label = fileInput.previousElementSibling; 
+        const iconElement = label ? label.querySelector('.file-icon') : null;
+        
+        if (iconElement) {
+             // تهيئة الأيقونة الافتراضية عند التحميل
+            if (!fileInput.files || fileInput.files.length === 0) {
+                iconElement.textContent = '🖼️';
+                label.classList.remove('file-attached');
+            }
+
+            // الاستماع لحدث اختيار الملف
+            fileInput.addEventListener('change', (e) => {
+                
+                if (e.target.files && e.target.files.length > 0) {
+                    // تم اختيار ملف: تغيير الأيقونة إلى علامة صح
+                    label.classList.add('file-attached');
+                    iconElement.textContent = '✅'; 
+                } else {
+                    // تم إلغاء اختيار الملف: العودة إلى أيقونة الصورة
+                    label.classList.remove('file-attached');
+                    iconElement.textContent = '🖼️'; 
+                }
+            });
         }
     });
-});
+
+}); // نهاية DOMContentLoaded

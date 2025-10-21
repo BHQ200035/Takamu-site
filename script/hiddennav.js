@@ -1,91 +1,117 @@
-
-
-
-
-
-
-
-
-
 document.addEventListener('DOMContentLoaded', function() {
     
-    // ===============================================
-    // 1. المتغيرات الرئيسية
-    // ===============================================
-
-    const navbar = document.querySelector('.navbar');
+    // ==============================================================
+    // 🚀 1. وظيفة فتح وإغلاق القائمة الجانبية (Mobile Menu) 🚀
+    // ==============================================================
+    
     const menuToggler = document.querySelector('.menu-toggler');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const closeBtn = mobileMenu ? mobileMenu.querySelector('.close-btn') : null;
+    const closeBtn = document.querySelector('.mobile-menu-overlay .close-btn');
+    const mobileMenu = document.querySelector('.mobile-menu-overlay');
+    const mobileLinks = document.querySelectorAll('.mobile-nav-links li a');
+
+    // وظيفة الفتح
+    if (menuToggler && mobileMenu) {
+        menuToggler.addEventListener('click', () => {
+            mobileMenu.classList.add('active'); 
+        });
+    }
+
+    // وظيفة الإغلاق بزر X
+    if (closeBtn && mobileMenu) {
+        closeBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+    }
+
+    // إغلاق القائمة عند النقر على أي رابط
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (mobileMenu) {
+                mobileMenu.classList.remove('active');
+            }
+        });
+    });
+
     
-    // متغيرات الإخفاء الذكي
-    let lastScrollTop = 0;
-    const scrollThreshold = 50; 
     
-    if (!navbar) return; 
+    function handleSmartNavbar() {
+        if (!navbar) return;
+        const currentScrollY = window.scrollY;
 
-    // ===============================================
-    // 2. وظيفة الإخفاء الذكي وتغيير الخلفية عند التمرير
-    // ===============================================
-
-    window.addEventListener('scroll', function() {
-        const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-        const navbarHeight = navbar.offsetHeight;
-
-        // أ. التحكم بالإخفاء والإظهار
-        if (currentScroll > lastScrollTop && currentScroll > navbarHeight + scrollThreshold) {
-            // التمرير للأسفل (إخفاء الشريط)
+        // إخفاء الشريط عند النزول، وإظهاره عند الصعود
+        if (currentScrollY > lastScrollY && currentScrollY > 200) {
             navbar.classList.add('hidden');
-        } else if (currentScroll < lastScrollTop || currentScroll < navbarHeight) {
-            // التمرير للأعلى (إظهار الشريط) أو العودة لأعلى الصفحة
+        } else if (currentScrollY < lastScrollY) {
             navbar.classList.remove('hidden');
         }
+        lastScrollY = currentScrollY;
+    }
 
-        // ب. التحكم بتغيير الخلفية (Scrolled)
-        if (currentScroll > navbarHeight) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
+    window.addEventListener('scroll', function() {
+        toggleBackgroundAndLogo();
+        handleSmartNavbar();
+    });
 
-        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-    }, false); 
+    // تشغيل الدالة عند التحميل لتحديد الحالة الأولية
+    toggleBackgroundAndLogo(); 
 
-    // ===============================================
-    // 3. وظيفة فتح وإغلاق قائمة الجوال (Mobile Menu)
-    // ===============================================
+
+    // ==============================================================
+    // 3. منطق النوافذ المنبثقة للخدمات (Modals)
+    // ==============================================================
+
+    const serviceModal = document.getElementById('serviceModal'); 
+    // لا نحتاج لتعريف serviceCards و modalTitle/Description إذا لم يكن منطق البطاقات كاملاً هنا
     
-    // الفتح
-    if (menuToggler && mobileMenu) {
-        menuToggler.addEventListener('click', function() {
-            mobileMenu.classList.add('active');
-            // إيقاف التمرير على الجسم عند فتح القائمة (اختياري)
+    // دوال الفتح والإغلاق (مع استخدام متغيرات local لمنع التضارب)
+    function openModal(modalElement) {
+        if (modalElement) {
+            modalElement.style.display = 'block';
             document.body.style.overflow = 'hidden'; 
-        });
+        }
     }
 
-    // الإغلاق
-    if (closeBtn && mobileMenu) {
-        closeBtn.addEventListener('click', function() {
-            mobileMenu.classList.remove('active');
-            document.body.style.overflow = ''; // إعادة التمرير للجسم
-        });
+    function closeModal(modalElement) {
+        if (modalElement) {
+            modalElement.style.display = 'none';
+            document.body.style.overflow = ''; 
+        }
     }
 
-    // إغلاق عند النقر خارج القائمة
+    function setupCloseButton(modal) {
+        if (modal) {
+            const closeBtn = modal.querySelector('.close-btn, .service-close'); 
+            if (closeBtn) {
+                closeBtn.onclick = function() { 
+                    closeModal(modal);
+                };
+            }
+        }
+    }
+
+    // ربط جميع أزرار الإغلاق في جميع النوافذ المنبثقة
+    document.querySelectorAll('.modal').forEach(modal => {
+        setupCloseButton(modal); 
+    });
+
+    // الإغلاق عند النقر خارج النافذة
     window.addEventListener('click', function(event) {
-        if (event.target === mobileMenu) {
-            mobileMenu.classList.remove('active');
-            document.body.style.overflow = '';
+        if (event.target.classList.contains('modal')) {
+            closeModal(event.target);
         }
     });
 
-    // إغلاق عند النقر على أي رابط داخل القائمة (اختياري)
-    const mobileLinks = document.querySelectorAll('.mobile-nav-links a');
-    mobileLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            mobileMenu.classList.remove('active');
-            document.body.style.overflow = '';
-        });
+    // الإغلاق عند الضغط على زر ESCAPE
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            document.querySelectorAll('.modal').forEach(modal => {
+                if (modal.style.display === 'block') {
+                    closeModal(modal); 
+                }
+            });
+        }
     });
+
+    // ... (هنا يتم وضع أي كود متبقي يتعلق بـ serviceCards إذا كان موجوداً)
+    
 });

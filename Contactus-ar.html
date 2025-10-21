@@ -3,14 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تكامل - تواصل</title>
+    <title>تكامل - تواصل معنا</title>
 
-<link rel="icon" type="image/png" href="takamul/sprite/logotop.png"> 
-
-
-    <link rel="stylesheet" href="OurServices-ar.css">     
+<link rel="icon" type="image/png" href="sprite/logotop.png"> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <link rel="stylesheet" href="css/contactus-ar.css">     
     <link rel="stylesheet" href="device-width.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
 
 </head>
 <body>
@@ -19,30 +24,33 @@
 
 <nav class="navbar">
     
-    <a href="index.html" class="navbar-brand logo" style="margin-right: 2%;">
-        <img src="takamul/sprite/logo.png" alt="takamul" style="max-width: 150px;"id="navbarLogo">
+   <a href="index.html" class="navbar-brand logo" style="margin-right: 2%;">
+        <img src="sprite/logo (1).png" alt="takamul" id="navbar-logo" style="max-width: 150px;">
     </a>
     
     <div class="nav-links">
         <ul>
             <li><a href="index.html" >الرئيسية</a></li>
-            <li><a href="Aboutus-ar.html">عن تكامل</a></li>
-            <li><a href="OurServices-ar.html"class="active">خدماتنا</a></li>
-            <li><a href="index.html#clients-section">عملائنا</a></li>
-            <li><a href="#">المدونة</a></li>
-            <li><a href="Contactus-ar.html">تواصل معنا</a></li>
+            <li><a href="aboutus-ar.html"class="active"  >عن تكامل</a></li> 
+            <li><a href="ourServices-ar.html" >خدماتنا</a></li>
+            <li><a href="#clients-section">عملائنا</a></li>
+            <li><a href="blog-ar.html" >المدونة</a></li>
+            <li><a href="contactus-ar.html" >تواصل معنا</a></li>
+            <li><a href="skid.html" > الجداول</a></li>
+
             <li class="separator"></li>
-            <li><a href="Contactus-en.html" class="english-link"><i class="fas fa-globe"></i>ENGLISH</a></li>
+            
+            <li><a href="index-en.html" id="lang-toggle" ><span >ENGLISH</span><i class="fas fa-globe"></i></a></li>
         </ul>
     </div>
     
     <div class="social-icons" style="margin-left: 2%;">
-        <a href="https://wa.me/966533808888" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-        <a href="https://twitter.com/yourhandle" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
-        <a href="https://linkedin.com/in/yourprofile" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://wa.me/966533808888" target="_blank" title="WhatsApp" ><i class="fab fa-whatsapp"></i></a>
+        <a href="https://twitter.com/yourhandle" target="_blank" title="Twitter" ><i class="fab fa-twitter"></i></a>
+        <a href="https://linkedin.com/in/yourprofile" target="_blank" title="LinkedIn" ><i class="fab fa-linkedin-in"></i></a>
     </div>
 
-    <button class="menu-toggler" aria-label="فتح القائمة">
+    <button class="menu-toggler" aria-label="فتح القائمة" >
         <i class="fa fa-bars"></i>
     </button>
     
@@ -53,16 +61,17 @@
         <button class="close-btn">&times;</button>
         
         <ul class="mobile-nav-links">
-            <li><a href="index.html" >الرئيسية</a></li>
-            <li><a href="Aboutus-ar.html">عن تكامل</a></li>
-            <li><a href="OurServices-ar.html">خدماتنا</a></li>
-            <li><a href="index.html#clients-section">عملائنا</a></li>
-            <li><a href="#">المدونة</a></li>
-            <li><a href="Contactus-ar.html"class="active">تواصل معنا</a></li>
-            <li class="separator"></li>
-            <li><a href="Contactus-en.html" class="english-link"><i class="fas fa-globe"></i>ENGLISH</a></li>
+            <li><a href="index.html"  >الرئيسية</a></li>
+            <li><a href="aboutus-ar.html"class="active" >عن تكامل</a></li> 
+            <li><a href="ourServices-ar.html" >خدماتنا</a></li>
+            <li><a href="#clients-section">عملائنا</a></li>
+            <li><a href="blog-ar.html" >المدونة</a></li>
+            <li><a href="contactus-ar.html" >تواصل معنا</a></li>
+            <li><a href="skid.html" > الجداول</a></li>
 
-            </ul>
+            <li class="separator"></li>
+            <li><a href="index-en.html" class="english-link" id="lang-toggle-mobile"><span >ENGLISH</span><i class="fas fa-globe"></i></a></li>
+        </ul>
         
         <div class="mobile-social-icons">
              <a href="https://wa.me/966533808888" target="_blank"><i class="fab fa-whatsapp"></i></a>
@@ -71,7 +80,7 @@
         </div>
 
     </div>
-            <h6 style="margin-bottom: -5%; text-align: center;" class="copyright-text">© Copyright 2025, All rights reserved.</h6>
+    <h6 style="margin-bottom: -5%; text-align: center;" class="copyright-text" >© Copyright 2025, All rights reserved.</h6>
 
 </div>
 
@@ -79,187 +88,240 @@
 
 
 
-<section class="main-hero-banner" role="banner">
+
+
+
+
+
+
+
+
     
-    <div class="banner-content">
-        <h1>حلول متكاملة لمشاريع البناء والصناعة</h1>
-        <p>توريد وتنفيذ جميع احتياجات المشاريع من عدد وأدوات وموارد بشرية.</p>
-        <a href="OurServices-ar.html" class="cta-button">اكتشف خدماتنا</a>
-    </div>
-    </section>
 
+<section class="contact-page-section">
+    <div class="container">
+        <h2 class="section-title">تواصل معنا الآن</h2>
+        <p class="section-subtitle">نحن جاهزون للإجابة على استفساراتك وبدء مشروعك القادم.</p>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="page-container">
-    <div class="form-wrapper">
-        <form class="contact-form">
+        <div class="contact-content-wrapper"> 
             
-<form action="https://formsubmit.co/tkamel7050@gmail.com" method="POST" id="inquiryForm" class="contact-form">
-    
-    <div class="form-row first-row">
-        <div class="form-group full-width-field" data-input-name="fullName">
-            <label for="fullName">الاسم بالكامل <span class="required">*</span></label>
-            <input type="text" id="fullName" name="الاسم_بالكامل" placeholder="أكتب أسمك بالكامل" required>
-            <span class="error-message">هذا الحقل مطلوب</span> 
+            <div class="contact-grid">
+
+                <div class="contact-info">
+                    <h3>معلومات الاتصال</h3>
+                    
+                    <div class="info-item">
+                        <i class="fas fa-phone-alt contact-icon"></i>
+                        <div>
+                            <p>المبيعات: <span>+966 50 XXX XXXX</span></p>
+                            <p>الطوارئ: <span>+966 55 YYY YYYY</span></p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="fas fa-envelope contact-icon"></i>
+                        <div>
+                            <p>للاستفسارات العامة: <span>info@takmol.sa</span></p>
+                            <p>للمشاريع: <span>projects@takmol.sa</span></p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt contact-icon"></i>
+                        <div>
+                            <p>المكتب الرئيسي: <span>طريق الملك فهد، برج الرياض، الرياض، المملكة العربية السعودية</span></p>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><a href="#"><i class="fab fa-linkedin-in"></i></a></a>
+                        <a href="#"><a href="#"><i class="fab fa-instagram"></i></a></a>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper">
+                    <h3>أرسل استفسارك</h3>
+                    <form action="send-email.php" method="POST" class="contact-form">
+                        
+                        <input type="text" name="name" placeholder="الاسم الكامل *" required>
+                        <input type="email" name="email" placeholder="البريد الإلكتروني *" required>
+                        <input type="tel" name="phone" placeholder="رقم الهاتف">
+                        <textarea name="message" rows="5" placeholder="اكتب رسالتك أو تفاصيل المشروع *" required></textarea>
+                        
+                        <button type="submit" class="btn btn-submit">إرسال الرسالة</button>
+                    </form>
+                </div>
+            </div>
+            
         </div>
-    </div>
+        </div>
+</section>
+
+<div class="map-section">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15060985.389932523!2d65.80777407146368!3d22.83954921160662!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2efd0332e3b3e3%3A0x4cd266eef2116150!2z2LTYsdmD2Kkg2KrZg9in2YXZhCDYp9mE2LnZhdmEINmE2YTZhdmC2KfZiNmE2KfYqg!5e0!3m2!1sar!2s!4v1761051146713!5m2!1sar!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+
+
+
+
+
+
+
+
+<section class="faq-section">
+    <div class="container" style="max-width: 900px; margin: 0 auto;">
+        <h2 class="faq-title">أسئلة شائعة قد تساعدك</h2>
+
+        <div class="faq-item">
+            <h4 class="faq-question">هل يمكننا طلب عرض سعر مبدئي قبل الاتفاق الرسمي؟</h4>
+            <p class="faq-answer">بالتأكيد. يمكنك التواصل معنا عبر النموذج أو الهاتف وسيقوم فريق المبيعات بتزويدك بتقدير مبدئي للتكاليف بناءً على متطلبات مشروعك الأساسية.</p>
+        </div>
+
+        <div class="faq-item">
+            <h4 class="faq-question">هل تعملون في المشاريع السكنية والتجارية؟</h4>
+            <p class="faq-answer">نعم، تغطي خدماتنا نطاقاً واسعاً يشمل الإنشاءات السكنية الكبيرة، والمجمعات التجارية، والمشاريع الصناعية والبنية التحتية.</p>
+        </div>
+        
+        </div>
+</section>
+
+
+
     
-            <div class="form-row split-row">
-                <div class="form-group large-half">
-                    <label for="email">البريد الإلكتروني <span class="required">*</span></label>
-                    <input type="email" id="email" placeholder="بريدك الإلكتروني" required>
-                    <span class="error-message">هذا الحقل مطلوب</span>
-                </div>
-                <div class="form-group small-half">
-                    <label for="phone">رقم الهاتف <span class="required">*</span></label>
-                    <input type="tel" id="phone" placeholder="رقم هاتفك" required>
-                    <span class="error-message">هذا الحقل مطلوب</span>
-                </div>
-            </div>
 
-            <div class="form-row full-row">
-                <div class="form-group full-width-field">
-                    <label for="service">أختار الخدمة التي تود الإستفسار عنها <span class="required">*</span></label>
-                    <select id="service" required>
-                        <option value="" disabled selected>أختار الخدمة</option>
-                        <option value="supplier">تسجيل مورد</option>
-                        <option value="pricing">تسعير</option>
-                        <option value="equipment">نقليات ومعدات</option>
-                        <option value="HR Request">طلب موارد بشرية  </option>
-                        <option value="Reports">تقارير</option>
-                        <option value="Business"> اعمال</option>
-                        <option value="Executive Performance Review">مراجعة الاداء التنفيذي</option>
-                        <option value="Archive"> ارشيف</option>
-                        <span class="error-message">هذا الحقل مطلوب</span>
-                    </select>
-                </div>
-            </div>
-            
-<div class="form-row full-row">
-    <div class="form-group full-width-field">
-        <label for="inquiry">إستفسارك <span class="required">*</span></label>
-        <textarea id="inquiry" rows="10" placeholder="أكتب استفسارك" required></textarea> 
-        <span class="error-message">هذا الحقل مطلوب</span>
-    </div>
-</div>
 
-            <div class="submit-row">
-                <button type="submit" class="submit-btn">إرسال</button>
-            </div>
-            
-        </form>
-    </div>
-</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -273,7 +335,7 @@
 
         <div class="footer-info">
             <div class="footer-logo">
-        <img src="takamul/sprite/logo (1).png" alt="takamul" style="max-width: 150px;">
+        <img src="sprite/logo (1).png" alt="takamul" style="max-width: 150px;">
             </div>
             <p class="company-desc">
                 شركة سعودية تقوم بتوريد جميع احتياجات المشاريع من عدد وادوات ومعدات وموارد بشرية 
@@ -285,8 +347,8 @@
             <h4 class="footer-heading">روابط هامة</h4>
             <ul class="footer-links">
                 <li><a href="index.html">الرئيسية</a></li>
-                <li><a href="Aboutus-ar.html">عن تكامل</a></li>
-                <li><a href="OurServices-ar.html">خدماتنا</a></li>
+                <li><a href="aboutus-ar.html">عن تكامل</a></li>
+                <li><a href="ourServices-ar.html">خدماتنا</a></li>
                 <li><a href="#">الأسئلة الشائعة</a></li>
                 <li><a href="#">سياسة الخصوصية</a></li>
             </ul>
@@ -336,10 +398,17 @@
 <a href="https://wa.me/966533808888" target="_blank" class="whatsapp-float">
     <i class="fab fa-whatsapp"></i>
 </a>
-   <script src="index.js"></script>
-      <script src="services.js"></script>
-      <script src="total.js"></script>
+   <script src="script/index.js"></script>
+      <script src="script/services.js"></script>
+      <script src="script/total.js"></script>
+          <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
+
+
+          <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+            <script src="script/slider.js"></script>
 
 
 
