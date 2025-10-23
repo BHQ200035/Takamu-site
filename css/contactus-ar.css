@@ -24,7 +24,7 @@ html {
 }
 
 body {
-    background-color: var(--dark-blue);
+    background-color: #f4f4f4;
     color: var(--light-color);
     font-family: var(--main-font);
     direction: rtl; /* اتجاه النص من اليمين لليسار */
@@ -417,10 +417,12 @@ body, html {
    تنسيق قسم تواصل معنا (Contact Page)
    ======================================= */
 .contact-page-section {
-    padding: 80px 0;
+    padding: 80px 0px;
     background-color: #f4f4f4;
     direction: rtl;
     text-align: center;
+    margin-top: 50px;
+
 }
 
 .section-title {
@@ -624,85 +626,183 @@ text-align: center;
 
 
 
-
-
-.faq-section {
-    padding: 60px 0;
-    background-color: white; /* خلفية مختلفة لتمييز القسم */
-    direction: rtl;
-    text-align: right;
+/* تعريف المتغيرات */
+:root {
+    --dark-blue: #ffffff;
+    --green-color: #008e36; /* اللون الأساسي: أخضر داكن */
+    --light-color: #ffffff;
+    --main-font: 'Tajawal', sans-serif;
+    --text-color: #333333; /* لون النص الأساسي */
+    --green-shadow: #006226; /* ظل أخضر أغمق */
+    --form-bg-light: var(--light-color); 
 }
 
-.faq-title {
-    text-align: center;
-    font-size: 2.2em;
-    color: var(--green-color);
+/* ---------------------------------------------------------------------- */
+/* تنسيقات القسم بالكامل */
+/* ---------------------------------------------------------------------- */
+
+.faq-section {
+    padding: 70px 0; 
+    background-color: var(--light-color); /* خلفية بيضاء نظيفة */
+    font-family: var(--main-font);
+    direction: rtl; 
+    text-align: center; /* لتوسيط العناصر في حال لم يتم تحديد عرضها */
+}
+
+.faq-section .container {
+    max-width: 900px;
+    margin: 0 auto; /* توسيط الحاوية الرئيسية */
+    padding: 0 15px;
+    text-align: right; /* محاذاة النص داخل الحاوية لليمين افتراضياً */
+}
+
+/* ---------------------------------------------------------------------- */
+/* 1. العنوان والوصف (محاذاة لليسار) - تم تغيير الاسم إلى .section-title2 */
+/* ---------------------------------------------------------------------- */
+
+.section-title2 {
+    /* تم تغيير هذه المحاذاة للمنتصف بناءً على الكود الأخير الذي أرسلته */
+    text-align: center; 
+    color: var(--text-color);
+    font-size: 32px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid var(--green-color);
+    display: block; 
+    padding-bottom: 5px;
+    font-weight: bold;
+}
+
+.section-description {
+    /* تم تغيير هذه المحاذاة للمنتصف بناءً على الكود الأخير الذي أرسلته */
+    text-align: center; 
+    color: #666;
+    font-size: 16px;
     margin-bottom: 40px;
 }
 
-.faq-item {
-    border: 1px solid #eee;
-    padding: 20px;
-    margin-bottom: 15px;
-    border-radius: 8px;
-    transition: box-shadow 0.3s;
+/* ---------------------------------------------------------------------- */
+/* 2. فئات الأسئلة (محاذاة لليمين داخل الكتلة المتوسّطة) */
+/* ---------------------------------------------------------------------- */
+
+.faq-category {
+    color: var(--text-color); 
+    font-size: 24px;
+    margin-top: 40px;
+    margin-bottom: 25px;
+    padding-right: 0; 
+    border-right: none; 
+    
+    /* التعديل هنا: المحاذاة لليمين داخل الكتلة */
+    text-align: right; 
+    display: block; 
+    margin-left: auto; /* يلغي أي توسيط سابق ويسمح للمحاذاة لليمين داخل الكتلة */
+    
+    /* تصميم الخط الفاصل النظيف */
+    border-bottom: 1px solid var(--green-color);
+    padding-bottom: 5px;
+    font-weight: 600;
 }
 
-.faq-item:hover {
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+/* ---------------------------------------------------------------------- */
+/* 3. تنسيق الأكورديون (الاحترافي والمبسط) */
+/* ---------------------------------------------------------------------- */
+
+.accordion-item {
+    border: none; 
+    margin-bottom: 0; 
+    border-top: 1px solid #eee; /* خط فاصل علوي خفيف */
+    border-radius: 0; 
+    box-shadow: none; 
+    
+    /* التوسيط وتحديد العرض لكتلة الأسئلة (لضمان الاحترافية) */
+    max-width: 800px; 
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.faq-question {
-    font-size: 1.2em;
-    color: #333;
-    font-weight: bold;
-    margin-bottom: 10px;
+.accordion-item:last-child {
+    border-bottom: 1px solid #eee; /* خط فاصل سفلي للعنصر الأخير */
 }
 
-.faq-answer {
-    font-size: 1em;
-    color: #666;
-    line-height: 1.6;
+.accordion-header {
+    background-color: var(--light-color); 
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 20px 25px; 
+    width: 100%;
+    border: none;
+    text-align: right;
+    font-size: 17px;
+    font-weight: 500; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s;
 }
 
+.accordion-header:hover {
+    background-color: #f7f7f7; 
+}
 
+/* عند فتح السؤال */
+.accordion-header[aria-expanded="true"] {
+    background-color: var(--light-color); 
+    color: var(--green-color); 
+    font-weight: 600; 
+}
 
+.accordion-header .icon {
+    font-size: 30px;
+    color: var(--green-color); 
+    font-weight: 300;
+    transition: transform 0.3s;
+}
 
+.accordion-header[aria-expanded="true"] .icon {
+    transform: rotate(45deg); 
+}
 
+.accordion-content {
+    background-color: var(--light-color);
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.4s ease-in-out;
+    padding: 0 25px;
+}
 
+.accordion-content p {
+    padding: 15px 0 20px 0;
+    margin: 0;
+    color: #555;
+    line-height: 1.8;
+    border-top: none; 
+    text-align: right;
+}
 
+/* ---------------------------------------------------------------------- */
+/* 4. رابط الدعم */
+/* ---------------------------------------------------------------------- */
 
+.support-link {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 17px;
+    color: var(--text-color);
+}
 
+.support-link a {
+    color: var(--green-color); 
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 2px solid var(--green-color); 
+    padding-bottom: 2px;
+    transition: color 0.3s;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.support-link a:hover {
+    color: var(--green-shadow);
+    text-decoration: none;
+}
 
 
 
