@@ -1,0 +1,558 @@
+/* 1. إعدادات عامة وتطبيق المتغيرات */
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;400;700;900&display=swap');
+/* استيراد أيقونات Font Awesome لأزرار التواصل الاجتماعي */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
+
+:root {
+    /* المتغيرات الخاصة بصفحة تسجيل الدخول (الجزء الأيمن الفاتح) */
+    --green-color: #008e36; /* الأخضر الأساسي */
+    --light-color: #ffffff;
+    --text-color: #666666; 
+    --form-text-label: #000000;
+    --bg-color: #f8f8f8;
+    --form-bg-light: #ffffff; 
+
+    /* المتغيرات الجديدة الخاصة بلوحة التحكم (الخلفية خضراء والبطاقة بيضاء) */
+    --dashboard-bg-color: #008e36; 
+    --dashboard-accent-color: #008e36; 
+    --dashboard-text-color: #1a1a1a; 
+    --dashboard-card-bg: rgba(255, 255, 255, 0.95); 
+
+    --main-font: 'Tajawal', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: var(--main-font);
+    direction: ltr; 
+}
+
+a {
+    text-decoration: none;
+    color: var(--green-color);
+    font-weight: 700;
+}
+
+/* خاصية مساعدة لتوسيط النص */
+.text-center {
+    text-align: center;
+}
+
+/* 2. جسم الصفحة والحاوية الرئيسية */
+body {
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.main-container {
+    display: flex;
+    width: 90%; 
+    max-width: 1200px;
+    min-height: 550px; 
+    overflow: hidden;
+    border-radius: 10px;
+    flex-direction: row; 
+    justify-content: center; 
+}
+
+/* ✅ قاعدة خاصة لصفحة التسجيل (Signup.html): توسيط وتصغير المربع الخارجي ذي الظل */
+.main-container .signin-area:first-child:last-child {
+    flex: 1 1 100%; 
+    max-width: 480px; /* العرض الأقصى للمربع الأبيض في Signup.html */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
+    border-radius: 10px;
+
+}
+
+
+/* 3. منطقة تسجيل الدخول (القسم الأيسر) */
+.signin-area {
+    flex: 1; 
+    background-color: var(--form-bg-light);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    text-align: left;
+    overflow-y: hidden; 
+}
+
+.signin-card {
+    width: 100%;
+    max-width: 340px; /* العرض الأقصى للنموذج الداخلي */
+    padding-top: 5px; 
+
+}
+
+/* توسيط اللوجو */
+header {
+    width: 100%;
+    text-align: center;
+}
+
+header img {
+    max-width: 120px;
+    margin-bottom: 20px;
+}
+
+/* 4. قسم لوحة التحكم (القسم الأيمن - في صفحة Login.html فقط) */
+.intro-area {
+    flex: 1.25; 
+    background: linear-gradient(to top right, #03be4a, #017630);
+    color: var(--dashboard-text-color); 
+    padding: 20px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    position: relative;
+    overflow: hidden; 
+}
+
+.intro-content-card {
+    display: none; 
+}
+
+/* 5. تصميم عناصر النموذج */
+.signin-card h2 {
+    color: var(--form-text-label);
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.signin-card > p {
+    color: var(--text-color);
+    margin-bottom: 15px;
+    font-weight: 400;
+    font-size: 0.95em;
+}
+
+label {
+    display: block;
+    color: var(--form-text-label);
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    font-weight: 700;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    color: #333333;
+    text-align: left;
+}
+
+/* 6. حقل كلمة المرور والأيقونة */
+.password-group {
+    position: relative;
+    margin-bottom: 20px; 
+}
+
+.password-group input[type="password"],
+.password-group input[type="text"] { 
+    padding-right: 40px; 
+    margin-bottom: 0; 
+}
+
+.signin-area form .password-group:last-of-type {
+    margin-bottom: 20px; 
+}
+
+
+.password-group .show-password-icon {
+    position: absolute;
+    top: 50%;
+    right: 12px; 
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #999;
+    font-size: 1em; 
+}
+
+/* زر تسجيل الدخول الأساسي */
+.primary-btn {
+    width: 100%;
+    padding: 12px;
+    background-image: linear-gradient(to top, var(--green-color), #00ab43); 
+    color: var(--light-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 700;
+    transition: opacity 0.3s;
+    margin-bottom: 10px;
+}
+
+.primary-btn:hover {
+    opacity: 0.9;
+}
+
+/* 7. خيارات التذكر ونسيت كلمة المرور / الشروط والأحكام */
+.options {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    font-size: 0.9em;
+    margin-bottom: 25px;
+    color: var(--text-color);
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 5px; 
+}
+
+.options label[for="remember"],
+.options label[for="terms"] {
+    display: inline;
+    font-weight: 400;
+    font-size: 1em;
+    margin-bottom: 0; 
+}
+
+.options a {
+    color: var(--green-color);
+    font-weight: 400;
+}
+
+/* 8. فاصل OR */
+.separator {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 0.9em;
+    color: #aaa;
+    position: relative;
+}
+
+.separator::before,
+.separator::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background-color: #ddd;
+}
+
+.separator::before { left: 0; }
+.separator::after { right: 0; }
+
+/* 9. أزرار تسجيل الدخول الاجتماعي */
+.social-login {
+    display: flex;
+    gap: 10px; 
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.social-login button {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: var(--form-bg-light);
+    border-radius: 5px;
+    font-weight: 400;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--form-text-label);
+    transition: background-color 0.3s;
+}
+
+.social-login button i {
+    margin-right: 8px;
+    font-size: 1.1em;
+}
+
+/* 10. رابط التسجيل */
+.signup-link {
+    font-size: 0.9em;
+    color: var(--text-color);
+    text-align: center;
+}
+
+/* 11. أنماط لوحة التحكم (في صفحة Login.html فقط) */
+
+.intro-area::before {
+    content: '';
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 250px;
+    height: 250px;
+    background: rgba(255, 255, 255, 0.15); 
+    filter: blur(100px);
+    border-radius: 50%;
+    z-index: 1; 
+}
+
+.dashboard-preview {
+    width: 90%; 
+    max-width: 550px; 
+    height: 90%;
+    max-height: 550px; 
+    background: var(--dashboard-card-bg); 
+    backdrop-filter: blur(10px); 
+    border: 1px solid rgba(0, 0, 0, 0.1); 
+    border-radius: 15px;
+    padding: 20px;
+    color: var(--dashboard-text-color); 
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+    transform: perspective(1000px) rotateY(-15deg) rotateX(8deg); 
+    transform-origin: center center;
+    z-index: 2; 
+}
+
+.dashboard-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--dashboard-accent-color); 
+}
+
+.dashboard-header i {
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr; 
+    grid-template-rows: 160px 70px 70px; 
+    gap: 15px;
+    height: 320px; 
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.9); 
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+    margin-top: 0;
+    font-size: 1em;
+    font-weight: normal;
+    color: var(--text-color); 
+}
+
+.monthly-spending-card {
+    grid-row: 1 / span 3; 
+    grid-column: 1; 
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between; 
+}
+
+.monthly-spending-card canvas {
+    height: 120px; 
+    margin: 10px 0; 
+    width: 100%;
+}
+
+.summary {
+    padding-top: 10px; 
+}
+
+.summary .amount {
+    display: block;
+    font-size: 1.8em; 
+    font-weight: bold;
+    color: var(--dashboard-accent-color); 
+    margin-top: 0; 
+}
+
+.summary .period {
+    font-size: 0.8em; 
+    color: #888;
+}
+
+.categories-card {
+    grid-column: 2; 
+    grid-row: 1; 
+    height: 100%;
+    padding: 10px; 
+}
+
+.pie-chart-container {
+    display: flex;
+    flex-direction: row; 
+    align-items: center; 
+    justify-content: space-around;
+    flex-grow: 1; 
+}
+
+.pie-chart-container canvas {
+    width: 90px !important;
+    height: 90px !important;
+    max-width: 90px;
+    max-height: 90px;
+}
+
+.categories-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.8em;
+    margin-left: 10px; 
+}
+
+.categories-list li {
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.dot {
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.green-dot { background-color: #008e36; } 
+.orange-dot { background-color: #00ab43; } 
+.dark-green-dot { background-color: #ff9900; } 
+
+.action-card {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+}
+
+.linked-accounts-card {
+    grid-column: 2; 
+    grid-row: 2; 
+}
+
+.quick-transfer-card {
+    grid-column: 2; 
+    grid-row: 3; 
+}
+
+.action-card i {
+    font-size: 1.5em;
+    color: var(--dashboard-accent-color); 
+    margin-bottom: 5px;
+    margin-right: 0;
+}
+
+.action-card span {
+    font-size: 0.8em;
+}
+
+.google-btn i {
+    color: #db4437; 
+}
+
+.facebook-btn i {
+    color: #4267B2;
+}
+
+
+/* ==================================== */
+/* 13. التجاوبية (Media Queries) - التنسيق النهائي للجوال */
+/* ==================================== */
+
+@media (max-width: 992px) {
+    /* تغيير طريقة عرض الحاوية الرئيسية إلى عرض عمودي */
+    .main-container {
+        width: 100%;
+        max-width: none;
+        height: auto;
+        min-height: 100vh;
+        flex-direction: column; 
+        border-radius: 0;
+        box-shadow: none;
+        justify-content: flex-start;
+    }
+
+    /* ❌ تم إلغاء إخفاء الشعار هنا - سيظهر الشعار الآن */
+    /* .signin-area header { display: none; } */
+
+    /* منطقة الصورة (intro-area): تصبح في الأعلى مع الخلفية (في Login.html) */
+    .intro-area {
+        flex: 1; 
+        width: 100%;
+        min-height: 250px; 
+        max-height: 35vh; 
+        padding: 40px 30px; 
+        order: 1; 
+        background: none; 
+        background-image: url('../sprite/logmobile.png'); 
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: contain; 
+        justify-content: center; 
+        align-items: center; 
+    }
+
+    /* منطقة تسجيل الدخول (signin-area): تصبح في الأسفل */
+    .signin-area {
+        flex: 1; 
+        width: 100%;
+        min-height: 65vh; 
+        padding: 20px 30px; 
+        order: 2; 
+    }
+    
+    /* إخفاء لوحة التحكم الشفافة بجميع محتوياتها */
+    .dashboard-preview {
+        display: none; 
+    }
+    
+    /* إلغاء الأنماط القديمة للـ Grid */
+    .dashboard-grid, 
+    .monthly-spending-card, 
+    .categories-card,
+    .linked-accounts-card,
+    .quick-transfer-card {
+        display: none;
+    }
+}
+
+
+@media (max-width: 768px) {
+    /* ❌ تم إلغاء إخفاء الشعار هنا - سيظهر الشعار الآن */
+    /* header img { display: none; } */
+
+    /* تعديل هامش منطقة تسجيل الدخول على الشاشات الصغيرة جداً */
+    .signin-area {
+        padding: 15px 20px; 
+    }
+
+    /* تصغير حجم الزر الأساسي */
+    .primary-btn {
+        padding: 10px;
+        font-size: 1em;
+    }
+
+    /* جعل أزرار التواصل الاجتماعي تظهر عمودياً على شاشات صغيرة جداً */
+    .social-login {
+        flex-direction: column;
+        gap: 8px;
+    }
+}

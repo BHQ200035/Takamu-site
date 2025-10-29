@@ -1,75 +1,94 @@
-/* =======================================
-    تنسيق قسم الميزات الأساسية (Core Features)
-    ======================================= */
-.core-features {
-    /* الخلفية قد تكون بيضاء أو رمادية فاتحة جداً */
-    background-color: white; 
+
+/* =========================================================
+  تنسيق قسم "لماذا تكامل؟" (Why Takmol CSS) - كلاسات فريدة
+  ========================================================= */
+
+.takmol-advantage-section {
     padding: 60px 0;
-}
-
-/* حاوية التوزيع الشبكي للميزات */
-.features-grid {
-    display: flex;
-    /* التوزيع المتساوي بين العناصر */
-    justify-content: space-around; 
-    /* التفاف العناصر في حال الشاشات الصغيرة */
-    flex-wrap: wrap; 
-    gap: 20px;
     text-align: center;
-        margin-left: 20%;
-    margin-right: 20%;
+    background-color: var(--light-gray-color, #f8f8f8); /* خلفية فاتحة */
 }
 
-.feature-item {
-    /* لتوزيع 4 عناصر في صف واحد */
-    width: 23%; 
-    min-width: 200px;
-    padding: 20px 10px;
-    /* ظل بسيط وحواف دائرية */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
+.takmol-advantage-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.takmol-advantage-title {
+    font-size: 32px;
+    color: var(--green-color);
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.takmol-advantage-subtitle {
+    font-size: 16px;
+    color: var(--text-color, #666);
+    margin-bottom: 40px;
+}
+
+
+/* تنسيق شبكة الميزات (Features Grid) */
+.advantage-items-grid {
+    display: grid;
+    /* على سطح المكتب: 3 أعمدة متساوية */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px; 
+}
+
+.advantage-card {
+    background-color: white;
+    padding: 25px;
     border-radius: 8px;
+    text-align: right;
+    border: 1px solid #eee; /* إطار خفيف */
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
-    height: 100%; /* ضمان ارتفاع موحد */
-            border: 1px solid  var(--green-color);;
-
+    min-height: 180px; /* لضمان تساوي ارتفاع البطاقات تقريباً */
 }
 
-.feature-item:hover {
-    /* تأثير طفيف عند مرور الماوس */
-    transform: translateY(-5px);
+.advantage-card:hover {
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-3px);
+    border-color: var(--green-color); /* تظهير الإطار عند التمرير */
 }
 
-.feature-icon {
-    font-size: 40px;
-    /* استخدم لونك الرئيسي الأخضر أو الأزرق الداكن */
-    color: var(--green-color); 
+.advantage-icon {
+    font-size: 30px;
+    color: var(--green-color);
     margin-bottom: 15px;
-    display: block;
+    display: block; /* لضمان أخذ سطر كامل */
 }
 
-.feature-item h4 {
-    font-size: 20px;
-    font-weight: bold;
-    color: #333;
+.advantage-card h3 {
+    font-size: 18px;
+    color: var(--heading-color, #333);
+    font-weight: 700;
     margin-bottom: 10px;
 }
 
-.feature-item p {
+.advantage-card p {
     font-size: 14px;
-    color: #666;
-    line-height: 1.5;
+    color: var(--text-color, #666);
+    line-height: 1.6;
 }
 
-/* تفعيل التجاوب للشاشات الصغيرة */
+
+/* ----------------------------------
+  التجاوبية (Responsive)
+  ---------------------------------- */
+
 @media (max-width: 992px) {
-    .feature-item {
-        width: 48%; /* 2 عنصر في الصف على التابلت */
-        margin-bottom: 20px;
+    .advantage-items-grid {
+        /* التابلت: عمودان */
+        grid-template-columns: repeat(2, 1fr); 
     }
 }
+
 @media (max-width: 576px) {
-    .feature-item {
-        width: 100%; /* عنصر واحد في الصف على الهاتف */
+    .advantage-items-grid {
+        /* الجوال: عمود واحد */
+        grid-template-columns: 1fr;
     }
 }

@@ -1,5 +1,55 @@
 document.addEventListener('DOMContentLoaded', function() {
     
+    // =========================================================
+    // 🚀 كود الشريط الذكي (Smart Navbar) + تغيير الخلفية 🚀
+    // =========================================================
+    const navbar = document.querySelector('.navbar');
+    let lastScrollY = window.scrollY;
+    const scrollThreshold = 50; 
+
+    function toggleBackground() {
+        if (navbar) {
+            if (window.scrollY > scrollThreshold) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        }
+    }
+    
+    // **دالة الشريط الذكي المعدلة قليلاً للتأكد من الموثوقية**
+    function handleSmartNavbar() {
+        if (navbar) {
+            const currentScrollY = window.scrollY;
+            
+            // 1. **إذا كان التمرير للأعلى (الإظهار)**
+            if (currentScrollY < lastScrollY) {
+                navbar.classList.remove('hidden'); 
+            } 
+            // 2. **إذا كان التمرير للأسفل وتجاوز عتبة الإخفاء (الإخفاء)**
+            else if (currentScrollY > lastScrollY && currentScrollY > 200) {
+                navbar.classList.add('hidden');
+            }
+            
+            // 3. **عند الوصول إلى قمة الصفحة تماماً (الإظهار دائماً)**
+            if (currentScrollY === 0) {
+                navbar.classList.remove('hidden'); 
+            }
+
+            lastScrollY = currentScrollY;
+        }
+    }
+
+    // ربط وظائف الشريط الذكي بحدث التمرير
+    window.addEventListener('scroll', function() {
+        toggleBackground();
+        handleSmartNavbar();
+    });
+    // ضبط الحالة الأولية للخلفية عند التحميل
+    toggleBackground();
+    // =========================================================
+    
+
     // ==============================================================
     // 🚀 1. وظيفة فتح وإغلاق القائمة الجانبية (Mobile Menu) 🚀
     // ==============================================================
@@ -7,7 +57,22 @@ document.addEventListener('DOMContentLoaded', function() {
     const menuToggler = document.querySelector('.menu-toggler');
     const closeBtn = document.querySelector('.mobile-menu-overlay .close-btn');
     const mobileMenu = document.querySelector('.mobile-menu-overlay');
-    const mobileLinks = document.querySelectorAll('.mobile-nav-links li a');
+    
+// وظيفة الإغلاق المركزية
+window.closeMobileMenu = function() {
+    const mobileMenu = document.querySelector('.mobile-menu-overlay'); // قم بتعريف المتغير هنا إذا لم يكن معرّفاً خارج الدالة
+    
+    if (mobileMenu) {
+        // 1. إغلاق القائمة الرئيسية
+        mobileMenu.classList.remove('active');
+        
+        // 2. إخفاء القائمة المنسدلة لخدماتنا
+        const servicesLi = document.querySelector('.mobile-services-menu');
+        if (servicesLi) {
+            servicesLi.classList.remove('open'); // إزالة فئة الإظهار
+        }
+    }
+}
 
     // وظيفة الفتح
     if (menuToggler && mobileMenu) {
@@ -16,133 +81,34 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // وظيفة الإغلاق بزر X
-    if (closeBtn && mobileMenu) {
-        closeBtn.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-        });
-    }
-
-    // إغلاق القائمة عند النقر على أي رابط
-    mobileLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            if (mobileMenu) {
-                mobileMenu.classList.remove('active');
-            }
-        });
-    });
-
-    
-    // ==============================================================
-    // 2. كود الشريط الذكي (Smart Navbar) وتغيير الشعار (المدمج)
-    // ==============================================================
-    
-    const navbar = document.querySelector('.navbar');
-    const logoImage = document.getElementById('navbar-logo');
-    let lastScrollY = window.scrollY;
-    const scrollThreshold = 50; 
-
-    // مسارات الصور
-    const defaultLogo = 'sprite/logo.png'; 
-    const scrolledLogo = 'sprite/logo (1).png'; 
-
-    function toggleBackgroundAndLogo() {
-        if (!navbar || !logoImage) return; // فحص وجود العناصر أولاً (مهم لحل مشكلة null)
-
-        // 2-1: معالجة الخلفية والتغيرات عند التمرير
-        if (window.scrollY > scrollThreshold) {
-            navbar.classList.add('scrolled');
-            // تغيير الشعار إلى Scrolled
-            if (logoImage.src.indexOf(scrolledLogo) === -1) {
-                logoImage.src = scrolledLogo;
-            }
-        } else {
-            navbar.classList.remove('scrolled');
-            // تغيير الشعار إلى Default
-            if (logoImage.src.indexOf(defaultLogo) === -1) {
-                logoImage.src = defaultLogo;
-            }
-        }
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeMobileMenu);
     }
     
-    function handleSmartNavbar() {
-        if (!navbar) return;
-        const currentScrollY = window.scrollY;
+    // =========================================================
+    // 🚀 إضافة منطق فتح/إغلاق القائمة الفرعية (خدماتنا) في الجوال 🚀
+    // =========================================================
+    const servicesSubmenuToggle = document.querySelector('.services-submenu-link');
 
-        // إخفاء الشريط عند النزول، وإظهاره عند الصعود
-        if (currentScrollY > lastScrollY && currentScrollY > 200) {
-            navbar.classList.add('hidden');
-        } else if (currentScrollY < lastScrollY) {
-            navbar.classList.remove('hidden');
-        }
-        lastScrollY = currentScrollY;
-    }
+    if (servicesSubmenuToggle) {
+        servicesSubmenuToggle.addEventListener('click', function(event) {
+            event.preventDefault(); 
 
-    window.addEventListener('scroll', function() {
-        toggleBackgroundAndLogo();
-        handleSmartNavbar();
-    });
+            // تحديد العنصر الأب (<li>) الذي يحمل فئة 'has-submenu'
+            const parentLi = this.closest('.has-submenu');
 
-    // تشغيل الدالة عند التحميل لتحديد الحالة الأولية
-    toggleBackgroundAndLogo(); 
-
-
-    // ==============================================================
-    // 3. منطق النوافذ المنبثقة للخدمات (Modals)
-    // ==============================================================
-
-    const serviceModal = document.getElementById('serviceModal'); 
-    // لا نحتاج لتعريف serviceCards و modalTitle/Description إذا لم يكن منطق البطاقات كاملاً هنا
-    
-    // دوال الفتح والإغلاق (مع استخدام متغيرات local لمنع التضارب)
-    function openModal(modalElement) {
-        if (modalElement) {
-            modalElement.style.display = 'block';
-            document.body.style.overflow = 'hidden'; 
-        }
-    }
-
-    function closeModal(modalElement) {
-        if (modalElement) {
-            modalElement.style.display = 'none';
-            document.body.style.overflow = ''; 
-        }
-    }
-
-    function setupCloseButton(modal) {
-        if (modal) {
-            const closeBtn = modal.querySelector('.close-btn, .service-close'); 
-            if (closeBtn) {
-                closeBtn.onclick = function() { 
-                    closeModal(modal);
-                };
+            // تبديل الفئة 'open'
+            if (parentLi) {
+                parentLi.classList.toggle('open');
             }
-        }
-    }
-
-    // ربط جميع أزرار الإغلاق في جميع النوافذ المنبثقة
-    document.querySelectorAll('.modal').forEach(modal => {
-        setupCloseButton(modal); 
-    });
-
-    // الإغلاق عند النقر خارج النافذة
-    window.addEventListener('click', function(event) {
-        if (event.target.classList.contains('modal')) {
-            closeModal(event.target);
-        }
-    });
-
-    // الإغلاق عند الضغط على زر ESCAPE
-    document.addEventListener('keydown', function(event) {
-        if (event.key === 'Escape') {
-            document.querySelectorAll('.modal').forEach(modal => {
-                if (modal.style.display === 'block') {
-                    closeModal(modal); 
+            
+            // (اختياري) إغلاق أي قوائم فرعية أخرى مفتوحة
+            document.querySelectorAll('.mobile-nav-links .has-submenu').forEach(item => {
+                if (item !== parentLi && item.classList.contains('open')) {
+                    item.classList.remove('open');
                 }
             });
-        }
-    });
+        });
+    }
 
-    // ... (هنا يتم وضع أي كود متبقي يتعلق بـ serviceCards إذا كان موجوداً)
-    
 });

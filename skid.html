@@ -8,13 +8,18 @@
 
     <link rel="icon" type="image/png" href="sprite/logotop.png"> 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="skid.css">
+    <link rel="stylesheet" href="css/skid.css">
     <link rel="stylesheet" href="css/device-width.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     </head>
 
 <body dir="rtl" class="rtl"> 
+
+
+
+
+
 
 
 
@@ -52,14 +57,10 @@
                     <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="7" class="code-digit-input" value=""></td> 
                     <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="8" class="code-digit-input" value=""></td> 
                     <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="9" class="code-digit-input" value=""></td> 
-                    <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="10" class="code-digit-input" value=""></td> 
-                    <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="11" class="code-digit-input" value=""></td> 
-                    <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="12" class="code-digit-input" value=""></td> 
-                    <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="13" class="code-digit-input" value=""></td> 
-                    <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="14" class="code-digit-input" value=""></td> 
-                    <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="15" class="code-digit-input" value=""></td> 
-                    <td class="code-digit-input" style="background-color: #008e36; color: white;" >1</td> 
-                    <td class="code-digit-input" style="background-color: #008e36; color: white;" >0</td> 
+                    <td class="code-digit-input" >1</td> 
+                    <td class="code-digit-input" >0</td> 
+
+
                 </tr>
 
 
@@ -69,7 +70,7 @@
 
                 <tr class="header-details-row-complex">
                     <td colspan="3" class="order-details-complex-key-top">التاريخ:</td>
-                    <td colspan="8" class="order-details-complex-value-middle">
+                    <td colspan="4" class="order-details-complex-value-middle">
                         <input type="date" name="order_date" value="2025-01-01" class="input-field date-input">
                     </td>
 
@@ -77,10 +78,10 @@
 
 
                     <td rowspan="3" colspan="6" class="main-title-section-complex"> 
-                        <h3 class="main-title-text">  طلب عرض سعر من الشركات لتكامل</h3>
+                        <h3 class="main-title-text">  طلب عرض سعر من <br>الشركات لتكامل</h3>
                     </td>
 
-                <td rowspan="4" colspan="4" class="logo-cell-large"> 
+                               <td rowspan="4" colspan="2" class="logo-cell-large"> 
                         <img src="sprite/logoskidu.png" alt="شعار الشركة" class="company-logo">
                     </td>
 
@@ -95,29 +96,30 @@
 
                 <tr class="order-info-row">
                     <td colspan="3" class="order-details-complex-key-middle">اسم الجهة الطالبة</td>
-                    <td colspan="8" class="order-details-complex-value-middle">
+                    <td colspan="4" class="order-details-complex-value-middle">
                         <input type="text" name="requester_name" value="خالد إبراهيم" class="input-field">
                     </td>
                 </tr>
                 <tr class="order-info-row">
                     <td colspan="3" class="order-details-complex-key-middle">اسم الشخص </td>
-                    <td colspan="8" class="order-details-complex-value-middle">
+                    <td colspan="4" class="order-details-complex-value-middle">
                         <input type="text" name="project_name" value="الجحفة + قصير بن متروك" class="input-field">
                     </td>
                 </tr>
                 
 
 <tr class="order-info-row contact-info-row info-end-row section-bottom-border">
-    <td colspan="3" class="order-details-complex-key-bottom">رقم الجوال:</td>
+        <td colspan="3" class="order-details-complex-key-bottom">البريد الإلكتروني:</td>
     <td colspan="4" class="order-details-complex-value-bottom">
-        <input type="tel" name="mobile_number" class="input-field" pattern="[0-9]{10}" placeholder="05xxxxxxxx">
-    </td>
-    <td colspan="3" class="order-details-complex-key-bottom">البريد الإلكتروني:</td>
-    <td colspan="7" class="order-details-complex-value-bottom">
         <input type="email" name="email_address" class="input-field" required 
                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
                title="الرجاء إدخال بريد إلكتروني صحيح (مثال: example@domain.com)">
     </td>
+    <td colspan="3" class="order-details-complex-key-bottom">رقم الجوال:</td>
+    <td colspan="3" class="order-details-complex-value-bottom">
+        <input type="tel" name="mobile_number" class="input-field" pattern="[0-9]{10}" placeholder="05xxxxxxxx">
+    </td>
+
 </tr>
 
 
@@ -131,22 +133,22 @@
                 <tr class="items-headers-row">
                     <td colspan="1" class="item-id-header">البند</td>
                     <td colspan="1" class="item-unit-header">الوحدة</td>
-                    <td colspan="2" class="item-quantity-header">الكمية</td>
+                    <td colspan="1" class="item-quantity-header">الكمية</td>
                     <td colspan="2" class="item-price-header">السعر</td>
                     <td colspan="2" class="item-total-header">المجموع</td>
-                    <td colspan="11" class="item-desc-header-merged-new">وصف البند</td>
-                    <td colspan="2" class="item-image-header">صورة البند</td> 
+                    <td colspan="7" class="item-desc-header-merged-new">وصف البند</td>
+                    <td colspan="1" class="item-image-header">صورة البند</td> 
                 </tr>
                 
                 <tr class="item-row">
                     <td colspan="1" class="item-id-cell"><input type="number" value="1" readonly class="input-field item-readonly-id"></td>
                     <td colspan="1" class="item-unit-cell"><input type="text" value="عدد" class="input-field item-input"></td>
-                    <td colspan="2" class="item-quantity-cell"><input type="number" value="1" class="input-field item-input quantity-input"></td>
+                    <td colspan="1" class="item-quantity-cell"><input type="number" value="1" class="input-field item-input quantity-input"></td>
                     <td colspan="2" class="item-price-cell"><input type="number" value="10000" class="input-field item-input price-input"></td>
                     <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
-                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input">دفعة من عمل السباكة</textarea></td>
+                    <td colspan="7" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input">دفعة من عمل السباكة</textarea></td>
                     
-                    <td colspan="2" class="item-image-cell">
+                    <td colspan="1" class="item-image-cell">
                         <label for="item_image_1" class="file-upload-label">
                             <span class="image-icon file-icon">🖼️</span>
                         </label>
@@ -156,12 +158,12 @@
                 <tr class="item-row">
                     <td colspan="1" class="item-id-cell"><input type="number" value="2" readonly class="input-field item-readonly-id"></td>
                     <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
-                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="1" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
                     <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
                     <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
-                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="7" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
                     
-                    <td colspan="2" class="item-image-cell">
+                    <td colspan="1" class="item-image-cell">
                         <label for="item_image_2" class="file-upload-label">
                             <span class="image-icon file-icon">🖼️</span>
                         </label>
@@ -171,11 +173,11 @@
                 <tr class="item-row">
                     <td colspan="1" class="item-id-cell"><input type="number" value="3" readonly class="input-field item-readonly-id"></td>
                     <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
-                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="1" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
                     <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
                     <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
-                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
-                    <td colspan="2" class="item-image-cell">
+                    <td colspan="7" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="1" class="item-image-cell">
                         <label for="item_image_3" class="file-upload-label">
                             <span class="image-icon file-icon">🖼️</span>
                         </label>
@@ -185,11 +187,11 @@
                 <tr class="item-row">
                     <td colspan="1" class="item-id-cell"><input type="number" value="4" readonly class="input-field item-readonly-id"></td>
                     <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
-                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="1" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
                     <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
                     <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
-                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
-                    <td colspan="2" class="item-image-cell">
+                    <td colspan="7" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="1" class="item-image-cell">
                         <label for="item_image_4" class="file-upload-label">
                             <span class="image-icon file-icon">🖼️</span>
                         </label>
@@ -199,11 +201,11 @@
                 <tr class="item-row">
                     <td colspan="1" class="item-id-cell"><input type="number" value="5" readonly class="input-field item-readonly-id"></td>
                     <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
-                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="1" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
                     <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
                     <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
-                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
-                    <td colspan="2" class="item-image-cell">
+                    <td colspan="7" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="1" class="item-image-cell">
                         <label for="item_image_5" class="file-upload-label">
                             <span class="image-icon file-icon">🖼️</span>
                         </label>
@@ -213,11 +215,11 @@
                 <tr class="item-row">
                     <td colspan="1" class="item-id-cell"><input type="number" value="6" readonly class="input-field item-readonly-id"></td>
                     <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
-                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="1" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
                     <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
                     <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
-                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
-                    <td colspan="2" class="item-image-cell">
+                    <td colspan="7" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="1" class="item-image-cell">
                         <label for="item_image_6" class="file-upload-label">
                             <span class="image-icon file-icon">🖼️</span>
                         </label>
@@ -227,11 +229,11 @@
                 <tr class="item-row">
                     <td colspan="1" class="item-id-cell"><input type="number" value="7" readonly class="input-field item-readonly-id"></td>
                     <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
-                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="1" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
                     <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
                     <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
-                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
-                    <td colspan="2" class="item-image-cell">
+                    <td colspan="7" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="1" class="item-image-cell">
                         <label for="item_image_7" class="file-upload-label">
                             <span class="image-icon file-icon">🖼️</span>
                         </label>
@@ -241,11 +243,11 @@
                 <tr class="item-row">
                     <td colspan="1" class="item-id-cell"><input type="number" value="8" readonly class="input-field item-readonly-id"></td>
                     <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
-                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="1" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
                     <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
                     <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
-                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
-                    <td colspan="2" class="item-image-cell">
+                    <td colspan="7" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="1" class="item-image-cell">
                         <label for="item_image_8" class="file-upload-label">
                             <span class="image-icon file-icon">🖼️</span>
                         </label>
@@ -255,11 +257,11 @@
                 <tr class="item-row">
                     <td colspan="1" class="item-id-cell"><input type="number" value="9" readonly class="input-field item-readonly-id"></td>
                     <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
-                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="1" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
                     <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
                     <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
-                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
-                    <td colspan="2" class="item-image-cell">
+                    <td colspan="7" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="1" class="item-image-cell">
                         <label for="item_image_9" class="file-upload-label">
                             <span class="image-icon file-icon">🖼️</span>
                         </label>
@@ -269,11 +271,11 @@
                 <tr class="item-row">
                     <td colspan="1" class="item-id-cell"><input type="number" value="10" readonly class="input-field item-readonly-id"></td>
                     <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
-                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="1" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
                     <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
                     <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
-                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
-                    <td colspan="2" class="item-image-cell">
+                    <td colspan="7" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="1" class="item-image-cell">
                         <label for="item_image_10" class="file-upload-label">
                             <span class="image-icon file-icon">🖼️</span>
                         </label>
@@ -283,11 +285,11 @@
                 <tr class="item-row">
                     <td colspan="1" class="item-id-cell"><input type="number" value="11" readonly class="input-field item-readonly-id"></td>
                     <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
-                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="1" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
                     <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
                     <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
-                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
-                    <td colspan="2" class="item-image-cell">
+                    <td colspan="7" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="1" class="item-image-cell">
                         <label for="item_image_11" class="file-upload-label">
                             <span class="image-icon file-icon">🖼️</span>
                         </label>
@@ -297,11 +299,11 @@
                 <tr class="item-row">
                     <td colspan="1" class="item-id-cell"><input type="number" value="12" readonly class="input-field item-readonly-id"></td>
                     <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
-                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="1" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
                     <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
                     <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
-                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
-                    <td colspan="2" class="item-image-cell">
+                    <td colspan="7" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="1" class="item-image-cell">
                         <label for="item_image_12" class="file-upload-label">
                             <span class="image-icon file-icon">🖼️</span>
                         </label>
@@ -311,11 +313,11 @@
                 <tr class="item-row">
                     <td colspan="1" class="item-id-cell"><input type="number" value="13" readonly class="input-field item-readonly-id"></td>
                     <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
-                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="1" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
                     <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
                     <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
-                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
-                    <td colspan="2" class="item-image-cell">
+                    <td colspan="7" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="1" class="item-image-cell">
                         <label for="item_image_13" class="file-upload-label">
                             <span class="image-icon file-icon">🖼️</span>
                         </label>
@@ -324,45 +326,45 @@
                 </tr>
                 
                 <tr class="total-row items-end-row section-bottom-border">
-                    <td colspan="7" class="total-label-merged-new">الإجمالي</td>
+                    <td colspan="6" class="total-label-merged-new">الإجمالي</td>
                     <td colspan="2" class="total-value-final">
                         <input type="number" readonly class="input-field final-total-input" name="final_total_display">
                     </td>
-                    <td colspan="13" class="total-empty-cell-desc"></td>
+                    <td colspan="8" class="total-empty-cell-desc"></td>
                 </tr>
                 
                 <tr class="pricing-header-row section-top-border">
                     <td rowspan="3" colspan="1" class="merged-vertical-cell pricing-label-vertical section-top-border merged-left-side">الدراسة</td>
-                    <td colspan="21" class="section-title-cell pricing-title-cell section-top-border">   تم قبول الطلب   </td>
+                    <td colspan="15" class="section-title-cell pricing-title-cell section-top-border">   تم قبول الطلب   </td>
                 </tr>
                 <tr class="pricing-detail-row">
                     <td colspan="3" class="pricing-key-cell">الاسم</td> 
-                    <td colspan="18" class="pricing-value-cell"><input type="text" class="input-field pricing-input"></td>
+                    <td colspan="12" class="pricing-value-cell"><input type="text" class="input-field pricing-input"></td>
                 </tr>
                 <tr class="pricing-detail-row pricing-end-row section-bottom-border">
                     <td colspan="3" class="pricing-key-cell">التوقيع</td> 
-                    <td colspan="6" class="pricing-value-cell"><input type="text" class="input-field pricing-input"></td>
+                    <td colspan="5" class="pricing-value-cell"><input type="text" class="input-field pricing-input"></td>
                     
                     <td colspan="3" class="pricing-key-cell">التاريخ</td>
-                    <td colspan="9" class="pricing-value-cell">
+                    <td colspan="4" class="pricing-value-cell">
                         <input type="date" name="order_date" value="2025-01-01" class="input-field date-input">
                     </td>
                 </tr>
 
 
                 <tr class="ordering-header-row section-top-border">
-                    <td rowspan="3" colspan="1" class="merged-vertical-cell ordering-label-vertical merged-left-side">التسعير </td>
-                    <td colspan="21" class="section-title-cell ordering-title-cell">تم التسعير</td>
+                    <td rowspan="3" colspan="1" class="merged-vertical-cell ordering-label-vertical merged-left-side">تم التسعير </td>
+                    <td colspan="15" class="section-title-cell ordering-title-cell">تم التسعير</td>
                 </tr>
                 <tr class="ordering-detail-row">
                     <td colspan="3" class="ordering-key-cell">الاسم</td>
-                    <td colspan="18" class="ordering-value-cell"><input type="text" class="input-field ordering-input"></td>
+                    <td colspan="12" class="ordering-value-cell"><input type="text" class="input-field ordering-input"></td>
                 </tr>
                 <tr class="ordering-detail-row ordering-end-row section-bottom-border">
                     <td colspan="3" class="ordering-key-cell">التوقيع</td>
-                    <td colspan="6" class="ordering-value-cell"><input type="text" class="input-field ordering-input"></td>
+                    <td colspan="5" class="ordering-value-cell"><input type="text" class="input-field ordering-input"></td>
                     <td colspan="3" class="ordering-key-cell">التاريخ</td>
-                    <td colspan="9" class="ordering-value-cell">
+                    <td colspan="4" class="ordering-value-cell">
                         <input type="date" name="order_date" value="2025-01-01" class="input-field date-input">
                     </td> 
                 </tr>
@@ -373,17 +375,17 @@
                                 <tr class="ordering-header-row section-top-border">
                                 <td rowspan="3" colspan="1" class="merged-vertical-cell ordering-label-vertical merged-left-side">التعميد </td>
 
-                    <td colspan="21" class="section-title-cell ordering-title-cell">يرجى التكرم بتعميد المطلوب </td>
+                    <td colspan="15" class="section-title-cell ordering-title-cell">يرجى التكرم بتعميد المطلوب </td>
                 </tr>
                 <tr class="ordering-detail-row">
                     <td colspan="3" class="ordering-key-cell">الاسم</td>
-                    <td colspan="18" class="ordering-value-cell"><input type="text" class="input-field ordering-input"></td>
+                    <td colspan="12" class="ordering-value-cell"><input type="text" class="input-field ordering-input"></td>
                 </tr>
                 <tr class="ordering-detail-row ordering-end-row section-bottom-border">
                     <td colspan="3" class="ordering-key-cell">التوقيع</td>
-                    <td colspan="6" class="ordering-value-cell"><input type="text" class="input-field ordering-input"></td>
+                    <td colspan="5" class="ordering-value-cell"><input type="text" class="input-field ordering-input"></td>
                     <td colspan="3" class="ordering-key-cell">التاريخ</td>
-                    <td colspan="9" class="ordering-value-cell">
+                    <td colspan="4" class="ordering-value-cell">
                         <input type="date" name="order_date" value="2025-01-01" class="input-field date-input">
                     </td> 
                 </tr>
@@ -401,25 +403,25 @@
                     <td rowspan="5" colspan="1" class="merged-vertical-cell payment-label-vertical section-top-border merged-left-side">المالية</td>
                     
                     <td colspan="3" class="payment-key section-top-border">اسم المستفيد:</td>
-                    <td colspan="18" class="payment-value section-top-border"><input type="text" value="شائلي محمود عمر خطاب" class="input-field payment-input"></td>
+                    <td colspan="12" class="payment-value section-top-border"><input type="text" value="شائلي محمود عمر خطاب" class="input-field payment-input"></td>
                 </tr>
                 <tr class="payment-row">
                     <td colspan="3" class="payment-key">رقم الحساب:</td>
-                    <td colspan="18" class="payment-value"><input type="text" value="SA134608010405131" class="input-field payment-input"></td>
+                    <td colspan="12" class="payment-value"><input type="text" value="SA134608010405131" class="input-field payment-input"></td>
                 </tr>
                 <tr class="payment-row">
                     <td colspan="3" class="payment-key">اسم البنك:</td>
-                    <td colspan="18" class="payment-value"><input type="text" class="input-field payment-input"></td>
+                    <td colspan="12" class="payment-value"><input type="text" class="input-field payment-input"></td>
                 </tr>
                 <tr class="payment-row-merged">
                     <td colspan="3" class="payment-key">المبلغ رقماً:</td>
                     <td colspan="3" class="payment-value-digit"><input type="number" name="amount_numeric" class="input-field payment-input"></td>
                     <td colspan="2" class="payment-key">المبلغ كتابة:</td>
-                    <td colspan="13" class="payment-value-text"><input type="text" value="عشرة آلاف ريال فقط لاغير" class="input-field payment-input"></td>
+                    <td colspan="7" class="payment-value-text"><input type="text" value="عشرة آلاف ريال فقط لاغير" class="input-field payment-input"></td>
                 </tr>
                 <tr class="payment-row last-in-section payment-end-row section-bottom-border">
                     <td colspan="3" class="payment-key section-bottom-border">طريقة السداد:</td>
-                    <td colspan="18" class="payment-value section-bottom-border"><input type="text" value="تحويل" class="input-field payment-input"></td>
+                    <td colspan="12" class="payment-value section-bottom-border"><input type="text" value="تحويل" class="input-field payment-input"></td>
                 </tr>
                 
                 <tr class="approval-header-row section-top-border">
@@ -427,13 +429,13 @@
                     
                 </tr>
                 <tr class="approval-row-v4 approval-end-row section-bottom-border">
-                    <td colspan="21" class="approval-signatures-container-v4">
+                    <td colspan="15" class="approval-signatures-container-v4">
                         <div class="sig-column-v4">
                             <span class="sig-title-key-inline-v4"> الادخال الالكتروني</span>
                             <div class="sig-detail-group-inline-v4">
                                 <span class="name-line-v4">الاسم: <input type="text" value="أحمد عبدالرحمن" class="sig-name-input-v4"></span>
                                 <span class="date-line-v4">التوقيع: <input type="text" class="sig-name-input-v4"></span>
-                                <span class="date-line-v4">رقم البطاقة: <input type="text" class="sig-name-input-v4"></span>
+                                <span class="date-line-v4">التاريخ:<input type="date" name="order_date" value="2025-01-01" class="sig-name-input-v4"></span>
                             </div>
                         </div>
                         <div class="sig-column-v4">
@@ -441,7 +443,7 @@
                             <div class="sig-detail-group-inline-v4">
                                 <span class="name-line-v4">الاسم: <input type="text" value="محمد علي" class="sig-name-input-v4"></span>
                                 <span class="date-line-v4">التوقيع: <input type="text" class="sig-name-input-v4"></span>
-                                <span class="date-line-v4">رقم البطاقة: <input type="text" class="sig-name-input-v4"></span>
+                                <span class="date-line-v4">التاريخ:<input type="date" name="order_date" value="2025-01-01" class="sig-name-input-v4"></span>
                             </div>
                         </div>
                         <div class="sig-column-v4 last-sig-v4">
@@ -449,7 +451,7 @@
                             <div class="sig-detail-group-inline-v4">
                                 <span class="name-line-v4">الاسم: <input type="text" value="إبراهيم سليمان الغافص" class="sig-name-input-v4"></span>
                                 <span class="date-line-v4">التوقيع: <input type="text" class="sig-name-input-v4"></span>
-                                <span class="date-line-v4">رقم البطاقة: <input type="text" class="sig-name-input-v4"></span>
+                                <span class="date-line-v4">التاريخ:<input type="date" name="order_date" value="2025-01-01" class="sig-name-input-v4"></span>
                             </div>
                         </div>
                     </td>
@@ -461,6 +463,96 @@
 </div>
 
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -571,14 +663,8 @@
                     <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="7" class="code-digit-input" value=""></td> 
                     <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="8" class="code-digit-input" value=""></td> 
                     <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="9" class="code-digit-input" value=""></td> 
-                    <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="10" class="code-digit-input" value=""></td> 
-                    <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="11" class="code-digit-input" value=""></td> 
-                    <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="12" class="code-digit-input" value=""></td> 
-                    <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="13" class="code-digit-input" value=""></td> 
-                    <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="14" class="code-digit-input" value=""></td> 
-                    <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="15" class="code-digit-input" value=""></td> 
-                    <td class="code-digit-input" style="background-color: #008e36; color: white;" >2</td> 
-                    <td class="code-digit-input" style="background-color: #008e36; color: white;" >0</td> 
+                    <td class="code-digit-input" >2</td> 
+                    <td class="code-digit-input" >0</td> 
                 </tr>
 
 
@@ -588,7 +674,7 @@
 
                 <tr class="header-details-row-complex">
                     <td colspan="3" class="order-details-complex-key-top">التاريخ:</td>
-                    <td colspan="8" class="order-details-complex-value-middle">
+                    <td colspan="4" class="order-details-complex-value-middle">
                         <input type="date" name="order_date" value="2025-01-01" class="input-field date-input">
                     </td>
 
@@ -596,10 +682,10 @@
 
 
                     <td rowspan="4" colspan="6" class="main-title-section-complex"> 
-                        <h3 class="main-title-text"> طلب عرض سعر من تكامل للشركات</h3>
+                        <h3 class="main-title-text"> طلب عرض سعر من<br> تكامل للشركات</h3>
                     </td>
 
-                <td rowspan="5" colspan="4" class="logo-cell-large"> 
+                <td rowspan="4" colspan="2" class="logo-cell-large"> 
                         <img src="sprite/logoskidu.png" alt="شعار الشركة" class="company-logo">
                     </td>
 
@@ -614,19 +700,19 @@
 
                 <tr class="order-info-row">
                     <td colspan="3" class="order-details-complex-key-middle">معد الطلب</td>
-                    <td colspan="8" class="order-details-complex-value-middle">
+                    <td colspan="4" class="order-details-complex-value-middle">
                         <input type="text" name="requester_name" value="خالد إبراهيم" class="input-field">
                     </td>
                 </tr>
                 <tr class="order-info-row">
                     <td colspan="3" class="order-details-complex-key-middle">اسم المشروع </td>
-                    <td colspan="8" class="order-details-complex-value-middle">
+                    <td colspan="4" class="order-details-complex-value-middle">
                         <input type="text" name="project_name" value="الجحفة + قصير بن متروك" class="input-field">
                     </td>
                 </tr>
                                 <tr class="order-info-row">
                     <td colspan="3" class="order-details-complex-key-middle">اسم الشركة </td>
-                    <td colspan="8" class="order-details-complex-value-middle">
+                    <td colspan="4" class="order-details-complex-value-middle">
                         <input type="text" name="project_name" value="الجحفة + قصير بن متروك" class="input-field">
                     </td>
                 </tr>
@@ -637,7 +723,7 @@
                         <input type="text" name="project_name" value="الجحفة + قصير بن متروك" class="input-field">
     </td>
     <td colspan="3" class="order-details-complex-key-bottom">البريد الإلكتروني:</td>
-    <td colspan="7" class="order-details-complex-value-bottom">
+    <td colspan="5" class="order-details-complex-value-bottom">
         <input type="email" name="email_address" class="input-field" required 
                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
                title="الرجاء إدخال بريد إلكتروني صحيح (مثال: example@domain.com)">
@@ -655,22 +741,22 @@
                 <tr class="items-headers-row">
                     <td colspan="1" class="item-id-header">البند</td>
                     <td colspan="1" class="item-unit-header">الوحدة</td>
-                    <td colspan="2" class="item-quantity-header">الكمية</td>
+                    <td colspan="1" class="item-quantity-header">الكمية</td>
                     <td colspan="2" class="item-price-header">السعر</td>
                     <td colspan="2" class="item-total-header">المجموع</td>
-                    <td colspan="11" class="item-desc-header-merged-new">وصف البند</td>
-                    <td colspan="2" class="item-image-header">صورة البند</td> 
+                    <td colspan="7" class="item-desc-header-merged-new">وصف البند</td>
+                    <td colspan="1" class="item-image-header">صورة البند</td> 
                 </tr>
                 
                 <tr class="item-row">
                     <td colspan="1" class="item-id-cell"><input type="number" value="1" readonly class="input-field item-readonly-id"></td>
                     <td colspan="1" class="item-unit-cell"><input type="text" value="عدد" class="input-field item-input"></td>
-                    <td colspan="2" class="item-quantity-cell"><input type="number" value="1" class="input-field item-input quantity-input"></td>
+                    <td colspan="1" class="item-quantity-cell"><input type="number" value="1" class="input-field item-input quantity-input"></td>
                     <td colspan="2" class="item-price-cell"><input type="number" value="10000" class="input-field item-input price-input"></td>
                     <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
-                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input">دفعة من عمل السباكة</textarea></td>
+                    <td colspan="7" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input">دفعة من عمل السباكة</textarea></td>
                     
-                    <td colspan="2" class="item-image-cell">
+                    <td colspan="1" class="item-image-cell">
                         <label for="item_image_1" class="file-upload-label">
                             <span class="image-icon file-icon">🖼️</span>
                         </label>
@@ -680,12 +766,12 @@
                 <tr class="item-row">
                     <td colspan="1" class="item-id-cell"><input type="number" value="2" readonly class="input-field item-readonly-id"></td>
                     <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
-                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="1" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
                     <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
                     <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
-                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="7" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
                     
-                    <td colspan="2" class="item-image-cell">
+                    <td colspan="1" class="item-image-cell">
                         <label for="item_image_2" class="file-upload-label">
                             <span class="image-icon file-icon">🖼️</span>
                         </label>
@@ -695,11 +781,11 @@
                 <tr class="item-row">
                     <td colspan="1" class="item-id-cell"><input type="number" value="3" readonly class="input-field item-readonly-id"></td>
                     <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
-                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="1" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
                     <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
                     <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
-                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
-                    <td colspan="2" class="item-image-cell">
+                    <td colspan="7" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="1" class="item-image-cell">
                         <label for="item_image_3" class="file-upload-label">
                             <span class="image-icon file-icon">🖼️</span>
                         </label>
@@ -709,11 +795,11 @@
                 <tr class="item-row">
                     <td colspan="1" class="item-id-cell"><input type="number" value="4" readonly class="input-field item-readonly-id"></td>
                     <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
-                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="1" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
                     <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
                     <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
-                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
-                    <td colspan="2" class="item-image-cell">
+                    <td colspan="7" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="1" class="item-image-cell">
                         <label for="item_image_4" class="file-upload-label">
                             <span class="image-icon file-icon">🖼️</span>
                         </label>
@@ -723,11 +809,11 @@
                 <tr class="item-row">
                     <td colspan="1" class="item-id-cell"><input type="number" value="5" readonly class="input-field item-readonly-id"></td>
                     <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
-                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="1" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
                     <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
                     <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
-                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
-                    <td colspan="2" class="item-image-cell">
+                    <td colspan="7" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="1" class="item-image-cell">
                         <label for="item_image_5" class="file-upload-label">
                             <span class="image-icon file-icon">🖼️</span>
                         </label>
@@ -737,11 +823,11 @@
                 <tr class="item-row">
                     <td colspan="1" class="item-id-cell"><input type="number" value="6" readonly class="input-field item-readonly-id"></td>
                     <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
-                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="1" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
                     <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
                     <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
-                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
-                    <td colspan="2" class="item-image-cell">
+                    <td colspan="7" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="1" class="item-image-cell">
                         <label for="item_image_6" class="file-upload-label">
                             <span class="image-icon file-icon">🖼️</span>
                         </label>
@@ -751,11 +837,11 @@
                 <tr class="item-row">
                     <td colspan="1" class="item-id-cell"><input type="number" value="7" readonly class="input-field item-readonly-id"></td>
                     <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
-                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="1" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
                     <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
                     <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
-                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
-                    <td colspan="2" class="item-image-cell">
+                    <td colspan="7" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="1" class="item-image-cell">
                         <label for="item_image_7" class="file-upload-label">
                             <span class="image-icon file-icon">🖼️</span>
                         </label>
@@ -765,11 +851,11 @@
                 <tr class="item-row">
                     <td colspan="1" class="item-id-cell"><input type="number" value="8" readonly class="input-field item-readonly-id"></td>
                     <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
-                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="1" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
                     <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
                     <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
-                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
-                    <td colspan="2" class="item-image-cell">
+                    <td colspan="7" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="1" class="item-image-cell">
                         <label for="item_image_8" class="file-upload-label">
                             <span class="image-icon file-icon">🖼️</span>
                         </label>
@@ -779,11 +865,11 @@
                 <tr class="item-row">
                     <td colspan="1" class="item-id-cell"><input type="number" value="9" readonly class="input-field item-readonly-id"></td>
                     <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
-                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="1" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
                     <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
                     <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
-                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
-                    <td colspan="2" class="item-image-cell">
+                    <td colspan="7" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="1" class="item-image-cell">
                         <label for="item_image_9" class="file-upload-label">
                             <span class="image-icon file-icon">🖼️</span>
                         </label>
@@ -793,11 +879,11 @@
                 <tr class="item-row">
                     <td colspan="1" class="item-id-cell"><input type="number" value="10" readonly class="input-field item-readonly-id"></td>
                     <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
-                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="1" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
                     <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
                     <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
-                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
-                    <td colspan="2" class="item-image-cell">
+                    <td colspan="7" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="1" class="item-image-cell">
                         <label for="item_image_10" class="file-upload-label">
                             <span class="image-icon file-icon">🖼️</span>
                         </label>
@@ -807,11 +893,11 @@
                 <tr class="item-row">
                     <td colspan="1" class="item-id-cell"><input type="number" value="11" readonly class="input-field item-readonly-id"></td>
                     <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
-                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="1" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
                     <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
                     <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
-                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
-                    <td colspan="2" class="item-image-cell">
+                    <td colspan="7" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="1" class="item-image-cell">
                         <label for="item_image_11" class="file-upload-label">
                             <span class="image-icon file-icon">🖼️</span>
                         </label>
@@ -821,11 +907,11 @@
                 <tr class="item-row">
                     <td colspan="1" class="item-id-cell"><input type="number" value="12" readonly class="input-field item-readonly-id"></td>
                     <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
-                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="1" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
                     <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
                     <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
-                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
-                    <td colspan="2" class="item-image-cell">
+                    <td colspan="7" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="1" class="item-image-cell">
                         <label for="item_image_12" class="file-upload-label">
                             <span class="image-icon file-icon">🖼️</span>
                         </label>
@@ -835,11 +921,11 @@
                 <tr class="item-row">
                     <td colspan="1" class="item-id-cell"><input type="number" value="13" readonly class="input-field item-readonly-id"></td>
                     <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
-                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="1" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
                     <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
                     <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
-                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
-                    <td colspan="2" class="item-image-cell">
+                    <td colspan="7" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="1" class="item-image-cell">
                         <label for="item_image_13" class="file-upload-label">
                             <span class="image-icon file-icon">🖼️</span>
                         </label>
@@ -848,69 +934,78 @@
                 </tr>
                 
                 <tr class="total-row items-end-row section-bottom-border">
-                    <td colspan="7" class="total-label-merged-new">الإجمالي</td>
+                    <td colspan="6" class="total-label-merged-new">الإجمالي</td>
                     <td colspan="2" class="total-value-final">
                         <input type="number" readonly class="input-field final-total-input" name="final_total_display">
                     </td>
-                    <td colspan="13" class="total-empty-cell-desc"></td>
+                    <td colspan="8" class="total-empty-cell-desc"></td>
                 </tr>
                 
+
+
+
+
+                
                 <tr class="pricing-header-row section-top-border">
-                    <td rowspan="3" colspan="1" class="merged-vertical-cell pricing-label-vertical section-top-border merged-left-side">التعميد</td>
-                    <td colspan="21" class="section-title-cell pricing-title-cell section-top-border">   تمت الموافقة على الطلب</td>
+                    <td rowspan="3" colspan="1" class="merged-vertical-cell pricing-label-vertical section-top-border merged-left-side">الدراسة</td>
+                    <td colspan="15" class="section-title-cell pricing-title-cell section-top-border">   تمت الموافقة على الطلب     </td>
                 </tr>
                 <tr class="pricing-detail-row">
                     <td colspan="3" class="pricing-key-cell">الاسم</td> 
-                    <td colspan="18" class="pricing-value-cell"><input type="text" class="input-field pricing-input"></td>
+                    <td colspan="12" class="pricing-value-cell"><input type="text" class="input-field pricing-input"></td>
                 </tr>
                 <tr class="pricing-detail-row pricing-end-row section-bottom-border">
                     <td colspan="3" class="pricing-key-cell">التوقيع</td> 
-                    <td colspan="6" class="pricing-value-cell"><input type="text" class="input-field pricing-input"></td>
+                    <td colspan="5" class="pricing-value-cell"><input type="text" class="input-field pricing-input"></td>
                     
                     <td colspan="3" class="pricing-key-cell">التاريخ</td>
-                    <td colspan="9" class="pricing-value-cell">
+                    <td colspan="4" class="pricing-value-cell">
                         <input type="date" name="order_date" value="2025-01-01" class="input-field date-input">
                     </td>
                 </tr>
 
 
                 <tr class="ordering-header-row section-top-border">
-                    <td rowspan="3" colspan="1" class="merged-vertical-cell ordering-label-vertical merged-left-side">التسعير </td>
-                    <td colspan="21" class="section-title-cell ordering-title-cell">تم التسعير</td>
+                    <td rowspan="3" colspan="1" class="merged-vertical-cell ordering-label-vertical merged-left-side">تم التسعير </td>
+                    <td colspan="15" class="section-title-cell ordering-title-cell">تم التسعير</td>
                 </tr>
                 <tr class="ordering-detail-row">
                     <td colspan="3" class="ordering-key-cell">الاسم</td>
-                    <td colspan="18" class="ordering-value-cell"><input type="text" class="input-field ordering-input"></td>
+                    <td colspan="12" class="ordering-value-cell"><input type="text" class="input-field ordering-input"></td>
                 </tr>
                 <tr class="ordering-detail-row ordering-end-row section-bottom-border">
                     <td colspan="3" class="ordering-key-cell">التوقيع</td>
-                    <td colspan="6" class="ordering-value-cell"><input type="text" class="input-field ordering-input"></td>
+                    <td colspan="5" class="ordering-value-cell"><input type="text" class="input-field ordering-input"></td>
                     <td colspan="3" class="ordering-key-cell">التاريخ</td>
-                    <td colspan="9" class="ordering-value-cell">
+                    <td colspan="4" class="ordering-value-cell">
                         <input type="date" name="order_date" value="2025-01-01" class="input-field date-input">
                     </td> 
                 </tr>
+
+
+
 
 
 
 
                                 <tr class="ordering-header-row section-top-border">
-                                <td rowspan="3" colspan="1" class="merged-vertical-cell ordering-label-vertical merged-left-side">التسعير </td>
+                                <td rowspan="3" colspan="1" class="merged-vertical-cell ordering-label-vertical merged-left-side">التعميد </td>
 
-                    <td colspan="21" class="section-title-cell ordering-title-cell">يرجى التكرم بتعميد المطلوب </td>
+                    <td colspan="15" class="section-title-cell ordering-title-cell">يرجى التكرم بتعميد المطلوب </td>
                 </tr>
                 <tr class="ordering-detail-row">
                     <td colspan="3" class="ordering-key-cell">الاسم</td>
-                    <td colspan="18" class="ordering-value-cell"><input type="text" class="input-field ordering-input"></td>
+                    <td colspan="12" class="ordering-value-cell"><input type="text" class="input-field ordering-input"></td>
                 </tr>
                 <tr class="ordering-detail-row ordering-end-row section-bottom-border">
                     <td colspan="3" class="ordering-key-cell">التوقيع</td>
-                    <td colspan="6" class="ordering-value-cell"><input type="text" class="input-field ordering-input"></td>
+                    <td colspan="5" class="ordering-value-cell"><input type="text" class="input-field ordering-input"></td>
                     <td colspan="3" class="ordering-key-cell">التاريخ</td>
-                    <td colspan="9" class="ordering-value-cell">
+                    <td colspan="4" class="ordering-value-cell">
                         <input type="date" name="order_date" value="2025-01-01" class="input-field date-input">
                     </td> 
                 </tr>
+
 
 
 
@@ -925,25 +1020,25 @@
                     <td rowspan="5" colspan="1" class="merged-vertical-cell payment-label-vertical section-top-border merged-left-side">المالية</td>
                     
                     <td colspan="3" class="payment-key section-top-border">اسم المستفيد:</td>
-                    <td colspan="18" class="payment-value section-top-border"><input type="text" value="شائلي محمود عمر خطاب" class="input-field payment-input"></td>
+                    <td colspan="12" class="payment-value section-top-border"><input type="text" value="شائلي محمود عمر خطاب" class="input-field payment-input"></td>
                 </tr>
                 <tr class="payment-row">
                     <td colspan="3" class="payment-key">رقم الحساب:</td>
-                    <td colspan="18" class="payment-value"><input type="text" value="SA134608010405131" class="input-field payment-input"></td>
+                    <td colspan="12" class="payment-value"><input type="text" value="SA134608010405131" class="input-field payment-input"></td>
                 </tr>
                 <tr class="payment-row">
                     <td colspan="3" class="payment-key">اسم البنك:</td>
-                    <td colspan="18" class="payment-value"><input type="text" class="input-field payment-input"></td>
+                    <td colspan="12" class="payment-value"><input type="text" class="input-field payment-input"></td>
                 </tr>
                 <tr class="payment-row-merged">
                     <td colspan="3" class="payment-key">المبلغ رقماً:</td>
                     <td colspan="3" class="payment-value-digit"><input type="number" name="amount_numeric" class="input-field payment-input"></td>
                     <td colspan="2" class="payment-key">المبلغ كتابة:</td>
-                    <td colspan="13" class="payment-value-text"><input type="text" value="عشرة آلاف ريال فقط لاغير" class="input-field payment-input"></td>
+                    <td colspan="7" class="payment-value-text"><input type="text" value="عشرة آلاف ريال فقط لاغير" class="input-field payment-input"></td>
                 </tr>
                 <tr class="payment-row last-in-section payment-end-row section-bottom-border">
                     <td colspan="3" class="payment-key section-bottom-border">طريقة السداد:</td>
-                    <td colspan="18" class="payment-value section-bottom-border"><input type="text" value="تحويل" class="input-field payment-input"></td>
+                    <td colspan="12" class="payment-value section-bottom-border"><input type="text" value="تحويل" class="input-field payment-input"></td>
                 </tr>
                 
                 <tr class="approval-header-row section-top-border">
@@ -951,13 +1046,13 @@
                     
                 </tr>
                 <tr class="approval-row-v4 approval-end-row section-bottom-border">
-                    <td colspan="21" class="approval-signatures-container-v4">
+                    <td colspan="15" class="approval-signatures-container-v4">
                         <div class="sig-column-v4">
-                            <span class="sig-title-key-inline-v4">الادخال الالكتروني </span>
+                            <span class="sig-title-key-inline-v4"> الادخال الالكتروني</span>
                             <div class="sig-detail-group-inline-v4">
                                 <span class="name-line-v4">الاسم: <input type="text" value="أحمد عبدالرحمن" class="sig-name-input-v4"></span>
                                 <span class="date-line-v4">التوقيع: <input type="text" class="sig-name-input-v4"></span>
-                                <span class="date-line-v4">رقم البطاقة: <input type="text" class="sig-name-input-v4"></span>
+                                <span class="date-line-v4">التاريخ:<input type="date" name="order_date" value="2025-01-01" class="sig-name-input-v4"></span>
                             </div>
                         </div>
                         <div class="sig-column-v4">
@@ -965,7 +1060,7 @@
                             <div class="sig-detail-group-inline-v4">
                                 <span class="name-line-v4">الاسم: <input type="text" value="محمد علي" class="sig-name-input-v4"></span>
                                 <span class="date-line-v4">التوقيع: <input type="text" class="sig-name-input-v4"></span>
-                                <span class="date-line-v4">رقم البطاقة: <input type="text" class="sig-name-input-v4"></span>
+                                <span class="date-line-v4">التاريخ:<input type="date" name="order_date" value="2025-01-01" class="sig-name-input-v4"></span>
                             </div>
                         </div>
                         <div class="sig-column-v4 last-sig-v4">
@@ -973,7 +1068,7 @@
                             <div class="sig-detail-group-inline-v4">
                                 <span class="name-line-v4">الاسم: <input type="text" value="إبراهيم سليمان الغافص" class="sig-name-input-v4"></span>
                                 <span class="date-line-v4">التوقيع: <input type="text" class="sig-name-input-v4"></span>
-                                <span class="date-line-v4">رقم البطاقة: <input type="text" class="sig-name-input-v4"></span>
+                                <span class="date-line-v4">التاريخ:<input type="date" name="order_date" value="2025-01-01" class="sig-name-input-v4"></span>
                             </div>
                         </div>
                     </td>
@@ -982,9 +1077,11 @@
             </table>
         
         </div>
-
-        </div>
 </div>
+
+</div>
+
+
 
 
 
@@ -1045,14 +1142,10 @@
                     <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="7" class="code-digit-input" value=""></td> 
                     <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="8" class="code-digit-input" value=""></td> 
                     <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="9" class="code-digit-input" value=""></td> 
-                    <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="10" class="code-digit-input" value=""></td> 
-                    <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="11" class="code-digit-input" value=""></td> 
-                    <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="12" class="code-digit-input" value=""></td> 
-                    <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="13" class="code-digit-input" value=""></td> 
-                    <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="14" class="code-digit-input" value=""></td> 
-                    <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="15" class="code-digit-input" value=""></td> 
-                    <td class="code-digit-input" style="background-color: #008e36; color: white;" >3</td> 
-                    <td class="code-digit-input" style="background-color: #008e36; color: white;" >0</td> 
+                    <td class="code-digit-input" >3</td> 
+                    <td class="code-digit-input" >0</td> 
+
+
                 </tr>
 
 
@@ -1062,18 +1155,17 @@
 
                 <tr class="header-details-row-complex">
                     <td colspan="3" class="order-details-complex-key-top">التاريخ:</td>
-                    <td colspan="8" class="order-details-complex-value-middle">
+                    <td colspan="5" class="order-details-complex-value-middle">
                         <input type="date" name="order_date" value="2025-01-01" class="input-field date-input">
                     </td>
 
 
 
-
-                    <td rowspan="5" colspan="6" class="main-title-section-complex"> 
+                    <td rowspan="5" colspan="5" class="main-title-section-complex"> 
                         <h3 class="main-title-text">    نموذج نقليات ومعدات  </h3>
                     </td>
 
-                <td rowspan="6" colspan="4" class="logo-cell-large"> 
+                <td rowspan="5" colspan="2" class="logo-cell-large"> 
                         <img src="sprite/logoskidu.png" alt="شعار الشركة" class="company-logo">
                     </td>
 
@@ -1088,7 +1180,7 @@
 
                 <tr class="order-info-row">
                     <td colspan="3" class="order-details-complex-key-middle">الاسم </td>
-                    <td colspan="8" class="order-details-complex-value-middle">
+                    <td colspan="5" class="order-details-complex-value-middle">
                         <input type="text" name="requester_name" value="خالد إبراهيم" class="input-field">
                     </td>
                 </tr>
@@ -1098,20 +1190,20 @@
 
                 <tr class="order-info-row">
                     <td colspan="3" class="order-details-complex-key-middle">نوع الآلية  </td>
-                    <td colspan="8" class="order-details-complex-value-middle">
+                    <td colspan="5" class="order-details-complex-value-middle">
                         <input type="text" name="project_name" value="الجحفة + قصير بن متروك" class="input-field">
                     </td>
                 </tr>
 
                                 <tr class="order-info-row">
                     <td colspan="3" class="order-details-complex-key-middle">رقم اللوحة   </td>
-                    <td colspan="8" class="order-details-complex-value-middle">
+                    <td colspan="5" class="order-details-complex-value-middle">
                         <input type="text" name="project_name" value="الجحفة + قصير بن متروك" class="input-field">
                     </td>
                 </tr>
                 <tr class="order-info-row">
                     <td colspan="3" class="order-details-complex-key-middle"> البريد الالكتروني  </td>
-                    <td colspan="8" class="order-details-complex-value-middle">
+                    <td colspan="5" class="order-details-complex-value-middle">
         <input type="email" name="email_address" class="input-field" required 
                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
                title="الرجاء إدخال بريد إلكتروني صحيح (مثال: example@domain.com)">                    </td>
@@ -1124,7 +1216,7 @@
                         <input type="text" name="project_name" value="الجحفة + قصير بن متروك" class="input-field">
     </td>
         <td colspan="3" class="order-details-complex-key-bottom"> الى</td>
-    <td colspan="6" class="order-details-complex-value-bottom">
+    <td colspan="4" class="order-details-complex-value-bottom">
                         <input type="text" name="project_name" value="الجحفة + قصير بن متروك" class="input-field">
     </td>
 
@@ -1142,22 +1234,22 @@
                 <tr class="items-headers-row">
                     <td colspan="1" class="item-id-header">البند</td>
                     <td colspan="1" class="item-unit-header">الوحدة</td>
-                    <td colspan="2" class="item-quantity-header">الكمية</td>
+                    <td colspan="1" class="item-quantity-header">الكمية</td>
                     <td colspan="2" class="item-price-header">السعر</td>
                     <td colspan="2" class="item-total-header">المجموع</td>
-                    <td colspan="11" class="item-desc-header-merged-new">وصف البند</td>
-                    <td colspan="2" class="item-image-header">صورة البند</td> 
+                    <td colspan="7" class="item-desc-header-merged-new">وصف البند</td>
+                    <td colspan="1" class="item-image-header">صورة البند</td> 
                 </tr>
                 
                 <tr class="item-row">
                     <td colspan="1" class="item-id-cell"><input type="number" value="1" readonly class="input-field item-readonly-id"></td>
                     <td colspan="1" class="item-unit-cell"><input type="text" value="عدد" class="input-field item-input"></td>
-                    <td colspan="2" class="item-quantity-cell"><input type="number" value="1" class="input-field item-input quantity-input"></td>
+                    <td colspan="1" class="item-quantity-cell"><input type="number" value="1" class="input-field item-input quantity-input"></td>
                     <td colspan="2" class="item-price-cell"><input type="number" value="10000" class="input-field item-input price-input"></td>
                     <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
-                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input">دفعة من عمل السباكة</textarea></td>
+                    <td colspan="7" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input">دفعة من عمل السباكة</textarea></td>
                     
-                    <td colspan="2" class="item-image-cell">
+                    <td colspan="1" class="item-image-cell">
                         <label for="item_image_1" class="file-upload-label">
                             <span class="image-icon file-icon">🖼️</span>
                         </label>
@@ -1167,12 +1259,12 @@
                 <tr class="item-row">
                     <td colspan="1" class="item-id-cell"><input type="number" value="2" readonly class="input-field item-readonly-id"></td>
                     <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
-                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="1" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
                     <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
                     <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
-                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="7" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
                     
-                    <td colspan="2" class="item-image-cell">
+                    <td colspan="1" class="item-image-cell">
                         <label for="item_image_2" class="file-upload-label">
                             <span class="image-icon file-icon">🖼️</span>
                         </label>
@@ -1182,11 +1274,11 @@
                 <tr class="item-row">
                     <td colspan="1" class="item-id-cell"><input type="number" value="3" readonly class="input-field item-readonly-id"></td>
                     <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
-                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="1" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
                     <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
                     <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
-                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
-                    <td colspan="2" class="item-image-cell">
+                    <td colspan="7" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="1" class="item-image-cell">
                         <label for="item_image_3" class="file-upload-label">
                             <span class="image-icon file-icon">🖼️</span>
                         </label>
@@ -1196,11 +1288,11 @@
                 <tr class="item-row">
                     <td colspan="1" class="item-id-cell"><input type="number" value="4" readonly class="input-field item-readonly-id"></td>
                     <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
-                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="1" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
                     <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
                     <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
-                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
-                    <td colspan="2" class="item-image-cell">
+                    <td colspan="7" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="1" class="item-image-cell">
                         <label for="item_image_4" class="file-upload-label">
                             <span class="image-icon file-icon">🖼️</span>
                         </label>
@@ -1210,11 +1302,11 @@
                 <tr class="item-row">
                     <td colspan="1" class="item-id-cell"><input type="number" value="5" readonly class="input-field item-readonly-id"></td>
                     <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
-                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="1" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
                     <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
                     <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
-                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
-                    <td colspan="2" class="item-image-cell">
+                    <td colspan="7" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="1" class="item-image-cell">
                         <label for="item_image_5" class="file-upload-label">
                             <span class="image-icon file-icon">🖼️</span>
                         </label>
@@ -1224,11 +1316,11 @@
                 <tr class="item-row">
                     <td colspan="1" class="item-id-cell"><input type="number" value="6" readonly class="input-field item-readonly-id"></td>
                     <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
-                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="1" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
                     <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
                     <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
-                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
-                    <td colspan="2" class="item-image-cell">
+                    <td colspan="7" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="1" class="item-image-cell">
                         <label for="item_image_6" class="file-upload-label">
                             <span class="image-icon file-icon">🖼️</span>
                         </label>
@@ -1238,11 +1330,11 @@
                 <tr class="item-row">
                     <td colspan="1" class="item-id-cell"><input type="number" value="7" readonly class="input-field item-readonly-id"></td>
                     <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
-                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="1" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
                     <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
                     <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
-                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
-                    <td colspan="2" class="item-image-cell">
+                    <td colspan="7" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="1" class="item-image-cell">
                         <label for="item_image_7" class="file-upload-label">
                             <span class="image-icon file-icon">🖼️</span>
                         </label>
@@ -1252,11 +1344,11 @@
                 <tr class="item-row">
                     <td colspan="1" class="item-id-cell"><input type="number" value="8" readonly class="input-field item-readonly-id"></td>
                     <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
-                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="1" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
                     <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
                     <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
-                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
-                    <td colspan="2" class="item-image-cell">
+                    <td colspan="7" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="1" class="item-image-cell">
                         <label for="item_image_8" class="file-upload-label">
                             <span class="image-icon file-icon">🖼️</span>
                         </label>
@@ -1266,11 +1358,11 @@
                 <tr class="item-row">
                     <td colspan="1" class="item-id-cell"><input type="number" value="9" readonly class="input-field item-readonly-id"></td>
                     <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
-                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="1" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
                     <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
                     <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
-                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
-                    <td colspan="2" class="item-image-cell">
+                    <td colspan="7" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="1" class="item-image-cell">
                         <label for="item_image_9" class="file-upload-label">
                             <span class="image-icon file-icon">🖼️</span>
                         </label>
@@ -1280,11 +1372,11 @@
                 <tr class="item-row">
                     <td colspan="1" class="item-id-cell"><input type="number" value="10" readonly class="input-field item-readonly-id"></td>
                     <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
-                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="1" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
                     <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
                     <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
-                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
-                    <td colspan="2" class="item-image-cell">
+                    <td colspan="7" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="1" class="item-image-cell">
                         <label for="item_image_10" class="file-upload-label">
                             <span class="image-icon file-icon">🖼️</span>
                         </label>
@@ -1294,11 +1386,11 @@
                 <tr class="item-row">
                     <td colspan="1" class="item-id-cell"><input type="number" value="11" readonly class="input-field item-readonly-id"></td>
                     <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
-                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="1" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
                     <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
                     <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
-                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
-                    <td colspan="2" class="item-image-cell">
+                    <td colspan="7" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="1" class="item-image-cell">
                         <label for="item_image_11" class="file-upload-label">
                             <span class="image-icon file-icon">🖼️</span>
                         </label>
@@ -1308,11 +1400,11 @@
                 <tr class="item-row">
                     <td colspan="1" class="item-id-cell"><input type="number" value="12" readonly class="input-field item-readonly-id"></td>
                     <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
-                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="1" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
                     <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
                     <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
-                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
-                    <td colspan="2" class="item-image-cell">
+                    <td colspan="7" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="1" class="item-image-cell">
                         <label for="item_image_12" class="file-upload-label">
                             <span class="image-icon file-icon">🖼️</span>
                         </label>
@@ -1322,11 +1414,11 @@
                 <tr class="item-row">
                     <td colspan="1" class="item-id-cell"><input type="number" value="13" readonly class="input-field item-readonly-id"></td>
                     <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
-                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="1" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
                     <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
                     <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
-                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
-                    <td colspan="2" class="item-image-cell">
+                    <td colspan="7" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="1" class="item-image-cell">
                         <label for="item_image_13" class="file-upload-label">
                             <span class="image-icon file-icon">🖼️</span>
                         </label>
@@ -1335,13 +1427,13 @@
                 </tr>
                 
                 <tr class="total-row items-end-row section-bottom-border">
-                    <td colspan="7" class="total-label-merged-new">الإجمالي</td>
+                    <td colspan="6" class="total-label-merged-new">الإجمالي</td>
                     <td colspan="2" class="total-value-final">
                         <input type="number" readonly class="input-field final-total-input" name="final_total_display">
                     </td>
-                    <td colspan="13" class="total-empty-cell-desc"></td>
+                    <td colspan="8" class="total-empty-cell-desc"></td>
                 </tr>
-                
+        
 
 
 
@@ -1357,30 +1449,30 @@
 
 
 
-                    
+                       
                 <tr class="payment-header-row section-top-border">
                     <td rowspan="5" colspan="1" class="merged-vertical-cell payment-label-vertical section-top-border merged-left-side">المالية</td>
                     
                     <td colspan="3" class="payment-key section-top-border">اسم المستفيد:</td>
-                    <td colspan="18" class="payment-value section-top-border"><input type="text" value="شائلي محمود عمر خطاب" class="input-field payment-input"></td>
+                    <td colspan="12" class="payment-value section-top-border"><input type="text" value="شائلي محمود عمر خطاب" class="input-field payment-input"></td>
                 </tr>
                 <tr class="payment-row">
                     <td colspan="3" class="payment-key">رقم الحساب:</td>
-                    <td colspan="18" class="payment-value"><input type="text" value="SA134608010405131" class="input-field payment-input"></td>
+                    <td colspan="12" class="payment-value"><input type="text" value="SA134608010405131" class="input-field payment-input"></td>
                 </tr>
                 <tr class="payment-row">
                     <td colspan="3" class="payment-key">اسم البنك:</td>
-                    <td colspan="18" class="payment-value"><input type="text" class="input-field payment-input"></td>
+                    <td colspan="12" class="payment-value"><input type="text" class="input-field payment-input"></td>
                 </tr>
                 <tr class="payment-row-merged">
                     <td colspan="3" class="payment-key">المبلغ رقماً:</td>
                     <td colspan="3" class="payment-value-digit"><input type="number" name="amount_numeric" class="input-field payment-input"></td>
                     <td colspan="2" class="payment-key">المبلغ كتابة:</td>
-                    <td colspan="13" class="payment-value-text"><input type="text" value="عشرة آلاف ريال فقط لاغير" class="input-field payment-input"></td>
+                    <td colspan="7" class="payment-value-text"><input type="text" value="عشرة آلاف ريال فقط لاغير" class="input-field payment-input"></td>
                 </tr>
                 <tr class="payment-row last-in-section payment-end-row section-bottom-border">
                     <td colspan="3" class="payment-key section-bottom-border">طريقة السداد:</td>
-                    <td colspan="18" class="payment-value section-bottom-border"><input type="text" value="تحويل" class="input-field payment-input"></td>
+                    <td colspan="12" class="payment-value section-bottom-border"><input type="text" value="تحويل" class="input-field payment-input"></td>
                 </tr>
                 
 
@@ -1389,19 +1481,18 @@
 
 
 
-                <tr class="approval-header-row section-top-border">
+                 <tr class="approval-header-row section-top-border">
                     <td rowspan="2" colspan="1" class="merged-vertical-cell approval-label-vertical section-top-border merged-left-side">اعتمادات الطلب</td>
                     
                 </tr>
-
                 <tr class="approval-row-v4 approval-end-row section-bottom-border">
-                    <td colspan="21" class="approval-signatures-container-v4">
+                    <td colspan="15" class="approval-signatures-container-v4">
                         <div class="sig-column-v4">
-                            <span class="sig-title-key-inline-v4">مدير المشاريع</span>
+                            <span class="sig-title-key-inline-v4">  مدير المشاريع</span>
                             <div class="sig-detail-group-inline-v4">
                                 <span class="name-line-v4">الاسم: <input type="text" value="أحمد عبدالرحمن" class="sig-name-input-v4"></span>
                                 <span class="date-line-v4">التوقيع: <input type="text" class="sig-name-input-v4"></span>
-                                <span class="date-line-v4">رقم البطاقة: <input type="text" class="sig-name-input-v4"></span>
+                                <span class="date-line-v4">التاريخ:<input type="date" name="order_date" value="2025-01-01" class="sig-name-input-v4"></span>
                             </div>
                         </div>
                         <div class="sig-column-v4">
@@ -1409,7 +1500,7 @@
                             <div class="sig-detail-group-inline-v4">
                                 <span class="name-line-v4">الاسم: <input type="text" value="محمد علي" class="sig-name-input-v4"></span>
                                 <span class="date-line-v4">التوقيع: <input type="text" class="sig-name-input-v4"></span>
-                                <span class="date-line-v4">رقم البطاقة: <input type="text" class="sig-name-input-v4"></span>
+                                <span class="date-line-v4">التاريخ:<input type="date" name="order_date" value="2025-01-01" class="sig-name-input-v4"></span>
                             </div>
                         </div>
                         <div class="sig-column-v4 last-sig-v4">
@@ -1417,12 +1508,12 @@
                             <div class="sig-detail-group-inline-v4">
                                 <span class="name-line-v4">الاسم: <input type="text" value="إبراهيم سليمان الغافص" class="sig-name-input-v4"></span>
                                 <span class="date-line-v4">التوقيع: <input type="text" class="sig-name-input-v4"></span>
-                                <span class="date-line-v4">رقم البطاقة: <input type="text" class="sig-name-input-v4"></span>
+                                <span class="date-line-v4">التاريخ:<input type="date" name="order_date" value="2025-01-01" class="sig-name-input-v4"></span>
                             </div>
                         </div>
                     </td>
                 </tr>
-                
+     
 
 
 
@@ -1434,7 +1525,7 @@
                     <td rowspan="2" colspan="1" class="merged-vertical-cell notes-label-vertical merged-left-side section-top-border">ملاحظات </td>
         </tr>
         <tr class="notes-content-row section-bottom-border">
-                    <td colspan="21" class="notes-content-cell" style="text-align: right; padding: 10px;">
+                    <td colspan="15" class="notes-content-cell" style="text-align: right; padding: 10px;">
             <textarea rows="4" style="width: 99.5%; min-height: 80px; box-sizing: border-box; resize: vertical;" placeholder="أضف هنا أي ملاحظات أو شروط خاصة..."></textarea>
           </td>
         </tr>
@@ -1451,7 +1542,7 @@
                 </tr>
 
                 <tr class="approval-row-v4 approval-end-row section-bottom-border">
-                    <td colspan="21" class="approval-signatures-container-v4">
+                    <td colspan="15" class="approval-signatures-container-v4">
                         <div class="sig-column-v4">
                             <span class="sig-title-key-inline-v4"> الادخال الالكتروني</span>
                             <div class="sig-detail-group-inline-v4">
@@ -1539,7 +1630,7 @@
                     <td rowspan="7" colspan="1" class="merged-vertical-cell info-label-vertical merged-left-side section-top-border">معلومات الطلب</td>
                     
                 </tr>
-                <tr class="main-code-row">
+               <tr class="main-code-row">
                     <td colspan="3" class="code-label-cell">الكود الرئيسي</td>
                     
                     <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="0" class="code-digit-input" value=""></td> 
@@ -1552,16 +1643,11 @@
                     <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="7" class="code-digit-input" value=""></td> 
                     <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="8" class="code-digit-input" value=""></td> 
                     <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="9" class="code-digit-input" value=""></td> 
-                    <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="10" class="code-digit-input" value=""></td> 
-                    <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="11" class="code-digit-input" value=""></td> 
-                    <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="12" class="code-digit-input" value=""></td> 
-                    <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="13" class="code-digit-input" value=""></td> 
-                    <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="14" class="code-digit-input" value=""></td> 
-                    <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="15" class="code-digit-input" value=""></td> 
-                    <td class="code-digit-input" style="background-color: #008e36; color: white;" >4</td> 
-                    <td class="code-digit-input" style="background-color: #008e36; color: white;" >0</td> 
-                </tr>
+                    <td class="code-digit-input" >4</td> 
+                    <td class="code-digit-input" >0</td> 
 
+
+                </tr>
 
 
 
@@ -1569,18 +1655,18 @@
 
                 <tr class="header-details-row-complex">
                     <td colspan="3" class="order-details-complex-key-top">التاريخ:</td>
-                    <td colspan="8" class="order-details-complex-value-middle">
+                    <td colspan="5" class="order-details-complex-value-middle">
                         <input type="date" name="order_date" value="2025-01-01" class="input-field date-input">
                     </td>
 
 
 
 
-                    <td rowspan="4" colspan="6" class="main-title-section-complex"> 
+                    <td rowspan="4" colspan="5" class="main-title-section-complex"> 
                         <h3 class="main-title-text">    نموذج  طلب موارد بشرية  </h3>
                     </td>
 
-                <td rowspan="5" colspan="4" class="logo-cell-large"> 
+                <td rowspan="4" colspan="2" class="logo-cell-large"> 
                         <img src="sprite/logoskidu.png" alt="شعار الشركة" class="company-logo">
                     </td>
 
@@ -1595,7 +1681,7 @@
 
                 <tr class="order-info-row">
                     <td colspan="3" class="order-details-complex-key-middle">الاسم </td>
-                    <td colspan="8" class="order-details-complex-value-middle">
+                    <td colspan="5" class="order-details-complex-value-middle">
                         <input type="text" name="requester_name" value="خالد إبراهيم" class="input-field">
                     </td>
                 </tr>
@@ -1604,14 +1690,14 @@
 
                 <tr class="order-info-row">
                     <td colspan="3" class="order-details-complex-key-middle">رقم الجوال  </td>
-                    <td colspan="8" class="order-details-complex-value-middle">
+                    <td colspan="5" class="order-details-complex-value-middle">
         <input type="tel" name="mobile_number" class="input-field" pattern="[0-9]{10}" placeholder="05xxxxxxxx">
                     </td>
                 </tr>
 
                 <tr class="order-info-row">
                     <td colspan="3" class="order-details-complex-key-middle"> البريد الالكتروني  </td>
-                    <td colspan="8" class="order-details-complex-value-middle">
+                    <td colspan="5" class="order-details-complex-value-middle">
         <input type="email" name="email_address" class="input-field" required 
                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
                title="الرجاء إدخال بريد إلكتروني صحيح (مثال: example@domain.com)">                    </td>
@@ -1624,7 +1710,7 @@
                         <input type="text" name="project_name" value="الجحفة + قصير بن متروك" class="input-field">
     </td>
         <td colspan="3" class="order-details-complex-key-bottom"> المنطقة</td>
-    <td colspan="6" class="order-details-complex-value-bottom">
+    <td colspan="4" class="order-details-complex-value-bottom">
                         <input type="text" name="project_name" value="الجحفة + قصير بن متروك" class="input-field">
     </td>
 
@@ -1634,30 +1720,29 @@
 
 
               
-
-                <tr class="section-divider-row section-items-header">
+ <tr class="section-divider-row section-items-header">
 <td rowspan="15" colspan="1" class="merged-vertical-cell items-label-vertical merged-left-side section-top-border">البنود المطلوبة</td>
                                     </tr>
 
                 <tr class="items-headers-row">
                     <td colspan="1" class="item-id-header">البند</td>
                     <td colspan="1" class="item-unit-header">الوحدة</td>
-                    <td colspan="2" class="item-quantity-header">الكمية</td>
+                    <td colspan="1" class="item-quantity-header">الكمية</td>
                     <td colspan="2" class="item-price-header">السعر</td>
                     <td colspan="2" class="item-total-header">المجموع</td>
-                    <td colspan="11" class="item-desc-header-merged-new">وصف البند</td>
-                    <td colspan="2" class="item-image-header">صورة البند</td> 
+                    <td colspan="7" class="item-desc-header-merged-new">وصف البند</td>
+                    <td colspan="1" class="item-image-header">صورة البند</td> 
                 </tr>
                 
                 <tr class="item-row">
                     <td colspan="1" class="item-id-cell"><input type="number" value="1" readonly class="input-field item-readonly-id"></td>
                     <td colspan="1" class="item-unit-cell"><input type="text" value="عدد" class="input-field item-input"></td>
-                    <td colspan="2" class="item-quantity-cell"><input type="number" value="1" class="input-field item-input quantity-input"></td>
+                    <td colspan="1" class="item-quantity-cell"><input type="number" value="1" class="input-field item-input quantity-input"></td>
                     <td colspan="2" class="item-price-cell"><input type="number" value="10000" class="input-field item-input price-input"></td>
                     <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
-                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input">دفعة من عمل السباكة</textarea></td>
+                    <td colspan="7" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input">دفعة من عمل السباكة</textarea></td>
                     
-                    <td colspan="2" class="item-image-cell">
+                    <td colspan="1" class="item-image-cell">
                         <label for="item_image_1" class="file-upload-label">
                             <span class="image-icon file-icon">🖼️</span>
                         </label>
@@ -1667,12 +1752,12 @@
                 <tr class="item-row">
                     <td colspan="1" class="item-id-cell"><input type="number" value="2" readonly class="input-field item-readonly-id"></td>
                     <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
-                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="1" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
                     <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
                     <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
-                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="7" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
                     
-                    <td colspan="2" class="item-image-cell">
+                    <td colspan="1" class="item-image-cell">
                         <label for="item_image_2" class="file-upload-label">
                             <span class="image-icon file-icon">🖼️</span>
                         </label>
@@ -1682,11 +1767,11 @@
                 <tr class="item-row">
                     <td colspan="1" class="item-id-cell"><input type="number" value="3" readonly class="input-field item-readonly-id"></td>
                     <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
-                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="1" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
                     <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
                     <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
-                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
-                    <td colspan="2" class="item-image-cell">
+                    <td colspan="7" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="1" class="item-image-cell">
                         <label for="item_image_3" class="file-upload-label">
                             <span class="image-icon file-icon">🖼️</span>
                         </label>
@@ -1696,11 +1781,11 @@
                 <tr class="item-row">
                     <td colspan="1" class="item-id-cell"><input type="number" value="4" readonly class="input-field item-readonly-id"></td>
                     <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
-                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="1" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
                     <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
                     <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
-                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
-                    <td colspan="2" class="item-image-cell">
+                    <td colspan="7" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="1" class="item-image-cell">
                         <label for="item_image_4" class="file-upload-label">
                             <span class="image-icon file-icon">🖼️</span>
                         </label>
@@ -1710,11 +1795,11 @@
                 <tr class="item-row">
                     <td colspan="1" class="item-id-cell"><input type="number" value="5" readonly class="input-field item-readonly-id"></td>
                     <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
-                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="1" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
                     <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
                     <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
-                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
-                    <td colspan="2" class="item-image-cell">
+                    <td colspan="7" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="1" class="item-image-cell">
                         <label for="item_image_5" class="file-upload-label">
                             <span class="image-icon file-icon">🖼️</span>
                         </label>
@@ -1724,11 +1809,11 @@
                 <tr class="item-row">
                     <td colspan="1" class="item-id-cell"><input type="number" value="6" readonly class="input-field item-readonly-id"></td>
                     <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
-                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="1" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
                     <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
                     <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
-                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
-                    <td colspan="2" class="item-image-cell">
+                    <td colspan="7" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="1" class="item-image-cell">
                         <label for="item_image_6" class="file-upload-label">
                             <span class="image-icon file-icon">🖼️</span>
                         </label>
@@ -1738,11 +1823,11 @@
                 <tr class="item-row">
                     <td colspan="1" class="item-id-cell"><input type="number" value="7" readonly class="input-field item-readonly-id"></td>
                     <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
-                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="1" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
                     <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
                     <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
-                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
-                    <td colspan="2" class="item-image-cell">
+                    <td colspan="7" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="1" class="item-image-cell">
                         <label for="item_image_7" class="file-upload-label">
                             <span class="image-icon file-icon">🖼️</span>
                         </label>
@@ -1752,11 +1837,11 @@
                 <tr class="item-row">
                     <td colspan="1" class="item-id-cell"><input type="number" value="8" readonly class="input-field item-readonly-id"></td>
                     <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
-                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="1" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
                     <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
                     <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
-                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
-                    <td colspan="2" class="item-image-cell">
+                    <td colspan="7" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="1" class="item-image-cell">
                         <label for="item_image_8" class="file-upload-label">
                             <span class="image-icon file-icon">🖼️</span>
                         </label>
@@ -1766,11 +1851,11 @@
                 <tr class="item-row">
                     <td colspan="1" class="item-id-cell"><input type="number" value="9" readonly class="input-field item-readonly-id"></td>
                     <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
-                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="1" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
                     <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
                     <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
-                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
-                    <td colspan="2" class="item-image-cell">
+                    <td colspan="7" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="1" class="item-image-cell">
                         <label for="item_image_9" class="file-upload-label">
                             <span class="image-icon file-icon">🖼️</span>
                         </label>
@@ -1780,11 +1865,11 @@
                 <tr class="item-row">
                     <td colspan="1" class="item-id-cell"><input type="number" value="10" readonly class="input-field item-readonly-id"></td>
                     <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
-                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="1" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
                     <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
                     <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
-                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
-                    <td colspan="2" class="item-image-cell">
+                    <td colspan="7" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="1" class="item-image-cell">
                         <label for="item_image_10" class="file-upload-label">
                             <span class="image-icon file-icon">🖼️</span>
                         </label>
@@ -1794,11 +1879,11 @@
                 <tr class="item-row">
                     <td colspan="1" class="item-id-cell"><input type="number" value="11" readonly class="input-field item-readonly-id"></td>
                     <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
-                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="1" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
                     <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
                     <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
-                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
-                    <td colspan="2" class="item-image-cell">
+                    <td colspan="7" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="1" class="item-image-cell">
                         <label for="item_image_11" class="file-upload-label">
                             <span class="image-icon file-icon">🖼️</span>
                         </label>
@@ -1808,11 +1893,11 @@
                 <tr class="item-row">
                     <td colspan="1" class="item-id-cell"><input type="number" value="12" readonly class="input-field item-readonly-id"></td>
                     <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
-                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="1" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
                     <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
                     <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
-                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
-                    <td colspan="2" class="item-image-cell">
+                    <td colspan="7" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="1" class="item-image-cell">
                         <label for="item_image_12" class="file-upload-label">
                             <span class="image-icon file-icon">🖼️</span>
                         </label>
@@ -1822,11 +1907,11 @@
                 <tr class="item-row">
                     <td colspan="1" class="item-id-cell"><input type="number" value="13" readonly class="input-field item-readonly-id"></td>
                     <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
-                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="1" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
                     <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
                     <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
-                    <td colspan="11" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
-                    <td colspan="2" class="item-image-cell">
+                    <td colspan="7" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="1" class="item-image-cell">
                         <label for="item_image_13" class="file-upload-label">
                             <span class="image-icon file-icon">🖼️</span>
                         </label>
@@ -1835,19 +1920,13 @@
                 </tr>
                 
                 <tr class="total-row items-end-row section-bottom-border">
-                    <td colspan="7" class="total-label-merged-new">الإجمالي</td>
+                    <td colspan="6" class="total-label-merged-new">الإجمالي</td>
                     <td colspan="2" class="total-value-final">
                         <input type="number" readonly class="input-field final-total-input" name="final_total_display">
                     </td>
-                    <td colspan="13" class="total-empty-cell-desc"></td>
+                    <td colspan="8" class="total-empty-cell-desc"></td>
                 </tr>
-                
-
-
-
-
-
-
+        
 
 
 
@@ -1862,25 +1941,25 @@
                     <td rowspan="5" colspan="1" class="merged-vertical-cell payment-label-vertical section-top-border merged-left-side">المالية</td>
                     
                     <td colspan="3" class="payment-key section-top-border">اسم المستفيد:</td>
-                    <td colspan="18" class="payment-value section-top-border"><input type="text" value="شائلي محمود عمر خطاب" class="input-field payment-input"></td>
+                    <td colspan="12" class="payment-value section-top-border"><input type="text" value="شائلي محمود عمر خطاب" class="input-field payment-input"></td>
                 </tr>
                 <tr class="payment-row">
                     <td colspan="3" class="payment-key">رقم الحساب:</td>
-                    <td colspan="18" class="payment-value"><input type="text" value="SA134608010405131" class="input-field payment-input"></td>
+                    <td colspan="12" class="payment-value"><input type="text" value="SA134608010405131" class="input-field payment-input"></td>
                 </tr>
                 <tr class="payment-row">
                     <td colspan="3" class="payment-key">اسم البنك:</td>
-                    <td colspan="18" class="payment-value"><input type="text" class="input-field payment-input"></td>
+                    <td colspan="12" class="payment-value"><input type="text" class="input-field payment-input"></td>
                 </tr>
                 <tr class="payment-row-merged">
                     <td colspan="3" class="payment-key">المبلغ رقماً:</td>
                     <td colspan="3" class="payment-value-digit"><input type="number" name="amount_numeric" class="input-field payment-input"></td>
                     <td colspan="2" class="payment-key">المبلغ كتابة:</td>
-                    <td colspan="13" class="payment-value-text"><input type="text" value="عشرة آلاف ريال فقط لاغير" class="input-field payment-input"></td>
+                    <td colspan="7" class="payment-value-text"><input type="text" value="عشرة آلاف ريال فقط لاغير" class="input-field payment-input"></td>
                 </tr>
                 <tr class="payment-row last-in-section payment-end-row section-bottom-border">
                     <td colspan="3" class="payment-key section-bottom-border">طريقة السداد:</td>
-                    <td colspan="18" class="payment-value section-bottom-border"><input type="text" value="تحويل" class="input-field payment-input"></td>
+                    <td colspan="12" class="payment-value section-bottom-border"><input type="text" value="تحويل" class="input-field payment-input"></td>
                 </tr>
                 
 
@@ -1889,19 +1968,18 @@
 
 
 
-                <tr class="approval-header-row section-top-border">
+                 <tr class="approval-header-row section-top-border">
                     <td rowspan="2" colspan="1" class="merged-vertical-cell approval-label-vertical section-top-border merged-left-side">اعتمادات الطلب</td>
                     
                 </tr>
-
                 <tr class="approval-row-v4 approval-end-row section-bottom-border">
-                    <td colspan="21" class="approval-signatures-container-v4">
+                    <td colspan="15" class="approval-signatures-container-v4">
                         <div class="sig-column-v4">
-                            <span class="sig-title-key-inline-v4">مدير المشاريع</span>
+                            <span class="sig-title-key-inline-v4">  مدير المشاريع</span>
                             <div class="sig-detail-group-inline-v4">
                                 <span class="name-line-v4">الاسم: <input type="text" value="أحمد عبدالرحمن" class="sig-name-input-v4"></span>
                                 <span class="date-line-v4">التوقيع: <input type="text" class="sig-name-input-v4"></span>
-                                <span class="date-line-v4">رقم البطاقة: <input type="text" class="sig-name-input-v4"></span>
+                                <span class="date-line-v4">التاريخ:<input type="date" name="order_date" value="2025-01-01" class="sig-name-input-v4"></span>
                             </div>
                         </div>
                         <div class="sig-column-v4">
@@ -1909,7 +1987,7 @@
                             <div class="sig-detail-group-inline-v4">
                                 <span class="name-line-v4">الاسم: <input type="text" value="محمد علي" class="sig-name-input-v4"></span>
                                 <span class="date-line-v4">التوقيع: <input type="text" class="sig-name-input-v4"></span>
-                                <span class="date-line-v4">رقم البطاقة: <input type="text" class="sig-name-input-v4"></span>
+                                <span class="date-line-v4">التاريخ:<input type="date" name="order_date" value="2025-01-01" class="sig-name-input-v4"></span>
                             </div>
                         </div>
                         <div class="sig-column-v4 last-sig-v4">
@@ -1917,12 +1995,12 @@
                             <div class="sig-detail-group-inline-v4">
                                 <span class="name-line-v4">الاسم: <input type="text" value="إبراهيم سليمان الغافص" class="sig-name-input-v4"></span>
                                 <span class="date-line-v4">التوقيع: <input type="text" class="sig-name-input-v4"></span>
-                                <span class="date-line-v4">رقم البطاقة: <input type="text" class="sig-name-input-v4"></span>
+                                <span class="date-line-v4">التاريخ:<input type="date" name="order_date" value="2025-01-01" class="sig-name-input-v4"></span>
                             </div>
                         </div>
                     </td>
                 </tr>
-                
+     
 
 
 
@@ -1934,7 +2012,7 @@
                     <td rowspan="2" colspan="1" class="merged-vertical-cell notes-label-vertical merged-left-side section-top-border">ملاحظات </td>
         </tr>
         <tr class="notes-content-row section-bottom-border">
-                    <td colspan="21" class="notes-content-cell" style="text-align: right; padding: 10px;">
+                    <td colspan="15" class="notes-content-cell" style="text-align: right; padding: 10px;">
             <textarea rows="4" style="width: 99.5%; min-height: 80px; box-sizing: border-box; resize: vertical;" placeholder="أضف هنا أي ملاحظات أو شروط خاصة..."></textarea>
           </td>
         </tr>
@@ -1951,7 +2029,7 @@
                 </tr>
 
                 <tr class="approval-row-v4 approval-end-row section-bottom-border">
-                    <td colspan="21" class="approval-signatures-container-v4">
+                    <td colspan="15" class="approval-signatures-container-v4">
                         <div class="sig-column-v4">
                             <span class="sig-title-key-inline-v4"> الادخال الالكتروني</span>
                             <div class="sig-detail-group-inline-v4">
@@ -2000,6 +2078,470 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>
+    <h1 style="color: #008e36; text-align: center; font-size: 26px;">نموذج  عرض سعر من  الشركات لتكامل</h1>
+</div>
+
+
+
+<div class="scrollable-wrapper">
+  
+<div class="purchase-order-container">
+        
+        <input type="hidden" id="main-code-output" name="main_code_combined" value="" />
+        <div class="table-wrapper">
+        
+            <table class="main-form-table-unified">
+                
+                <tr class="info-vertical-merged-row">
+                    <td rowspan="6" colspan="1" class="merged-vertical-cell info-label-vertical merged-left-side section-top-border">معلومات الطلب</td>
+                    
+                </tr>
+                <tr class="main-code-row">
+                    <td colspan="3" class="code-label-cell">الكود الرئيسي</td>
+                    
+                    <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="0" class="code-digit-input" value=""></td> 
+                    <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="1" class="code-digit-input" value=""></td> 
+                    <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="2" class="code-digit-input" value=""></td> 
+                    <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="3" class="code-digit-input" value=""></td> 
+                    <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="4" class="code-digit-input" value=""></td> 
+                    <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="5" class="code-digit-input" value=""></td> 
+                    <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="6" class="code-digit-input" value=""></td> 
+                    <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="7" class="code-digit-input" value=""></td> 
+                    <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="8" class="code-digit-input" value=""></td> 
+                    <td class="code-digit"><input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="9" class="code-digit-input" value=""></td> 
+                    <td class="code-digit-input" style="background-color: #008e36; color: white;" >1</td> 
+
+                    <td class="code-digit-input" style="background-color: #008e36; color: white;" >0</td> 
+                               <td rowspan="5" colspan="4" class="logo-cell-large"> 
+                        <img src="sprite/logoskidu.png" alt="شعار الشركة" class="company-logo">
+                    </td>
+                </tr>
+
+
+
+
+
+
+                <tr class="header-details-row-complex">
+                    <td colspan="3" class="order-details-complex-key-top">التاريخ:</td>
+                    <td colspan="6" class="order-details-complex-value-middle">
+                        <input type="date" name="order_date" value="2025-01-01" class="input-field date-input">
+                    </td>
+
+
+
+
+                    <td rowspan="3" colspan="7" class="main-title-section-complex"> 
+                        <h3 class="main-title-text">  طلب عرض سعر من <br>الشركات لتكامل</h3>
+                    </td>
+
+
+
+
+                </tr>
+
+
+
+
+
+
+
+                <tr class="order-info-row">
+                    <td colspan="3" class="order-details-complex-key-middle">اسم الجهة الطالبة</td>
+                    <td colspan="6" class="order-details-complex-value-middle">
+                        <input type="text" name="requester_name" value="خالد إبراهيم" class="input-field">
+                    </td>
+                </tr>
+                <tr class="order-info-row">
+                    <td colspan="3" class="order-details-complex-key-middle">اسم الشخص </td>
+                    <td colspan="6" class="order-details-complex-value-middle">
+                        <input type="text" name="project_name" value="الجحفة + قصير بن متروك" class="input-field">
+                    </td>
+                </tr>
+                
+
+<tr class="order-info-row contact-info-row info-end-row section-bottom-border">
+        <td colspan="3" class="order-details-complex-key-bottom">البريد الإلكتروني:</td>
+    <td colspan="6" class="order-details-complex-value-bottom">
+        <input type="email" name="email_address" class="input-field" required 
+               pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+               title="الرجاء إدخال بريد إلكتروني صحيح (مثال: example@domain.com)">
+    </td>
+    <td colspan="3" class="order-details-complex-key-bottom">رقم الجوال:</td>
+    <td colspan="3" class="order-details-complex-value-bottom">
+        <input type="tel" name="mobile_number" class="input-field" pattern="[0-9]{10}" placeholder="05xxxxxxxx">
+    </td>
+
+</tr>
+
+
+
+              
+
+                <tr class="section-divider-row section-items-header">
+<td rowspan="15" colspan="1" class="merged-vertical-cell items-label-vertical merged-left-side section-top-border">البنود المطلوبة</td>
+                                    </tr>
+
+                <tr class="items-headers-row">
+                    <td colspan="1" class="item-id-header">البند</td>
+                    <td colspan="1" class="item-unit-header">الوحدة</td>
+                    <td colspan="2" class="item-quantity-header">الكمية</td>
+                    <td colspan="2" class="item-price-header">السعر</td>
+                    <td colspan="2" class="item-total-header">المجموع</td>
+                    <td colspan="9" class="item-desc-header-merged-new">وصف البند</td>
+                    <td colspan="2" class="item-image-header">صورة البند</td> 
+                </tr>
+                
+                <tr class="item-row">
+                    <td colspan="1" class="item-id-cell"><input type="number" value="1" readonly class="input-field item-readonly-id"></td>
+                    <td colspan="1" class="item-unit-cell"><input type="text" value="عدد" class="input-field item-input"></td>
+                    <td colspan="2" class="item-quantity-cell"><input type="number" value="1" class="input-field item-input quantity-input"></td>
+                    <td colspan="2" class="item-price-cell"><input type="number" value="10000" class="input-field item-input price-input"></td>
+                    <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
+                    <td colspan="9" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input">دفعة من عمل السباكة</textarea></td>
+                    
+                    <td colspan="2" class="item-image-cell">
+                        <label for="item_image_1" class="file-upload-label">
+                            <span class="image-icon file-icon">🖼️</span>
+                        </label>
+                        <input type="file" id="item_image_1" name="item_image_1" accept="image/*" class="file-input-hidden">
+                    </td>
+                </tr>
+                <tr class="item-row">
+                    <td colspan="1" class="item-id-cell"><input type="number" value="2" readonly class="input-field item-readonly-id"></td>
+                    <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
+                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
+                    <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
+                    <td colspan="9" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    
+                    <td colspan="2" class="item-image-cell">
+                        <label for="item_image_2" class="file-upload-label">
+                            <span class="image-icon file-icon">🖼️</span>
+                        </label>
+                        <input type="file" id="item_image_2" name="item_image_2" accept="image/*" class="file-input-hidden">
+                    </td>
+                </tr>
+                <tr class="item-row">
+                    <td colspan="1" class="item-id-cell"><input type="number" value="3" readonly class="input-field item-readonly-id"></td>
+                    <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
+                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
+                    <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
+                    <td colspan="9" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="2" class="item-image-cell">
+                        <label for="item_image_3" class="file-upload-label">
+                            <span class="image-icon file-icon">🖼️</span>
+                        </label>
+                        <input type="file" id="item_image_3" name="item_image_3" accept="image/*" class="file-input-hidden">
+                    </td>
+                </tr>
+                <tr class="item-row">
+                    <td colspan="1" class="item-id-cell"><input type="number" value="4" readonly class="input-field item-readonly-id"></td>
+                    <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
+                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
+                    <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
+                    <td colspan="9" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="2" class="item-image-cell">
+                        <label for="item_image_4" class="file-upload-label">
+                            <span class="image-icon file-icon">🖼️</span>
+                        </label>
+                        <input type="file" id="item_image_4" name="item_image_4" accept="image/*" class="file-input-hidden">
+                    </td>
+                </tr>
+                <tr class="item-row">
+                    <td colspan="1" class="item-id-cell"><input type="number" value="5" readonly class="input-field item-readonly-id"></td>
+                    <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
+                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
+                    <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
+                    <td colspan="9" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="2" class="item-image-cell">
+                        <label for="item_image_5" class="file-upload-label">
+                            <span class="image-icon file-icon">🖼️</span>
+                        </label>
+                        <input type="file" id="item_image_5" name="item_image_5" accept="image/*" class="file-input-hidden">
+                    </td>
+                </tr>
+                <tr class="item-row">
+                    <td colspan="1" class="item-id-cell"><input type="number" value="6" readonly class="input-field item-readonly-id"></td>
+                    <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
+                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
+                    <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
+                    <td colspan="9" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="2" class="item-image-cell">
+                        <label for="item_image_6" class="file-upload-label">
+                            <span class="image-icon file-icon">🖼️</span>
+                        </label>
+                        <input type="file" id="item_image_6" name="item_image_6" accept="image/*" class="file-input-hidden">
+                    </td>
+                </tr>
+                <tr class="item-row">
+                    <td colspan="1" class="item-id-cell"><input type="number" value="7" readonly class="input-field item-readonly-id"></td>
+                    <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
+                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
+                    <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
+                    <td colspan="9" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="2" class="item-image-cell">
+                        <label for="item_image_7" class="file-upload-label">
+                            <span class="image-icon file-icon">🖼️</span>
+                        </label>
+                        <input type="file" id="item_image_7" name="item_image_7" accept="image/*" class="file-input-hidden">
+                    </td>
+                </tr>
+                <tr class="item-row">
+                    <td colspan="1" class="item-id-cell"><input type="number" value="8" readonly class="input-field item-readonly-id"></td>
+                    <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
+                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
+                    <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
+                    <td colspan="9" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="2" class="item-image-cell">
+                        <label for="item_image_8" class="file-upload-label">
+                            <span class="image-icon file-icon">🖼️</span>
+                        </label>
+                        <input type="file" id="item_image_8" name="item_image_8" accept="image/*" class="file-input-hidden">
+                    </td>
+                </tr>
+                <tr class="item-row">
+                    <td colspan="1" class="item-id-cell"><input type="number" value="9" readonly class="input-field item-readonly-id"></td>
+                    <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
+                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
+                    <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
+                    <td colspan="9" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="2" class="item-image-cell">
+                        <label for="item_image_9" class="file-upload-label">
+                            <span class="image-icon file-icon">🖼️</span>
+                        </label>
+                        <input type="file" id="item_image_9" name="item_image_9" accept="image/*" class="file-input-hidden">
+                    </td>
+                </tr>
+                <tr class="item-row">
+                    <td colspan="1" class="item-id-cell"><input type="number" value="10" readonly class="input-field item-readonly-id"></td>
+                    <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
+                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
+                    <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
+                    <td colspan="9" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="2" class="item-image-cell">
+                        <label for="item_image_10" class="file-upload-label">
+                            <span class="image-icon file-icon">🖼️</span>
+                        </label>
+                        <input type="file" id="item_image_10" name="item_image_10" accept="image/*" class="file-input-hidden">
+                    </td>
+                </tr>
+                <tr class="item-row">
+                    <td colspan="1" class="item-id-cell"><input type="number" value="11" readonly class="input-field item-readonly-id"></td>
+                    <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
+                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
+                    <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
+                    <td colspan="9" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="2" class="item-image-cell">
+                        <label for="item_image_11" class="file-upload-label">
+                            <span class="image-icon file-icon">🖼️</span>
+                        </label>
+                        <input type="file" id="item_image_11" name="item_image_11" accept="image/*" class="file-input-hidden">
+                    </td>
+                </tr>
+                <tr class="item-row">
+                    <td colspan="1" class="item-id-cell"><input type="number" value="12" readonly class="input-field item-readonly-id"></td>
+                    <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
+                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
+                    <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
+                    <td colspan="9" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="2" class="item-image-cell">
+                        <label for="item_image_12" class="file-upload-label">
+                            <span class="image-icon file-icon">🖼️</span>
+                        </label>
+                        <input type="file" id="item_image_12" name="item_image_12" accept="image/*" class="file-input-hidden">
+                    </td>
+                </tr>
+                <tr class="item-row">
+                    <td colspan="1" class="item-id-cell"><input type="number" value="13" readonly class="input-field item-readonly-id"></td>
+                    <td colspan="1" class="item-unit-cell"><input type="text" class="input-field item-input"></td>
+                    <td colspan="2" class="item-quantity-cell"><input type="number" class="input-field item-input quantity-input"></td>
+                    <td colspan="2" class="item-price-cell"><input type="number" class="input-field item-input price-input"></td>
+                    <td colspan="2" class="item-total-cell"><input type="number" readonly class="input-field item-input total-input"></td>
+                    <td colspan="9" class="item-desc-cell"><textarea rows="1" class="input-field item-input description-input"></textarea></td>
+                    <td colspan="2" class="item-image-cell">
+                        <label for="item_image_13" class="file-upload-label">
+                            <span class="image-icon file-icon">🖼️</span>
+                        </label>
+                        <input type="file" id="item_image_13" name="item_image_13" accept="image/*" class="file-input-hidden">
+                    </td>
+                </tr>
+                
+                <tr class="total-row items-end-row section-bottom-border">
+                    <td colspan="7" class="total-label-merged-new">الإجمالي</td>
+                    <td colspan="2" class="total-value-final">
+                        <input type="number" readonly class="input-field final-total-input" name="final_total_display">
+                    </td>
+                    <td colspan="11" class="total-empty-cell-desc"></td>
+                </tr>
+                
+                <tr class="pricing-header-row section-top-border">
+                    <td rowspan="3" colspan="1" class="merged-vertical-cell pricing-label-vertical section-top-border merged-left-side">الدراسة</td>
+                    <td colspan="19" class="section-title-cell pricing-title-cell section-top-border">   تم قبول الطلب   </td>
+                </tr>
+                <tr class="pricing-detail-row">
+                    <td colspan="3" class="pricing-key-cell">الاسم</td> 
+                    <td colspan="16" class="pricing-value-cell"><input type="text" class="input-field pricing-input"></td>
+                </tr>
+                <tr class="pricing-detail-row pricing-end-row section-bottom-border">
+                    <td colspan="3" class="pricing-key-cell">التوقيع</td> 
+                    <td colspan="6" class="pricing-value-cell"><input type="text" class="input-field pricing-input"></td>
+                    
+                    <td colspan="3" class="pricing-key-cell">التاريخ</td>
+                    <td colspan="7" class="pricing-value-cell">
+                        <input type="date" name="order_date" value="2025-01-01" class="input-field date-input">
+                    </td>
+                </tr>
+
+
+                <tr class="ordering-header-row section-top-border">
+                    <td rowspan="3" colspan="1" class="merged-vertical-cell ordering-label-vertical merged-left-side">التسعير </td>
+                    <td colspan="19" class="section-title-cell ordering-title-cell">تم التسعير</td>
+                </tr>
+                <tr class="ordering-detail-row">
+                    <td colspan="3" class="ordering-key-cell">الاسم</td>
+                    <td colspan="16" class="ordering-value-cell"><input type="text" class="input-field ordering-input"></td>
+                </tr>
+                <tr class="ordering-detail-row ordering-end-row section-bottom-border">
+                    <td colspan="3" class="ordering-key-cell">التوقيع</td>
+                    <td colspan="6" class="ordering-value-cell"><input type="text" class="input-field ordering-input"></td>
+                    <td colspan="3" class="ordering-key-cell">التاريخ</td>
+                    <td colspan="7" class="ordering-value-cell">
+                        <input type="date" name="order_date" value="2025-01-01" class="input-field date-input">
+                    </td> 
+                </tr>
+
+
+
+
+                                <tr class="ordering-header-row section-top-border">
+                                <td rowspan="3" colspan="1" class="merged-vertical-cell ordering-label-vertical merged-left-side">التعميد </td>
+
+                    <td colspan="19" class="section-title-cell ordering-title-cell">يرجى التكرم بتعميد المطلوب </td>
+                </tr>
+                <tr class="ordering-detail-row">
+                    <td colspan="3" class="ordering-key-cell">الاسم</td>
+                    <td colspan="16" class="ordering-value-cell"><input type="text" class="input-field ordering-input"></td>
+                </tr>
+                <tr class="ordering-detail-row ordering-end-row section-bottom-border">
+                    <td colspan="3" class="ordering-key-cell">التوقيع</td>
+                    <td colspan="6" class="ordering-value-cell"><input type="text" class="input-field ordering-input"></td>
+                    <td colspan="3" class="ordering-key-cell">التاريخ</td>
+                    <td colspan="7" class="ordering-value-cell">
+                        <input type="date" name="order_date" value="2025-01-01" class="input-field date-input">
+                    </td> 
+                </tr>
+
+
+
+
+
+
+
+
+
+                    
+                <tr class="payment-header-row section-top-border">
+                    <td rowspan="5" colspan="1" class="merged-vertical-cell payment-label-vertical section-top-border merged-left-side">المالية</td>
+                    
+                    <td colspan="3" class="payment-key section-top-border">اسم المستفيد:</td>
+                    <td colspan="16" class="payment-value section-top-border"><input type="text" value="شائلي محمود عمر خطاب" class="input-field payment-input"></td>
+                </tr>
+                <tr class="payment-row">
+                    <td colspan="3" class="payment-key">رقم الحساب:</td>
+                    <td colspan="16" class="payment-value"><input type="text" value="SA134608010405131" class="input-field payment-input"></td>
+                </tr>
+                <tr class="payment-row">
+                    <td colspan="3" class="payment-key">اسم البنك:</td>
+                    <td colspan="16" class="payment-value"><input type="text" class="input-field payment-input"></td>
+                </tr>
+                <tr class="payment-row-merged">
+                    <td colspan="3" class="payment-key">المبلغ رقماً:</td>
+                    <td colspan="3" class="payment-value-digit"><input type="number" name="amount_numeric" class="input-field payment-input"></td>
+                    <td colspan="2" class="payment-key">المبلغ كتابة:</td>
+                    <td colspan="11" class="payment-value-text"><input type="text" value="عشرة آلاف ريال فقط لاغير" class="input-field payment-input"></td>
+                </tr>
+                <tr class="payment-row last-in-section payment-end-row section-bottom-border">
+                    <td colspan="3" class="payment-key section-bottom-border">طريقة السداد:</td>
+                    <td colspan="16" class="payment-value section-bottom-border"><input type="text" value="تحويل" class="input-field payment-input"></td>
+                </tr>
+                
+                <tr class="approval-header-row section-top-border">
+                    <td rowspan="2" colspan="1" class="merged-vertical-cell approval-label-vertical section-top-border merged-left-side">اعتمادات الطلب</td>
+                    
+                </tr>
+                <tr class="approval-row-v4 approval-end-row section-bottom-border">
+                    <td colspan="19" class="approval-signatures-container-v4">
+                        <div class="sig-column-v4">
+                            <span class="sig-title-key-inline-v4"> الادخال الالكتروني</span>
+                            <div class="sig-detail-group-inline-v4">
+                                <span class="name-line-v4">الاسم: <input type="text" value="أحمد عبدالرحمن" class="sig-name-input-v4"></span>
+                                <span class="date-line-v4">التوقيع: <input type="text" class="sig-name-input-v4"></span>
+                                <span class="date-line-v4">رقم البطاقة: <input type="text" class="sig-name-input-v4"></span>
+                            </div>
+                        </div>
+                        <div class="sig-column-v4">
+                            <span class="sig-title-key-inline-v4">الإدارة المالية</span>
+                            <div class="sig-detail-group-inline-v4">
+                                <span class="name-line-v4">الاسم: <input type="text" value="محمد علي" class="sig-name-input-v4"></span>
+                                <span class="date-line-v4">التوقيع: <input type="text" class="sig-name-input-v4"></span>
+                                <span class="date-line-v4">رقم البطاقة: <input type="text" class="sig-name-input-v4"></span>
+                            </div>
+                        </div>
+                        <div class="sig-column-v4 last-sig-v4">
+                            <span class="sig-title-key-inline-v4">جهة الاعتماد</span>
+                            <div class="sig-detail-group-inline-v4">
+                                <span class="name-line-v4">الاسم: <input type="text" value="إبراهيم سليمان الغافص" class="sig-name-input-v4"></span>
+                                <span class="date-line-v4">التوقيع: <input type="text" class="sig-name-input-v4"></span>
+                                <span class="date-line-v4">رقم البطاقة: <input type="text" class="sig-name-input-v4"></span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                
+            </table>
+        
+        </div>
+</div>
+
+</div>
 
 
 

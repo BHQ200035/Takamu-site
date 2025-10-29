@@ -408,6 +408,132 @@ body, html {
 
 
 
+/* =======================================
+   تنسيق السلايدر (Slider CSS)
+   ======================================= */
+
+.slider-container {
+    max-width: 100%;
+    position: relative;
+    margin: auto;
+}
+
+/* لتأكد من أن الصور تغطي كامل ارتفاع وعرض السلايدر */
+.mySlides img {
+    width: 100%;
+    height: 70vh; /* تحديد ارتفاع مناسب، يمكنك تغييره حسب الحاجة */
+    object-fit: cover; /* لضمان ملء الصورة دون تشويه */
+}
+
+/* النص الموضوع على الصورة */
+.slide-text {
+    position: absolute;
+    bottom: 50%; /* أو 20% حسب رغبتك */
+    right: 10%; /* لتظهر النصوص في اليمين (RTL) */
+    transform: translateY(50%);
+    color: white;
+    width: 50%;
+    padding: 10px;
+    text-align: right;
+    z-index: 5; /* لضمان ظهور النص فوق الصورة */
+}
+
+.slide-text h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.slide-text p {
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+/* تخصيص الأزرار (prev و next) */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 10;
+}
+
+/* وضع زر Next في اليسار وزر Prev في اليمين في نمط RTL */
+.next {
+    left: 0;
+    border-radius: 3px 0 0 3px;
+}
+.prev {
+    right: 0;
+    border-radius: 0 3px 3px 0;
+}
+
+/* عند مرور الماوس على الأزرار */
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+/* إخفاء الصور التي لا يتم عرضها حالياً */
+.mySlides {
+    display: none;
+}
+
+/* الحركة (Fade Animation) */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+
+/* تنسيق النقاط (Dots) أسفل السلايدر */
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.btn {
+    text-decoration: none;
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.3s;
+
+}
+.btn-consult {
+    background-color: rgb(255, 255, 255);
+    color: #e04a65;
+}
+
+.btn-consult:hover {
+    background-color: #e04a65;
+    color: rgb(255, 255, 255);
+    transform: translateY(-2px);
+}
+
+
+
+.active-dot, .dot:hover {
+    background-color: #f75d79; /* لونك المميز */
+}
+
 
 
 

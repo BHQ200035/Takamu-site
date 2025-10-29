@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tekamul Tech - Sign In</title>
+    <title> تكامل -  تسجيل الدخول</title>
+    <link rel="icon" type="image/png" href="sprite/logotop.png"> 
     <link rel="stylesheet" href="css/Login.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
 </head>
 <body>
     <div class="main-container">
@@ -51,61 +53,53 @@
                 </div>
 
                 <div class="signup-link text-center">
-                    Don't have an account? <a href="#">**Sign up**</a>
+                    Don't have an account? <a href="Signup.html">Sign up</a>
                 </div>
             </div>
         </div>
-
         <div class="intro-area">
             <div class="dashboard-preview">
                 
                 <header class="dashboard-header">
-                    <i class="fas fa-stream"></i> 
-                    <span>Tekamul Tech</span> 
+                    <i class="fas fa-hard-hat"></i> 
+                    <span>Tekamul Tech Projects</span> 
                 </header>
 
                 <div class="dashboard-grid">
                     
                     <div class="card monthly-spending-card">
-                        <h3>Monthly Spending</h3>
+                        <h3>Project Status</h3>
                         <canvas id="monthlyChart"></canvas> 
                         <div class="summary">
-                            <span class="amount">$2,540</span>
-                            <span class="period">October Summary</span>
+                            <span class="amount">12</span> <span class="period">Active Projects</span>
                         </div>
                     </div>
 
                     <div class="card categories-card">
-                        <h3>Categories</h3>
+                        <h3>Cash Flow Snapshot</h3>
                         <div class="pie-chart-container">
                             <canvas id="categoriesChart"></canvas>
                             
                             <ul class="categories-list">
-                                <li><span class="dot green-dot"></span> Transport</li>
-                                <li><span class="dot orange-dot"></span> Savings</li>
-                                <li><span class="dot dark-green-dot"></span> Groceries</li>
+                                <li><span class="dot green-dot"></span> Income (55%)</li>
+                                <li><span class="dot orange-dot"></span> Materials (30%)</li>
+                                <li><span class="dot dark-green-dot"></span> Wages (15%)</li>
                             </ul>
                         </div>
-
-                        
                     </div>
 
                     <div class="card action-card linked-accounts-card">
-                        <i class="fas fa-credit-card"></i>
-                        <span>Linked Accounts</span>
+                        <i class="fas fa-file-invoice"></i> <span>Pending Invoices</span>
                     </div>
 
                     <div class="card action-card quick-transfer-card">
-                        <i class="fas fa-phone"></i>
-                        <span>Quick Transfer</span>
+                        <i class="fas fa-tasks"></i> <span>My Daily Tasks</span>
                     </div>
                 </div>
                 
             </div>
+        </div>
         </div> 
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -162,13 +156,14 @@
             const categoriesChart = new Chart(catCtx, {
                 type: 'doughnut', 
                 data: {
-                    labels: ['Transport', 'Savings', 'Groceries'],
+                    // البيانات الوهمية الآن تمثل (Income, Materials, Wages)
+                    labels: ['Income', 'Materials', 'Wages'],
                     datasets: [{
-                        data: [40, 20, 40], 
+                        data: [55, 30, 15], 
                         backgroundColor: [ 
-                            '#008e36', // Transport
-                            '#00ab43', // Savings
-                            '#ff9900'  // Groceries
+                            '#008e36', // Income (Green Dot)
+                            '#00ab43', // Materials (Orange Dot)
+                            '#ff9900'  // Wages (Dark Green Dot)
                         ],
                         hoverOffset: 4,
                         borderWidth: 0, 
@@ -188,7 +183,30 @@
                     }
                 }
             });
+            
+            // ===================================
+            // ج. JavaScript لـ "إظهار/إخفاء كلمة المرور"
+            // ===================================
+            const passwordInput = document.getElementById('password');
+            const showPasswordIcon = document.querySelector('.show-password-icon');
+
+            showPasswordIcon.addEventListener('click', function() {
+                // تبديل النوع بين "password" و "text"
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+                
+                // تبديل أيقونة العين
+                this.classList.toggle('fa-eye');
+                this.classList.toggle('fa-eye-slash'); 
+            });
         });
+
+
+        // يمكن استخدام هذا في أي مكان داخل الصفحة
+function goBackToSignup() {
+    window.location.href = 'index.html';
+}
+
     </script>
 </body>
 </html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> تكامل - إنشاء حساب جديد</title>
+    <link rel="icon" type="image/png" href="sprite/logotop.png"> 
+    <link rel="stylesheet" href="css/Signup.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    </head>
+<body>
+    <div class="main-container">
+        
+        <div class="signin-area">
+            <div class="signin-card">
+                <header>
+                    <img src="sprite/logo.png" alt="Tekamul Tech Logo">
+                </header>
+
+                <h2>Sign Up</h2>
+                <p>Join us! Create your new account to get started.</p>
+
+                <form>
+                    <label for="name">Name</label>
+                    <input type="text" id="name" placeholder="Enter your full name" required>
+
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+
+                    <label for="password">Password</label>
+                    <div class="password-group">
+                        <input type="password" id="password" placeholder="********" required>
+                        <i class="fas fa-eye show-password-icon"></i>
+                    </div>
+
+                    <label for="confirm-password">Confirm Password</label>
+                    <div class="password-group">
+                        <input type="password" id="confirm-password" placeholder="********" required>
+                        <i class="fas fa-eye show-password-icon confirm-icon"></i>
+                    </div>
+                    
+                    <div class="options" style="justify-content: center;">
+                        <div class="remember-me">
+                            <input type="checkbox" id="terms" required>
+                            <label for="terms">I agree to the <a href="#">Terms & Conditions</a></label>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="primary-btn">Create Account</button>
+                </form>
+
+                <div class="separator">OR</div>
+
+                <div class="social-login">
+                    <button class="google-btn">
+                        <i class="fab fa-google"></i> Sign up with Google
+                    </button>
+                    <button class="facebook-btn">
+                        <i class="fab fa-facebook-f"></i> Sign up with Facebook
+                    </button>
+                </div>
+
+                <div class="signup-link text-center">
+                    Already have an account? <a href="Login.html"><strong>Sign In</strong></a>
+                </div>
+            </div>
+        </div>
+        
+        </div> 
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // ===================================
+            // JavaScript لـ "إظهار/إخفاء كلمة المرور"
+            // ===================================
+            function setupPasswordToggle(inputElementId, iconClassName) {
+                const passwordInput = document.getElementById(inputElementId);
+                const showPasswordIcon = document.querySelector(iconClassName);
+
+                if (passwordInput && showPasswordIcon) {
+                    showPasswordIcon.addEventListener('click', function() {
+                        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                        passwordInput.setAttribute('type', type);
+                        
+                        this.classList.toggle('fa-eye');
+                        this.classList.toggle('fa-eye-slash'); 
+                    });
+                }
+            }
+            
+            // تطبيق الوظيفة على حقلي كلمة المرور
+            setupPasswordToggle('password', '.show-password-icon:not(.confirm-icon)');
+            setupPasswordToggle('confirm-password', '.show-password-icon.confirm-icon');
+        });
+
+
+        // يمكن استخدام هذا في أي مكان داخل الصفحة
+function goBackToSignup() {
+    window.location.href = 'Signup.html';
+}
+    </script>
+
+
+
+
+
+
+
+</body>
+</html>
