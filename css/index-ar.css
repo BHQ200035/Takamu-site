@@ -15,7 +15,9 @@ html {
     --form-primary-blue: #007bff; /* لون زر الإرسال وتركيز الحقول (يمكنك تغييره ليتناسب مع تصميمك) */
     --form-text-dark: #333333; /* لون نص الحقول */
     --form-text-label: #000000; /* لون التسميات */
-    --bg-color: #f8f8f8; /* لون الأزرار والنقاط النشطة (بينك/وردي) */
+    --bg-color: #b6f8ca; /* لون الأزرار والنقاط النشطة (بينك/وردي) */
+    --gray-color:#f7f7f7; /* لون الأزرار والنقاط النشطة (بينك/وردي) */
+
 
 }
 
@@ -815,16 +817,13 @@ body, html {
     background-color: var(--light-bg); /* خلفية خفيفة */
 }
 
-/* الشريحة الواحدة (يتم التحكم بـ display بواسطة JS) */
-.mySlides {
-    display: none; 
-    background-color: transparent; 
-}
+
 
 .content-container {
+    height: 100%; /* **تعديل جديد**: لضمان أن الحاوية الداخلية تأخذ كامل ارتفاع السلايد */
     display: flex; 
     justify-content: space-between; 
-    align-items: center; 
+    align-items: center; /* هذه الخاصية تضمن المركزية العمودية */
     max-width: 1300px;
     margin: 0 auto; /* لمركزة الحاوية الرئيسية */
     padding: 0 40px; /* هوامش داخلية للحواف */
@@ -898,11 +897,15 @@ body, html {
 .abstract-image {
     flex-basis: 35%;
     text-align: left; /* المحاذاة لليسار في RTL */
+
+
 }
 .abstract-image img {
     max-width: 100%;
     height: auto;
     display: block; 
+    /* تم إلغاء الهامش السلبي margin-top: 30%; هنا لأنه كان يرفع الصورة داخل الحاوية */
+    margin-top: 0; /* **تعديل**: يفضل إلغاء القيمة السابقة والاعتماد على align-items: center */
 }
 
 /* ==================================
@@ -954,7 +957,6 @@ body, html {
 /* النقاط (Dots) */
 .slider-dots{
     position: absolute;
-    bottom: 20px; 
     width: 100%;
     text-align: center;
 }
@@ -968,110 +970,11 @@ body, html {
     border-radius: 50%;
     display: inline-block;
     transition: background-color 0.6s ease;
+    
 }
 
 .active-dot, .dot:hover {
     background-color: var(--green-color);
-}
-
-
-/* ==================================
- * 6. التجاوب مع الشاشات الصغيرة (Media Queries)
- * ================================== */
-/* ==================================
- * 6. التجاوب مع الشاشات الصغيرة (Media Queries)
- * ================================== */
-
-/* الأجهزة اللوحية (من 992 بكسل وأقل) */
-@media (max-width: 992px) {
-    .slider-container2 {
-        padding: 40px 0; 
-        min-height: auto; 
-    }
-    
-    .content-container {
-        flex-direction: column;
-        gap: 20px;
-        padding: 0 20px;
-    }
-    
-    .text-and-buttons, .abstract-image {
-        flex-basis: 100%;
-        max-width: 100%; /* تم تصحيحه ليكون 100% وليس 300% */
-        padding-left: 0;
-    }
-    
-    .text-and-buttons {
-        order: 2; /* النص أسفل الصورة */
-        text-align: center;
-    }
-    
-    .abstract-image {
-        order: 1; /* الصورة في الأعلى */
-        text-align: center;
-        max-width: 80%;
-        margin: 0 auto;
-    }
-    
-    .text-and-buttons h1 {
-        font-size: 2.5rem;
-        margin-bottom: 10px; /* تم تقليل المسافة أسفل العنوان */
-    }
-
-    .text-and-buttons p {
-        font-size: 1.1rem;
-        margin-top: 5px; /* تم تقليل المسافة أعلى الفقرة */
-    }
-
-    .cta-buttons {
-        justify-content: center; /* توسيط الأزرار */
-    }
-    
-    .prev, .next {
-        top: 40%;
-    }
-}
-
-/* الهواتف الذكية (من 576 بكسل وأقل) */
-@media (max-width: 576px) {
-    .slider-container2 {
-        /* 1. زيادة البادينغ السفلي للحاوية الكلية لزيادة المساحة */
-        padding: 20px 0 60px 0; 
-    }
-
-    .content-container {
-        padding: 0 10px;
-    }
-    
-    .text-and-buttons h1 {
-        font-size: 2rem;
-    }
-    
-    .text-and-buttons p {
-        font-size: 1rem;
-        margin-bottom: 20px; /* تقليل هذا الهامش الآن ونعتمد على الهامش في الأزرار */
-    }
-    
-    /* إضافة هامش سفلي لحاوية الأزرار لإبعادها عن النقاط */
-    .cta-buttons {
-        margin-bottom: 20px; 
-    }
-
-    .btn {
-        padding: 10px 20px;
-        font-size: 0.9rem;
-        margin-top: 0; /* ❌ تم تصحيحه: إزالة الهامش السالب هنا */
-    }
-    
-    /* إخفاء الأسهم */
-    .prev, .next {
-        display: none; 
-    }
-
-    .slider-dots {
-        /* 2. رفع النقاط للأعلى لضمان التباعد */
-        bottom: 30px; 
-    }
 }
 
 
@@ -1085,6 +988,11 @@ body, html {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    height: 80vh; /* **تعديل**: تم تقليل الارتفاع من 95vh إلى 80vh */
+    /* **التعديل الأهم**: إلغاء الهامش السلبي الذي كان يرفع السلايد للأعلى */
+    margin-top: 0; 
+
+
 }
 
 /* التراكب (Overlay) - لزيادة وضوح النص فوق الصورة */
@@ -1139,8 +1047,170 @@ body, html {
     color: var(--green-color); 
 }
 
+/* ==================================
+ * 6. التوافق مع جميع الشاشات (Media Queries)
+ * ================================== */
+
+/* -----------------------
+ * شاشات اللوحيات الكبيرة وما دون (عرض أقصى 1199 بكسل)
+ * ----------------------- */
+@media (max-width: 1199px) {
+    .content-container {
+        max-width: 1000px;
+        padding: 0 30px; /* تقليل الهوامش الداخلية */
+    }
+
+    .text-and-buttons {
+        flex-basis: 50%; /* تقليل حصة النص قليلاً */
+        padding-left: 30px; /* تقليل المسافة بين النص والصورة */
+    }
+
+    .text-and-buttons h1 {
+        font-size: 36px; /* تصغير حجم الخط */
+    }
+
+    .text-and-buttons p {
+        font-size: 1.15rem; /* تصغير حجم النص */
+        margin-bottom: 30px;
+        /* تم تعديل هذا الهامش في الشاشات الكبيرة إلى 0 */
+        margin-top: 0; 
+        /* تم إضافة هذا التعديل لـ media query ليعتمد على التنسيق العام */
+
+    }
+
+    .btn {
+        padding: 12px 30px; /* تصغير الأزرار */
+        font-size: 1rem;
+    }
+
+    .abstract-image {
+        flex-basis: 40%;
+    }
+}
+
+/* -----------------------
+ * شاشات اللوحيات الصغيرة وما دون (عرض أقصى 991 بكسل)
+ * ----------------------- */
+@media (max-width: 991px) {
 
 
+    .content-container {
+        flex-direction: column; /* جعل العناصر تتكدس عموديًا */
+        text-align: center; /* مركزة المحتوى */
+        padding: 0 20px;
+    }
+
+    /* تعديل ترتيب العناصر في نمط RTL */
+    /* الصورة أولاً ثم النص */
+    .mySlides .content-container {
+        display: flex; /* إعادة تعريف كـ flex هنا للتحكم في الترتيب */
+        flex-direction: column;
+    }
+    .text-and-buttons {
+        order: 2; /* النص والازرار في الأسفل */
+    }
+    .abstract-image {
+        order: 1; /* الصورة في الأعلى */
+    }
+    
+    .text-and-buttons {
+        flex-basis: auto; /* إزالة النسبة المئوية */
+        max-width: 100%;
+        padding: 0; /* إزالة المسافة الجانبية */
+        text-align: center; /* مركزة النص */
+    }
+
+    .text-and-buttons h1 {
+        font-size: 32px;
+    }
+
+.text-and-buttons p {
+        font-size: 1rem;
+        margin-bottom: 20px;
+        margin-top: 10px; /* تم تصحيح هذا الهامش في التنسيق العام */
+    }
+
+    .cta-buttons {
+        justify-content: center; /* مركزة الأزرار */
+    }
+
+    .abstract-image {
+        flex-basis: auto;
+        text-align: center; /* مركزة الصورة */
+        max-width: 400px; /* تحديد أقصى عرض للصورة */
+        margin: 0 auto; /* مركزة الصورة نفسها */
+    }
+
+    .abstract-image img {
+        max-width: 80%; /* تصغير حجم الصورة قليلاً على اللوحيات */
+    }
+.slider-container2 {
+        min-height: auto; /* مهم: السماح للحاوية الرئيسية بالتغير */
+        padding: 50px 0; /* إضافة مسافة علوية وسفلية كبديل لـ min-height */
+    }
+
+    .mySlides {
+        /* بدلاً من 100vh، اجعل الارتفاع يعتمد على المحتوى */
+        height: auto; 
+        /* يمكنك إضافة padding إذا أردت مساحة داخلية إضافية */
+        padding-top: 30px; 
+        padding-bottom: 30px;
+        margin-top: 0; /* إلغاء الهامش السلبي الذي كان يهدف لإخفاء جزء من الناف بار */
+    }
+}
+
+/* -----------------------
+ * شاشات الهواتف الصغيرة وما دون (عرض أقصى 575 بكسل)
+ * ----------------------- */
+@media (max-width: 575px) {
+    .slider-container2 {
+        padding: 40px 0; /* تقليل الهوامش العلوية والسفلية */
+        min-height: auto;
+    }
+
+    .text-and-buttons h1 {
+        font-size: 26px; /* تصغير أكبر لعنوان H1 */
+    }
+
+    .text-and-buttons p {
+        font-size: 0.95rem; /* تصغير أكبر للنص */
+        /* تم تعديل هذا الهامش في التنسيق العام */
+        margin-top: 10px; 
+    }
+
+    .cta-buttons {
+        flex-direction: column; /* تكديس الأزرار عمودياً */
+        gap: 10px;
+        align-items: center; /* مركزة الأزرار المتكدسة */
+    }
+
+    .btn {
+        width: 80%; /* جعل الأزرار تأخذ عرضاً أكبر */
+        max-width: 250px;
+    }
+
+    .abstract-image img {
+        max-width: 100%; /* يمكن أن تأخذ كامل عرض الأب */
+    }
+    
+    /* تصغير حجم أزرار التنقل (Prev/Next) */
+    .prev, .next {
+        font-size: 18px;
+        padding: 8px 12px;
+    }
+    
+    /* تحريك النقاط لأعلى قليلاً */
+    .slider-dots{
+        margin-top: -30px !important; 
+    }
+    
+    /* تقليل حجم النقاط */
+    .dot {
+        height: 10px;
+        width: 10px;
+    }
+    
+}
 
 
 
@@ -1350,13 +1420,18 @@ body, html {
     padding: 60px 20px; 
     direction: rtl; 
     text-align: center;
-    background-color: var(--light-color);
+    background-color: var(--gray-color);
 }
 
 .featured-projects-section h2 {
     font-size: 2.5em;
     color: var(--green-color);
-    margin-bottom: 40px;
+    margin-bottom: 10px;
+}
+.featured-projects-section p {
+    font-size: 16px;
+    color: var(--text-color, #666);
+    margin-bottom: 40px
 }
 
 /* حاوية السلايدر */
@@ -1470,7 +1545,9 @@ margin: 0 15px;    box-sizing: border-box;
 /* =========================================================
    تنسيق قسم الميزات الأساسية (Core Features) - الشكل المربع
    ========================================================= */
-
+.container2{
+    background-color: var(--bg-color);
+}
 .features-grid {
     display: flex;
     justify-content: center; /* This is the key centering property */
@@ -1479,7 +1556,9 @@ margin: 0 15px;    box-sizing: border-box;
     text-align: center;
     align-items: stretch; 
     margin: 0 10px; 
-    margin-top: 50px;
+    margin-top: -60px;
+
+    
 }
 
 
@@ -1487,7 +1566,7 @@ margin: 0 15px;    box-sizing: border-box;
     /* تم تقليل العرض لجعله أصغر */
     width: 17%; 
     min-width: 150px; 
-    
+    background-color: white;
     /* زيادة الـ Padding الرأسي لإنشاء شكل مربع */
     padding: 25px 8px; 
     
@@ -1496,6 +1575,7 @@ margin: 0 15px;    box-sizing: border-box;
     transition: all 0.3s ease;
     box-sizing: border-box; 
     border: 1px solid var(--green-color);
+    margin-top: 30px;
 }
 
 .feature-item:hover {
@@ -1523,17 +1603,21 @@ margin: 0 15px;    box-sizing: border-box;
     line-height: 1.3;
 }
 
-/* التجاوبية لقسم الميزات */
-@media (max-width: 992px) {
-    .feature-item {
-        padding: 20px 10px; 
-        width: 45%; 
-    }
-}
+
+
 @media (max-width: 576px) {
+    .features-grid {
+        /* 👈 التعديل الأول: تم تقليل المسافة بين البطاقات لتقريبها */
+        gap: 8px; 
+        /* المسافة السلبية العلوية لـ features-grid يمكن أن تبقى كما هي أو تُعدل حسب الحاجة الإجمالية */
+        margin-top: -20px; 
+    }
+
     .feature-item {
         width: 100%; 
         padding: 15px 10px;
+        /* 👈 التعديل الثاني: تقليل الهامش العلوي بين البطاقات المكدسة على الجوال */
+        margin-top: 2px; /* أو حتى 5px إذا أردت مسافة أقل */
     }
 }
 
@@ -1589,7 +1673,7 @@ margin: 0 15px;    box-sizing: border-box;
 ======================================================
 */
 .clients1 {
-    background-color: var(--light-color);
+    background-color: var(--gray-color);
 }
 .clients {
     text-align: center;
@@ -1702,6 +1786,7 @@ margin: 0 15px;    box-sizing: border-box;
     /* يمكن تغيير الخلفية لتكون بلون متباين (مثلاً رمادي فاتح) أو الأبيض */
     padding: 20px 0;
     padding-bottom: 10%;
+    background-color: var(--gray-color);
 }
 
 /* تنسيق العنوان العام في المنتصف */
@@ -2092,9 +2177,15 @@ margin: 0 15px;    box-sizing: border-box;
     }
     
     .selection-card {
-        width: 31%; 
-        padding: 2px 5px; 
+        width:300PX; 
+        padding: 15px 10px; 
         min-height: auto; 
+background-color: #fff;
+  border-radius: 20px;
+box-shadow: var(--shadow-base);
+
+
+
     }
     
     /* ----------------------------------------------- */
@@ -2317,7 +2408,14 @@ margin: 0 15px;    box-sizing: border-box;
 
 
 
+.services-row{
 
+
+    background-color: var(--gray-color);
+
+
+
+}
 /* Style the counter cards */
 .card {
   padding: 16px;
@@ -2336,7 +2434,6 @@ margin: 0 15px;    box-sizing: border-box;
 margin-right: 0;
 margin-left: 0;
 border-radius:0;
-    background-color: var(--light-color);
 
 
 
@@ -2902,148 +2999,156 @@ border-radius:0;
 
 
 
+        /* ----------------------------------
+            تنسيق قسمنا (our-vision)
+            ---------------------------------- */
+        .our-vision {
+            background-color: var(--bg-color); 
+            padding: 60px 100px;
+            /* 👈 التعديل الرئيسي للمحاذاة لليمين */
+            text-align: right; 
+        }
 
+        .container {
+            width: 100%;
+            max-width: 1200px; /* مثال لحجم أقصى للحاوية */
+            margin: 0 auto;
+        }
 
-/* =======================================
-    تنسيق قسم عن تكامل (About Takmol) - تم التحديث إلى our-vision
-    ======================================= */
-.our-vision {
-    background-color: var(--bg-color); 
-    /* تم تعديل المسافة بين الأعمدة لزيادة التباعد قليلاً */
-    padding: 60px 100px;
-}
+        .our-vision-content-grid {
+            display: flex;
+            gap: 80px;
+            align-items: center; 
+        }
 
-.our-vision-content-grid {
-    display: flex;
-    gap: 40px;
-    align-items: center; 
-}
+        /* ----------------------------------
+            تنسيق عمود الصورة
+            ---------------------------------- */
+        .our-vision-image-side {
+            flex: 1; 
+            order: 1; 
+        }
 
-/* ----------------------------------
-    تنسيق عمود الصورة
-    ---------------------------------- */
-.our-vision-image-side {
-    flex: 1; 
-    order: 1; 
-}
+        .main-our-vision-img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); 
+        }
 
-.main-our-vision-img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); 
-}
+        /* ----------------------------------
+            تنسيق عمود النص
+            ---------------------------------- */
+        .our-vision-text-side {
+            flex: 1; 
+            order: 2; 
+        }
 
-/* ----------------------------------
-    تنسيق عمود النص
-    ---------------------------------- */
-.our-vision-text-side {
-    flex: 1; 
-    order: 2; 
-}
+        .our-vision-title {
+            font-size: 32px;
+            color: var(--green-color); 
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.4;
+            text-align: right; 
+        }
 
-.our-vision-title {
-    font-size: 32px;
-    color: var(--green-color); 
-    font-weight: 700;
-    margin-bottom: 20px;
-    line-height: 1.4;
-}
+        .arrow-icon {
+            color: var(--green-color); 
+            /* تغيير الهامش لليمين (margin-right) إلى اليسار (margin-left) في سياق RTL */
+            margin-right: 0; 
+            margin-left: 10px; /* لزيادة الفصل قليلاً */
+            font-size: 26px;
+        }
 
-.arrow-icon {
-    color: var(--green-color); 
-    margin-right: 10px;
-    font-size: 26px;
-}
+        /* ----------------------------------
+            تنسيق رؤيتنا وقيمنا
+            ---------------------------------- */
+        .vision-title {
+            font-size: 22px;
+            color: var(--text-color);
+            font-weight: 700;
+            margin-top: 20px;
+            margin-bottom: 5px;
+            text-align: right;
+        }
+        .vision-icon {
+            color: var(--green-color);
+            /* تغيير الهامش لليسار (margin-left) إلى اليمين (margin-right) في سياق RTL */
+            margin-left: 0; 
+            margin-right: 10px;
+            font-size: 20px;
+        }
+        .vision-item p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            text-align: right;
+        }
 
-.our-vision-paragraph {
-    font-size: 16px;
-    color: #555;
-    line-height: 1.8;
-    margin-bottom: 20px;
-}
+        /* ----------------------------------
+            تنسيق زر "تواصل معنا" والغلاف
+            ---------------------------------- */
+        .consult-button-wrapper {
+            /* 👈 يضمن محاذاة زر (inline-block) لليمين على أي شاشة */
+            text-align: right; 
+            margin-top: 20px;
+        }
+        
+        .btn-consult-small {
+            display: inline-block;
+            background-color: var(--green-color);
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
 
-/* تنسيق رؤيتنا وقيمنا */
-.vision-title {
-    font-size: 22px;
-    color: var(--text-color);
-    font-weight: 700;
-    margin-top: 20px;
-    margin-bottom: 5px;
-}
-.vision-icon {
-    color: var(--green-color);
-    margin-left: 10px;
-    font-size: 20px;
-}
-.vision-item p {
-    font-size: 16px;
-    color: #555;
-    line-height: 1.6;
-    margin-bottom: 15px;
-}
+        .btn-consult-small:hover {
+            background-color: #00643d; 
+            transform: translateY(-2px);
+        }
 
-/* ----------------------------------
-    تنسيق زر "تواصل معنا"
-    ---------------------------------- */
-.btn-consult-small {
-    display: inline-block;
-    background-color: var(--green-color);
-    color: rgb(255, 255, 255);
-    text-decoration: none;
-    padding: 12px 30px;
-    border-radius: 5px;
-    font-weight: 600;
-    font-size: 15px;
-    transition: background-color 0.3s, transform 0.2s;
-    margin-top: 20px; /* لزيادة المسافة عن القيم */
-}
+        /* ----------------------------------
+            استعلامات الوسائط (Media Queries)
+            ---------------------------------- */
+        @media (max-width: 992px) {
+            
+            .our-vision {
+                padding: 40px 20px; 
+                margin: 0;
+            }
+            
+            .our-vision-content-grid {
+                flex-direction: column; 
+                gap: 30px;
+            }
+            
+            .our-vision-image-side, .our-vision-text-side {
+                width: 100%;
+                order: initial; 
+            }
+            
+            .our-vision-title {
+                font-size: 24px;
+                text-align: right;
+            }
+            
+            /* الصورة تظهر أولاً على الجوال */
+            .our-vision-image-side { order: -1; } 
+            .our-vision-text-side { order: 0; }
 
-.btn-consult-small:hover {
-    background-color: #00643d; 
-    transform: translateY(-2px);
-}
+            /* القاعدة 2: محاذاة زر "تواصل معنا الآن" لليمين على الجوال */
+            .consult-button-wrapper {
+                text-align: center; 
+            }
 
-/* ----------------------------------
-    استعلامات الوسائط (Media Queries)
-    ---------------------------------- */
-@media (max-width: 992px) {
     
-    .our-vision {
-        padding: 40px 20px; 
-        margin: 0;
-    }
-    
-    .our-vision-content-grid {
-        flex-direction: column; 
-        gap: 30px;
-    }
-    
-    .our-vision-image-side, .our-vision-text-side {
-        width: 100%;
-        order: initial; 
-    }
-    
-    .our-vision-title {
-        font-size: 28px;
-        text-align: right;
-    }
-    
-    /* الصورة تظهر أولاً على الجوال */
-    .our-vision-image-side { order: -1; } 
-    .our-vision-text-side { order: 0; }
-
-
-    /* القاعدة 2: توسيط زر "تواصل معنا الآن" فقط */
-    .consult-button-wrapper {
-        text-align: center; /* 👈 هذا يوسّط زر "تواصل معنا الآن" */
-    }
-}
-
-
-
-
-
+        }
 
 
 
@@ -3111,8 +3216,8 @@ border-radius:0;
 .hero-section {
     /* هذه الأنماط تحتاج إلى صورة خلفية حقيقية لشركة المقاولات */
 /* ✅ تفعيل التدرج اللوني الأخضر للحجم الكامل */
-background-image: linear-gradient(to right, #32e938, #06a70e);
-/* الأكواد: #C8E6C9 (أخضر فاتح جداً) إلى #81C784 (أخضر فاتح متوسط) */    
+background-image: linear-gradient(135deg,#64f33d , #62ff00);color: white;
+/* تدرج لوني بالمنتصف *//* الأكواد: #C8E6C9 (أخضر فاتح جداً) إلى #81C784 (أخضر فاتح متوسط) */    
 height: 60vh; 
     display: flex;
     justify-content: center;
@@ -3191,7 +3296,7 @@ height: 60vh;
 .takmol-advantage-section {
     padding: 60px 0;
     text-align: center;
-    background-color: var(--light-gray-color, #f8f8f8); /* خلفية فاتحة */
+    background-color: var(--gray-color); /* خلفية فاتحة */
 }
 
 .takmol-advantage-section .container {
@@ -3315,7 +3420,6 @@ height: 60vh;
     color: var(--light-color, #ffffff);
     padding: 60px 50px 20px; /* حشو علوي وسفلي جيد */
     direction: rtl; /* ضمان الاتجاه من اليمين لليسار */
-    margin-bottom: 1%;
 }
 
 /*==================================
@@ -3626,8 +3730,7 @@ height: 60vh;
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background-color: var(--green-color); /* لون أساسي */
-    color: white;
+background-image: linear-gradient(135deg, var(--green-color), #00ff08); /* #4CAF50 هو ظل أخضر أفتح */    color: white;
     border: none;
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
