@@ -508,7 +508,7 @@
             accept="image/*, application/pdf" 
         >
         
-        <span class="custom-file-button">اختيار الوثائق / صور</span>
+        <span class="custom-file-button">اختر الوثائق  </span>
         <span class="file-name-display">مثل: رخصة القيادة، السجل، الاستمارة. </span> 
     </div>
     </div>
@@ -547,18 +547,61 @@
         <form class="registration-form" action="#" method="POST">
             <h3 class="form-title">   تسجيل الكوادر الفنية والمهنية  </h3>
             
-            <div class="form-group">
-                <label for="regName" class="form-label">الاسم بالكامل <span class="required">*</span></label>
+
+
+<div class="form-group">
+    <div class="form-row form-labels-row">
+        <div class="form-half">
+            <label for="companyActivity" class="form-label">الاسم بالكامل <span class="required">*</span></label>
+        </div>
+        <div class="form-half">
+            <label for="companyRating" class="form-label">رقم الهوية   <span class="required">*</span></label>
+        </div>
+    </div>
+
+    <div class="form-row form-inputs-row">
+        <div class="form-half">
                 <input type="text" id="regName" name="fullName" class="form-input" placeholder="اسمك الكامل" required>
-            </div>
+        </div>
+        <div class="form-half">
+            <input 
+                type="number" 
+                id="companyRating" 
+                name="companyRating" 
+                class="form-input" 
+                placeholder=" رقم الهوية" 
+                required
+                min="1"
+            >
+        </div>
+    </div>
+</div>
+
                         <div class="form-group">
                 <label for="regName" class="form-label"> العنوان <span class="required">*</span></label>
                 <input type="text" id="regName" name="fullName" class="form-input" placeholder=" العنوان" required>
             </div>
-                                                <div class="form-group">
-                <label for="regName" class="form-label"> المنطقة<span class="required">*</span></label>
+
+<div class="form-group">
+    <div class="form-row form-labels-row">
+        <div class="form-half">
+            <label for="companyActivity" class="form-label"> المنطقة <span class="required">*</span></label>
+        </div>
+        <div class="form-half">
+            <label for="companyRating" class="form-label">المدينة    <span class="required">*</span></label>
+        </div>
+    </div>
+
+    <div class="form-row form-inputs-row">
+        <div class="form-half">
                 <input type="text" id="regName" name="fullName" class="form-input" placeholder=" المنطقة" required>
-            </div>
+        </div>
+                <div class="form-half">
+                <input type="text" id="regName" name="fullName" class="form-input" placeholder="المدينة " required>
+        </div>
+
+    </div>
+</div>
             <div class="form-group">
     <label for="regDocuments" class="form-label">
         شهادات الخبرة    <span class="required">*</span>
@@ -575,7 +618,7 @@
             accept="image/*, application/pdf" 
         >
         
-        <span class="custom-file-button">اختيار الشهادات / صور   </span>
+        <span class="custom-file-button">اختر الشهادات</span>
         <span class="file-name-display">لم يتم اختيار الصور  </span> 
     </div>
     </div>
@@ -658,10 +701,33 @@
         <form class="registration-form" action="#" method="POST">
             <h3 class="form-title">تسجيل شركة كمورد</h3>
             
-            <div class="form-group">
-                <label for="companyName" class="form-label">اسم الشركة <span class="required">*</span></label>
-                <input type="text" id="companyName" name="companyName" class="form-input" placeholder="الاسم التجاري للشركة" required>
-            </div>
+<div class="form-group">
+    <div class="form-row form-labels-row">
+        <div class="form-half">
+            <label for="companyActivity" class="form-label">اسم الشركة <span class="required">*</span></label>
+        </div>
+        <div class="form-half">
+            <label for="companyRating" class="form-label"> رقم السجل <span class="required">*</span></label>
+        </div>
+    </div>
+
+    <div class="form-row form-inputs-row">
+        <div class="form-half">
+            <input type="text" id="companyActivity" name="companyActivity" class="form-input" placeholder="اسم الشركة" required>
+        </div>
+        <div class="form-half">
+            <input 
+                type="number" 
+                id="companyRating" 
+                name="companyRating" 
+                class="form-input" 
+                placeholder="أدخل رقماً" 
+                required
+                min="1"
+            >
+        </div>
+    </div>
+</div>
             
 <div class="form-group">
     <div class="form-row form-labels-row">
@@ -733,7 +799,7 @@
                         multiple 
                         accept="image/*, application/pdf" 
                     >
-                    <span class="custom-file-button">اختيار الوثائق / السجل التجاري</span>
+                    <span class="custom-file-button">اختر الوثائق  </span>
                     <span class="file-name-display">مثل: السجل التجاري، الشهادات، رخص مزاولة المهنة.</span> 
                 </div>
             </div>
