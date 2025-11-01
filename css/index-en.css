@@ -1,20 +1,23 @@
 /* 1. إعدادات عامة */
-@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;400;700;900&display=swap'); /* استخدام خط عربي مثل تاجول */
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;400;700;900&display=swap'); /* استخدام خط عربي (يمكن تبديله بخط إنجليزي) */
 html {
     scroll-behavior: smooth;
 }
 :root {
     --dark-blue: #ffffff;
-    --green-color: #008e36; /* لون الأزرار والنقاط النشطة (بينك/وردي) */
+    --green-color: #008e36; /* لون الأزرار والنقاط النشطة */
     --light-color: #ffffff;
-    --main-font: 'Tajawal', sans-serif;
-    --text-color: #333333; /* افتراض للون النص */
-    --green-shadow: #006226; /* تعريف الظل الزهري */
-    --form-bg-dark: var(--dark-blue); /* #121826 */
-    --form-bg-light: var(--light-color); /* #ffffff */
-    --form-primary-blue: #007bff; /* لون زر الإرسال وتركيز الحقول (يمكنك تغييره ليتناسب مع تصميمك) */
-    --form-text-dark: #333333; /* لون نص الحقول */
-    --form-text-label: #000000; /* لون التسميات */
+    --main-font: 'Tajawal', sans-serif; /* يفضل تبديله بخط لاتيني (مثل Roboto, Open Sans) لـ LTR */
+    --text-color: #333333;
+    --green-shadow: #006226;
+    --form-bg-dark: var(--dark-blue);
+    --form-bg-light: var(--light-color);
+    --form-primary-blue: #007bff;
+    --form-text-dark: #333333;
+    --form-text-label: #000000;
+    --bg-color: #b6f8ca;
+    --gray-color:#f7f7f7;
+    --cta-btn-color: #e6f7e6; /* تم إضافة متغير جديد لزر الـ CTA */
 }
 
 * {
@@ -24,20 +27,20 @@ html {
 }
 
 body {
-    background-color: var(--dark-blue);
+    background-color: #000000;
     color: var(--light-color);
     font-family: var(--main-font);
-    direction: ltr; /* اتجاه النص من اليمين لليسار */
+    /* 🚀 التعديل الرئيسي LTR 🚀 */
+    direction: ltr; 
+    margin: 0;
+    padding: 0;
 }
-
-
-
 
 /* 0. إعادة تعيين تنسيقات المتصفح */
 body, html {
-    margin: 0; /* 🚀 إزالة الهامش الافتراضي 🚀 */
-    padding: 0; /* إزالة الحشوة الافتراضية */
-    overflow-x: hidden; /* 💡 يمنع ظهور شريط التمرير الأفقي بسبب المحتوى الزائد 💡 */
+    margin: 0; 
+    padding: 0;
+    overflow-x: hidden;
     width: 100%;
 }
 
@@ -47,59 +50,32 @@ body, html {
     justify-content: space-between;
     align-items: center;
     padding: 2px 5px;
-    background-color: transparent; /* خلفية شفافة أو بلون الخلفية */
+    background-color: transparent;
     height: 100px;
-        /* ... (التنسيقات السابقة تبقى كما هي) ... */
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
-   
-    /* إضافة خاصية الانتقال (Transition) لحركة سلسة */
-  
     transition: top 0.3s ease-in-out, background-color 0.4s ease, box-shadow 0.4s ease;
 }
 
-
-
-
-/* الفئة الجديدة لإخفاء شريط التنقل: دفعه لأعلى خارج الشاشة */
 .navbar.hidden {
-    top: -100px; /* القيمة يجب أن تكون أكبر من ارتفاع شريط التنقل (100px) */
+    top: -100px; 
 }
 
-/* الفئة .scrolled يجب أن تبقى لتغيير الخلفية عند وجودها */
 .navbar.scrolled {
-    background-color: #005a22;
-    box-shadow: 0 2px 10px rgb(0, 47, 18);
-
+    background-color: var(--light-color);
+    box-shadow: 0 2px 10px rgb(208, 227, 215);
 }
 
-
-/*==================================
-  تغيير لون الروابط عندما يكون شريط التنقل في وضع التمرير (.scrolled)
-====================================*/
-
-/* 1. جعل الروابط بيضاء عندما يكون شريط التنقل ملونًا (في وضع التمرير) */
 .navbar.scrolled .nav-links a {
-    /* تغيير لون الروابط إلى الأبيض (أو لون فاتح) */
-    color: var(--light-color, #ffffff) !important; 
-    /* ملاحظة: استخدمت !important لضمان تجاوز اللون الرمادي #333333 */
+    color: var(--text-color) !important; 
 }
 
-/* 2. التأكد من أن الخط تحت الروابط (::after) يبقى زهريًا */
-.navbar.scrolled .nav-links a::after {
-    /* هذه القاعدة ليست ضرورية طالما أن لون الخلفية يعتمد على var(--green-color) */
-}
-
-/* 3. التأكد من أن حالة التحويم (hover/active) لا تزال تعمل */
 .navbar.scrolled .nav-links a:hover,
 .navbar.scrolled .nav-links a.active {
-    /* عند التحويم/التفعيل، يبقى اللون الزهري هو السائد */
-    color: var(--light-color, #ffffff) !important; 
+    color: var(--text-color) !important; 
 }
-
-
 
 .logo {
     display: flex;
@@ -110,14 +86,14 @@ body, html {
 }
 
 .logo-text {
-    margin-left: 5px;
+    margin-right: 5px; /* تم عكس الهامش */
 }
 
 .logo-shape {
     font-size: 30px;
     line-height: 0.8;
     color: var(--light-color);
-    margin-right: 5px;
+    margin-left: 5px; /* تم عكس الهامش */
 }
 
 .nav-links ul {
@@ -130,60 +106,42 @@ body, html {
     margin: 0 15px;
     padding: 5px 0;
 }
-/*==================================
-  تعديل تنسيق روابط شريط التنقل (الـ Navbar Links)
-====================================*/
 
 .nav-links a {
     text-decoration: none;
-    color:#333333 ; /* اللون الافتراضي (قد يكون داكناً) */
+    color:#333333 ;
     font-size: 16px;
     font-weight: 400;
     transition: color 0.3s;
-    
-    /* 🚀 أساسيات التأثير 🚀 */
-    position: relative; /* ضروري لتموضع الخط الـ ::after */
-    padding-bottom: 8px; /* زيادة المسافة السفلية لإظهار الخط أسفل النص */
+    position: relative;
+    padding-bottom: 8px;
 }
 
-/* 🚀 تنسيق حالة التحويم والنشاط (اللون والخط) 🚀 */
 .nav-links a:hover,
 .nav-links a.active {
-    color: var(--green-color); /* 💡 اجعل اللون زهرياً عند التحويم 💡 */
+    color: var(--green-color);
 }
 
-/* ---------------------------------------------------- */
 /* 2. الخط المتحرك (يبدأ من المنتصف) */
-/* ---------------------------------------------------- */
-
 .nav-links a::after {
     content: '';
     position: absolute;
     bottom: 0;
     
-    /* 💡 لبدء الخط من المنتصف 💡 */
     left: 50%; 
-    transform: translateX(-50%); /* إزاحة لليسار بنصف عرض العنصر لضمان التوسيط */
+    transform: translateX(-50%); /* يبقى صحيحاً للتوسيط */
     
-    width: 0; /* 🚀 العرض الابتدائي صفر (مخفي) 🚀 */
-    height: 3px; /* سمك الخط */
-    background-color: var(--green-color); /* اللون الزهري */
+    width: 0;
+    height: 3px;
+    background-color: var(--green-color);
     
-    /* حركة ناعمة لتغيير العرض */
     transition: width 0.3s ease-out; 
 }
 
-/* 3. تمديد الخط عند التحويم أو عند التفعيل */
 .nav-links a:hover::after,
 .nav-links a.active::after {
-
-    width: 100%; /* 🚀 التمدد ليغطي عرض الرابط بالكامل من المنتصف 🚀 */
+    width: 100%;
 }
-
-
-/* ---------------------------------------------------- */
-/* باقي تنسيقات النافبار تبقى كما هي */
-/* ---------------------------------------------------- */
 
 .nav-links .separator {
     width: 1px;
@@ -191,16 +149,6 @@ body, html {
     background-color: rgba(255, 255, 255, 0.2);
     margin: 0 20px;
 }
-
-/* في ملف CSS الخاص بك */
-.navbar-brand img {
-    /* أضف هذا الانتقال لجعل التبديل سلساً */
-    transition: all 0.4s ease-in-out; 
-    /* تأكد من أن هذا التنسيق موجود */
-    max-width: 150px; 
-}
-
-
 
 
 .english-link {
@@ -210,56 +158,87 @@ body, html {
 }
 
 .english-link i {
-    margin-left: 5px;
+    margin-right: 5px; /* 🚀 تم التعديل LTR 🚀 */
+    margin-left: 0;
 }
 
-/* أينما تجد تنسيق .social-icons في ملف styles.css */
-
-.social-icons a {
-    /* الخصائص المطلوبة لإزالة الخط الأزرق */
-    text-decoration: none; 
-    /* باقي التنسيقات التي جعلت الزر مربعًا وزهريًا تبقى كما هي */
+/* 4. تنسيق زر تسجيل الدخول الجديد */
+.btn-login {
+    background-color: var(--green-color);
+    color: var(--light-color);
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: 2px solid var(--green-color);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 12px;
     display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-login:hover {
+    background-color: transparent;
+    color: var(--green-color);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-login i {
+    font-size: 11px;
+    margin-right: 3px; /* 🚀 تم التعديل LTR 🚀 */
+    margin-left: 0;
+}
+
+/* --- تنسيق زر تسجيل الدخول (Mobile) --- */
+.mobile-nav-links .login-item-mobile {
+    padding: 8px 15px 0;
+    border-bottom: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-mobile-login {
+    width: 100%;
+    background-color: var(--green-color);
+    color: var(--light-color);
+    padding: 8px 0;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    display: flex;
     justify-content: center;
     align-items: center;
-    width: 35px;
-    height: 35px;
-    border-radius: 4px; /* الشكل المربع بزوايا منحنية */
-    background-color: var(--green-color); 
-    box-shadow: 0 2px 8px #006226;
-    margin-right: 5px; 
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease;
 }
 
-/* تنسيق الأيقونة (الحرف) داخل الزر */
-.social-icons a i {
-    font-size: 16px; 
-    color: var(--light-color); /* لون الأيقونة الأبيض */
-
+.btn-mobile-login:hover {
+    background-color: #1e8748;
 }
 
-/* تأثير عند التحويم */
-.social-icons a:hover {
-    background-color: #006226; 
-    transform: translateY(-2px); 
+.btn-mobile-login i {
+    margin-right: 5px; /* 🚀 تم التعديل LTR 🚀 */
+    margin-left: 0;
+    font-size: 13px;
 }
 
+@media (max-width: 991px) {
+    .btn-login {
+        display: none !important;
+    }
+}
 
-
-
-
-/*==================================
-  1. تنسيق زر القائمة (Toggler)
-====================================*/
+/* 1. تنسيق زر القائمة (Toggler) */
 .menu-toggler {
-    display: none; /* مخفي افتراضياً */
+    display: none;
     background: none;
     border: none;
     font-size: 1.8rem;
     color: var(--green-color); 
     cursor: pointer;
-    order: -1; /* يضمن وضعه في أقصى اليسار في شريط التنقل */
-    z-index: 1001; /* فوق كل شيء */
+    /* 🚀 التعديل الرئيسي LTR: نقله لأقصى اليمين (بعد اللوجو) 🚀 */
+    order: 1; 
+    z-index: 1001;
     padding: 5px;
 }
 
@@ -267,30 +246,24 @@ body, html {
     opacity: 0.8;
 }
 
-/*==================================
-  تنسيق القائمة الجانبية (Mobile Menu Overlay)
-  التأكد من أن الخلفية زرقاء داكنة وغير شفافة.
-====================================*/
+/* تنسيق القائمة الجانبية (Mobile Menu Overlay) */
 .mobile-menu-overlay {
     height: 100%;
     width: 0; 
     position: fixed;
     z-index: 1050; 
     top: 0;
-    right: 0; 
-    
-    /* 🚀 التعديل 1: إضافة لون خلفية داكن وموحد (استخدم أي لون داكن تفضله) 🚀 */
-    /* استخدم var(--dark-blue) إذا كان معرَّفاً لديك، أو قيمة HEX مباشرة */
-    background-color: #121826; /* لون أزرق داكن (لتجنب الشفافية) */
-    
+    /* 🚀 التعديل الرئيسي LTR: تظهر من اليسار 🚀 */
+    right: auto;
+    left: 0; 
+    background-color: #121826; 
     overflow-x: hidden;
     transition: 0.5s; 
-    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5); 
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.5); /* عكس اتجاه الظل */
 }
 
 
 .mobile-menu-overlay.active {
-    /* 💡 التعديل 2: زيادة العرض قليلاً (لجعلها تغطي جزءاً أكبر من الشاشة) */
     width: 320px; 
 }
 
@@ -299,22 +272,19 @@ body, html {
 }
 
 /* زر الإغلاق داخل القائمة الجانبية */
-/* زر الإغلاق داخل القائمة الجانبية */
 .mobile-menu-overlay .close-btn {
-    /* 💡 التعديل 3: تأكيد اللون والحجم المناسبين 💡 */
-    color: #ffffff; /* يجب أن يكون فاتحاً على الخلفية الداكنة */
+    color: #ffffff;
     position: absolute;
     top: 20px;
-    left: 20px; 
-    font-size: 35px; /* تكبير الحجم قليلاً */
+    /* 🚀 التعديل الرئيسي LTR: زر الإغلاق في أعلى اليمين 🚀 */
+    left: auto;
+    right: 20px; 
+    font-size: 35px;
     opacity: 0.8;
     cursor: pointer;
     border: none;
     background: none;
     transition: opacity 0.3s;
-}
-.mobile-menu-overlay .close-btn:hover {
-    opacity: 1;
 }
 
 /* تنسيق الروابط داخل القائمة الجانبية */
@@ -328,75 +298,322 @@ body, html {
 .mobile-nav-links li a {
     padding: 15px 0;
     text-decoration: none;
-    /* تغيير لون الروابط إلى الأبيض أو الفاتح */
     color: var(--light-color); 
     font-size: 1.1rem;
     display: block;
-    /* جعل خط الفصل فاتحاً */
     border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
     transition: background-color 0.3s;
 }
 
 .mobile-nav-links li a:hover {
-        /* لون فاتح عند التحويم */
     background-color: rgba(255, 255, 255, 0.05);
-    color: var(--green-color); /* استخدام اللون الزهري عند التحويم */
+    color: var(--green-color);
 }
 
-.mobile-social-icons {
-    margin-top: 20%;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    color: var(--light-color); /* ضمان أن الأيقونات نفسها بيضاء */
-}
 
-/* استخدام نفس تنسيق أيقونات السوشيال ميديا الملونة للموبايل */
-.mobile-social-icons a {
-    /* يُفضل استخدام تنسيقات .social-icons a السابقة */
-    width: 35px;
-    height: 35px;
-    background-color: var(--green-color); 
-    color: var(--light-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 4px;
-}
-
-/*==================================
-  3. تنسيق الاستجابة (Responsive)
-====================================*/
+/* 3. تنسيق الاستجابة (Responsive) */
 @media (max-width: 1024px) {
     
-    /* إخفاء الروابط وشريط الأيقونات في العرض الكامل */
     .nav-links, .social-icons {
         display: none;
     }
     
-    /* إظهار زر القائمة في الجوال */
     .menu-toggler {
         display: block;
     }
     
-    /* ترتيب العناصر في شريط التنقل للجوال */
     .navbar {
         justify-content: space-between; 
-        /* 🚀 التعديل هنا: استخدام 0px في اليمين واليسار (أو قيمة صغيرة) 🚀 */
         padding: 15px 0; 
-        
-        /* 💡 ملاحظة: إذا كنت تريد حشوة داخلية للعناصر 
-           (مثل الشعار والزر)، أضفها للعناصر الفرعية بدلاً من الـ navbar نفسه.
-           إذا أردت حشوة على حواف الـ navbar، استخدم هذه: */
-        /* padding: 15px 20px; */ 
+        background-color: var(--light-color);
     }
     
-    /* 💡 التعديل المقترح إذا كنت تستخدم padding: 15px 20px; 💡 */
-    /* قم بتطبيق هذا التنسيق في ملف CSS العام لديك إذا لم يعمل التعديل السابق */
     .navbar {
-        left: 0; /* تأكيد أن شريط التنقل يبدأ من حافة اليسار */
-        right: 0; /* تأكيد أن شريط التنقل يبدأ من حافة اليمين */
+        left: 0;
+        right: 0;
     }
+}
+
+
+/* ================================================= */
+/* 2. تنسيق Mega Menu (سطح المكتب) */
+/* ================================================= */
+
+.navbar .nav-links ul li.mega-menu-item {
+    position: relative;
+    padding-bottom: 5px;
+}
+
+
+.mega-menu {
+    opacity: 0;
+    visibility: hidden;
+    /* 🚀 التعديل الرئيسي LTR: توسيط القائمة أسفل الرابط 🚀 */
+    transform: translateX(50%) translateY(-10px); 
+    
+    transition: opacity 0.3s ease-out, visibility 0.3s, transform 0.3s ease-out;
+
+    position: absolute;
+    top: 100%; 
+    /* 🚀 التعديل الرئيسي LTR: تحديد الموضع من اليمين للتوسيط 🚀 */
+    left: auto !important; 
+    right: 50% !important; 
+    
+    width: 600px; 
+    max-width: 95vw;
+    background-color: white;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    padding: 0; 
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+/* 🛑 حالة التحويم (Hover): إظهار القائمة وإلغاء الإزاحة 🛑 */
+@media (min-width: 992px) {
+    .navbar .nav-links ul li.mega-menu-item:hover .mega-menu {
+        opacity: 1;
+        visibility: visible;
+        /* 🚀 التعديل الرئيسي LTR: تطبيق الإزاحة لليمين 🚀 */
+        transform: translateX(50%) translateY(0); 
+        display: flex;
+    }
+}
+
+.mega-menu-content {
+    display: flex;
+    /* 🚀 التعديل الرئيسي LTR: ترتيب الأعمدة من اليسار لليمين 🚀 */
+    justify-content: flex-start; 
+    width: 100%;
+}
+
+/* ------------------ تنسيق الأعمدة الداخلية (عمودين) ------------------ */
+
+.mega-menu .col-menu {
+    padding: 25px 20px;
+    /* 🚀 التعديل الرئيسي LTR: الخط الفاصل على اليمين 🚀 */
+    border-right: 1px solid #eee; 
+    border-left: none; 
+}
+
+/* 🚀 العمود 1: المحتوى المدمج (55% عرض) */
+.mega-menu .content-col-desktop {
+    width: 55%;
+    padding: 25px 30px;
+    /* 🚀 التعديل الرئيسي LTR: الخط الفاصل على اليمين 🚀 */
+    border-right: 1px solid #eee;
+    border-left: none;
+}
+
+/* 🚀 العمود 2: عمود الـ CTA (45% عرض) */
+.mega-menu .cta-col {
+    width: 45%; 
+    background-color: #f7fff7; 
+    border-right: none; /* إزالة الخط من أقصى اليمين */
+    /* 🚀 التعديل الرئيسي LTR: الخط الفاصل على اليسار 🚀 */
+    border-left: 1px solid #eee;
+    padding: 25px 30px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.mega-menu-separator {
+    border: none;
+    border-top: 1px dashed #ddd;
+    margin: 20px 0;
+}
+
+
+/* ------------------ تنسيق العناوين والروابط ------------------ */
+
+.mega-menu-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--green-color); 
+    border-bottom: 2px solid #eee; 
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.mega-menu .list-unstyled {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    /* 🚀 التعديل الرئيسي LTR: محاذاة لليسار 🚀 */
+    text-align: left; 
+    display: block !important; 
+}
+
+.mega-menu .list-unstyled li {
+    display: block !important; 
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.mega-menu .list-unstyled li a {
+    display: block; 
+    padding: 8px 0; 
+    font-size: 15px;
+    color: var(--text-color);
+    text-decoration: none;
+    /* 🚀 التعديل الرئيسي LTR: الانتقال على اليسار 🚀 */
+    transition: color 0.2s, padding-left 0.2s;
+    border-bottom: 1px solid #f0f0f0; 
+}
+
+.mega-menu .list-unstyled li:last-child a {
+    border-bottom: none; 
+}
+
+.mega-menu .list-unstyled li a:hover {
+    color: var(--green-shadow);
+    /* 🚀 التعديل الرئيسي LTR: إزاحة لليسار 🚀 */
+    padding-left: 5px; 
+    padding-right: 0; /* إزالة padding-right */
+    background-color: #f9f9f9; 
+}
+
+
+/* ------------------ تنسيق عمود CTA ------------------ */
+
+.mega-menu-title-cta {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--green-color); 
+    border-bottom: 2px solid #eee; 
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.mega-menu .cta-box-content-alt {
+    padding: 15px;
+    border: 1px solid var(--green-color); 
+    border-radius: 6px;
+    background-color: #e6f7e6; 
+    /* 🚀 التعديل الرئيسي LTR: محاذاة لليسار 🚀 */
+    text-align: left; 
+    margin-top: 10px;
+}
+
+.mega-menu .cta-col .quote-alt {
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: var(--text-color);
+    font-weight: 500;
+    text-align: center;
+}
+
+.mega-menu .cta-col .sub-text-alt {
+    font-size: 14px;
+    color: #666;
+    margin-top: 15px;
+    text-align: center;
+}
+
+/* تنسيق زر الـ CTA */
+.mega-menu .btn-primary-alt {
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    background-color: var(--cta-btn-color); 
+    color: var(--green-color);
+    border: 1px solid var(--green-color);
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.mega-menu .btn-primary-alt:hover {
+    background-color: rgb(181, 255, 181);
+}
+
+
+/* ================================================= */
+/* تنسيق القائمة الفرعية للجوال (Mobile Submenu) */
+/* ================================================= */
+
+.mobile-nav-links .has-submenu .mobile-submenu-content {
+    max-height: 0; 
+    overflow: hidden; 
+    transition: max-height 0.4s ease-in-out; 
+    background-color: rgba(0, 0, 0, 0.05); 
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0 15px; 
+}
+
+.mobile-nav-links .has-submenu.open .mobile-submenu-content {
+    max-height: 500px; 
+    padding: 15px 15px 5px 15px; 
+    transition: max-height 0.5s ease-in-out; 
+}
+
+.mobile-nav-links .has-submenu .toggle-icon {
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.mobile-nav-links .has-submenu.open .toggle-icon {
+    transform: rotate(180deg); 
+}
+
+
+.mobile-mega-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--green-color); 
+    padding-top: 15px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 10px;
+}
+
+.mobile-services-menu .mobile-col ul li a {
+    border-bottom: none; 
+    font-size: 15px;
+    padding: 10px 0;
+    font-weight: 400;
+}
+
+.mobile-services-menu .mobile-col {
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-services-menu .mobile-col:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.btn-mobile-cta {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 12px 10px;
+    margin: 10px 0 20px 0;
+    background-color: var(--green-color); 
+    color: var(--light-color);
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background-color 0.3s;
+    border-bottom: none !important; 
+}
+
+/* تذييل قائمة الجوال */
+.copyright-text {
+    /* 🚀 التعديل: تأكيد محاذاة النص في وضع LTR 🚀 */
+    text-align: center;
+    padding-bottom: 10px; 
+    color: #ffffff; /* تأكد من ظهور النص على الخلفية الداكنة */
 }
 
 
@@ -404,175 +621,657 @@ body, html {
 
 
 
-/* 3. قسم المحتوى الرئيسي (Hero Section) */
-.hero-section {
-    direction: rtl; /* الاتجاه من اليمين لليسار */
-    padding: 100px 50px;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==================================
+ * 2. General Slider and Container Styling
+ * (Modified for LTR)
+ * ================================== */
+.slider-container2 {
+    min-height: 85vh; 
+    position: relative;
+    overflow: hidden;
+    padding: 0 0 60px 0;
+    /* 🚀 LTR Change: Set direction to LTR 🚀 */
+    direction: ltr; 
+    background-color:var(--bg-color); 
 }
 
 .content-container {
-    display: flex; /* 🚀 تفعيل Flexbox لوضع الصورة والنص جنباً إلى جنب 🚀 */
-    justify-content: space-between; /* توزيع العناصر على الأطراف */
-    align-items: center; /* محاذاة العناصر عمودياً في المنتصف */
-    max-width: 1200px;
+    height: 100%;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    max-width: 1300px;
     margin: 0 auto;
-}
-
-/*==================================
-  2. تنسيق الصورة
-====================================*/
-.abstract-image {
-    /* 1. زيادة الحجم: نجعله يأخذ مساحة أكبر */
-    flex-basis: 50%; /* تم التعديل من 40% */
-    max-width: 550px; /* زيادة أقصى عرض لإظهار الصورة أكبر */
-    min-width: 30%;
-    
-    overflow: hidden; 
-    border-radius: 10px;
-    margin-top: 5%;
-    
-    /* 2. المسافة: إزالة margin-left واستخدام gap في content-container أو padding */
-    /* بما أن الاتجاه RTL، مساحة الصورة يجب أن تكون على اليمين والنص على اليسار */
-}
-.graph-placeholder {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover;
+    padding: 0 40px;
 }
 
 
-
-/*==================================
-  3. تنسيق النص والأزرار
-====================================*/
+/* ==================================
+ * 3. Text and Buttons Styling (Left side in LTR)
+ * (Modified for LTR)
+ * ================================== */
 .text-and-buttons {
-    /* 1. تقليل المساحة الممنوحة للنص */
-    flex-basis: 50%; /* تم التعديل من 60% */
-    max-width: 800px;
-    
-    /* 2. المحاذاة: يجب أن تكون لليمين لأن الاتجاه RTL */
-    text-align: left; /* تم التعديل من left إلى right */
-    
-    /* 3. مسافة إضافية: لضمان مسافة بين النص والصورة */
+    flex-basis: 55%; 
+    max-width: 600px;
+    /* 🚀 LTR Change: Align text to the left 🚀 */
+    text-align: left; 
+    /* 🚀 LTR Change: Add padding to the right (separating it from the image) 🚀 */
     padding-right: 50px; 
+    padding-left: 0; /* Remove old padding-left */
 }
+
 .text-and-buttons h1 {
-    font-size: 42px;
-    color: var(--dark-blue);
+    font-size: 42px; 
+    color: var(--text-color);
     line-height: 1.3;
+    margin-bottom: 0px; 
 }
 
 .text-and-buttons h1 span {
     color: var(--green-color);
     font-weight: 700;
-    margin-top: -10%;
-
+    display: block; 
 }
 
 .text-and-buttons p {
-    font-size: 1.15rem;
+    font-size: 1.25rem; 
     color: var(--text-color);
-    margin-bottom: 30px;
-    margin-top: -50px;
-    line-height: 1.6;
+    margin: 0px 0 40px 0; 
+    line-height: 1.7;
 }
 
-/* تنسيق الأزرار */
+/* Button Styling */
 .cta-buttons {
     display: flex;
     gap: 15px;
-    /* 4. محاذاة الأزرار لليمين لأن الاتجاه RTL */
-    justify-content: flex-end; /* تم التعديل من left إلى flex-end */
+    /* 🚀 LTR Change: Align buttons to the left 🚀 */
+    justify-content: flex-start; 
 }
 
 .btn {
     text-decoration: none;
     text-align: center;
-    padding: 12px 30px;
-    border-radius: 5px;
+    padding: 14px 35px; 
+    border-radius: 8px; 
     font-weight: 600;
-    transition: background-color 0.3s, transform 0.3s;
-
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .btn-discover {
-    background-color: #01AE44;
-    color: rgb(255, 255, 255);
-        border: 1px solid #01AE44;
-
+    background-color: var(--green-color);
+    color: var(--white-color); /* Assuming 'white-color' is defined or use #ffffff */
+    border: 2px solid var(--green-color); 
 }
 
 .btn-discover:hover {
-    background-color: rgb(255, 255, 255);
-    color: #01AE44;
-}
-
-.btn-consult {
-    background-color: rgb(255, 255, 255);
-    border: 1px solid #01AE44;
-    color: #01AE44;
-}
-
-.btn-consult:hover {
-    background-color: #01AE44;
-    color: rgb(255, 255, 255);
+    background-color: var(--white-color);
+    color: var(--green-color);
     transform: translateY(-2px);
-}
-
-/*==================================
- 4. التجاوب مع الشاشات الصغيرة (Mobile Responsiveness)
-====================================*/
-@media (max-width: 900px) {
-    /* 💥 تعديل الهوامش: إلغاء الهوامش في شاشة الجوال كما طلبت 💥 */
-    .hero-section {
-        /* تقليل الهوامش العمودية وإلغاء الهوامش الأفقية */
-        padding: 50px 0; 
-    }
-    
-.content-container {
-        flex-direction: column;
-        gap: 30px;
-        text-align: center; 
-    }
-    
-    .abstract-image, .text-and-buttons {
-        /* السماح للعناصر بأخذ عرض كامل */
-        flex-basis: 100%;
-        max-width: 100%;
-        margin: 0; 
-        padding: 0;
-    }
-
-.abstract-image {
-        /* للحفاظ على حجم معقول في الجوال */
-        max-width: 400px;
-        margin: 0 auto;
-    }
-    
-.text-and-buttons {
-        text-align: center; /* مهم جداً في الجوال */
-        padding-right: 0; /* إلغاء التباعد الإضافي */
-    }
-.cta-buttons {
-        justify-content: center; /* توسيط الأزرار في الجوال */
-    }
+    box-shadow: 0 6px 10px rgba(1, 174, 68, 0.3);
 }
 
 /* ==================================
- * تأثيرات متقدمة (Keyframes) على Hero Section
+ * 4. Abstract Image Styling (Right side in LTR)
+ * (Modified for LTR)
+ * ================================== */
+.abstract-image {
+    flex-basis: 35%;
+    /* 🚀 LTR Change: Align image container content to the right 🚀 */
+    text-align: right; 
+}
+.abstract-image img {
+    max-width: 100%;
+    height: auto;
+    display: block; 
+    margin-top: 0; 
+}
+
+/* ==================================
+ * 5. Navigation Buttons (Prev/Next) and Dots
+ * (Modified for LTR)
  * ================================== */
 
+/* Navigation Buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 12px 18px;
+    margin-top: -22px;
+    color: var(--white-color);
+    font-weight: bold;
+    font-size: 24px;
+    transition: 0.6s ease;
+    user-select: none;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 10;
+}
+
+/* 🚀 LTR Change: Prev button on the left, Next button on the right 🚀 */
+.prev {
+    left: 0; /* Prev on the left */
+    right: auto;
+    border-radius: 0 3px 3px 0; /* Rounded on the right side */
+}
+.next {
+    right: 0; /* Next on the right */
+    left: auto;
+    border-radius: 3px 0 0 3px; /* Rounded on the left side */
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+/* The rest of the slider animation and dots remain the same */
+@keyframes fade {
+    from {opacity: 0.4} 
+    to {opacity: 1}
+}
+
+.mySlides.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+.slider-dots{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+}
+
+.dot {
+    cursor: pointer;
+    height: 14px;
+    width: 14px;
+    margin: 0 4px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active-dot, .dot:hover {
+    background-color: var(--green-color);
+}
 
 
-/* تطبيق الحركة على الكلمة المميزة */
-.text-and-buttons h1 span {
-    /* تطبيق الحركة الجديدة */
-    animation: glowing-green 3s infinite alternate ease-in-out; 
-    
-    /* لضمان رؤية الظل، قد تحتاج للتأكد من لون الخلفية */
+/* ==================================
+ * 7. Slide Backgrounds and Overlays
+ * (No LTR changes needed here)
+ * ================================== */
+.mySlides {
     position: relative; 
-    z-index: 2;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 85vh; 
+    margin-top: 0;
+}
+
+.mySlides::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.mySlides .content-container {
+    position: relative;
+    z-index: 2; 
+}
+
+/* -----------------------
+ * Linking Slide Backgrounds
+ * ----------------------- */
+.slide-1 {
+    background-image: url('../sprite/slides-ar1.jpg'); 
+}
+
+.slide-2 {
+    background-image: url('../sprite/slides-ar1.jpg'); 
+}
+
+.slide-3 {
+    background-image: url('../sprite/slides-ar1.jpg'); 
+}
+
+.slide-1 h1, .slide-1 p,
+.slide-2 h1, .slide-2 p,
+.slide-3 h1, .slide-3 p {
+    color: var(--text-color);
+}
+
+.slide-1 h1 span,
+.slide-2 h1 span,
+.slide-3 h1 span {
+    color: var(--green-color); 
+}
+
+/* ==================================
+ * 6. Media Queries (Responsive)
+ * (Modified for LTR)
+ * ================================== */
+
+/* -----------------------
+ * Large Tablets and below (max-width 1199px)
+ * ----------------------- */
+@media (max-width: 1199px) {
+    .content-container {
+        max-width: 1000px;
+        padding: 0 30px;
+    }
+
+    .text-and-buttons {
+        flex-basis: 50%;
+        /* 🚀 LTR Change: Adjust padding-right 🚀 */
+        padding-right: 30px; 
+        padding-left: 0; 
+    }
+
+    .text-and-buttons h1 {
+        font-size: 36px;
+    }
+
+    .text-and-buttons p {
+        font-size: 1.15rem;
+        margin-bottom: 30px;
+        margin-top: 5; 
+    }
+
+    .btn {
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+
+    .abstract-image {
+        flex-basis: 40%;
+    }
+}
+
+/* -----------------------
+ * Small Tablets and below (max-width 991px)
+ * (Stacked Layout)
+ * ----------------------- */
+@media (max-width: 991px) {
+    .content-container {
+        flex-direction: column;
+        text-align: center;
+        padding: 0 20px;
+    }
+
+    /* 🚀 LTR Change: Image (1) then Text (2) 🚀 */
+    .mySlides .content-container {
+        display: flex; 
+        flex-direction: column;
+    }
+    .text-and-buttons {
+        order: 2; /* Text and buttons at the bottom */
+    }
+    .abstract-image {
+        order: 1; /* Image at the top */
+    }
+    
+    .text-and-buttons {
+        flex-basis: auto;
+        max-width: 100%;
+        /* 🚀 LTR Change: Remove all side padding 🚀 */
+        padding: 0; 
+        text-align: center;
+    }
+
+    .text-and-buttons h1 {
+        font-size: 32px;
+    }
+
+    .text-and-buttons p {
+        font-size: 1rem;
+        margin-bottom: 20px;
+        margin-top: 5px;
+    }
+
+    .cta-buttons {
+        justify-content: center;
+    }
+
+    .abstract-image {
+        flex-basis: auto;
+        text-align: center;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .abstract-image img {
+        max-width: 80%;
+    }
+    
+    .slider-container2 {
+        min-height: auto;
+        padding: 50px 0;
+    }
+
+    .mySlides {
+        height: auto; 
+        padding-top: 30px; 
+        padding-bottom: 30px;
+        margin-top: 0; 
+    }
+}
+
+/* -----------------------
+ * Small Phones and below (max-width 575px)
+ * ----------------------- */
+@media (max-width: 575px) {
+    .slider-container2 {
+        padding: 40px 0;
+        min-height: auto;
+    }
+
+    .text-and-buttons h1 {
+        font-size: 26px;
+    }
+
+    .text-and-buttons p {
+        font-size: 0.95rem;
+        margin-top: 10px; 
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .btn {
+        width: 80%;
+        max-width: 250px;
+    }
+
+    .abstract-image img {
+        max-width: 100%;
+    }
+    
+    .prev, .next {
+        font-size: 18px;
+        padding: 8px 12px;
+    }
+    
+    .slider-dots{
+        margin-top: -30px !important; 
+    }
+    
+    .dot {
+        height: 10px;
+        width: 10px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================================
+    Featured Projects Section Styling
+    ========================================================= */
+.featured-projects-section {
+    padding: 60px 20px;
+    direction: rtl; /* Changed to LTR */
+    text-align: center;
+    background-color: var(--gray-color);
+}
+
+.featured-projects-section h2 {
+    font-size: 2.5em;
+    color: var(--green-color);
+    margin-bottom: 10px;
+}
+.featured-projects-section p {
+    font-size: 16px;
+    color: var(--text-color, #666);
+    margin-bottom: 40px
+}
+
+/* Slider Container */
+.slider-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+    Project Card Styling
+    ========================================================= */
+.slick-projects-slider .project-card {
+    margin: 0 15px;
+    box-sizing: border-box;
+}
+
+.project-card {
+    /* Changed to LTR alignment */
+    text-align: left;
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.project-card:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.project-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 6px 6px 0 0;
+    margin-bottom: 0;
+}
+
+.project-details {
+    padding: 15px;
+}
+
+.project-details h3 {
+    font-size: 1.3em;
+    color: #212121;
+    margin-bottom: 5px;
+}
+
+.project-details p {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+    Slick Slider Arrows Control (Always visible on large screens)
+    ========================================================= */
+
+/* Arrow Styling (Color and Size) */
+.slick-prev:before,
+.slick-next:before {
+    font-size: 30px;
+    color: var(--green-color);
+    opacity: 1 !important;
+}
+
+/* Positioning Arrows for LTR */
+.slick-prev {
+    /* Swap right and left positions */
+    left: 0px;
+    right: auto;
+    z-index: 10;
+    opacity: 1 !important;
+    visibility: visible !important;
+
+}
+.slick-next {
+    /* Swap left and right positions */
+    right: 0px;
+    left: auto;
+    z-index: 10;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+
+
+
+
+/* ----------------------------------------------------
+    Responsiveness - Hiding Arrows on Small Screens
+    ---------------------------------------------------- */
+
+@media (max-width: 992px) {
+    /* Permanently hide arrows on tablets and phones */
+    .slick-prev,
+    .slick-next {
+        display: none !important;
+    }
+}
+
+
+
+
+
+
+
+
+
+/* =========================================================
+ * Core Features Section Styling (Block Style)
+ * (Modified for LTR)
+ * ========================================================= */
+.container2{
+    background-color: var(--bg-color);
+}
+
+.features-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    /* LTR: Keep text centered inside the blocks */
+    text-align: center;
+    align-items: stretch;
+    margin: 0 10px;
+
+    /* Negative margin remains the same to overlap the section above it */
+    margin-top: -60px;
+
+    position: relative;
+    z-index: 10;
+}
+
+
+.feature-item {
+    width: 17%;
+    min-width: 150px;
+    background-color: white;
+    padding: 25px 8px;
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    border: 1px solid var(--green-color);
+    margin-top: 30px;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+    font-size: 30px;
+    color: var(--green-color);
+    margin-bottom: 8px;
+    display: block;
+}
+
+.feature-item h4 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.feature-item p {
+    font-size: 12px;
+    color: #666;
+    line-height: 1.3;
+}
+
+
+/* -----------------------
+ * Mobile adjustments (max-width 576px)
+ * ----------------------- */
+@media (max-width: 576px) {
+    .features-grid {
+        gap: 8px;
+        margin-top: -20px;
+    }
+
+    .feature-item {
+        /* This is for stacking on mobile */
+        width: 100%;
+        padding: 15px 10px;
+        margin-top: 2px;
+    }
 }
 
 
@@ -596,6 +1295,447 @@ body, html {
 
 
 
+
+
+/* =======================================
+    About Takmol Section Styling
+    ======================================= */
+.about-takmol {
+    background-color: var(--bg-color); /* Light background */
+    padding: 60px 100px;
+    gap: 20%;
+
+}
+
+.about-content-grid {
+    display: flex;
+    gap: 40px;
+    align-items: center; /* Vertically center items for consistency */
+}
+
+/* ----------------------------------
+    Image Column Styling
+    ---------------------------------- */
+.about-image-side {
+    flex: 1;
+    /* Reversing the order for LTR to keep the image on the left */
+    order: 1; 
+}
+
+.main-about-img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    /* Deep and light shadow for a modern depth */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* ----------------------------------
+    Text Column Styling
+    ---------------------------------- */
+.about-text-side {
+    flex: 1;
+    /* Reversing the order for LTR to keep the text on the right */
+    order: 2;
+}
+
+.about-title {
+    font-size: 32px;
+    color: var(--green-color); /* Using the company's primary color */
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.4;
+    /* Text alignment change for LTR */
+    text-align: left;
+}
+
+.arrow-icon {
+    /* Distinct icon next to the title */
+    color: var(--green-color); /* Using the company's primary color */
+    /* Changed margin-right to margin-right for LTR */
+    margin-right: 10px;
+    font-size: 26px;
+}
+
+.about-paragraph {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    /* Text alignment change for LTR */
+    text-align: left;
+}
+
+/* ----------------------------------
+    Info Box Styling
+    ---------------------------------- */
+.info-box {
+    background-color: #fffaf0; /* Creamy or bright white background */
+    /* Changed border-right to border-left for LTR */
+    border-left: 5px solid var(--green-color); /* Side stripe in a distinct color to grab attention */
+    padding: 25px;
+    border-radius: 8px;
+    margin-top: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    /* Text alignment change for LTR */
+    text-align: left;
+}
+
+.info-box p {
+    font-size: 15px;
+    color: #444;
+    margin-bottom: 15px;
+}
+
+/* "Contact Us" Button Styling */
+.btn-consult-small {
+    display: inline-block;
+    background-color: var(--green-color);
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 15px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-consult-small:hover {
+    background-color: #00643d;
+    transform: translateY(-2px);
+}
+
+/* ✅ Mobile Adjustment: Reducing padding on mobile */
+@media (max-width: 992px) {
+
+    .about-takmol {
+        /* Vertical padding 40px, horizontal padding 20px (or less) */
+        padding: 40px 20px;
+        margin: 0;
+    }
+
+    .about-content-grid {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .about-image-side, .about-text-side {
+        width: 100%;
+        order: initial;
+    }
+    .about-title {
+        font-size: 18px;
+        /* Revert text alignment for mobile stacking if desired, otherwise keep 'left' */
+        text-align: left; 
+    }
+    /* Image appears first on mobile - keeping the original mobile logic */
+    .about-image-side { order: -1; }
+    .about-text-side { order: 0; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+======================================================
+1. التنسيقات الأساسية (تبقى كما هي)
+======================================================
+*/
+.clients1 {
+    background-color: var(--gray-color);
+}
+.clients {
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto; 
+    padding: 40px 0;
+}
+
+.clients h2 {
+    font-weight: 700;
+    color: var(--green-color);
+    font-size: 32px;
+    margin-bottom: 5px;
+}
+
+.clients p {
+    max-width: 800px; 
+    margin: 0 auto 30px;
+    color: var(--text-color);
+    font-size: 16px;
+}
+
+/* التنسيق الجديد لحاوية السلايدر */
+.slider-marquee {
+    height: 120px;
+    margin: 30px auto;
+    overflow: hidden; /* إخفاء الأجزاء الزائدة */
+    position: relative;
+    width: 90%; 
+    max-width: 1000px;
+}
+
+/*
+======================================================
+2. تنسيقات مسار الحركة (Track) والشرائح
+======================================================
+*/
+
+.slide-track-base {
+    display: flex;
+    /* ✅ هذا العرض الكلي سيتم تحديده لاحقاً بواسطة JS بعد تكرار الشرائح */
+    width: auto; 
+    
+    /* ✅ تفعيل الحركة */
+    animation: marquee-scroll 20s linear infinite; /* وقت أطول لحركة أبطأ */
+    
+    /* ✅ مهم لـ RTL: لتبدأ الحركة من اليمين لليسار */
+    direction: ltr; 
+}
+
+/* إيقاف الحركة عند التمرير */
+.slider-marquee:hover .slide-track-base {
+    animation-play-state: paused;
+}
+
+.slide-item {
+    /* ✅ تم تقليل العرض من 250px إلى 180px */
+    width: 180px; 
+    height: 100px;
+    flex-shrink: 0;
+    /* يمكنك تقليل الحشوة الداخلية أيضاً إذا كانت كبيرة */
+    padding: 5px 10px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box; 
+}
+
+.slide-item img {
+    width: 100%;
+    height: auto;
+    /* ✅ يجب التأكد من أن الحد الأقصى لصورة الشعار نفسها يناسب الـ 180px الجديدة */
+    max-width: 150px; 
+    filter: grayscale(100%);
+    transition: .3s linear;
+}
+
+.slide-item img:hover {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+}
+
+/*
+======================================================
+3. تعريف الحركة (@keyframes) - مُعدَّل للإزاحة بالبكسل
+======================================================
+*/@keyframes marquee-scroll {
+    0% {
+        transform: translateX(0px);
+    }
+
+    100% {
+        /* ✅ الإزاحة الجديدة: 7 شرائح * 180px = -1260px */
+        transform: translateX(-1260px);
+    }
+}
+
+
+
+
+
+
+
+
+
+/* =======================================
+    تنسيق قسم آراء العملاء (Testimonials)
+    ======================================= */
+.testimonials {
+    /* يمكن تغيير الخلفية لتكون بلون متباين (مثلاً رمادي فاتح) أو الأبيض */
+    padding: 20px 0;
+    padding-bottom: 10%;
+    background-color: var(--gray-color);
+}
+
+/* تنسيق العنوان العام في المنتصف */
+.section-header-centered {
+    text-align: center;
+    margin-bottom: 50px;
+}
+.section-header-centered .section-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--green-color);
+}
+.section-header-centered .section-subtitle {
+    font-size: 18px;
+    color: #666;
+}
+
+
+/* حاوية التوزيع الشبكي */
+.testimonials-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.testimonial-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    /* ظل واضح يعطي البطاقة بروزاً وشكلاً عصرياً */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); 
+    flex: 1; /* جعل البطاقات تأخذ مساحة متساوية */
+    min-width: 300px;
+    position: relative;
+    border-top: 4px solid var(--green-color); /* شريط علوي بلون مميز */
+}
+
+.quote-icon {
+    font-size: 30px;
+    color: var(--green-color); /* اللون الأخضر المميز */
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    opacity: 0.2; /* جعل الأيقونة خفيفة في الخلفية */
+}
+
+.testimonial-text {
+    font-size: 16px;
+    color: #444;
+    line-height: 1.7;
+    margin-bottom: 25px;
+    /* إعطاء مسافة للأيقونة في الركن */
+    padding-left: 10px; 
+}
+
+/* معلومات العميل (الصورة والاسم) */
+.client-info {
+    display: flex;
+    align-items: center;
+    text-align: right;
+    direction: rtl; 
+}
+
+.client-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-left: 15px;
+    object-fit: cover;
+    border: 2px solid var(--green-color);
+}
+
+.client-details .client-name {
+    font-size: 17px;
+    font-weight: bold;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.client-details .client-project {
+    display: block;
+    font-size: 14px;
+    color: #888;
+}
+
+/* ----------------------------------
+    التجاوب (Responsive)
+    ---------------------------------- */
+@media (max-width: 1024px) {
+    .testimonials-grid {
+        justify-content: center;
+    }
+    .testimonial-card {
+        flex-basis: 45%; /* عرض بطاقتين في الصف على التابلت */
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .testimonial-card {
+        flex-basis: 100%; /* بطاقة واحدة في الصف على الهاتف */
+    }
+}
 
 
 
@@ -624,7 +1764,7 @@ body, html {
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.7);
-    direction: ltr; 
+    direction: rtl; 
 }
 
 /* حالة الإظهار */
@@ -644,10 +1784,7 @@ body, html {
     border-radius: 8px;
     position: relative;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    direction: ltr;
 }
-
-
 
 .modal.is-visible .modal-content {
     transform: translateY(0);
@@ -664,7 +1801,7 @@ body, html {
 }
 .close-btn:hover,
 .close-btn:focus {
-    color: var(--green-color);
+    color: var(--green-color, #f75d79);
     text-decoration: none;
 }
 
@@ -693,13 +1830,23 @@ body, html {
 }
 
 
+
+
+
+
+
+
 /* تنسيق خاص بنافذة الصورة (Image Modal) */
 .center-image-modal .modal-content.image-content {
     background-color: transparent;
     margin: 10% auto;
     border: none;
     box-shadow: none;
-    max-width: 90%;
+    /* ************************************************* */
+    /* ** تعديل عرض الـ Modal لاستيعاب البطاقات الصغيرة ** */
+    /* ************************************************* */
+    max-width: 850px; /* تم تعديله من 90% */
+    width: 90%;
 }
 
 .image-display-container {
@@ -714,38 +1861,254 @@ body, html {
     border-radius: 5px;
 }
 
+.container {
+    padding: 40px 20px;
+    max-width: 1200px;
+    width: 100%;
+    text-align: center;
+}
+
+/* تنسيق العنوان */
+.header h1 {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: var(--green-color);
+    margin-bottom: 5px;
+}
+
+.header p {
+    color: var(--text-color);
+    margin-bottom: 50px;
+}
+
+/* تنسيق الشبكة للبطاقات */
+.cards-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap; 
+}
+
+/* التصميم الأساسي للبطاقة */
+.selection-card {
+    background-color: #fff;
+    border-radius: 20px;
+    
+    /* ************************************************* */
+    /* ** التعديل 1: تصغير الـ padding لتقليل الارتفاع ** */
+    /* ************************************************* */
+    padding: 15px 10px; /* تم تصغيره من 30px 20px */
+    
+    /* ************************************************* */
+    /* ** التعديل 2: تثبيت العرض على 100px ** */
+    /* ************************************************* */
+    width: 200px; 
+    
+    box-shadow: var(--shadow-base);
+    
+    /* ************************************************* */
+    /* ** التعديل 3: إضافة border-color للانتقال السلس ** */
+    /* ************************************************* */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; 
+    
+    text-decoration: none;
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    
+    /* الإطار الأساسي (لونه يتغير عند الـ hover) */
+    border: 2px solid #ddd;
+}
+
+/* تأثير التفاعل (Hover) */
+.selection-card:hover {
+    transform: translateY(-8px); 
+    box-shadow: var(--green-shadow); 
+    
+    /* ************************************************* */
+    /* ** التعديل 4: الإطار الأخضر عند التحويم ** */
+    /* ************************************************* */
+    border-color: var(--green-color);
+}
+
+/* تنسيق الأيقونات */
+.icon-wrapper {
+    position: relative;
+    
+    /* ************************************************* */
+    /* ** التعديل 5: تصغير حجم الأيقونات والمسافة السفلية ** */
+    /* ************************************************* */
+    font-size: 30px; /* تم تصغيره من 50px */
+    margin-bottom: 10px; /* تم تصغيره من 25px */
+    height: auto;
+}
+
+.cog-small {
+    font-size: 10px; /* تم تصغيره من 20px */
+    position: absolute;
+    top: 0px; /* تعديل الموضع */
+    left: -5px; /* تعديل الموضع */
+}
+
+/* ألوان الأيقونات حسب نوع البطاقة */
+.card-teal .icon-wrapper { color: var(--green-color); }
+.card-orange .icon-wrapper { color: var(--green-color); }
+.card-blue .icon-wrapper { color: var(--green-color); }
+
+/* تنسيق العناوين والوصف داخل البطاقة */
+.selection-card h2 {
+    /* ************************************************* */
+    /* ** التعديل 6: تصغير حجم عنوان البطاقة والمسافة السفلية ** */
+    /* ************************************************* */
+    font-size: 0.9rem; /* تم تصغيره من 1.3rem */
+    font-weight: bold;
+    margin-bottom: 5px; /* تم تقليلها من 10px */
+    line-height: 1.2;
+    color: var(--green-color);
+}
+
+.selection-card p {
+    color: var(--text-color);
+    
+    /* ************************************************* */
+    /* ** التعديل 7: تصغير حجم نص الوصف والمسافة السفلية ** */
+    /* ************************************************* */
+    font-size: 0.7rem; /* تصغير حجم الخط لتقليل الارتفاع */
+    line-height: 1.4;
+    margin-bottom: 15px; /* تم تقليلها من 30px */
+    
+    flex-grow: 1; 
+}
+
+/* تنسيق الزر (Button) */
+.select-btn {
+    border: none;
+    
+    /* ************************************************* */
+    /* ** التعديل 8: تصغير حجم الزر ** */
+    /* ************************************************* */
+    padding: 8px 15px; /* تصغير الزر ليناسب البطاقة الضيقة */
+    font-size: 0.75rem; /* تصغير حجم خط الزر */
+    
+    border-radius: 5px; /* تم تصغيره من 8px */
+    color: var(--light-color);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    width: 95%; /* زيادة العرض ليملأ البطاقة */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* تقليل ظل الزر */
+}
+
+/* ألوان الأزرار وتأثيرات التفاعل - تبقى كما هي */
+.card-teal .select-btn { background-color: var(--green-color); }
+.card-teal .select-btn:hover { background-color: var(--green-shadow); }
+.card-orange .select-btn { background-color: var(--green-color); }
+.card-orange .select-btn:hover { background-color: var(--green-shadow); }
+.card-blue .select-btn { background-color: var(--green-color); }
+.card-blue .select-btn:hover { background-color: var(--green-shadow); }
+
+/* =============================================== */
+/* تصميم متجاوب (Responsive Design) لـ 3 بطاقات في صف واحد */
+/* =============================================== */
+@media (max-width: 600px) {
+    
+    .cards-grid {
+        gap: 8px; 
+        justify-content: space-between; 
+    }
+    
+    .selection-card {
+        width:300PX; 
+        padding: 15px 10px; 
+        min-height: auto; 
+background-color: #fff;
+  border-radius: 20px;
+box-shadow: var(--shadow-base);
 
 
 
+    }
+    
+    /* ----------------------------------------------- */
+    /* زيادة أحجام الخطوط قليلاً لتحسين القراءة       */
+    /* ----------------------------------------------- */
 
+    /* 1. تصغير الأيقونة */
+    .icon-wrapper {
+        font-size: 25px; /* زيادة بسيطة من 20px */
+        margin-bottom: 5px; 
+    }
 
+    /* 2. زيادة حجم عنوان البطاقة */
+    .selection-card h2 {
+        font-size: 0.85rem; /* زيادة من 0.75rem */
+        margin-bottom: 2px;
+        line-height: 1.1;
+    }
 
+    /* 3. زيادة حجم نص الوصف */
+    .selection-card p {
+        font-size: 0.7rem; /* زيادة من 0.6rem */
+        margin-bottom: 8px;
+        line-height: 1.3;
+    }
 
+    /* 4. زيادة حجم الزر */
+    .select-btn {
+        padding: 6px 10px; 
+        font-size: 0.8rem; /* زيادة من 0.7rem */
+        width: 100%; 
+    }
+}
+/* 1. التنسيق الأساسي (يعمل على الديسكتوب وهو الأساس) */
+.form-row {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}
+.form-half {
+    flex: 1; /* على الديسكتوب يعمل بشكل ممتاز لتقسيم المساحة */
+    min-width: 0;
+}
+/* 1. التنسيق الأساسي يبقى كما هو (Flexbox) للدعم الأفضل على الديسكتوب */
+.form-row {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}
+.form-half {
+    flex: 1; 
+    min-width: 0;
+}
 
+/* 2. فرض سلوك الجدول على الشاشات الصغيرة (لحل مشكلة التعارض) */
+@media (max-width: 768px) {
+    
+    /* جعل الصف يتصرف كصف جدول */
+    .form-row {
+        display: table-row !important;
+        width: 100% !important;
+        gap: 0 !important; /* إلغاء الـ gap عند استخدام table */
+    }
+    
+    /* جعل النصف يتصرف كخلية جدول (وهذا هو المفتاح) */
+    .form-half {
+        display: table-cell !important;
+        width: 50% !important; /* ضمان تقسيم المساحة بالتساوي */
+        padding-left: 10px !important; /* لإضافة المسافة التي كانت يوفرها الـ gap */
+        padding-right: 10px !important;
+        flex: none !important; /* إلغاء خصائص flex */
+    }
+}
 
-
-
-
-
-
-
-
-
-
-
+/* ملاحظة: التنسيقات الأصلية لـ .form-input و .form-group يجب أن تكون موجودة بالفعل */
 
 /*==================================
   1. تنسيق قسم الخدمات (Services Section)
 ====================================*/
 
-.services-title {
-    color: var(--green-color); 
-    margin-bottom: 3%;
-    text-align: center;
-    font-size: 42px;
-    font-weight: bold;
-
-}
 
 
 
@@ -753,6 +2116,8 @@ body, html {
 
 /* شبكة البطاقات (Grid) */
 .services-grid {
+
+
     display: grid;
     /* تثبيت العرض الأدنى والأقصى للبطاقة عند 357 بكسل على الشاشات الكبيرة */
     grid-template-columns: repeat(auto-fit, minmax(357px, 357px)); 
@@ -762,19 +2127,27 @@ body, html {
     justify-content: center; /* لتوسيط الشبكة في منتصف الشاشة */
 }
 
+
+
+
+
+
+
+
 /* البطاقة الواحدة */
 .service-card {
-    border-radius: 10px;
-    box-shadow: 0 5px 20px #b9dbc6;
+    border-radius: 8px;
     text-align: center;
     cursor: pointer;
     position: relative;
     z-index: 1;
     padding: 30px;
-    
-    /* 🚀 التعديل المطلوب: إضافة إطار أبيض 🚀 */
-    border: 1px solid white; 
-    
+
+/* 2. مطابقة الخلفية والحدود */
+    background-color: white; /* يجب أن تكون خلفيتها بيضاء */
+    border: 1px solid #eee; /* إطار خفيف */
+    /* 3. مطابقة الظل */
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
     /* 🚀 تثبيت العرض على الشاشات الكبيرة 🚀 */
     width: 357px; 
     
@@ -792,7 +2165,7 @@ body, html {
 .service-card h3 {
     color: var(--green-color);
     margin-top: 15px;
-    font-size: 1.5rem;
+    font-size: 16px;
 }
 
 .service-card p {
@@ -821,9 +2194,7 @@ body, html {
     object-fit: cover;
     position: absolute;
     transition: opacity 0.3s;
-    margin-right: -50%;
-   margin-left: -50%;
-
+    margin-left: -50%;
 
 }
 
@@ -886,14 +2257,47 @@ body, html {
 
 
 
+
+
+.services-title {
+    color: var(--green-color); 
+    text-align: center;
+    font-size: 42px;
+    font-weight: bold;
+        padding-top: 1%;
+
+
+}
+.services-subtitle {
+    color: var(--text-color); 
+    text-align: center;
+    font-size: 18px;
+    padding-bottom: 1%;
+
+}
+
 .row {
     display: flex; /* يجعل العناصر في نفس السطر */
     flex-wrap: wrap; /* يسمح للعناصر بالنزول لسطر جديد عند ضيق المساحة */
-    margin: 0 -15px; /* لتعويض الهامش داخل الأعمدة */
     justify-content: center; /* توسيط مجموعة البطاقات */
+
+
+
+
 }
 
 
+
+
+
+.services-row{
+
+
+    background-color: var(--gray-color);
+
+
+
+}
 /* Style the counter cards */
 .card {
   padding: 16px;
@@ -906,7 +2310,25 @@ body, html {
     display: block;
     margin-bottom: 20px;
   }
+
+.services-row{
+
+margin-right: 0;
+margin-left: 0;
+border-radius:0;
+
+
+
 }
+
+}
+
+
+
+
+
+
+
 
 
 
@@ -921,11 +2343,11 @@ body, html {
 
 
 /*==================================
-  2. تنسيق النوافذ المنبثقة (Modals)
+  2. Modal Styling (LTR)
 ====================================*/
 
 .modal {
-    display: none; /* مخفية افتراضياً */
+    display: none; /* Hidden by default */
     position: fixed;
     z-index: 2000; 
     left: 0;
@@ -933,13 +2355,14 @@ body, html {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.7); /* خلفية داكنة شفافة */
-    direction: rtl; 
+    background-color: rgba(0, 0, 0, 0.7); /* Dark transparent background */
+    /* 💥 LTR Adjustment: Ensure Left-to-Right direction */
+    direction: ltr; 
 }
 
 .modal-content {
     background-color: #fefefe;
-    margin: 10% auto; /* توسيط عمودي وأفقي */
+    margin: 10% auto; /* Vertical and horizontal centering */
     padding: 30px;
     border: 1px solid #888;
     width: 80%;
@@ -947,26 +2370,27 @@ body, html {
     border-radius: 8px;
     position: relative;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    text-align: right;
+    /* 💥 LTR Adjustment: Align text to the LEFT */
+    text-align: left; 
 }
 
-/* نافذة التفاصيل */
+/* Detail Modal */
 .service-content h3 {
     color: var(--green-color);
     border-bottom: 2px solid #eee;
     padding-bottom: 10px;
-        text-align: center;
-
+    /* Keeping text centered for titles, common for modals */
+    text-align: center; 
 }
 .service-content p {
-       text-align: center;
-
-    white-space: pre-wrap; /* للحفاظ على تنسيق **النص** في data-modal-content */
+    /* Keeping text centered for description, if preferred */
+    text-align: center;
+    white-space: pre-wrap; /* To preserve **text** formatting in data-modal-content */
 }
 
-/* نافذة الصورة (Image Modal) */
+/* Image Modal */
 .center-image-modal .modal-content.image-content {
-    background-color: #ffffff; /* 🚀 خلفية بيضاء لنافذة الصورة 🚀 */
+    background-color: #ffffff; /* White background for the image modal */
     margin: 10% auto;
     max-width: 800px;
     text-align: center;
@@ -974,7 +2398,7 @@ body, html {
 
 .modal-center-image {
     max-width: 50%;
-    max-height: 50vh; /* تحديد ارتفاع أقصى */
+    max-height: 50vh; /* Set max height */
     display: block;
 }
 
@@ -983,10 +2407,11 @@ body, html {
     color: #999;
 }
 
-/* زر الإغلاق */
+/* Close Button */
 .close-btn {
     color: #aaa;
-    float: left; 
+    /* 💥 LTR Adjustment: Float to the RIGHT */
+    float: right; 
     font-size: 30px;
     font-weight: bold;
     cursor: pointer;
@@ -997,14 +2422,11 @@ body, html {
 }
 
 
-/* الاستجابة للشاشات الصغيرة */
+/* Responsive Design */
 @media (max-width: 768px) {
     .services-section { padding: 40px 20px; }
     .modal-content { width: 90%; margin: 20% auto; }
 }
-
-
-
 
 
 
@@ -1016,22 +2438,22 @@ body, html {
 
 
 
-
 /*==================================
-  1. تنسيق نافذة الاستفسار الجديدة (Standalone Modal)
+  1. Standalone Modal Styling (LTR)
 ====================================*/
 
 .standalone-modal-overlay {
-    display: none; /* مخفية افتراضياً */
+    display: none; /* Hidden by default */
     position: fixed;
-    z-index: 2200; /* قيمة عالية جداً لضمان الظهور */
+    z-index: 2200; /* Very high z-index to ensure visibility */
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.85); /* خلفية داكنة جداً */
-    direction: rtl; 
+    background-color: rgba(0, 0, 0, 0.85); /* Very dark background */
+    /* 💥 LTR Adjustment */
+    direction: ltr; 
 }
 
 .standalone-modal-content {
@@ -1046,10 +2468,11 @@ body, html {
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
 }
 
-/* زر الإغلاق */
+/* Close Button */
 .standalone-close-btn {
     color: var(--light-color);
-    float: left; 
+    /* 💥 LTR Adjustment: Float to the RIGHT */
+    float: right; 
     font-size: 38px;
     font-weight: bold;
     cursor: pointer;
@@ -1060,49 +2483,63 @@ body, html {
     color: var(--green-color);
 }
 
-/* عناوين النموذج */
+/* Form Headings */
 .form-title-new {
     color: var(--green-color);
-    text-align: right;
+    /* 💥 LTR Adjustment: Align text to the LEFT */
+    text-align: left; 
     margin-bottom: 5px;
     font-size: 2.2rem;
 }
 .form-subtitle-new {
-    color: #ccc;
-    text-align: right;
+    color: var(--text-color);
+    /* 💥 LTR Adjustment: Align text to the LEFT */
+    text-align: left; 
     margin-bottom: 35px;
 }
 .required-new {
     color: var(--green-color);
 }
+/* =============================================== */
+/* Adding a light line under the form title */
+/* =============================================== */
+
+.modal .form-title {
+    /* Add a light bottom border */
+    border-bottom: 1px solid #ddd; 
+    
+    /* Add padding below the title so the line appears directly beneath it */
+    padding-bottom: 10px; 
+    
+    /* Add margin below the line to separate it from the form content */
+    margin-bottom: 20px; 
+    /* 💥 LTR Adjustment: Ensure title alignment is LTR if not centered */
+    text-align: left;
+}
 
 /*==================================
-  2. تنسيق حقول النموذج الجديد
+  2. New Form Field Styling
 ====================================*/
 
 .form-group-new {
     margin-bottom: 25px;
 }
 
-.form-label-new {
-    display: block;
-    color: var(--light-color);
-    font-weight: 600;
-    margin-bottom: 10px;
-    text-align: left;
-}
 .form-input{
-    text-align: left;
+    /* 💥 LTR Adjustment: Align text to the LEFT */
+    text-align: left; 
 }
 .form-input-new, .form-select-new, .form-textarea-new {
     width: 100%;
     padding: 15px;
     border: 1px solid #555;
     border-radius: 8px;
-    background-color: #2e3542; /* خلفية داكنة قليلاً للحقل */
+    background-color: #2e3542; /* Slightly dark background for the field */
     color: var(--light-color);
     font-size: 1.1rem;
     box-sizing: border-box;
+    /* 💥 LTR Adjustment: Ensure text input direction */
+    text-align: left;
 }
 
 .form-input-new:focus, .form-select-new:focus, .form-textarea-new:focus {
@@ -1110,66 +2547,72 @@ body, html {
     border-color: var(--green-color);
     box-shadow: 0 0 0 2px var(--green-color);
 }
-/* 1. تنسيق الحقول النصية القياسية (لضمان ارتفاع مناسب للجميع) */
+
+/* 1. Standard text fields styling (to ensure proper height for all) */
 .form-input {
     width: 100%;
-    padding: 10px 15px; /* لتحديد ارتفاع الحقل */
+    padding: 10px 15px; /* To define field height */
     border: 1px solid #ddd;
     border-radius: 4px;
     box-sizing: border-box; 
     margin-bottom: 10px; 
+    /* 💥 LTR Adjustment: Ensure text input direction */
+    text-align: left;
 }
 
-
-
-
-
-
-
-
-/* ⬅️ تأكد أن الحاوية الأم مضبوطة بشكل صحيح */
+/* ⬅️ Ensure the parent container is correctly set up */
 .file-upload-wrapper {
-    position: relative; /* يجب أن تكون الحاوية الأم لها position: relative */
-    /* ... (بقية تنسيقات الـ flexbox تبقى كما هي) ... */
+    position: relative; /* The parent container must have position: relative */
+    /* ... (The rest of the flexbox styles remain the same) ... */
 }
 
-
-
-/* 2. تنسيق حاوية رفع الملفات (لجعلها تبدو كـ form-input) */
+/* 2. File Upload Container Styling (to make it look like form-input) */
 .file-upload-wrapper.form-input {
     display: flex;
     align-items: center; 
-    padding: 0 !important; /* إزالة الـ padding من الحاوية الأم */
+    padding: 0 !important; /* Remove padding from the parent container */
     height: auto; 
 }
 
-/* 3. تنسيق الزر المخصص (لتطبيق اللون الأزرق) */
+/* 3. Custom Button Styling (to apply the blue color) */
 .file-upload-wrapper .custom-file-button {
-    /* ⬅️ اللون المطلوب: أزرق */
-    background-color:  #01AE44;
+    /* ⬅️ Requested Color: Green */
+    background-color: #01AE44;
     color: white; 
     
-    padding: 10px 15px; /* تطابق الارتفاع مع الحقول الأخرى */
+    padding: 10px 15px; /* Match height with other fields */
     border-radius: 0; 
     cursor: pointer;
     white-space: nowrap; 
     z-index: 5;
     font-size: 0.9em;
     
-    /* ترتيب العناصر داخل flexbox */
-    order: 2; /* وضع الزر في نهاية المحتوى */
+    /* 💥 LTR Adjustment: Place the button at the END (Right side) of the content */
+    order: 2; 
     height: 100%; 
     display: flex;
     align-items: center; 
     justify-content: center;
 }
-
-/* 4. تأثير التحويم على الزر (أزرق أغمق) */
+/* 2. Enforce smaller width on mobile screens */
+@media (max-width: 768px) {
+    .file-upload-wrapper .custom-file-button {
+        /* 💡 Reduce the width here */
+        width: 40% !important; 
+        max-width: 250px; 
+        
+        /* 💥 LTR Adjustment: Center the button */
+        margin-left: auto; 
+        margin-right: auto; 
+        display: block !important; 
+    }
+}
+/* 4. Hover effect on the button (darker blue) */
 .file-upload-wrapper .custom-file-button:hover {
     background-color: #0056b3;
 }
 
-/* 5. تنسيق منطقة عرض اسم الملفات */
+/* 5. File Name Display Area Styling */
 .file-upload-wrapper .file-name-display {
     color: #666;
     font-size: 0.9em;
@@ -1177,50 +2620,59 @@ body, html {
     overflow: hidden; 
     text-overflow: ellipsis; 
     white-space: nowrap;
-    text-align: right;
-    padding: 10px; /* إضافة padding لتبدو كجزء من الحقل */
+    /* 💥 LTR Adjustment: Align text to the LEFT */
+    text-align: left; 
+    padding: 10px; /* Add padding to look like part of the field */
     border: none;
-    order: 1; /* وضع النص في بداية المحتوى */
+    /* 💥 LTR Adjustment: Place the text at the START (Left side) of the content */
+    order: 1; 
 }
 
-/* هذا التنسيق يخفي حقل الإدخال الأصلي تمامًا ويضعه فوق الزر المخصص للنقر */
+/* This styling completely hides the original input field and places it over the custom button for clicking */
 .actual-file-input {
-    opacity: 0;         /* ⬅️ جعله شفافًا تماماً */
-    position: absolute; /* وضعه في موقع مطلق */
-    width: 100%;        /* جعله يغطي الحاوية بالكامل */
-    height: 100%;       /* جعله يغطي الحاوية بالكامل */
-    cursor: pointer;    /* لإظهار شكل اليد عند التحويم */
-    z-index: 10;        /* وضعه فوق الزر المخصص للنقر عليه */
-    top: 0;             /* تثبيته في الأعلى */
-    right: 0;           /* تثبيته في اليمين (مهم لتصميم RTL) */
+    opacity: 0;     /* ⬅️ Make it completely transparent */
+    position: absolute; /* Place it at an absolute position */
+    width: 100%;    /* Make it cover the entire container */
+    height: 100%;    /* Make it cover the entire container */
+    cursor: pointer;  /* Show hand shape on hover */
+    z-index: 10;    /* Place it above the custom button for clicking */
+    top: 0;       /* Anchor it to the top */
+    /* 💥 LTR Adjustment: Anchor it to the LEFT (important for LTR design) */
+    left: 0;       
+    right: auto; /* Remove the right anchor */
 }
 
 
+/* =============================================== */
+/* Correction for field labels visibility inside Modals */
+/* =============================================== */
 
+/* Target all Labels inside any form within a Modal */
+.modal .registration-form .form-label {
+    /* Ensure labels are visible and not hidden */
+    display: block !important; 
+    visibility: visible !important;
+    
+    /* Set a dark color for labels to ensure they appear on the form background */
+    color: var(--green-color) !important; 
+    font-size: 14px !important; /* You can change this value (e.g., 12px or 14px) */
 
+    /* Increase weight to make them clearer */
+    font-weight: 600 !important; 
+    
+    /* Small margin below the label before the input field */
+    margin-bottom: 5px !important; 
+    padding-bottom: 0 !important;
+    /* 💥 LTR Adjustment: Align text to the LEFT */
+    text-align: left; 
+}
 
+/* In case you are using light background inputs/fields */
+.modal .registration-form .form-input {
+    color: #000000 !important; /* Ensure dark text color inside fields */
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* تجميع حقلين في صف واحد */
+/* Group two fields in one row */
 .form-group-inline-new {
     display: flex;
     gap: 25px;
@@ -1231,7 +2683,7 @@ body, html {
     margin-bottom: 0;
 }
 
-/* زر الإرسال */
+/* Submission Button */
 .submit-button-new {
     background-color: var(--green-color);
     color: var(--light-color);
@@ -1242,6 +2694,7 @@ body, html {
     font-weight: 700;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
+    /* 💥 LTR Adjustment: Float to the LEFT */
     float: left; 
 }
 .submit-button-new:hover {
@@ -1249,7 +2702,7 @@ body, html {
     transform: translateY(-2px);
 }
 
-/* الاستجابة للشاشات الصغيرة */
+/* Responsive Design for small screens */
 @media (max-width: 600px) {
     .standalone-modal-content {
         margin: 10% auto;
@@ -1265,59 +2718,40 @@ body, html {
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*==================================
-  تنسيق الصورة داخل نافذة التسجيل
+  Image Styling inside the Registration Modal
 ====================================*/
 
 .image-display-container {
     text-align: center;
-    margin-bottom: 25px; /* فصل الصورة عن النموذج */
+    margin-bottom: 25px; /* Separate image from form */
     padding-bottom: 15px;
-    border-bottom: 1px solid #333; /* خط فاصل بين الصورة والنموذج */
+    border-bottom: 1px solid #333; /* Separator line between image and form */
 }
 
-/* 🚀 تنسيق الصورة 🚀 */
+/* 🚀 Image Styling 🚀 */
 .modal-center-image-form {
-    /* حدد حجم مناسب لعرض الصورة في النموذج. يمكنك تغيير 150px و 150px */
+    /* Set a suitable size for displaying the image in the form. You can change 150px and 150px */
     width: 20%; 
     height: 20%; 
-    display: inline-block; /* لتكون قابلة للتوسيط */
+    display: inline-block; /* To make it centerable */
     margin: 0 auto;
-    border-radius: 50%; /* إذا كنت تفضل أن تكون دائرية */
+    border-radius: 50%; /* If you prefer it to be circular */
     object-fit: cover;
 }
 
-/* تعديل خصائص الحاوية للحجم الأكبر */
+/* Adjust container properties for larger size */
 .modal-content.image-content {
     background-color: var(--dark-blue);
     margin: 5% auto;
-    max-width: 650px; /* زيادة قليلة لاستيعاب الصورة والنموذج */
+    max-width: 650px; /* Slight increase to accommodate the image and form */
     padding: 30px;
     border: 1px solid var(--green-color);
     border-radius: 10px;
 }
 
-
-
 /*==================================
-  تنسيق زر الإرسال (داخل نافذة imageModal/التسجيل)
+  Submission Button Styling (inside imageModal/Registration)
 ====================================*/
 
 .registration-form .submit-button {
@@ -1331,12 +2765,12 @@ body, html {
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
     
-    /* 🚀 التعديل الرئيسي للتوسيط 🚀 */
-    display: block; /* اجعل الزر يأخذ عرض السطر بالكامل لكي يعمل التوسيط */
-    margin: 20px auto 0 auto; /* توسيط أفقي مع هامش علوي (20px) */
-    float: none; /* إزالة خاصية المحاذاة اليسرى */
+    /* 🚀 Main Adjustment for Centering 🚀 */
+    display: block; /* Make the button take up the full line width for centering to work */
+    margin: 20px auto 0 auto; /* Horizontal centering with top margin (20px) */
+    float: none; /* Remove the left alignment property */
     
-    width: fit-content; /* اجعل عرض الزر يتناسب مع محتواه فقط */
+    width: fit-content; /* Make the button width fit its content only */
 }
 
 .registration-form .submit-button:hover {
@@ -1345,244 +2779,222 @@ body, html {
     box-shadow: 0 3px 8px #006226
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* 8. قسم ننير لك الطريق (Vision Section) */
-.vision-section {
-    background-color: var(--dark-blue); 
-    padding: 80px 0; /* إضافة حشوة علوية وسفلية للقسم */
+/* =================== Mobile Specific Adjustments (Max Width 767px) =================== */
+@media (max-width: 767px) {
+    
+    /* 1. Target the outer scrollable wrapper (Table) */
+    .scrollable-wrapper {
+        /* Tight margin: 0 top/bottom, 2px right/left */
+        margin: 0 2px !important; 
+        
+        /* Reduce width to fit the margin (100% - 2px right - 2px left) */
+        width: calc(100% - 4px) !important; 
+        
+        /* Remove any other restrictions */
+        max-width: none !important; 
+        padding: 0 !important;
+    }
+
+    /* 2. Inner Purchase Request Container */
+    /* Remove internal margins completely here to rely on the wrapper's margin 
+       This ensures the table itself is flush with the edge of the scrollable-wrapper 
+    */
+    .purchase-order-container {
+        margin: 0 !important; 
+        width: 100% !important;
+        padding: 0 !important;
+    }
+
+    /* Note: 
+       No adjustments will be added to .registration-form or .modal-content 
+       to maintain the default margins for the rest of the form elements.
+    */
 }
 
-.vision-container {
-    display: flex;
-    /* 💡 التعديل هنا: عكس الترتيب لوضع الصورة على اليسار والنص على اليمين 💡 */
-    flex-direction: row-reverse; 
-    
-    gap: 10%; /* مسافة بين الصورة والمحتوى */
-    text-align: left;
-    max-width: 1400px;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ----------------------------------
+    Our Vision Section Styling
+    ---------------------------------- */
+.our-vision {
+    background-color: var(--bg-color);
+    padding: 60px 100px;
+    /* LTR alignment */
+    text-align: left; 
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
-/* ------------------------------------------------ */
-/* تنسيق المحتوى النصي (Vision Content) */
-/* ------------------------------------------------ */
-.vision-content {
-    /* 💡 التعديل هنا: السماح له بأخذ نسبة أكبر ليناسب الصورة الأصغر */
-    flex: 1; /* يأخذ جزء من المساحة */
-    max-width: 45%; /* تحديد أقصى عرض */
-    text-align: left; 
-    padding: 20px; /* حشوة داخلية للحواف */
-}
-
-.vision-content .section-title-right {
-    /* العنوان الرئيسي "نسهل لك الطلبات" */
-    color: var(--green-color); 
-    font-size: 50px;
-    margin-bottom: 40px; /* زيادة المسافة */
-    text-align: left;
-    font-weight: bold;
-}
-
-.vision-item {
-    margin-bottom: 30px;
-    color: white; /* لون النص في هذا القسم */
-}
-
-/* 💡 تنسيق الأيقونات (بدون دائرة كما طلبت سابقاً) 💡 */
-.vision-title i {
-    display: inline-flex; 
-    font-size: 26px; /* حجم الأيقونة */
-    color: #01AE44; /* لون الأيقونة خضراء */
-    margin-right: 15px; 
-    flex-shrink: 0; 
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
-.vision-item h3 {
-    font-size: 28px; /* حجم العنوان */
+.our-vision-content-grid {
     display: flex;
-    align-items: center; 
-    color: rgb(34, 34, 34); /* لون العنوان أبيض ليناسب الخلفية الداكنة */
-}
-
-.vision-item p {
-    padding-left: 40px; /* زيادة حشوة لليمين لتبدأ بعد العنوان */
-    font-size: 1.15rem; /* حجم النص */
-    line-height: 1.6;
-    color: #484848; /* لون رمادي فاتح للنص */
-    margin-top: 10px;
-}
-
-/* ------------------------------------------------ */
-/* تنسيق الصورة (Vision Image) */
-/* ------------------------------------------------ */
-.vision-image-wrapper {
-    /* 💡 التعديل هنا: السماح للصورة بأخذ نسبة من المساحة */
-    flex: 1; 
-    max-width: 50%; /* تحديد أقصى عرض للصورة */
-    display: flex; 
-    justify-content: center;
+    gap: 80px;
     align-items: center;
 }
 
-.vision-image {
+/* ----------------------------------
+    Image Column Styling
+    ---------------------------------- */
+.our-vision-image-side {
+    flex: 1;
+    /* 💥 التعديل هنا: الصورة على اليمين في LTR (order: 2) */
+    order: 2; 
+}
+
+.main-our-vision-img {
     width: 100%;
     height: auto;
-    display: block;
-    object-fit: contain; 
-    max-height: 500px; /* تحديد أقصى ارتفاع للصورة للحفاظ على تناسبها */
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
-/* ------------------------------------------------ */
-/* الاستجابة للهواتف المحمولة (Media Queries) */
-/* ------------------------------------------------ */
+/* ----------------------------------
+    Text Column Styling
+    ---------------------------------- */
+.our-vision-text-side {
+    flex: 1;
+    /* 💥 التعديل هنا: النص على اليسار في LTR (order: 1) */
+    order: 1; 
+}
+
+.our-vision-title {
+    font-size: 32px;
+    color: var(--green-color);
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.4;
+    text-align: left; /* Alignment for LTR */
+}
+
+.arrow-icon {
+    color: var(--green-color);
+    /* LTR margin */
+    margin-right: 10px;
+    margin-left: 0;
+    font-size: 26px;
+}
+
+/* ----------------------------------
+    Vision and Values Styling
+    ---------------------------------- */
+.vision-title {
+    font-size: 22px;
+    color: var(--text-color);
+    font-weight: 700;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    text-align: left; /* Alignment for LTR */
+}
+.vision-icon {
+    color: var(--green-color);
+    /* LTR margin */
+    margin-right: 10px;
+    margin-left: 0;
+    font-size: 20px;
+}
+.vision-item p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    text-align: left; /* Alignment for LTR */
+}
+
+/* ----------------------------------
+    Contact Us Button and Wrapper Styling
+    ---------------------------------- */
+.consult-button-wrapper {
+    /* Ensures the inline-block button is aligned to the left in LTR */
+    text-align: left; 
+    margin-top: 20px;
+}
+
+.btn-consult-small {
+    display: inline-block;
+    background-color: var(--green-color);
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 15px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-consult-small:hover {
+    background-color: #00643d;
+    transform: translateY(-2px);
+}
+
+/* ----------------------------------
+    Media Queries
+    ---------------------------------- */
 @media (max-width: 992px) {
-    /* 🚀 التعديل 1: إلغاء الهوامش الأفقية للقسم نفسه 🚀 */
-    .vision-section {
-        /* إضافة بادينج بسيط للحماية من الحواف */
-        padding: 40px 20px; 
+
+    .our-vision {
+        padding: 40px 20px;
+        margin: 0;
     }
-    
-    .vision-container {
+
+    .our-vision-content-grid {
+        /* Keep stacking on mobile */
         flex-direction: column; 
-        gap: 40px;
-        /* إزالة الهوامش التلقائية والسماح للبادينج في .vision-section بالعمل */
-        margin: 0 auto; 
+        gap: 30px;
     }
-    
-    /* 2. تنسيق الصورة والمحتوى */
-    .vision-content, .vision-image-wrapper {
-        max-width: 100%; 
-        padding: 0; 
-        /* محاذاة كل المحتوى داخل vision-content لليمين */
-        text-align: left; 
+
+    .our-vision-image-side, .our-vision-text-side {
+        width: 100%;
+        order: initial;
     }
-    
-    /* 3. تنسيق العناوين الرئيسية والفرعية */
-    .vision-content .section-title-right {
-        font-size: 35px;
-        /* تأكيد المحاذاة لليمين */
-        text-align: left; 
-        margin-bottom: 20px;
+
+    .our-vision-title {
+        font-size: 24px;
+        text-align: left;
+    }
+
+    /* Image appears first on mobile (order: -1) */
+    .our-vision-image-side { order: -1; } 
+    .our-vision-text-side { order: 0; }
+
+    /* Rule 2: Center "Contact Us Now" button on mobile */
+    .consult-button-wrapper {
+        text-align: center;
     }
 
 
-        .vision-item {
-        /* إزالة البادينج الجانبي غير الضروري من هنا */
-        padding-left: 0;
-        padding-right: 0;
-    }
-    /* 💡 التعديل الرئيسي: جعل العنوان والفقرة بمحاذاة واحدة 💡 */
-    .vision-item h3 {
-        /* تحويلها إلى محاذاة لليمين وإلغاء flex-end */
-        justify-content: flex-start; /* إذا كنت تريد الأيقونة والنص متجاورين في اليمين */
-        text-align: left; 
-        /* لضمان بدء العنوان من الحافة اليمين للحاوية */
-        padding-right: 0; 
-    }
-    .vision-item p {
-        /* 🚀 التعديل: تأكيد محاذاة الفقرة لليمين 🚀 */
-        text-align: left; 
-        /* إزالة أي بادينج يبعد الفقرة عن اليمين */
-        padding-right: 0; 
-        padding-left: 0;
-    }
-        /* 💡 لضمان أن الفقرة تبدأ مباشرة بعد العنوان 💡 */
-    .vision-item p {
-        /* هذا البادينج كان مستخدماً في الكود الأصلي ليعوض وجود الأيقونة */
-        /* إذا كنت تريد الفقرة تبدأ تحت الأيقونة مباشرة، أعد القيمة: */
-        /* padding-right: 40px; */ 
-        /* أو اتركها 0 إذا كنت تريدها تحت النص مباشرة */
-        padding-left: 0;
-    }
-    
-    /* لضمان بقاء الأيقونة على يسار النص في شاشات الجوال */
-    .vision-title i {
-        margin-right: 10px;
-        margin-left: 0;
-    }
 }
 
 
@@ -1592,247 +3004,107 @@ body, html {
 
 
 
-/* ==================================
- * تنسيقات قسم "عملاؤنا" (ثابت ومضغوط)
- * ==================================
- */
-.clients-section {
-    background-color: white; 
-    padding: 30px 0; 
-    margin-top: -7%;
-}
 
-.clients-section .clients-title {
-    color: var(--green-color); 
-    margin-bottom: 3%;
-    text-align: center;
-    font-size: 42px;
-    font-weight: bold;
 
-}
 
-.customer-slider {
-    /* 💡 التعديل هنا: أساس الترتيب الأفقي المضغوط */
-    display: flex;
-    flex-wrap: nowrap; /* 🚀 مهم: لمنع النزول لصف جديد في الشاشات الكبيرة 🚀 */
-    justify-content: center; /* توسيط الشعارات داخل الحاوية */
-    overflow-x: hidden; 
-    max-width: 1200px; 
-    margin: 0 auto;
-    
-    /* 💡 تقليل المسافة بين الشعارات بشكل كبير 💡 */
-    gap: 10px; 
-}
 
-/* ---------------------------------------------------- */
-/* التعديلات على تنسيق الحاوية لكل شعار (logo-link) */
-/* ---------------------------------------------------- */
-.logo-link {
-    /* 💡 التعديل هنا: تحديد عرض صغير جداً لكل شعار */
-    width: 10%; /* كل شعار يأخذ 10% من العرض، مما يسمح بـ 10 شعارات في الصف */
-    min-width: 80px; /* ضمان عرض أدنى أصغر */
-    text-decoration: none; 
-    flex-shrink: 0; 
-    padding: 0 5px; /* مسافة داخلية قليلة */
-    transition: all 0.2s ease; 
-}
 
-/* ---------------------------------------------------- */
-/* التعديلات على حجم ومظهر الشعار نفسه (logo-item) */
-/* ---------------------------------------------------- */
-.logo-item {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* القسم الرئيسي (Hero Section) */
+.hero-section {
+    /* هذه الأنماط تحتاج إلى صورة خلفية حقيقية لشركة المقاولات */
+/* ✅ تفعيل التدرج اللوني الأخضر للحجم الكامل */
+background-image: linear-gradient(135deg,#64f33d , #62ff00);color: white;
+/* تدرج لوني بالمنتصف *//* الأكواد: #C8E6C9 (أخضر فاتح جداً) إلى #81C784 (أخضر فاتح متوسط) */    
+height: 60vh; 
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%; 
-    height: 70px; /* تصغير الارتفاع إلى 70px */
-    background-color: transparent; 
-    margin: 0 auto; 
-    cursor: default; 
-}
-
-/* ضبط حجم الصورة وتأثير التدرج الرمادي (اختياري) */
-.logo-item img {
-    max-width: 90%; 
-    max-height: 90%; 
-    width: auto; 
-    height: auto;
-
-    transition: filter 0.3s ease, opacity 0.3s ease;
-}
-
-
-
-/* ---------------------------------------------------- */
-/* توافق الشاشات (Media Queries) */
-/* ---------------------------------------------------- */
-
-@media (max-width: 1024px) {
-    .logo-link { 
-        width: 16%; /* عرض 6 شعارات في التابليت */
-        min-width: 90px;
-    }
-}
-
-@media (max-width: 768px) {
-    .customer-slider {
-        /* السماح بالنزول لصف جديد في شاشات الجوال */
-        flex-wrap: wrap;
-        gap: 15px; 
-    }
-    .logo-link { 
-        width: 25%; /* عرض 4 شعارات في الأجهزة اللوحية الأصغر */
-    }
-}
-@media (max-width: 500px) {
-    .logo-link { 
-        width: 30%; /* عرض 3 شعارات في الجوال */
-        min-width: 80px;
-    }
-}
-
-
-
-
-
-
-
-
-
-
-.why-takamul-title{
-    color: var(--green-color); 
-    margin-bottom: 3%;
-    margin-top: 5%;
-
     text-align: center;
-    font-size: 42px;
-    font-weight: bold;
-
+    color: white;
+    position: relative;
+    z-index: 1; /* لضمان ظهور المحتوى فوق تراكب اللون */
 }
 
-
-/* ------------------ تنسيق الحاوية والبطاقة الأساسي (2x2 Layout) ------------------ */
-
-.features-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; 
-    gap: 30px; 
-    max-width: 1200px; 
-    margin: 0 auto; 
+/* تراكب لوني لجعل النص مقروءًا */
+.hero-section::before { 
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); 
+    z-index: -1; 
 }
 
-.feature-card {
-    /* 💡 التعديل هنا: تحديد حجم الحشوة الأساسي لجميع البطاقات (سيكون هو حجم البطاقات البيضاء) */
-    width: calc(50% - 15px); 
-    padding: 25px; /* قيمة أقل لجعلها أصغر من القيمة الأصلية (30px) */
-    border-radius: 15px;
-    
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; 
-    text-align: left;
-    transition: all 0.3s ease; /* إضافة حركة انتقالية للحركة السلسة */
-}
-
-/* ------------------ تنسيق الألوان والخلفيات (المطلوب) ------------------ */
-
-/* 🟢 تنسيق البطاقات ذات الخلفية الخضراء (الأولى والرابعة) 🟢 */
-.card-1, .card-4 {
-    background-color: #4CAF50; 
-    border: none;
-
-    width: calc(50% - 15px); 
-    padding: 25px; /* قيمة أقل لجعلها أصغر من القيمة الأصلية (30px) */
-
-}
-/* ⚪ تنسيق البطاقات البيضاء بإطار أخضر (الثانية والثالثة) ⚪ */
-.card-2, .card-3 {
-    background-color: white; 
-    border: 1px solid #4CAF50; 
-    /* ملاحظة: لا حاجة لتغيير الـ padding أو الـ transform هنا، ستحصل على القيم الأساسية (25px) */
-}
-
-/* ------------------ تنسيق المحتوى الداخلي (الأيقونة والعناوين) ------------------ */
-
-.title-group {
-    /* يجعل الأيقونة والعنوان الرئيسي على نفس السطر */
-    display: flex;
-    /* هذا هو المفتاح: يضمن المحاذاة الرأسية في المنتصف */
-    align-items: center; 
+.hero-content h2 {
+    font-size: 40px;
     margin-bottom: 10px;
 }
 
-.feature-icon {
-    /* تحديد حجم الأيقونة وضمان مساحة بينها وبين العنوان */
-    width: 40px; 
-    height: 40px; 
-    margin-right: 15px; 
-    flex-shrink: 0; 
-    /* تأكد أن الأيقونة لا تحتوي على هوامش عمودية عليا أو سفلى غير مرغوب فيها */
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
-/* تنسيق العنوان الرئيسي (لكل البطاقات) */
-.green-main-title {
-    font-size: 1.5em; 
-    /* إزالة الهوامش العمودية الافتراضية للـ h3 لتحقيق توسيط أدق */
-    margin-top: 0;
-    margin-bottom: 0;
+.primary-cta {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: var(--dark-color);
+    text-decoration: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border-radius: 5px;
     font-weight: bold;
+    transition: background-color 0.3s;
 }
 
-/* تنسيق العنوان الثانوي (الوصف) */
-.gray-sub-text {
-    font-size: 1em;
-    line-height: 1.6;
-    margin-top: 5px;
-    padding-left: 55px; 
-}
+.primary-cta:hover {
+    background-color: var(--green-color);
 
-/* 🖍️ التحكم بألوان النص حسب الخلفية 🖍️ */
-
-/* داخل البطاقات الخضراء (1 و 4): العنوان الرئيسي أبيض والوصف رمادي فاتح */
-.card-1 .green-main-title, .card-4 .green-main-title {
-        color: white !important; 
-}
-.card-1 .gray-sub-text, .card-4 .gray-sub-text {
-        color: white !important; 
-}
-
-/* داخل البطاقات البيضاء (2 و 3): العنوان الرئيسي أخضر داكن والوصف رمادي داكن */
-.card-2 .green-main-title, .card-3 .green-main-title {
-   
-    color: #388e3c !important; /* أخضر داكن */
-}
-.card-2 .gray-sub-text, .card-3 .gray-sub-text {
-    color: #6c757d !important; /* رمادي داكن */
-}
-
-
-
-/* ------------------ توافق الشاشات (MEDIA QUERIES) ------------------ */
-/* تطبق هذه التنسيقات عندما يكون عرض الشاشة 768 بكسل أو أقل (الهواتف والأجهزة اللوحية الصغيرة) */
-
-@media (max-width: 768px) {
-    .features-grid {
-        /* إزالة المسافة الأفقية لتوفير مساحة أكبر */
-        gap: 20px 0; 
-    }
-    
-    .feature-card {
-        /* تصبح كل بطاقة تأخذ العرض الكامل للحاوية (100% - الهوامش) */
-        width: 100%; 
-        /* توسيط البطاقة لضمان الترتيب الجيد */
-        margin: 0 auto; 
-    }
-
-    /* يمكنك هنا تقليل حجم النص إذا لزم الأمر */
-    .green-main-title {
-        font-size: 1.3em;
-    }
 }
 
 
@@ -1861,362 +3133,105 @@ body, html {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*==================================
-  إضافة قسم نموذج الاستفسار (Form Section)
-====================================*/
-
-/* لتجنب التداخل، سنستخدم محددات أكثر تفصيلاً */
-.page-container {
-    padding: 50px;
-    background-color: var(--form-bg-dark); 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+/* =========================================================
+  Why Takmol? Section Styling (Adapted for LTR)
+  ========================================================= */
+
+.takmol-advantage-section {
+    padding: 60px 0;
+    /* Keeping main section header/text centered */
+    text-align: center;
+    background-color: var(--gray-color); /* Light background */
 }
 
-.form-wrapper {
-    background-color: var(--form-bg-light); 
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    padding: 40px;
-    width: 100%;
-    max-width: 1200px; 
+.takmol-advantage-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
 }
 
-.contact-form {
-    padding: 20px;
-    direction: ltr; 
+.takmol-advantage-title {
+    font-size: 32px;
+    color: var(--green-color);
+    margin-bottom: 10px;
+    font-weight: 600;
 }
 
-/* تنسيق الصفوف والحقول */
-.form-row {
-    display: flex;
-    margin-bottom: 25px;
-    gap: 30px; 
-    width: 100%;
+.takmol-advantage-subtitle {
+    font-size: 16px;
+    color: var(--text-color, #666);
+    margin-bottom: 40px;
 }
 
-.form-group {
-    display: flex;
-    flex-direction: column;
-    /* 💡 مهم: لضمان أن الـ form-group يمتد على كامل مساحته المخصصة */
-    width: 100%;
-}
 
-/* الصفوف ذات العرض الكامل: حقل الاسم وحقل الاستفسار */
-.first-row .full-width-field,
-.form-row.full-row .full-width-field {
-    /* 🚀 التعديل هنا: لضمان العرض الكامل 🚀 */
-    flex: 1 1 100%; 
-}
-
-/* الصف الثاني: البريد الإلكتروني ورقم الهاتف (مقسوم) */
-.split-row {
+/* Features Grid Styling */
+.advantage-items-grid {
     display: grid;
-    grid-template-columns: 3fr 2fr; 
-    gap: 30px;
+    /* Desktop: 3 equal columns */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
 }
 
-.form-group label {
-    display: flex; /* 💡 التعديل الرئيسي: تفعيل Flexbox 💡 */
-    
-    /* 🚀 مهم: عكس الترتيب لوضع النجمة على اليمين 🚀 */
-    flex-direction: row-reverse; 
-    
-    /* توسيط عموديًا لضمان محاذاة النص والنجمة */
-    align-items: center; 
-    
-    /* توزيع المساحة (اختياري، للحفاظ على النجمة ملاصقة للنص) */
-    justify-content: flex-end; 
-
-    /* ... باقي التنسيقات تبقى كما هي ... */
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--form-text-label); 
-    margin-bottom: 8px;
-    font-family: var(--main-font);
-}
-
-.required {
-    /* 💡 التعديل هنا: إضافة مسافة صغيرة بين النص والنجمة 💡 */
-    margin-right: 5px; /* مسافة على يمين النجمة (بما أن الترتيب معكوس) */
-    
-    color: var(--green-color); 
-    font-size: 1.2rem;
-    font-weight: bold;
-    flex-shrink: 0; /* منع النجمة من التقلص */
-}
-
-input, select, textarea {
-    width: 100%;
-    padding: 12px 15px;
-    border: 1px solid #ced4da;
-    border-radius: 4px;
-    font-size: 1rem;
-    color: var(--form-text-dark);
-    box-sizing: border-box; 
-    font-family: var(--main-font);
-    text-align: left;
-}
-
-/* 💡 التعديل هنا: مربع النص لجعله مستطيلاً طويلاً وعريضاً 💡 */
-textarea {
-    resize: vertical; 
-    /* 🚀 الارتفاع هو المفتاح لشكل المستطيل 🚀 */
-    height: 200px; 
-}
-
-/* تأثير التركيز الأزرق المطابق للصورة */
-input:focus,
-select:focus,
-textarea:focus {
-    border-color: var(--form-primary-blue);
-    outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-}
-
-
-/* زر الإرسال */
-.submit-row {
+.advantage-card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    /* 💥 LTR Adjustment: Align text to the left */
     text-align: left; 
-    margin-top: 30px;
+    border: 1px solid #eee; /* Light border */
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    min-height: 180px; /* To ensure cards have roughly equal height */
 }
 
-.submit-btn {
-    background-color: var( --green-color);
-    color: var(--light-color);
-    border: none;
-    padding: 10px 30px;
-    border-radius: 4px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-family: var(--main-font);
+.advantage-card:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-3px);
+    border-color: var(--green-color); /* Highlight border on hover */
 }
 
-.submit-btn:hover {
-    background-color: #006226;
+.advantage-icon {
+    font-size: 30px;
+    color: var(--green-color);
+    margin-bottom: 15px;
+    display: block; /* To ensure it takes a full line */
 }
 
-/*==================================
-  إضافة قسم نموذج الاستفسار (Form Section)
-====================================*/
-/* ... التنسيقات العامة للقسم تبقى كما هي ... */
-
-/* الاستجابة للشاشات الصغيرة */
-@media (max-width: 768px) {
-    /* 🚀 التعديل الرئيسي: إلغاء الهوامش الأفقية للصفحة 🚀 */
-    .page-container {
-        /* إبقاء الهوامش العمودية (50px) وإلغاء الهوامش الأفقية (0) */
-        padding: 50px 0; 
-        min-height: auto; /* يمكن تقليل ارتفاعه في الجوال */
-    }
-    
-    .form-wrapper {
-        /* تقليل الحشوة الداخلية للحاوية قليلاً */
-        padding: 20px 10px; /* 10px هامش أفقي صغير لحماية المحتوى */
-        box-shadow: none; /* يمكن إزالة الظل في الجوال لجعلها أكثر سلاسة */
-    }
-    .contact-form {
-        padding: 0; /* إزالة الـ padding الداخلي لـ form */
-    }
-    
-    .form-row {
-        flex-direction: column;
-        gap: 0;
-        margin-bottom: 20px; /* تقليل المسافة بين الحقول */
-    }
-    .split-row {
-        grid-template-columns: 1fr;
-        gap: 0; /* إلغاء الفراغ بين حقل الهاتف والإيميل */
-    }
-    
-    .submit-row {
-        text-align: center; 
-        margin-top: 20px; /* تقليل المسافة العلوية لزر الإرسال */
-    }
-    
-    /* لضمان أن الحقول تملأ العرض بالكامل داخل الـ form-wrapper */
-    .form-group {
-        width: 100%;
-        margin-bottom: 15px; /* إضافة مسافة بين الحقول التي كانت متجاورة */
-    }
-    
-    /* ... باقي التنسيقات الأخرى للشاشات الصغيرة ... */
-}
-/*==================================
-  تنسيق رسالة الخطأ (Validation Error)
-====================================*/
-
-/* إخفاء رسالة الخطأ افتراضياً */
-.error-message {
-    color: var(--green-color); 
-    font-size: 0.85rem;
-    margin-top: 5px;
-    display: none; 
+.advantage-card h3 {
+    font-size: 18px;
+    color: var(--heading-color, #333);
     font-weight: 700;
-    text-align: right;
+    margin-bottom: 10px;
+    /* 💥 LTR Adjustment: Ensure alignment */
+    text-align: left; 
 }
 
-/* إظهار الرسالة عندما يتم إضافة فئة 'error' إلى الـ form-group */
-.form-group.error .error-message {
-    display: block; 
-}
-
-/* تمييز حدود الحقل باللون الزهري عند وجود خطأ */
-.form-group.error input,
-.form-group.error select,
-.form-group.error textarea {
-    border-color: var(--green-color);
-    box-shadow: 0 0 0 0.2rem rgba(247, 93, 121, 0.3); 
+.advantage-card p {
+    font-size: 14px;
+    color: var(--text-color, #666);
+    line-height: 1.6;
+    /* 💥 LTR Adjustment: Ensure alignment */
+    text-align: left; 
 }
 
 
+/* ----------------------------------
+  Responsive
+  ---------------------------------- */
 
+@media (max-width: 992px) {
+    .advantage-items-grid {
+        /* Tablet: 2 columns */
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+@media (max-width: 576px) {
+    .advantage-items-grid {
+        /* Mobile: 1 column */
+        grid-template-columns: 1fr;
+    }
+}
 
 
 
@@ -2242,19 +3257,19 @@ textarea:focus {
 
 
 /*==================================
-  11. تذييل الصفحة (Footer)
+  11. Footer Styling (LTR)
 ====================================*/
 
 .main-footer {
-    background-color:  #01AE44; /* لون خلفية داكن */
+    background-color: var(--green-color); /* Dark background color */
     color: var(--light-color, #ffffff);
-    padding: 60px 50px 20px; /* حشو علوي وسفلي جيد */
-    direction: ltr; /* ضمان الاتجاه من اليمين لليسار */
-    margin-bottom: 1%;
+    padding: 60px 50px 20px;
+    /* 💥 LTR Adjustment: Ensure Left-to-Right direction */
+    direction: ltr; 
 }
 
 /*==================================
-  تعديل توزيع المساحة داخل حاوية الفوتر
+  Adjusting space distribution inside the footer container
 ====================================*/
 
 .footer-container {
@@ -2263,7 +3278,9 @@ textarea:focus {
     max-width: 1300px;
     margin: 0 auto;
     gap: 60px;
-    margin-left: 15%;
+    /* 💥 LTR Adjustment: Distance/gap on the LEFT side */
+    margin-left: 15%; 
+    margin-right: auto; /* Ensure right margin is reset */
     padding-bottom: 40px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -2276,24 +3293,25 @@ textarea:focus {
     display: inline-block;
 }
 
-/* الخط تحت العناوين (لتتناسب مع الصورة) */
+/* Line under the titles */
 .footer-heading::after {
     content: '';
     position: absolute;
-    left: 0;
+    /* 💥 LTR Adjustment: Line starts from the LEFT */
+    left: 0; 
+    right: auto; /* Reset right */
     bottom: -8px;
-    width: 60%; 
+    width: 60%;
     height: 3px;
-    background-color: var(--green-color, #f75d79); /* اللون الزهري */
+    background-color: var(--green-color, #f75d79); 
 }
 
-/* --- القسم الأيمن: الشعار والمعلومات (.footer-info) --- */
+/* --- Left Section: Logo and Info (.footer-info) --- */
 .footer-info {
-    /* التعديل: تقليل الوزن لجعله أصغر (كان 2) */
-    flex: 1; 
-    /* يمكن تقليل الحد الأدنى للوصول إلى الحجم الأصغر المطلوب */
-    min-width: 200px; /* تم تقليله */
-    max-width: 300px; /* تم تقليله */
+    flex: 1;
+    min-width: 200px;
+    max-width: 300px;
+    /* 💥 LTR Adjustment: Align text to the LEFT */
     text-align: left;
 }
 
@@ -2305,23 +3323,20 @@ textarea:focus {
     color: white;
     margin-bottom: 15px;
 }
-/* استخدام تنسيقات الشعار التي لديك بالفعل (.logo-shape, .logo-text) */
 
 .company-desc {
     font-size: 0.95rem;
     line-height: 1.6;
     color: white;
-        margin-top: 10%;
-
+    margin-top: 10%;
 }
 
 
-
-/* --- القسم الأوسط: الروابط (.footer-links-group) --- */
+/* --- Middle Section: Links (.footer-links-group) --- */
 .footer-links-group {
-    /* الاحتفاظ به كعمود متوسط الحجم (كان 1) */
-    flex: 1; 
+    flex: 1;
     min-width: 150px;
+    /* 💥 LTR Adjustment: Align text to the LEFT */
     text-align: left;
 }
 .footer-links {
@@ -2346,13 +3361,13 @@ textarea:focus {
 
 }
 
-/* --- القسم الأيسر: التواصل (.footer-contact) --- */
+/* --- Right Section: Contact (.footer-contact) --- */
 .footer-contact {
-    /* التعديل: زيادة الوزن لجعله أكبر (كان 1) */
-    /* زيادة وزنه إلى 2 يجعله يأخذ ضعف مساحة الروابط وقسم المعلومات (الجديد) */
+    /* Set contact section to take more space (2x the other columns) */
     flex: 2; 
-    min-width: 250px; /* زيادة الحد الأدنى لدعم المحتوى الجديد */
-    text-align: left;
+    min-width: 250px;
+    /* 💥 LTR Adjustment: Align text to the LEFT */
+    text-align: left; 
 }
 
 .contact-item {
@@ -2364,42 +3379,121 @@ textarea:focus {
 }
 
 .contact-item i {
-    color: var(--green-color);
+    color: var(--green-color, #f75d79);
     font-size: 1.1rem;
-    margin-right: 10px; /* مسافة بين الأيقونة والنص */
-    width: 20px; /* لتنسيق الأيقونات */
+    /* LTR Adjustment: Space on the right of the icon */
+    margin-right: 10px; 
+    margin-left: 0; /* Reset left margin */
+    width: 20px;
     text-align: center;
 }
 
 /*==================================
-  الاستجابة للشاشات الصغيرة (Responsive Design)
+  1. General Contact Section Styling (Footer Contact)
 ====================================*/
+
+.footer-contact {
+    /* Remove direction: rtl; */
+    /* LTR Alignment is inherited or set above */
+    text-align: left;
+    margin-top: 20px;
+}
+
+/*==================================
+  2. Contact Item Link Styling
+====================================*/
+
+.contact-item-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-color-light, #fefefe); 
+    
+    /* 🌟 LTR Adjustment: Icon on the LEFT, Text on the RIGHT 🌟 */
+    flex-direction: row; /* Icon (first in HTML) then text */
+    /* Align all items to the LEFT of the container */
+    justify-content: flex-start; 
+    
+    margin-bottom: 15px;
+    gap: 15px;
+    
+    transition: color 0.3s;
+}
+
+/*==================================
+  3. Icon Circle Styling
+====================================*/
+
+.social-icon-link-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    
+    background-color: var(--light-color, #ffffff);
+    color: var(--green-color); 
+    
+    transition: all 0.3s ease;
+}
+
+.social-icon-link-details i {
+    font-size: 1rem;
+    margin: 0; 
+}
+
+/*==================================
+  4. Hover Effects
+====================================*/
+
+.contact-item-link:hover .social-icon-link-details {
+    background-color: var(--green-color);
+    color: var(--light-color, #ffffff); 
+    box-shadow: 0 0 10px #006226;
+}
+
+.contact-item-link:hover {
+    color: var(--light-color, #ffffff); 
+}
+
+
+/*==================================
+  5. Responsive Design
+====================================*/
+
 @media (max-width: 900px) {
     .footer-container {
-        /* تحويل التذييل إلى تخطيط عمودي */
+        /* Convert to vertical layout */
         flex-direction: column;
         gap: 50px;
-        align-items: flex-start; /* محاذاة كل الأقسام إلى اليمين */
+        /* 💥 LTR Adjustment: Align all sections to the LEFT */
+        align-items: flex-start; 
+        margin-left: auto; /* Reset margin on mobile */
     }
 
     .footer-info, .footer-links-group, .footer-contact {
-        flex: none; /* إزالة Flexbox Weights */
+        flex: none;
         width: 100%;
         max-width: none;
-        text-align: left;
+        /* 💥 LTR Adjustment: Align text to the LEFT */
+        text-align: left; 
     }
     
     .footer-info {
-        order: 3; /* وضع قسم المعلومات في الأسفل (قبل حقوق النشر) */
+        order: 3;
         padding-top: 20px;
     }
     
     .footer-links-group {
-        order: 1; /* وضع الروابط في الأعلى */
+        order: 1;
     }
     
     .footer-contact {
-        order: 2; /* وضع التواصل في المنتصف */
+        order: 2;
+        /* Ensure mobile alignment matches the container: flex-start */
+        justify-content: flex-start; 
     }
 
     .company-desc {
@@ -2411,121 +3505,26 @@ textarea:focus {
         padding: 40px 15px 15px;
     }
     .copyright {
-        text-align: left;
+        /* 💥 LTR Adjustment: Align text to the LEFT */
+        text-align: left; 
         font-size: 0.75rem;
     }
-}
-
-
-
-
-
-
-
-/*==================================
- 1. التنسيقات العامة لقسم التواصل (Footer Contact)
-====================================*/
-
-.footer-contact {
-    /* لجعل المحتوى داخل هذا القسم يميل إلى اليمين (لغة عربية) */
-    direction: ltr; 
-    /* لمحاذاة العناصر إلى اليمين */
-    text-align: left;
-    /* لإضافة مسافة تحت العنوان */
-    margin-top: 20px;
-}
-
-/*==================================
- 2. تنسيق رابط عنصر التواصل (الموقع، الهاتف، البريد)
-====================================*/
-
-.contact-item-link {
-    display: flex;       /* لترتيب الأيقونة والنص في صف واحد */
-    align-items: center; /* توسيط عموديًا */
-    text-decoration: none;
-    color: var(--text-color-light, #fefefe); /* لون النص فاتح ليظهر في الفوتر الداكن */
     
-    /* 🌟 ضبط الاتجاه ليتناسب مع RTL: الأيقونة على اليمين 🌟 */
-    flex-direction: row-reverse; 
-    /* محاذاة كل العناصر إلى يمين الحاوية */
-    justify-content: flex-end; 
-    
-    /* المسافات */
-    margin-bottom: 15px;
-    gap: 15px; /* مسافة بين الأيقونة والنص */
-    
-    transition: color 0.3s;
-}
-
-/*==================================
- 3. تنسيق الأيقونة الدائرية (Icon Circle)
-====================================*/
-
-.social-icon-link-details {
-    /* أساسيات الدائرة والتوسيط */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    /* الحجم الأساسي لشاشات سطح المكتب */
-    width: 40px; 
-    height: 40px;
-    border-radius: 50%;
-    
-    /* الألوان الافتراضية: الخلفية بيضاء والرمز زهري */
-    background-color: var(--light-color, #ffffff); 
-    color: var(--green-color); 
-    
-    transition: all 0.3s ease;
-}
-
-.social-icon-link-details i {
-    font-size: 1rem;
-    /* التأكد من عدم وجود هوامش مسببة لعدم التمركز */
-    margin: 0; 
-}
-
-/*==================================
- 4. تأثير التحويم (Hover Effects)
-====================================*/
-
-.contact-item-link:hover .social-icon-link-details {
-    /* انعكاس الألوان على الدائرة */
-    background-color: var(--green-color);
-    color: var(--light-color, #ffffff); 
-    box-shadow: 0 0 10px #006226;
-}
-
-.contact-item-link:hover {
-    /* لجعل النص زهرياً عند التحويم */
-    color: var(--light-color, #ffffff); 
-}
-
-
-/*==================================
- 5. الاستجابة للهواتف المحمولة (Media Query)
-====================================*/
-
-@media (max-width: 600px) {
-    
-    /* تصغير حجم الدائرة لملائمة الشاشات الصغيرة */
+    /* Small screen adjustments for contact items */
     .social-icon-link-details {
         width: 30px; 
         height: 30px;
     }
 
-    /* تصغير حجم الأيقونة داخل الدائرة */
     .social-icon-link-details i {
-        font-size: 0.8rem; /* حجم أصغر ليتمركز بشكل أفضل */
+        font-size: 0.8rem;
     }
 
-    /* تقليل المسافات لملائمة الشاشة الصغيرة */
     .contact-item-link {
-        margin-bottom: 8px; /* تقليل المسافة العمودية بين عناصر التواصل */
-        gap: 8px;           /* تقليل المسافة بين الأيقونة والنص */
+        margin-bottom: 8px;
+        gap: 8px;
     }
     
-    /* تصغير حجم خط النص ليكون أكثر قراءة */
     .contact-item-link span {
         font-size: 14px; 
     }
@@ -2540,57 +3539,85 @@ textarea:focus {
 
 
 
-/*==================================
-  زر الواتساب العائم (Floating WhatsApp)
-====================================*/
 
-.whatsapp-float {
-    /* الوضعية: جعله عائمًا دائمًا */
-    position: fixed; 
-    /* الموقع: الزاوية اليمنى السفلية (مناسب للمواقع العربية RTL) */
-    bottom: 25px;
-    right: 25px; 
-    
-    /* الشكل والحجم */
+
+
+/* Positioning the floating button and ensuring it floats over content */
+.floating-button {
+    position: fixed;
+    /* 💥 LTR Adjustment: Distance from the LEFT */
+    left: 20px; 
+    right: auto; /* Ensure 'right' is reset */
+    bottom: 20px; /* Distance from the bottom */
+    z-index: 1000; /* To ensure it appears above other elements */
+    display: flex;
+    /* Display icons above the main button */
+    flex-direction: column-reverse; 
+    align-items: center;
+}
+
+/* Main Button Styling */
+.main-button {
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    
-    /* الألوان */
-    background-color: #25d366; /* اللون الأخضر لواتساب */
+    background-image: linear-gradient(135deg, var(--green-color), #00ff08); 
     color: white;
-    
-    /* التوسيط */
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    font-size: 24px;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+/* Icons List */
+.social-icons {
+    /* The core visibility logic relies on changing max-height */
+    max-height: 0; 
+    overflow: hidden; /* Hides icons when max-height is zero */
+    transition: max-height 0.4s ease-in-out; /* Smooth transition for appearance */
+    margin-bottom: 5px; /* Small space between the list and the main button */
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Space between icons */
+}
+
+/* On hover over the entire button container, the icon list appears */
+.floating-button:hover .social-icons {
+    /* Value large enough to ensure all icons appear */
+    max-height: 300px; 
+}
+
+/* Social Icon Styling */
+.icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: white;
     text-decoration: none;
-    
-    /* الأيقونة */
-    font-size: 30px; 
-    
-    /* الظل والانتقال */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    z-index: 1000; /* لضمان ظهوره فوق باقي العناصر */
-    transition: transform 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transform: scale(0.8); /* Icons start slightly smaller */
+    opacity: 0; /* Start completely hidden */
+    transition: opacity 0.3s ease 0.1s, transform 0.3s ease 0.1s; /* Slight delay in appearance */
 }
 
-/* تأثير عند التحويم */
-.whatsapp-float:hover {
-    background-color: #128c7e; /* لون أغمق عند التحويم */
-    transform: scale(1.1); /* تكبير خفيف لجذب الانتباه */
+/* Show icons with animation on hover */
+.floating-button:hover .icon {
+    opacity: 1;
+    transform: scale(1);
 }
 
-/* الاستجابة للهواتف المحمولة */
-@media (max-width: 600px) {
-    .whatsapp-float {
-        width: 50px;
-        height: 50px;
-        font-size: 25px;
-        bottom: 15px;
-        right: 15px;
-    }
-}
+/* Specific colors for each icon */
+.whatsapp { background-color: #25D366; }
+.linkedin { background-color: #0A66C2; }
+.twitter { background-color: #000000; } /* X (Black) color */
 
 
 
@@ -2632,417 +3659,3 @@ textarea:focus {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ---------------------------------------------------- */
-/* ------------------- الأنماط العامة وإعادة تعيين التنسيقات ------------------- */
-/* ---------------------------------------------------- */
-body {
-    font-family: 'Arial', sans-serif;
-}
-.purchase-order-container {
-    width: 95%;
-    max-width: 950px; 
-    margin: 30px auto;
-    direction: rtl; 
-    color: #000; 
-    font-size: 13px;
-}
-.main-form-table-unified {
-    width: 100%;
-    border-collapse: collapse;
-    table-layout: fixed; 
-    border: 3px solid #000; 
-}
-.main-form-table-unified td {
-    border: 1px solid #000;
-    padding: 3px; 
-    vertical-align: middle;
-    text-align: center; 
-    height: 25px; 
-    box-sizing: border-box; 
-    color: #000; 
-    font-size: 13px;
-}
-
-/* ------------------- أنماط عناوين الأقسام الرئيسية (الخلايا الداخلية) ------------------- */
-.section-title-cell {
-    background-color: #f0f0f0; /* خلفية العنوان داخل القسم */
-    font-weight: bold;
-    font-size: 15px;
-    height: 30px;
-    text-align: center !important; 
-    padding-right: 0;
-    border-left: 3px solid #000 !important; 
-    border-right: 1px solid #000 !important; /* يتصل بالعمود المدمج */
-    border-bottom: 1px solid #000 !important; 
-    border-top: 3px solid #000 !important;
-    vertical-align: middle !important;
-}
-
-/* عنوان معلومات الطلب (Header) لا يحتاج لحد علوي سميك لأنه يبدأ الجدول */
-.info-title-cell {
-    border-top: none !important; 
-}
-/* عناوين التسعير والتعميد غامقة وخلفيتها أغمق قليلاً (كما طلبت سابقاً) */
-.pricing-title-cell,
-.ordering-title-cell,
-.approval-title-cell {
-    font-weight: bold !important; 
-    background-color: #e6e6e6 !important; 
-}
-
-
-/* فواصل سميكة بين الأقسام */
-.section-bottom-border td { 
-    border-bottom: 3px solid #000 !important;
-}
-.section-top-border td {
-    border-top: 3px solid #000 !important;
-}
-/* إزالة الحدود المكررة بعد تطبيق الحدود السميكة في HTML */
-.items-end-row td, 
-.payment-end-row td, 
-.approval-end-row td { 
-    border-bottom: 3px solid #000 !important;
-}
-
-
-/* ------------------- النمط العام للخلايا الرأسية المدمجة ------------------- */
-.merged-vertical-cell {
-    writing-mode: vertical-rl; 
-    text-orientation: mixed;
-    transform: rotate(0deg); 
-    font-weight: bold;
-    background-color: #f0f0f0; 
-    width: 3%; 
-    min-width: 25px;
-    border-right: 3px solid #000 !important; /* الحد الأيمن للجدول */
-    border-left: 1px solid #000 !important;
-    vertical-align: middle !important; 
-    text-align: center !important; 
-    padding: 0;
-}
-/* التأكد من أن العمود المدمج على أقصى اليسار له حد يسار سميك */
-.merged-vertical-cell.merged-left-side {
-    border-left: 3px solid #000 !important;
-}
-
-
-/* ------------------- قسم معلومات الطلب ------------------- */
-.logo-cell-large { 
-    width: 19%; 
-    min-width: 100px;
-    border-left: 3px solid #000 !important; 
-    border-right: 1px solid #000 !important;
-    display: table-cell !important; 
-    text-align: center; 
-    vertical-align: middle;
-}
-.logo-cell-large img {
-    max-width: 160px; 
-    max-height: 150px; 
-    height: auto;
-    display: block; 
-    margin: 0 auto; 
-}
-
-.main-title-section-complex { 
-    text-align: center; 
-}
-.main-title-text { font-size: 12px;     color: var(--green-color);
-}
-.company-sub-text { font-size: 11px; }
-
-.code-label-cell, 
-.order-details-complex-key-top, 
-.order-details-complex-key-middle, 
-.order-details-complex-key-bottom { 
-    font-weight: bold; 
-    background-color: #f0f0f0; 
-    width: 9%;
-    min-width: 45px;
-}
-
-/* أنماط خانات الكود */
-.code-digit {
-    width: 3.1%; 
-    padding: 0; 
-    position: relative;
-}
-.code-digit-input {
-    width: 100%;
-    height: 100%;
-    padding: 0;
-    margin: 0;
-    border: none;
-    text-align: center;
-    font-weight: bold;
-    font-size: 14px;
-    box-sizing: border-box;
-    background-color: transparent; 
-    -moz-appearance: textfield; 
-}
-.code-digit-input::-webkit-outer-spin-button,
-.code-digit-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-.code-digit-input:focus {
-    outline: 2px solid #007bff; 
-    box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
-    background-color: #f9f9f9;
-}
-
-
-/* ------------------- قسم البنود المطلوبة ------------------- */
-.items-headers-row td { background-color: #e6e6e6; font-weight: bold; height: 30px; } 
-.item-row td {
-    height: 20px; 
-    padding: 1px 3px; 
-}
-/* أوزان الأعمدة القياسية (لشاشات الكمبيوتر) - التوزيع الأصلي */
-.item-id-header, .item-id-cell { width: 4.7%; min-width: 40px; text-align: center; }
-.item-unit-header, .item-unit-cell { width: 7%; min-width: 50px; text-align: center; }
-.item-quantity-header, .item-quantity-cell { width: 9%; min-width: 60px; text-align: center; }
-.item-price-header, .item-price-cell { width: 11%; min-width: 75px; text-align: center; }
-.item-total-header, .item-total-cell, .total-value-final { width: 13%; min-width: 85px; text-align: center; }
-.item-desc-header-merged-new { 
-    width: 43%; 
-    text-align: right;
-    padding-right: 5px;
-    border-left: 1px solid #000 !important; 
-}
-.item-desc-cell { 
-    text-align: right;
-    padding-right: 5px;
-    border-left: 1px solid #000 !important; 
-}
-
-/* عمود الصورة وتعديل حجم الأيقونة (صغيرة جداً) */
-.item-image-header { 
-    width: 12.3%; 
-    font-weight: bold;
-    border-left: 3px solid #000 !important; 
-    display: table-cell; 
-    vertical-align: middle;
-}
-.item-image-cell {
-    width: 12.3%;
-    border-left: 3px solid #000 !important; 
-    padding: 0; 
-    height: 30px; 
-    display: table-cell; 
-    vertical-align: middle;
-    text-align: center;
-}
-
-/* صف الإجمالي */
-.total-row td { background-color: #e6e6e6; font-weight: bold; height: 30px; }
-.total-label-merged-new { text-align: center; padding-right: 5px; }
-.total-empty-cell-desc { 
-    width: 55.3%; 
-    text-align: right;
-    padding-right: 5px;
-    border-left: 3px solid #000 !important; 
-}
-
-
-/* ------------------- قسم التسعير والتعميد (مُعدَّل) ------------------- */
-/* 2. العناوين الفرعية ("الاسم", "التوقيع", "التاريخ") - الآن مُتَمركزة */
-.pricing-key-cell,
-.ordering-key-cell {
-    font-weight: bold;
-    background-color: #f9f9f9;
-    text-align: center !important; 
-    padding: 0 !important; 
-}
-
-/* 3. مدخلات حقول النص (الاسم والتوقيع) - محاذاة لليمين كما طلبت */
-.pricing-value-cell,
-.ordering-value-cell {
-    text-align: right !important;
-    padding-right: 5px;
-}
-.pricing-value-cell input,
-.ordering-value-cell input {
-    width: 100%;
-    box-sizing: border-box;
-    text-align: right; 
-    padding: 0 5px;
-    border: 1px solid #bbb;
-    margin: 2px 0;
-}
-
-
-/* ------------------- قسم المالية (مُعدَّل) ------------------- */
-.payment-key { 
-    font-weight: bold; 
-    background-color: #e6e6e6; 
-    text-align: right; 
-    padding-right: 5px; 
-    border-right: 1px solid #000 !important; /* ضمان اتصالها بالعمود المدمج */
-    border-left: 1px solid #000 !important; 
-}
-.payment-value { 
-    text-align: right; 
-    padding-right: 5px; 
-    border-left: 3px solid #000 !important; /* الحد الأيسر للجدول */
-}
-.payment-value-text, .payment-value-digit {
-    border-left: 1px solid #000 !important; 
-}
-.payment-value-text {
-    border-left: 3px solid #000 !important; /* الحد الأيسر للجدول */
-}
-
-
-/* ------------------- قسم الاعتمادات (لا يتغير كثيراً) ------------------- */
-.approval-signatures-container-v4 {
-    height: 150px; 
-    padding: 10px 0; 
-    vertical-align: top; 
-    text-align: right;
-    /* تم تقليل عرض الحد لتناسب الدمج العمودي */
-    border-left: 3px solid #000 !important; 
-    border-right: 1px solid #000 !important;
-}
-.sig-column-v4 {
-    display: inline-block; 
-    width: 32%; 
-    padding: 0 0.5%; 
-    vertical-align: top; 
-    text-align: center; 
-    direction: rtl;
-    border-left: 1px solid #ccc; 
-    box-sizing: border-box;
-    color: #000; 
-}
-.sig-column-v4.last-sig-v4 { border-left: none; }
-.sig-title-key-inline-v4 { font-weight: bold; font-size: 14px; display: block; margin-bottom: 5px; text-align: center; }
-.sig-detail-group-inline-v4 { text-align: right; font-size: 13px; width: 100%; margin: 0 auto; display: block; }
-.name-line-v4, .date-line-v4 { display: block; margin-bottom: 10px; text-align: right; padding: 0 5px; }
-.sig-name-input-v4 { 
-    width: 70%; 
-    border: none; 
-    border-bottom: 1px solid #000; 
-    text-align: center; 
-    padding: 0; 
-    background-color: transparent; 
-    font-size: 12px; 
-}
-
-
-/* ------------------- أنماط المدخلات (Inputs) ------------------- */
-.input-field {
-    width: 95%; 
-    padding: 2px; 
-    border: 1px solid #ccc; 
-    box-sizing: border-box; 
-    font-size: 12px; 
-    direction: rtl;
-    background-color: transparent; 
-    text-align: center;
-}
-.item-readonly-id { background-color: transparent; }
-.item-row .input-field { padding: 1px 2px; }
-.item-desc-cell textarea {
-    min-height: 18px; 
-    height: 18px; 
-    max-height: 18px;
-    line-height: 1.2;
-    text-align: right; 
-}
-.total-input, .final-total-input { background-color: transparent; }
-
-/* ------------------- أنماط الأيقونات والملفات ------------------- */
-.file-input-hidden {
-    display: none; 
-}
-.file-upload-label {
-    display: inline-block;
-    padding: 5px 8px; 
-    border: none; 
-    background-color: transparent; 
-    cursor: pointer;
-    transition: all 0.2s;
-}
-.file-icon {
-    font-size: 18px; 
-    line-height: 1;
-    display: inline-block;
-    color: #007bff; 
-}
-.file-upload-label.file-attached .file-icon {
-    color: #28a745; 
-}
-
-
-/* ------------------- استجابة الجوال (Mobile Responsiveness) ------------------- */
-@media (max-width: 768px) {
-    .table-wrapper {
-        overflow-x: auto; 
-        -webkit-overflow-scrolling: touch; 
-    }
-
-    .main-form-table-unified {
-        width: 150%; 
-        min-width: 750px; 
-        table-layout: auto; 
-    }
-    
-    .section-title-cell {
-        font-size: 14px;
-    }
-    .items-headers-row td {
-        font-size: 12px;
-    }
-    
-    /* الأعمدة المدمجة الرأسية يمكن أن تسبب مشاكل، نقوم بإلغاء دورانها */
-    .merged-vertical-cell {
-        writing-mode: horizontal-tb;
-        text-orientation: mixed;
-        width: 100%;
-        display: block;
-        border-right: 3px solid #000 !important;
-        border-left: 3px solid #000 !important;
-        padding: 5px 0;
-        height: auto;
-    }
-    
-    /* أعمدة الاعتماد */
-    .approval-signatures-container-v4 {
-        flex-direction: column; 
-        align-items: stretch;
-    }
-    .sig-column-v4 {
-        border-left: none !important;
-        border-bottom: 1px solid #000;
-        padding: 5px 10px;
-        margin-bottom: 5px;
-    }
-    .sig-column-v4:last-child {
-        border-bottom: none;
-        margin-bottom: 0;
-    }
-    .sig-detail-group-inline-v4 {
-        flex-direction: row; 
-        justify-content: space-between;
-    }
-    .name-line-v4, .date-line-v4 {
-        width: 48%; 
-        font-size: 11px;
-    }
-}

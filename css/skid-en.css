@@ -131,8 +131,8 @@ body {
     vertical-align: middle;
 }
 .logo-cell-large img {
-    max-width: 160px; 
-    max-height: 150px; 
+    max-width: 130px; 
+    max-height: 110px; 
     height: auto;
     display: block; 
     margin: 0 auto; 
@@ -261,7 +261,7 @@ body {
     box-sizing: border-box;
     text-align: left; 
     padding: 0 5px;
-    border: 1px solid #bbb;
+    border: 1px solid white;
     margin: 2px 0;
 }
 
@@ -330,7 +330,7 @@ body {
 .input-field {
     width: 95%; 
     padding: 2px; 
-    border: 1px solid #ccc; 
+    border: 1px solid white; 
     box-sizing: border-box; 
     font-size: 12px; 
     direction: ltr;

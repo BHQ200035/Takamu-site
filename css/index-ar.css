@@ -837,13 +837,14 @@ body, html {
     flex-basis: 55%; 
     max-width: 600px;
     text-align: right; 
-    padding-left: 50px; /* مسافة بين النص والصورة */
+    padding-left: 50px; 
 }
 
 .text-and-buttons h1 {
     font-size: 42px; 
     color: var(--text-color);
     line-height: 1.3;
+    margin-bottom: 0px; /* 💡 التعديل هنا: إضافة هامش سفلي صغير 💡 */
 }
 
 .text-and-buttons h1 span {
@@ -855,7 +856,8 @@ body, html {
 .text-and-buttons p {
     font-size: 1.25rem; 
     color: var(--text-color);
-    margin-bottom: 40px;
+    /* 💡 التعديل هنا: الهامش العلوي 10px لتقريبه من العنوان 💡 */
+    margin: 0px 0 40px 0; 
     line-height: 1.7;
 }
 
@@ -1070,7 +1072,7 @@ body, html {
         font-size: 1.15rem; /* تصغير حجم النص */
         margin-bottom: 30px;
         /* تم تعديل هذا الهامش في الشاشات الكبيرة إلى 0 */
-        margin-top: 0; 
+        margin-top: 5; 
         /* تم إضافة هذا التعديل لـ media query ليعتمد على التنسيق العام */
 
     }
@@ -1124,7 +1126,7 @@ body, html {
 .text-and-buttons p {
         font-size: 1rem;
         margin-bottom: 20px;
-        margin-top: 10px; /* تم تصحيح هذا الهامش في التنسيق العام */
+        margin-top: 5px; /* تم تصحيح هذا الهامش في التنسيق العام */
     }
 
     .cta-buttons {
