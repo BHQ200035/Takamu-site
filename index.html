@@ -74,7 +74,6 @@
             <li><a href="projects-ar.html" >المشاريع</a></li>
             <li><a href="#clients-section">عملائنا</a></li>
             <li><a href="contactus-ar.html" >تواصل معنا</a></li>
-            <li><a href="skid.html" > الجداول</a></li>
 
 
 
@@ -133,7 +132,6 @@
             <li><a href="#" onclick="closeMobileMenu()">المشاريع</a></li>
             <li><a href="#clients-section" onclick="closeMobileMenu()">عملائنا</a></li>
             <li><a href="contactus-ar.html" onclick="closeMobileMenu()">تواصل معنا</a></li>
-            <li><a href="skid.html" onclick="closeMobileMenu()"> الجداول</a></li>
 
 
 
@@ -665,10 +663,33 @@
                 <input type="text" id="companyName" name="companyName" class="form-input" placeholder="الاسم التجاري للشركة" required>
             </div>
             
-            <div class="form-group">
-                <label for="companyReg" class="form-label">رقم السجل التجاري / الترخيص <span class="required">*</span></label>
-                <input type="text" id="companyReg" name="companyRegNumber" class="form-input" placeholder="رقم السجل التجاري" required>
-            </div>
+<div class="form-group">
+    <div class="form-row form-labels-row">
+        <div class="form-half">
+            <label for="companyActivity" class="form-label">النشاط <span class="required">*</span></label>
+        </div>
+        <div class="form-half">
+            <label for="companyRating" class="form-label">درجة التصنيف <span class="required">*</span></label>
+        </div>
+    </div>
+
+    <div class="form-row form-inputs-row">
+        <div class="form-half">
+            <input type="text" id="companyActivity" name="companyActivity" class="form-input" placeholder="نشاط الشركة" required>
+        </div>
+        <div class="form-half">
+            <input 
+                type="number" 
+                id="companyRating" 
+                name="companyRating" 
+                class="form-input" 
+                placeholder="أدخل رقماً" 
+                required
+                min="1"
+            >
+        </div>
+    </div>
+</div>
 
             <div class="form-group">
                 <label for="companyContact" class="form-label">اسم جهة الاتصال (المسؤول) <span class="required">*</span></label>
@@ -3047,13 +3068,12 @@
 
 
 
-    <section class="hero-section" id="home">
-        <div class="hero-content">
-            <h2>نقفوا على صرح أحقية لنبني مشاريع العمل المقاولة</h2>
-            <p>حلول متكاملة في البناء والتشييد وإدارة المشاريع.</p>
-            <!-- <a href="#contact" class="primary-cta">اطلب استشارة مجانية</a> -->
+<section class="hero-section" id="home">
+    <div class="hero-content">
+        <h2>نصنع المستقبل بإتقان: التزام راسخ بالجودة في كل مشروع</h2>
+        <p>حلول متكاملة في البناء والتشييد وإدارة المشاريع.</p>
         </div>
-    </section>
+</section>
 
 
 
