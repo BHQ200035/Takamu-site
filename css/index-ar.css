@@ -119,6 +119,7 @@ body, html {
     font-size: 24px;
     font-weight: 900;
     color: var(--light-color);
+    margin-right: 80px;
 }
 
 .logo-text {
@@ -225,36 +226,46 @@ body, html {
     background-color: var(--green-color);
     color: var(--light-color);
     
-    /* الحجم والحدود - تم تصغيره ليصبح صغيراً جداً */
-    padding: 4px 8px; /* تم تقليل الحشوة بشكل كبير */
-    border-radius: 4px; /* حواف أكثر إحكاماً */
-    border: 2px solid var(--green-color);
+    /* 1. التوسيط الرأسي (Flexbox) */
+    display: inline-flex; /* موجودة بالفعل */
+    /* ** هذه الخاصية هي الأهم للتوسيط العمودي في Flexbox ** */
+    align-items: center; 
     
-    /* الروابط والنص */
+    /* 2. التوسيط الأفقي والتوزيع (اختياري لتحسين المظهر) */
+    /* تجعل الأيقونة والنص يتوسطان المسافة المتاحة أفقياً داخل الـ 70px */
+    justify-content: center; 
+    margin-left: 70px; /* يمكنك تغيير 15px إلى المسافة التي تناسبك */
+    /* 3. تعديل الـ Padding */
+    /* إزالة الـ width والـ height لتمكين الـ padding من تحديد الحجم */
+    /* أو ترك الـ width/height واستخدام padding داخلي بسيط */
+    width: 70px;
+    height: 35px;
+    /* إزالة الـ padding التلقائي الذي يضيفه المتصفح للروابط (A) */
+    padding: 0 5px; /* مسافة أفقية بسيطة للحواف */ 
+    
+    /* ... بقية الخصائص الحالية ... */
+    border-radius: 4px; 
+    border: 2px solid var(--green-color);
     text-decoration: none;
     font-weight: 700;
-    font-size: 12px; /* حجم خط صغير جداً */
-    
-    /* الترتيب والحركة */
-    display: inline-flex;
-    align-items: center;
+    font-size: 8px; 
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
+/* الأيقونة داخل زر سطح المكتب */
+.btn-login i {
+    font-size: 11px; /* حجم الأيقونة يتناسب مع النص */
+    /* ** تعديل الهامش لليمين لإنشاء مسافة بين الأيقونة والنص ** */
+    margin-right: 3px; /* مسافة صغيرة بعد الأيقونة */
+    margin-left: 0; /* إلغاء الهامش الأيسر إذا كان موجودًا في مكان آخر */
+}
 .btn-login:hover {
     background-color: transparent;
     color: var(--green-color);
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
 }
 
-/* الأيقونة داخل زر سطح المكتب */
-.btn-login i {
-    font-size: 11px; /* حجم الأيقونة يتناسب مع النص */
-    margin-left: 3px; /* مسافة صغيرة */
-}
-
-/* --- تنسيق زر تسجيل الدخول (Mobile) - فئة .btn-mobile-login --- */
 
 /* تنسيق عنصر القائمة الحاوي للزر (لتوفير مساحة في الجوال) */
 .mobile-nav-links .login-item-mobile {
